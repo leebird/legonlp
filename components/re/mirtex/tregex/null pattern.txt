@@ -1,0 +1,48 @@
+name:   Arg undergo Vnorm
+tregex: __=p < (NP=arg $+ (VP <1 (__ << /undergo|displayed|attenuates|displays|revealed/) <2 NP=tr))
+
+name:   Arg undergo Vnorm
+tregex: __=p < (NP=arg $+ (VP <- (VP <1 (__ << /undergo|displayed|displays|revealed/) <2 NP=tr)))
+
+//name:   Arg does something by Vvbg
+//tregex: __=p < (NP=arg $+ (ADVP $+ (VP=tr)))
+
+//name:   Arg does something by Vvbg
+//tregex: __=p < (NP=arg $+ (VP=tr))
+
+//name:   Arg does something through -ion
+//tregex: __=p < (NP=arg $+ (VP=tr << /ion/))
+
+//name:   Arg does something through -ion
+//tregex: __=p < (NP=arg $+ (ADVP $+ (VP=tr)))
+
+name:   IN Vnorm ... Arg
+tregex: S=p <1 (PP <2 (NP=tr)) <2 NP=arg
+
+name:   IN Vnorm ... Arg
+tregex: S=p <1 (PP <2 (NP <1 NP=tr)) <2 NP=arg
+
+name:   IN Vnorm ... Arg
+tregex: S=p <1 (PP <2 (NP=tr)) <2 /,/ <3 NP=arg
+
+name:   IN Vnorm ... Arg
+tregex: S=p <1 (PP <2 (NP <1 NP=tr)) <2 /,/ <3 NP=arg
+
+name:   IN Vvbg ... Arg
+tregex: S=p <1 (PP <2 (NP=tr)) <2 NP=arg
+
+name:   IN Vvbg ... Arg
+tregex: S=p <1 (PP <2 (NP <1 NP=tr)) <2 NP=arg
+
+name:   IN Vvbg ... Arg
+tregex: S=p <1 (PP <2 (NP=tr)) <2 /,/ <3 NP=arg
+
+name:   IN Vvbg ... Arg
+tregex: S=p <1 (PP <2 (NP <1 NP=tr)) <2 /,/ <3 NP=arg
+
+//
+name:   Vnorm consists of Theme
+tregex: __=p < ((NP=tr << /complex/) $+ (VP <1 (VBZ << /consists/) <2 (PP <2 NP=arg)))
+
+name:   A is a B
+tregex: __=p <1 NP=tr <2 (VP <<, /is|are/ <2 (NP=arg <<, /a|an/))

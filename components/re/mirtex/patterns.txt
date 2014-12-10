@@ -1,0 +1,46 @@
+1	Arg Vact
+2	Arg Vadj
+3	Arg - Vnorm
+4	Arg Vnorm
+5	Arg Vpass
+6	Vact Arg
+7	Vact to Arg	bind to X
+8	Vact with Arg	bind with X
+9	Vadj Arg
+10	Vnorm of Arg
+11	Vnorm between Arg	
+12	Vnorm into Arg
+13	Vnorm with Arg
+14	Vnorm for Arg	transcript expression binding
+15	Arg at Vadj level
+16	Arg at Vnorm level
+17	Arg is ... by Vvbg
+18	Arg undergo Vnorm
+19	Arg does something by Vvbg
+20	IN Vnorm ..., Arg
+21	IN Vvbg ..., Arg
+22	X is a Y
+23	Vpass by Arg
+24	Vpass with Arg
+25	Vnorm to Arg	binding to X
+26	Vnorm of ... to Arg	binding of ... to Arg
+27	Vnorm consists of Arg
+28	Vnorm from Arg
+
+Vnorm	NN NNS
+Vvbg	VBG
+Vvbn	VBN
+Vact	VBD VBZ VBP VBG VB
+Vadj	JJ VBN
+Vpass	VBN
+
+NN	phosphorylation
+NNS	phosphorylation
+VBG	phosphorylating
+VBN	phosphorylated
+VBD	phosphorylated
+VBZ	phosphorylates
+VBP	phosphorylate
+VB	phosphorylate
+JJ	phosphorylated
+VBN	phosphorylated

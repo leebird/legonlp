@@ -1,0 +1,95 @@
+{NP_1}PMID{/NP_1} - {CP_2}10029571{/CP_2}
+
+OUTPUT 0
+PTM = ({NP_12};phosphorylation)
+Kinase = (-;-)
+Substrate = ({NP_P_13}<p>STAT1</p>{/NP_P_13};-)
+Site = (-;{NP_12}Tyr{/NP_12};UNK)
+
+{NP_3}TI{/NP_3} - {NP_P_4}<p>Interleukin-10</p>{/NP_P_4} {VP_act_5}inhibits{/VP_act_5} {NP_6}expression{/NP_6} of {NP_P_7}both <p>interferon alpha</p>{/NP_P_7} - and {NP_P_8}<p>interferon gamma</p>{/NP_P_8} - {VP_act_9}induced{/VP_act_9} {NP_P_10}<Bppf>genes</Bppf>{/NP_P_10} by {VP_act_11}suppressing{/VP_act_11} {NP_12}<pp>tyrosine</pp> phosphorylation{/NP_12} of {NP_P_13}<p>STAT1</p>{/NP_P_13} .
+
+{NP_14}AB{/NP_14} - {NP_P_15}<p>Interleukin-10 ( IL-10 )</p>{/NP_P_15} {VP_act_16}helps{/VP_act_16} {VP_act_17}maintain{/VP_act_17} {NP_S_18}polarized <S>T-helper cells</S>{/NP_S_18} in {NP_S_19}a <S>T-helper lymphocyte 2 ( Th2 ) phenotype</S>{/NP_S_19} .
+
+{NP_20}Part{/NP_20} of {NP_21}this process{/NP_21} {VP_act_22}involves{/VP_act_22} {NP_23}the prevention{/NP_23} of {NP_24}the development{/NP_24} of {NP_S_25}<S>Th1 cells</S>{/NP_S_25} , {NP_26}which{/NP_26} {VP_pass_27}are{/VP_pass_27} {NP_28}a primary source{/NP_28} of {NP_P_29}<p>interferon gamma ( IFNgamma )</p>{/NP_P_29} , {NP_30}a potent <Bpf>activator</Bpf>{/NP_30} of {NP_S_31}<S>monocytes</S>{/NP_S_31} and {NP_P_32}an <Bppf>inhibitor</Bppf>{/NP_P_32} of {NP_33}<S>Th2</S> proliferation{/NP_33} .
+
+Because {NP_S_34}<S>monocytes</S> and <S>macrophages</S>{/NP_S_34} {VP_pass_35}are{/VP_pass_35} {NP_36}important mediators{/NP_36} of {NP_37}<B>Th1-type</B> responses{/NP_37} , {JP_38}such{/JP_38} as {NP_39}delayed-type hypersensitivity{/NP_39} , {NP_40}we{/NP_40} {VP_act_41}sought{/VP_act_41} {VP_act_42}to determine{/VP_act_42} if {NP_P_43}<p>IL-10</p>{/NP_P_43} {VP_act_44}could directly mediate{/VP_act_44} {NP_45}inhibition{/NP_45} of {NP_P_46}<p>IFNgamma</p>{/NP_P_46} - and {NP_47}<p>IFNalpha</p> -induced <Bppf>gene</Bppf> expression{/NP_47} in {NP_48}these <Bpcl>cells</Bpcl>{/NP_48} .
+
+{NP_S_49}Highly purified <S>monocytes</S>{/NP_S_49} {VP_pass_50}were incubated{/VP_pass_50} with {NP_P_51}<p>IL-10</p>{/NP_P_51} for {NP_52}60 to 90 minutes{/NP_52} before {NP_53}the addition{/NP_53} of {NP_P_54}<p>IFNgamma</p> or <p>IFNalpha</p>{/NP_P_54} .
+
+{NP_55}<p>IL-10</p> preincubation{/NP_55} {VP_pass_56}resulted{/VP_pass_56} in {NP_57}the inhibition{/NP_57} of {NP_58}<Bppf>gene</Bppf> expression{/NP_58} for {NP_P_59}several <p><p>IFN</p> -induced genes</p>{/NP_P_59} , {JP_60}such{/JP_60} as {NP_P_61}<p>IP-10</p> , <p>ISG54</p> , and <p>intercellular adhesion molecule-1</p>{/NP_P_61} .
+
+{NP_62}The reduction{/NP_62} in {NP_63}<Bppf>gene</Bppf> expression{/NP_63} {VP_act_64}resulted{/VP_act_64} from {NP_65}the ability{/NP_65} of {NP_P_66}<p>IL-10</p>{/NP_P_66} {VP_act_67}to suppress{/VP_act_67} {NP_68}<p>IFN</p> -induced assembly{/NP_68} of {NP_P_69}<p>signal transducer and activator of transcription ( STAT ) factors</p>{/NP_P_69} to {NP_PP_70}specific <Bppp>promoter motifs</Bppp>{/NP_PP_70} on {NP_P_71}<p>IFNalpha</p>{/NP_P_71} - and {NP_P_72}<p>IFNgamma-inducible genes</p>{/NP_P_72} .
+
+OUTPUT 1
+PTM = ({NP_76};phosphorylation)
+Kinase = (-;-)
+Substrate = ({NP_P_77}<p>STAT1</p>{/NP_P_77};-)
+Site = (-;{NP_76}Tyr{/NP_76};UNK)
+
+{NP_73}This{/NP_73} {VP_pass_74}was accomplished{/VP_pass_74} by {VP_act_75}preventing{/VP_act_75} {NP_76}the <p>IFN</p> -induced <pp>tyrosine</pp> phosphorylation{/NP_76} of {NP_P_77}<p>STAT1</p>{/NP_P_77} , {NP_78}a component{/NP_78} of {NP_P_79}both <p>IFNalpha</p>{/NP_P_79} - and {NP_B_80}<p>IFNgamma</p> -induced <B>DNA binding complexes</B>{/NP_B_80} .
+
+OUTPUT 2
+PTM = ({NP_89};phosphorylation)
+Kinase = (-;-)
+Substrate = ({NP_P_90}<p>STAT1</p>{/NP_P_90};-)
+Site = (-;{NP_89}Tyr{/NP_89};UNK)
+
+{AV_81}Therefore{/AV_81} , {NP_P_82}<p>IL-10</p>{/NP_P_82} {VP_act_83}can directly inhibit{/VP_act_83} {NP_84}<p>STAT</p> -dependent early <Bppf>response gene</Bppf> expression{/NP_84} {VP_pass_85}induced{/VP_pass_85} by {NP_P_86}both <p>IFNalpha</p> and <p>IFNgamma</p>{/NP_P_86} in {NP_S_87}<S>monocytes</S>{/NP_S_87} by {VP_act_88}suppressing{/VP_act_88} {NP_89}the <pp>tyrosine</pp> phosphorylation{/NP_89} of {NP_P_90}<p>STAT1</p>{/NP_P_90} .
+
+{NP_91}This{/NP_91} {VP_act_92}may occur{/VP_act_92} through {NP_93}the ability{/NP_93} of {NP_P_94}<p>IL-10</p>{/NP_P_94} {VP_act_95}to induce{/VP_act_95} {NP_96}expression{/NP_96} of {NP_P_97}the <Bppf>gene</Bppf>{/NP_P_97} , {NP_98}suppressor{/NP_98} of {NP_P_99}cytokine signaling 3 ( <p>SOCS3</p> ){/NP_P_99} .
+
+
+{NP_1}PMID{/NP_1} - {CP_2}10029589{/CP_2}
+
+{NP_3}TI{/NP_3} - {NP_4}The <B>Megakaryocyte/Platelet-specific</B> enhancer{/NP_4} of {NP_P_5}the alpha2beta1 <p>integrin gene</p>{/NP_P_5} : {NP_PP_6}two tandem <pp><p>AP1</p> sites</pp>{/NP_PP_6} and {NP_7}the <p>mitogen -activated protein kinase</p> signaling cascade{/NP_7} .
+
+{NP_8}AB{/NP_8} - {NP_B_9}The alpha2beta1 <B>integrin</B>{/NP_B_9} , {NP_P_10}a collagen <Bppf>receptor</Bppf>{/NP_P_10} on {NP_11}platelets{/NP_11} and {NP_S_12}<S>megakaryocytes</S>{/NP_S_12} , {VP_pass_13}is required{/VP_pass_13} for {NP_14}normal platelet function{/NP_14} .
+
+{NP_15}Transcriptional regulation{/NP_15} of {NP_P_16}the <p>alpha2 integrin gene</p>{/NP_P_16} in {NP_17}<Bpcl>cells</Bpcl>{/NP_17} {VP_act_18}undergoing{/VP_act_18} {NP_19}megakaryocytic differentiation{/NP_19} {VP_act_20}requires{/VP_act_20} {NP_PP_21}a core <Bppp>promoter</Bppp>{/NP_PP_21} between {NP_22}bp -30{/NP_22} and {CP_23}-92{/CP_23} , {NP_24}a silencer{/NP_24} between {NP_25}bp -92{/NP_25} and {NP_26}-351{/NP_26} , and {NP_PP_27}megakaryocytic <Bppp>enhancers</Bppp>{/NP_PP_27} in {NP_28}the distal 5' flank{/NP_28} .
+
+{NP_29}We{/NP_29} {VP_act_30}have now identified{/VP_act_30} {NP_PP_31}a <pp>229-bp region</pp>{/NP_PP_31} of {NP_32}the distal 5' flank{/NP_32} of {NP_P_33}the <p>alpha2 integrin gene</p>{/NP_P_33} {VP_act_34}required{/VP_act_34} for {NP_35}high-level enhancer activity{/NP_35} in {NP_36}<Bpcl>cells</Bpcl>{/NP_36} with {NP_37}megakaryocytic features{/NP_37} .
+
+{NP_PP_38}Two tandem <pp><p>AP1</p> binding sites</pp>{/NP_PP_38} with {NP_39}dyad symmetry{/NP_39} {VP_pass_40}are required{/VP_pass_40} for {NP_41}enhancer activity{/NP_41} and for {NP_42}<B>DNA-protein complex</B> formation{/NP_42} with {NP_43}<Bpf>members</Bpf>{/NP_43} of {NP_44}the c-fos/c-jun <Bpf>family</Bpf>{/NP_44} .
+
+{NP_45}The requirement{/NP_45} for {NP_46}<p>AP1</p> activation{/NP_46} {VP_act_47}suggested{/VP_act_47} {NP_48}a role{/NP_48} for {NP_49}the <p>mitogen-activated protein kinase ( MAPK )</p> signaling pathway{/NP_49} in {VP_act_50}regulating{/VP_act_50} {NP_51}<p>alpha2 integrin gene</p> expression{/NP_51} .
+
+{NP_52}Inhibition{/NP_52} of {NP_53}the <p>MAP kinase</p> cascade{/NP_53} with {NP_P_54}<p>PD98059</p>{/NP_P_54} , {NP_P_55}a specific <Bppf>inhibitor</Bppf>{/NP_P_55} of {NP_P_56}<p>MAPK kinase 1</p>{/NP_P_56} , {VP_act_57}prevented{/VP_act_57} {NP_58}the expression{/NP_58} of {NP_P_59}the <p>alpha2 integrin subunit</p>{/NP_P_59} in {NP_60}<Bpcl>cells</Bpcl>{/NP_60} {VP_act_61}induced{/VP_act_61} {VP_pass_62}to become megakaryocytic{/VP_pass_62} .
+
+{NP_63}We{/NP_63} {VP_act_64}provide{/VP_act_64} {NP_65}a model{/NP_65} of {NP_66}megakaryocytic differentiation{/NP_66} in {NP_67}which{/NP_67} {NP_68}expression{/NP_68} of {NP_P_69}the <p>alpha2 integrin gene</p>{/NP_P_69} {VP_act_70}requires{/VP_act_70} {NP_71}signaling{/NP_71} via {NP_72}the <p>MAP kinase</p> pathway{/NP_72} {VP_act_73}to activate{/VP_act_73} {NP_PP_74}two tandem <pp><p>AP1</p> binding sites</pp>{/NP_PP_74} in {NP_75}the <p>alpha2 integrin</p> enhancer{/NP_75} .
+
+
+{NP_1}PMID{/NP_1} - {CP_2}10037138{/CP_2}
+
+OUTPUT 0
+PTM = ({NP_4};phosphorylation)
+Kinase = (-;-)
+Substrate = ({NP_P_5}<p>CTCF</p>{/NP_P_5};-)
+Site = (-;-;UNK)
+
+{NP_3}TI{/NP_3} - {NP_4}Differential expression and phosphorylation{/NP_4} of {NP_P_5}<p>CTCF</p>{/NP_P_5} , {NP_6}a <p>c-myc</p> transcriptional <Bpf>regulator</Bpf>{/NP_6} , during {NP_7}differentiation{/NP_7} of {NP_8}<s>human</s> myeloid <Bpcl>cells</Bpcl>{/NP_8} .
+
+{NP_9}AB{/NP_9} - {NP_P_10}<p>CTCF</p>{/NP_P_10} {VP_act_11}is{/VP_act_11} {NP_P_12}a transcriptional <Bppf>repressor</Bppf>{/NP_P_12} of {NP_P_13}the <p>c-myc gene</p>{/NP_P_13} .
+
+Although {NP_P_14}<p>CTCF</p>{/NP_P_14} {VP_pass_15}has been characterized{/VP_pass_15} in {NP_PP_16}some <Bppp>detail</Bppp>{/NP_PP_16} , there {VP_act_17}is{/VP_act_17} {NP_18}very little information{/NP_18} about {NP_19}the regulation{/NP_19} of {NP_20}<p>CTCF</p> activity{/NP_20} .
+
+OUTPUT 1
+PTM = ({NP_24};phosphorylation)
+Kinase = (-;-)
+Substrate = ({NP_24}<p>CTCF</p>{/NP_24};-)
+Site = (-;-;UNK)
+
+{AV_21}Therefore{/AV_21} {NP_22}we{/NP_22} {VP_act_23}investigated{/VP_act_23} {NP_24}<p>CTCF</p> expression and phosphorylation{/NP_24} during {NP_25}induced differentiation{/NP_25} of {NP_26}<s>human</s> myeloid <Bpcl>leukemia cells</Bpcl>{/NP_26} .
+
+OUTPUT 2
+PTM = ({VP_pass_38};phosphorylated)
+Kinase = (-;-)
+Substrate = ({NP_P_37}<p>CTCF protein</p>{/NP_P_37};-)
+Site = (-;-;UNK)
+
+{NP_27}We{/NP_27} {VP_act_28}found{/VP_act_28} that : (i) {NP_P_29}both <p>CTCF mRNA</p> and <Bppf>protein</Bppf>{/NP_P_29} {VP_pass_30}are down-regulated{/VP_pass_30} during {NP_31}<Bppp>terminal</Bppp> differentiation{/NP_31} in {NP_32}most <Bpcl>cell lines</Bpcl>{/NP_32} {VP_act_33}tested{/VP_act_33} ; {NP_34}( ii ) <p>CTCF</p> down-regulation{/NP_34} {VP_pass_35}is retarded and less pronounced{/VP_pass_35} than that of {NP_P_36}<p>c-myc</p>{/NP_P_36} ; {NP_P_37}( iii ) <p>CTCF protein</p>{/NP_P_37} {VP_pass_38}is differentially phosphorylated{/VP_pass_38} and {NP_39}the phosphorylation profiles{/NP_39} {VP_pass_40}depend{/VP_pass_40} on {NP_41}the differentiation pathway{/NP_41} .
+
+{NP_42}We{/NP_42} {VP_act_43}concluded{/VP_act_43} that {NP_44}<p>CTCF</p> expression and activity{/NP_44} {VP_pass_45}is controlled{/VP_pass_45} at {NP_46}transcriptional and post-transcriptional levels{/NP_46} .
+
+NORM=ctcf
+SYNONYM=CTCF
+SYNONYM=CTCF protein

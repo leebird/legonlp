@@ -1,0 +1,5 @@
+name:   Causal 
+tregex: __=p < (NP=arg $+ (VP <, (VB|VBP|VBZ|VBD|VBG=tr <, /reveal|reveals|revealed|revealing|cause|causes|caused|causing/)))
+
+name:	Causal
+tregex: __=p < (NP=arg $+ (VP <, ((VB|VBP|VBZ|VBD|VBG=tr <, /(result|results|resulting|resulted|lead|led|leading|leads)/) $+ (PP <, (IN|TO <, /(to|in)/ $+ NP)))))

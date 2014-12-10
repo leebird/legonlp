@@ -1,0 +1,5 @@
+name:	ADV Verb
+tregex:	S|VP=p < (ADVP < RB=arg) <+(/S|V.*/) VBD|VBZ|VBP|VBG|VB=tr
+
+name:	ADJ Noun
+tregex:	NP=p < (JJ=arg $++ NN|NNS|NNP|NNPS=tr) 

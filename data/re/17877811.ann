@@ -1,0 +1,17 @@
+T8	Sentence 0 71	Prediction and preliminary validation of oncogene regulation by miRNAs.
+T9	Sentence 72 250	BACKGROUND: MicroRNAs (miRNAs) are one of the most abundant groups of regulatory genes in multicellular organisms, playing important roles in many fundamental cellular processes.
+T6	Target 789 804	down-regulation
+T7	Target 953 964	suppression
+T5	Gene 808 813	c-MYC
+T2	MiRNA 977 982	miR16
+T3	Gene 968 973	BCL-2
+T1	MiRNA 879 884	let-7
+T14	Sentence 761 983	We present evidence for the down-regulation of c-MYC, one of the most potent and frequently deregulated oncogenes, by let-7 miRNA, via the predicted binding site in the 3' UTR, and verify the suppression of BCL-2 by miR16.
+T15	Sentence 984 1136	CONCLUSION: In this work both bioinformatic and experimental approaches for the prediction and validation of possible targets for miRNAs have been used.
+T16	Sentence 1137 1311	A list of putative targets for different oncomirs, validation of which would be of special interest, is proposed and two such interactions have been experimentally validated.
+T10	Sentence 251 389	More than four hundred miRNAs have been identified in humans and the deregulation of miRNA expression has been also shown in many cancers.
+T11	Sentence 390 563	Despite the postulated involvement of miRNAs in tumourigenesis, there are only a few examples where an oncogene or a tumour suppressor has been identified as a miRNA target.
+T12	Sentence 564 653	RESULTS: Here, we present an in silico analysis of potential miRNA-oncogene interactions.
+T13	Sentence 654 760	Moreover, we have tested the validity of two possible interactions of miRNAs with genes related to cancer.
+E1	Regulation:T6 Agent:T1 Theme:T5	{"direction": ["M2G"], "direct": ["D"]}
+E2	Regulation:T7 Agent:T2 Theme:T3	{"direction": ["M2G"], "direct": ["D"]}

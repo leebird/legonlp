@@ -1,0 +1,127 @@
+name:   Arg Vact <agent>
+tregex: __=p < (/^N.*$/=arg $+ VP=tr)
+
+name:   Arg to Vact <agent>
+tregex: __=p < (NP=arg $+ (S <: (VP <1 TO <2 (VP <1 VB=tr))))
+
+name:   Arg Vact <agent>
+tregex: __=p < (/^N.*$/=arg $+ (ADVP $+ VP=tr))
+
+name:   Arg Vadj <agent>
+tregex: __=p < (/^N.*$/=arg $+ VP=tr)
+
+name:   Arg - Vnorm
+tregex: __=p <: (/(.+?[-].+?)[-]([^_\d]+)/)
+
+name:   Arg - expressing <agent>
+tregex: NN|JJ=p <: /[-](binding)/
+
+name:   Arg - expressing <agent>
+tregex: JJ=p <: /[-](expressing|secreting)/
+
+name:   Arg Vnorm <agent>
+tregex: NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC
+	
+name:   Arg Vnorm <agent>
+tregex: NP=p <-3 /^N.*|CD$/=arg <-2 __=tr <-1 /^N.*$/ !< /,/ !< CC
+
+name:   Arg Vnorm <agent>
+tregex: NP=p <-4 /^N.*|CD$/=arg <-3 __=tr <-1 /^N.*$/ !< /,/ !< CC
+
+name:   Arg Vnorm <agent>
+tregex: __=p < (/PRP|WP/=arg $+ (NN=tr <<: /binding/))
+
+name:   Arg Vnorm <agent>
+tregex: WHNP=p < (/WP\$/=arg $+ (__=tr))
+
+name:   Arg Vnorm <agent>
+tregex: NP=p < (/PRP\$/=arg $+ (__=tr))
+
+name:   Arg Vpass <agent>
+tregex: NP=p < (NP=arg $+ VBN=tr)
+
+name:   Arg Vpass <agent>
+tregex: __=p < (/^N.*$/=arg $+ VP=tr)
+
+name:   Arg Vpass <agent>
+tregex: __=p < (/^N.*$/=arg $+ (ADVP <: RB $+ VP=tr))
+
+name:   Vact Arg <theme>
+tregex: VP=p < ((/^VBD|VBZ|VBP|VBG|VB$/=tr !<< /^be|is|are|was|were/) $+ /N.*/=arg)
+
+name:   Vact Arg <theme>
+tregex: VP=p < ((/^VBD|VBZ|VBP|VBG|VB$/=tr !<< /^be|is|are|was|were/) $+ (ADVP $+ /N.*/=arg))
+
+name:   Vact to Arg <theme>
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 TO <2 /^N.*$/=arg))
+
+name:   Vact to Arg <theme>
+tregex: VP=p < ((VBN=tr <<: /bound/) $+ (PP <1 TO <2 /^N.*$/=arg))
+
+name:   Vact to Arg <theme>
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 RB <2 TO <3 /^N.*$/=arg))
+
+name:   Vact to Arg <theme>
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (ADVP $+ (PP <1 TO <2 /^N.*$/=arg)))
+
+name:   Vact with Arg <theme>
+tregex: __=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 (IN << /with/) <2 /^N.*$/=arg))
+
+name:   Vact with Arg <theme>
+tregex: __=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (NP <2 (PP <1 (IN << /with/) <2 /^N.*$/=arg)))
+
+name:   Vact with Arg <theme>
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (ADVP $+ (PP <1 (IN << /with/) <2 /^N.*$/=arg)))
+
+name:   Vact at Arg <theme>
+tregex: __=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 (IN << /at/) <2 /^N.*$/=arg))
+
+name:   Vadj Arg
+tregex: NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC
+
+name:   Vnorm of Arg <theme>
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of/ $+ /^N.*$/=arg)))
+
+name:   Vnorm between Arg <theme>
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /between/ $+ /^N.*$/=arg)))
+
+name:   Vnorm into Arg <theme>
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /into/ $+ /^N.*$/=arg)))
+
+name:   Vnorm with Arg <theme>
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /with/ $+ /^N.*$/=arg)))
+
+name:   Vnorm for Arg <theme>
+tregex: __=p < (/^N.*$/=tr $+ (PP < ((IN <, /for/) $+ /^N.*$/=arg)))
+
+name:   Vnorm at Arg <theme>
+tregex: __=p < (/^N.*$/=tr $+ (PP < ((IN <, /at/) $+ /^N.*$/=arg)))
+
+name:   Arg at Vadj level <theme>
+tregex: __=p < (NP=arg $+ (PP <1 (IN << /at/) <2 (NP <-2 @/N.*|JJ/=tr <<- /level/)))
+
+name:   Arg at Vnorm level <theme>
+tregex: __=p < (NP=arg $+ (PP <1 (IN << /at/) <2 (NP <-2 @/N.*|JJ/=tr <<- /level/)))
+
+// 3157
+name:   Vpass by Arg <theme>
+tregex: __=p < (VBN=tr $+ (PP <<, /by/ <2 NP=arg))
+
+name:   Vpass with Arg <theme>
+tregex: __=p < (VBN=tr $+ (PP <<, /with/ <2 NP=arg))
+
+// 425
+name:   Vnorm to Arg <theme>
+tregex: __=p < ((NP=tr << /binding/) $+ (PP <2 NP=arg))
+
+//
+name:   Vnorm of ... to Arg <theme>
+tregex: NP=p <1 (/^N.*$/=tr << /(b|B)inding/) <2 (PP << /of/) <3 (PP <1 TO <2 /^N.*$/=arg)
+
+//
+name:   Vnorm of ... with Arg <theme>
+tregex: NP=p <1 (/^N.*$/=tr << /(i|I)nteraction|(a|A)ssociation/) <2 (PP << /of/) <3 (PP <<, /with/ <2 /^N.*$/=arg)
+
+//
+name:   Vnorm from Arg <theme>
+tregex: __=p < ((/^N.*$/=tr << /tion/) $+ (PP < ((IN <, /from/) $+ /^N.*$/=arg)))

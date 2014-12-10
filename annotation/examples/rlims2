@@ -1,0 +1,58 @@
+S000 {NP_1}PMID{/NP_1} - {CP_2}8493578{/CP_2}
+
+S001 {NP_3}TI{/NP_3} - {NP_4}Regulation{/NP_4} of {NP_P_5}the Ets-related <p>transcription factor Elf-1</p>{/NP_P_5} by {NP_6}binding{/NP_6} to {NP_P_7}the <p>retinoblastoma</p> <Bppf>protein</Bppf>{/NP_P_7} .
+
+O000 date      2014-06-13 11:35:40
+O000 curator   rlims
+O000 trigger   2 37 22
+O000 kinase    
+O000 substrate 2 20 2
+O000 site      
+
+O001 date      2014-06-13 11:35:40
+O001 curator   rlims
+O001 trigger   2 37 22
+O001 kinase    
+O001 substrate 2 6 14
+O001 site      
+
+S002 {NP_8}AB{/NP_8} - {NP_P_9}The <B><p>retinoblastoma</p> gene product ( <p>Rb</p> )</B>{/NP_P_9} {VP_act_10}is{/VP_act_10} {NP_P_11}a nuclear <p>phosphoprotein</p>{/NP_P_11} {NP_12}that{/NP_12} {VP_act_13}regulates{/VP_act_13} {NP_14}cell cycle progression{/NP_14} .
+
+S003 {NP_P_15}<p>Elf-1</p>{/NP_P_15} {VP_act_16}is{/VP_act_16} {NP_P_17}a lymphoid-specific <p>Ets transcription factor</p>{/NP_P_17} {NP_18}that{/NP_18} {VP_act_19}regulates{/VP_act_19} {NP_20}inducible <Bppf>gene</Bppf> expression{/NP_20} during {NP_21}<S>T cell</S> activation{/NP_21} .
+
+S004 In {NP_22}this report{/NP_22} , {NP_23}it{/NP_23} {VP_pass_24}is demonstrated{/VP_pass_24} that {NP_P_25}<p>Elf-1</p>{/NP_P_25} {VP_act_26}contains{/VP_act_26} {NP_PP_27}a <Bppp>sequence motif</Bppp>{/NP_PP_27} {NP_28}that{/NP_28} {VP_pass_29}is highly related{/VP_pass_29} to {NP_PP_30}the <pp><p>Rb</p> binding sites</pp>{/NP_PP_30} of {NP_P_31}several viral <Bppf>oncoproteins</Bppf>{/NP_P_31} and {VP_act_32}binds{/VP_act_32} to {NP_PP_33}the pocket <Bppp>region</Bppp>{/NP_PP_33} of {NP_P_34}<p>Rb</p>{/NP_P_34} {NP_35}both{/NP_35} in {NP_36}vitro and in vivo{/NP_36} .
+
+O002 date      2014-06-13 11:35:40
+O002 curator   rlims
+O002 trigger   5 23 26
+O002 kinase    
+O002 substrate 5 51 2
+O002 site      
+
+S005 {NP_P_37}<p>Elf-1</p>{/NP_P_37} {VP_act_38}binds{/VP_act_38} {AV_39}exclusively{/AV_39} to {NP_P_40}the underphosphorylated <Bppf>form</Bppf>{/NP_P_40} of {NP_P_41}<p>Rb</p>{/NP_P_41} and {VP_act_42}fails{/VP_act_42} {VP_act_43}to bind{/VP_act_43} to {NP_B_44}<B><p>Rb</p> mutants</B>{/NP_B_44} {VP_act_45}derived{/VP_act_45} from {NP_46}patients{/NP_46} with {NP_P_47}<p>retinoblastoma</p>{/NP_P_47} .
+
+S006 {NP_48}Co-immunoprecipitation experiments{/NP_48} {VP_act_49}demonstrated{/VP_act_49} {NP_50}an association{/NP_50} between {NP_P_51}<p>Elf-1</p> and <p>Rb</p>{/NP_P_51} in {VP_act_52}resting{/VP_act_52} {NP_S_53}normal <s>human</s> <S>T cells</S>{/NP_S_53} .
+
+O003 date      2014-06-13 11:35:40
+O003 curator   rlims
+O003 trigger   7 21 18
+O003 kinase    
+O003 substrate 7 41 2
+O003 site      
+
+S007 After {NP_54}<S>T cell</S> activation{/NP_54} , {NP_55}the phosphorylation{/NP_55} of {NP_P_56}<p>Rb</p>{/NP_P_56} {VP_act_57}results{/VP_act_57} in {NP_58}the release{/NP_58} of {NP_P_59}<p>Elf-1</p>{/NP_P_59} , {NP_60}which{/NP_60} {VP_pass_61}is correlated temporally{/VP_pass_61} with {NP_62}the activation{/NP_62} of {NP_63}<p>Elf-1</p> -mediated transcription{/NP_63} .
+
+O004 date      2014-06-13 11:35:40
+O004 curator   rlims
+O004 trigger   8 16 30
+O004 kinase    
+O004 substrate 
+O004 site      
+
+S008 {NP_64}Overexpression{/NP_64} of {NP_65}a phosphorylation-defective form{/NP_65} of {NP_P_66}<p>Rb</p>{/NP_P_66} {VP_act_67}inhibited{/VP_act_67} {NP_68}<p>Elf-1</p> -dependent transcription{/NP_68} during {NP_69}<S>T cell</S> activation{/NP_69} .
+
+S009 {NP_70}These results{/NP_70} {VP_act_71}demonstrate{/VP_act_71} that {NP_P_72}<p>Rb</p>{/NP_P_72} {VP_act_73}interacts{/VP_act_73} {AV_74}specifically{/AV_74} with {NP_P_75}a lineage-restricted <p>Ets transcription factor</p>{/NP_P_75} .
+
+S010 {NP_76}This regulated interaction{/NP_76} {VP_act_77}may be important{/VP_act_77} for {NP_78}the coordination{/NP_78} of {NP_79}lineage-specific effector functions{/NP_79} {JP_80}such{/JP_80} as {NP_81}<p>lymphokine</p> production{/NP_81} with {NP_82}cell cycle progression{/NP_82} in {NP_S_83}activated <S>T cells</S>{/NP_S_83} .
+
+

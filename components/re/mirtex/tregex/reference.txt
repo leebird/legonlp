@@ -1,0 +1,75 @@
+name:   NP as NP
+tregex: NP=tr $+ (PP <<, /as/ <2 NP=arg <- =arg)
+
+name:   NP as NP
+tregex: NP=tr $+ (/,/ $+ (PP <<, /as/ <2 NP=arg <- =arg))
+
+name:   NP as NP
+tregex: (PP <-1 NP=tr) $+ (PP <<, /as/ <2 NP=arg <- =arg)
+
+name:   NP as NP
+tregex: (VP <-1 NP=tr) $+ (PP <<, /as/ <2 NP=arg <- =arg)
+
+name:   NP as NP
+tregex: NP=tr $++ (PP <<, /as/ <2 NP=arg <- =arg)
+
+name:   NP , denoted NP
+tregex: NP=tr $+ (/,/=comma $+ (VP=vp <<, /denoted|named/ <2 __=arg))
+
+name:   Vnorm consists of Theme
+tregex: __=p < ((NP=tr << /complex/) $+ (VP <1 (VBZ << /consists/) <2 (PP <2 NP=arg)))
+
+#name:   A is a B
+#tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ <2 (NP=arg <<, /^(a|an)$/ !< NP)))
+
+name:   A is a B
+tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ <2 (NP=arg <<, /^(a|an)$/)))
+
+name:   A is a B
+tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ <2 (NP <<, /^(a|an)$/ <1 NP=arg)))
+
+name:   A is the B
+tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ <2 (NP=arg <<, /^the$/ !< NP)))
+
+name:   A is the B
+tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ <2 (NP <<, /^the$/ <1 NP=arg)))
+
+name:   A is B
+tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ <2 (NP=arg !<< SBAR)))
+
+name:   A is -ed to be B
+tregex: __=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ < (__ < (S < (VP <, TO <2 (VP <, (VBD|VBZ|VBP|VBG|VB|AUX <, /be|is|are|was|were|been/) <2 NP=arg)))) !<< SBAR))
+
+name:   A is -ed as B
+tregex: __=p < (NP=tr $+ (VP <+(VP) (PP <, (IN <, /as/) <- NP=arg)))
+
+name:   A appears to be a B
+tregex: __=p < (NP=tr $+ (VP <+(S|VP) (VP <1 TO <2 (VP <1 (VB <, /be/) <2 NP=arg))))
+
+name:   apposition
+tregex: NP=p <1 (@/N.*/=tr !<< /,/ !<<, DT) <2 /,/ <3 (@/N.*/=arg !<< /,/ <<, DT) !< CC <- =arg
+
+name:   apposition
+tregex: NP=p <1 (@/N.*/=tr !<< /,/ !<<, DT) <2 /,/ <3 (@/N.*/=arg !<< /,/ <<, DT) !< CC <- /,/
+
+name:   apposition
+tregex: NP=p <1 (@/N.*/=tr !<< /,/ <<, DT) <2 /,/ <3 (@/N.*/=arg !<< /,/ !<< DT)  !< CC <- =arg
+
+name:   apposition
+tregex: NP=p <1 (@/N.*/=tr !<< /,/ <<, DT) <2 /,/ <3 (@/N.*/=arg !<< /,/ !<< DT)  !< CC <- /,/
+
+name:   apposition
+tregex: NP=p < (NP=tr $++ (PP <1 (VBG < /including/) <2 NP=arg))
+
+name:   apposition
+tregex: NP=p <1 (NP=tr <1 CD) <2 /,/ <3 NP=arg <4 /,/=end <- =end
+
+name:   apposition
+tregex: NP=p <1 (NP=tr << CD <2 (PP <<, /of/)) <2 /,/ <3 NP=arg
+
+name:   apposition
+tregex: NP=p <1 (NP=tr << DT) <2 (NP=arg <: NN)
+
+name:   apposition
+tregex: NP=p <1 (NP=tr <<, /the/) <2 /,/ <3 (NP=arg <<, /^(a|an)/)
+

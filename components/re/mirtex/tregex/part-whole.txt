@@ -1,0 +1,47 @@
+name:   consisting of
+tregex: __=p < (NP=tr $+ (VP <<, /consisting/ <2 (PP <<, /of/ <2 NP=arg)))
+
+name:   consisting of
+tregex: __=p < (NP=tr $+ (/,/ $+ (VP <<, /consisting/ <2 (PP <<, /of/ <2 NP=arg))))
+
+//
+name:   NN JJ promoter region
+tregex: NP=p <- (NN|NNS=tr <<: /region/) <-2 (NN << /promoter|control/) <-3 JJ <-4 (NN|NP=arg !< PP)
+
+// 22
+name:   NN promoter region
+tregex: NP=p <- (NN|NNS=tr <<: /region/) <-2 (NN << /promoter|control/) <-3 (NN|NP=arg !< PP)
+
+// 752
+name:   NN locus
+tregex: NP=p <- (NN|NNS=tr <<: /locus|promoter|loci|region|motif|domain|element|enhancer|complex|site/) <-2 (NN|NP=arg !< PP)
+
+// 42
+name:   NN JJ locus
+tregex: NP=p <- (NN|NNS=tr <<: /locus|promoter|loci|region|motif|domain|element|enhancer|complex|site/) <-2 JJ <-3 (NN|NP=arg !< PP)
+
+//
+name:   elements in NP
+tregex: NP=p <1 (NP=tr <<- /element|sequence|site|region|motif/ !< PP) <2 (PP <<, /in/ <2 (NN|NP=arg !< PP))
+
+name:   elements in NP
+tregex: NP=p <1 (NP=tr <<- /element|sequence|site|region|motif/ !< PP) <2 (PP <<, /in/ <2 (NP <1 NP=arg < PP))
+
+// 90
+name:   elements of NP
+tregex: NP=p <1 (NP=tr <<- /protein|nucleus|element|sequence|site|region|motif|exon|molecule|enhancer|domain|amount|product|member|peak|promoter|level|loop/ !< PP) <2 (PP <<, /of/ <2 (NP=arg !< PP))
+
+// 6
+name:   elements of NP
+tregex: NP=p <1 (NP=tr <<- /protein|nucleus|element|sequence|site|region|motif|exon|molecule|enhancer|domain|amount|product|member|peak|promoter|level|loop/ !< PP) <2 (PP <<, /of/ <2 (NP <1 NP=arg < PP))
+
+name:   elements of NP
+tregex: NP=p < ((PP <-1 (NP=tr <<- /nucleus|element|sequence|site|region|motif|exon|molecule|enhancer|domain|amount|product|member|peak|promoter|level|loop/ !< PP)) $+ (PP <<, /of/ <2 (NP=arg !< PP)))
+
+// 23
+name:   NP present in NP
+tregex: __=p < (NP=tr $+ (ADJP <<, /present/ <2 (PP <<, /in/ <2 NP=arg)))
+
+// 15
+name:   NP is present in NP
+tregex: __=p < (NP=tr $+ (VP <2 (ADJP <<, /present/ <2 (PP <<, /in/ <2 NP=arg))))

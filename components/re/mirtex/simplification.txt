@@ -1,0 +1,227 @@
+# sentence coordination
+S1 <1 S=root << (S=s <<, (LST=lst <1 LS <2 -RRB-))
+operation	prune lst	replace root s
+
+# --------------------------------------------
+# parenthesis
+NP=p < (NP=ref $+ (PRN < (-LRB- $+ (NP=par $+ -RRB-=r)) <- =r))
+NP=p < (NP=ref $+ (PRN < (-LRB- $+ ( CC $+ (NP=par $+ -RRB-=r))) <- =r))
+NP=p < (NP=ref $+ (PRN <1 -LRB-=l <2 (PP <1 FW <2 /,/ <3 NP=par) <3 -RRB-=r))
+NP=p < (NP=ref $+ (PRN <1 -LRB-=l <2 (PP <1 FW <2 NP=par) <3 -RRB-=r))
+NP=p < (NP=ref $+ (PRN <1 -LRB-=l <2 (PP <1 FW) <3 /,/ <4 NP=par <5 -RRB-=r))
+NP=p < (NP=ref $+ (PRN <1 -LRB-=l <2 (PP <1 FW) <3 NP=par <4 -RRB-=r))
+PP=p < (PP=ref $+ (PRN <1 -LRB-=l <2 (PP <1 FW) <3 /,/ <4 PP=par <5 -RRB-=r))
+operation	replace p ref
+operation	replace p par
+
+NP=p < (@/N.*/=ref $+ (-LRB-=l $+ (@/N.*/=par $+ -RRB-=r)))
+operation	prune l par r
+operation	prune ref l r
+
+NP=p < (NP=ref $+ (PRN <1 -LRB-=l <2 (PP <1 FW <2 NP=par1) <3 /,/ <4 NP=par2 <5 -RRB-=r))
+operation	replace p ref
+operation	replace p par1
+operation	replace p par2
+
+PRN=p <1 -LRB-=l <3 -RRB-=r
+operation	prune p
+
+# --------------------------------------------
+# coordination
+# special 2
+# NP=p < ((NP=c1 !<< PP) $+ (CC|CONJP=cc $+ (NP=c2 <2 PP=pp))) <- =c2
+# operation	replace p c1
+# operation	replace p c2
+# operation	prune cc c2	insert pp $- c1
+
+# VP=p <, (VP=c1 <` @/VB.?/ $+ (CC $+ (VP=c2 < (@/VB.?/ $+ NP=np))))
+# operation	replace p c1
+# operation	replace p c2
+# operation	insert np >-1 c1	replace p c1
+
+# NP=p <1 JJ|VBN <2 NP=c1 <3 CC|CONJP=cc <4 NP=c2 <- =c2
+NP=p <1 DT <2 NP=c1 <3 CC|CONJP=cc <4 NP=c2 <- =c2
+# operation	prune cc c2
+# operation	prune c1 cc
+
+# NP=p <1 NP=c1 <2 CC=cc <3 NP=c2 <4 NP=c22
+# operation	prune cc c2
+# operation	replace p c1
+# operation	prune c1 cc
+# operation	replace p c2
+
+# __=p <1 __ <2 __=c1 <3 CC|CONJP=cc <4 __=c2 <- =c2
+# __=p <1 __ <2 __ <3 __=c1 <4 CC|CONJP=cc <5 __=c2 <- =c2
+# __=p <1 __ <2 __ <3 __ <4 __=c1 <5 CC|CONJP=cc <6 __=c2 <- =c2
+# __=p <1 __=c1 <2 CC|CONJP=cc <3 __=c2 <4 __=end <- =end
+# __=p <1 __=c1 <2 CC|CONJP=cc <3 __=c2 <4 __ <5 __=end <- =end
+# __=p <1 __=c1 <2 CC|CONJP=cc <3 __=c2 <4 __ <5 __ <6 __=end <- =end
+# x y cc y z
+# __=p <1 DT|CC|CONJP|PRP <2 __=c1 <3 CC|CONJP=cc <4 __=c2 <5 __=end <- =end
+# __=p <1 DT|CC|CONJP|PRP <2 __=c1 <3 CC|CONJP=cc <4 __=c2 <5 __ <6 __=end <- =end
+# __=p <1 DT|CC|CONJP|PRP <2 __=c1 <3 CC|CONJP=cc <4 __=c2 <5 __ <6 __ <7 __=end <- =end
+# __=p <1 __ <2 __=c1 <3 CC|CONJP=cc <4 __=c2 <5 NNS=end <- =end
+# __=p <1 CC <2 DT <3 __=c1 <4 CC|CONJP=cc <5 __=c2 <6 __=end <- =end
+# x y cc y z a
+# __=p <1 DT|CC|CONJP|PRP <2 __=c1 <3 CC|CONJP=cc <4 __=c2 <5 __ <6 __=end <- =end
+# NP=p <1 JJ <2 NP=c1 <3 CC|CONJP=cc <4 NP=c2 <5 NP=end <- =end
+# NP=p <1 CD=c1 <2 CC|CONJP=cc <3 CD=c2
+# operation	prune cc c2
+# operation	prune cc c1
+
+# special 3
+# __=p <1 __ <2 __=c1 <3 /,/=comma <4 __=c2 <5 CC|CONJP=cc <6 __=c3 <- =c3
+# __=p <1 __ <2 __=c1 <3 /,/=comma <4 __=c2 <5 /,/ <6 CC|CONJP=cc <7 __=c3 <- =c3
+# __=p <1 __=c1 <2 /,/=comma <3 __=c2 <4 CC|CONJP=cc <5 __=c3 <6 __=end <- =end
+# operation	prune cc c2 c3 comma
+# operation	prune cc c1 c3 comma
+# operation	prune cc c1 c2 comma
+
+# __=p <1 __=c1 <2 /,/=comma <3 __=c2 <4 /,/=comma2 <5 CC|CONJP=cc <6 __=c3 <7 __=end <- =end
+# operation	prune cc c2 c3 comma comma2
+# operation	prune cc c1 c3 comma comma2
+# operation	prune cc c1 c2 comma comma2
+
+# special 4
+# __=p <1 __=c1 <2 /,/=comma <3 __=c2 <4 /,/=comma2 <5 __=c3 <6 CC|CONJP=cc <7 __=c4 <8 __=end <- =end
+# operation	prune cc c2 c3 c4 comma comma2
+# operation	prune cc c1 c3 c4 comma comma2
+# operation	prune cc c1 c2 c4 comma comma2
+# operation	prune cc c1 c2 c3 comma comma2
+
+# __=p <1 __=c1 <2 /,/=comma <3 __=c2 <4 /,/=comma2 <5 __=c3 <6 /,/=comma3 <7 CC|CONJP=cc <8 __=c4 <9 __=end <- =end
+# __=p <1 __ <2 __=c1 <3 /,/=comma <4 __=c2 <5 /,/=comma2 <6 __=c3 <7 /,/=comma3 <8 CC|CONJP=cc <9 __=c4 <- =c4
+# operation	prune cc c2 c3 c4 comma comma2 comma3
+# operation	prune cc c1 c3 c4 comma comma2 comma3
+# operation	prune cc c1 c2 c4 comma comma2 comma3
+# operation	prune cc c1 c2 c3 comma comma2 comma3
+
+# special 5
+# __=p <1 __=c1 <2 /,/=comma <3 __=c2 <4 /,/=comma2 <5 __=c3 <6 /,/=comma3 <7 __=c4 <8 CC|CONJP=cc <9 __=c5 <10 __=end <- =end
+# operation	prune cc c2 c3 c4 c5 comma comma2 comma3
+# operation	prune cc c1 c3 c4 c5 comma comma2 comma3
+# operation	prune cc c1 c2 c4 c5 comma comma2 comma3
+# operation	prune cc c1 c2 c3 c5 comma comma2 comma3
+# operation	prune cc c1 c2 c3 c4 comma comma2 comma3
+
+# __=p <1 __=c1 <2 /,/=comma <3 __=c2 <4 /,/=comma2 <5 __=c3 <6 /,/=comma3 <7 __=c4 <8 /,/=comma4 <9 CC|CONJP=cc <10 __=c5 <11 __=end <- =end
+# operation	prune cc c2 c3 c4 c5 comma comma2 comma3 comma4
+# operation	prune cc c1 c3 c4 c5 comma comma2 comma3 comma4
+# operation	prune cc c1 c2 c4 c5 comma comma2 comma3 comma4
+# operation	prune cc c1 c2 c3 c5 comma comma2 comma3 comma4
+# operation	prune cc c1 c2 c3 c4 comma comma2 comma3 comma4
+
+# 2
+# ADJP=p <1 (ADJP=c1 !<< /-_\\d+_\\d+$/) <2 CC|CONJP <3 (ADJP=c2 !<< /-_\\d+_\\d+$/) <- =c2
+# NP=p <1 NN=c1 <2 CC|CONJP <3 NN=c2 <- =c2
+# NP=p <1 (NP=c1 !<< /-_\\d+_\\d+$/<, NN=cn1 <` =cn1) <2 CC|CONJP <3 (NP=c2 !<< /-_\\d+_\\d+$/ <, NN=cn2 <` =cn2) <- =c2
+# VP=p <1 VP=c1 <2 /,/ <3 CC|CONJP <4 VP=c2 <- =c2
+# VP=p <1 VP=c1 <2 CC|CONJP <3 VP=c2 <- =c2
+# PP=p <1 PP=c1 <2 CC|CONJP <3 ADVP <4 PP=c2
+# NP=p < (NP=c1 $+ (/,/ $+ (CONJP $+ (NP=c2 $+ /,/=end)))) <- =end
+# NP=p < (NP=c1 $+ (/,/ $+ (CONJP $+ (NP=c2)))) <- =c2
+__=p <1 __=c1 <2 CC|CONJP <3 __=c2 <- =c2
+__=p <1 __=c1 <2 /,/ <3 CC|CONJP <4 __=c2 <- =c2
+# __=p <1 __=c1 <2 /,/ <3 CC|CONJP <4 __=c2 <5 /,|./=end <- =end
+# __=p <1 __=c1 <2 /,/ <3 CC|CONJP <4 ADVP|PP|RB <5 __=c2 <6 /,/=end <- =end
+# __=p <1 __=c1 <2 /,/ <3 CC|CONJP <4 ADVP|PP|RB <5 /,/ <6 __=c2 <- =c2
+# __=p <1 __=c1 <2 /,/ <3 CC|CONJP <4 /,/ <5 ADVP|PP|RB <6 /,/ <7 __=c2 <- =c2
+# __=p <1 __=c1 <2 CC|CONJP <3 /,/ <4 ADVP|PP|RB <5 /,/ <6 __=c2 <- =c2
+operation	replace p c1
+operation	replace p c2
+
+# 3
+# ADJP=p <1 ADJP=c1 <2 /,/ <3 ADJP=c2 <4 CC|CONJP <5 ADJP=c3 <- =c3
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 CC|CONJP <5 __=c3 <- =c3
+__=p <1 __=c1 <2 /,|:/ <3 __=c2 <4 /,|:/ <5 CC|CONJP <6 __=c3 <- =c3
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+
+# 4
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 CC|CONJP  <7 __=c4 <- =c4
+apttern		__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 CC|CONJP <8 __=c4 <- =c4
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+
+# 5
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 CC|CONJP  <9 __=c5 <- =c5
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 CC|CONJP <10 __=c5 <- =c5
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+operation	replace p c5
+
+# 6
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 CC|CONJP <11 __=c6 <- =c6
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 CC|CONJP <12 __=c6 <- =c6
+# __=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 CC|CONJP <12 ADVP <13 __=c6 <- =c6
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+operation	replace p c5
+operation	replace p c6
+
+# 7
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 CC|CONJP <14 __=c7 <- =c7
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 CC|CONJP <13 __=c7 <- =c7
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+operation	replace p c5
+operation	replace p c6
+operation	replace p c7
+
+# 8
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 __=c7 <14 CC|CONJP <15 __=c8 <- =c8
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 __=c7 <14 /,/ <15 CC|CONJP <16 __=c8 <- =c8
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+operation	replace p c5
+operation	replace p c6
+operation	replace p c7
+operation	replace p c8
+
+# 9
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 __=c7 <14 /,/ <15 __=c8 <16 CC|CONJP <17 __=c9 <- =c9
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 __=c7 <14 /,/ <15 __=c8 <16 /,/ <17 CC|CONJP <18 __=c9 <- =c9
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+operation	replace p c5
+operation	replace p c6
+operation	replace p c7
+operation	replace p c8
+operation	replace p c9
+
+# 10
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 __=c7 <14 /,/ <15 __=c8 <16 /,/ <17 __=c9 <18 CC|CONJP <19 __=c10 <- =c10
+__=p <1 __=c1 <2 /,/ <3 __=c2 <4 /,/ <5 __=c3 <6 /,/ <7 __=c4 <8 /,/ <9 __=c5 <10 /,/ <11 __=c6 <12 /,/ <13 __=c7 <14 /,/ <15 __=c8 <16 /,/ <17 __=c9 <18 /,/ <19 CC|CONJP <20 __=c10 <- =c10
+operation	replace p c1
+operation	replace p c2
+operation	replace p c3
+operation	replace p c4
+operation	replace p c5
+operation	replace p c6
+operation	replace p c7
+operation	replace p c8
+operation	replace p c9
+operation	replace p c10
+
+# --------------------------------------------
+# apposition
+NP=p <1 (@/N.*/=np1 !<< /,/ !<<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ <<, DT) !< CC <- =np2
+NP=p <1 (@/N.*/=np1 !<< /,/ !<<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ <<, DT) !< CC <- /,/
+NP=p <1 (@/N.*/=np1 !<< /,/ <<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ !<< DT)  !< CC <- =np2
+NP=p <1 (@/N.*/=np1 !<< /,/ <<, DT) <2 /,/ <3 (@/N.*/=np2 !<< /,/ !<< DT)  !< CC <- /,/
+NP=p < (NP=np1 $++ (PP <1 (VBG < /including/) <2 NP=np2))
+operation	replace p np1
+operation	replace p np2

@@ -1,0 +1,35 @@
+T14	Gene 1557 1560	p21
+T17	Gene 509 512	miR
+T10	MiRNA 2057 2063	miR-17
+T11	Gene 1687 1690	p21
+T13	Gene 1519 1555	cyclin-dependent kinase inhibitor 1A
+T36	Sentence 1970 2036	The beneficial effects may be related to the up-regulation of p21.
+T37	Sentence 2037 2140	Thus, inhibition of miR-17 may represent a novel therapeutic concept to ameliorate disease state in PH.
+T34	Sentence 1692 1805	Overexpression of miR-17 significantly reduced p21 expression and increased proliferation of smooth muscle cells.
+T35	Sentence 1806 1969	CONCLUSIONS: Our data demonstrate that A-17 improves heart and lung function in experimental PH by interfering with lung vascular and right ventricular remodeling.
+T32	Sentence 1482 1614	Among the tested miR-17 targets, the cyclin-dependent kinase inhibitor 1A (p21) was up-regulated in lungs undergoing A-17 treatment.
+T33	Sentence 1615 1691	Likewise, in human pulmonary artery smooth muscle cells, A-17 increased p21.
+T30	Sentence 1077 1198	However, only A-17 reduced hypoxia-induced right ventricular hypertrophy and improved pulmonary artery acceleration time.
+T31	Sentence 1199 1481	In the monocrotaline-induced PH rat model, A-17 treatment significantly decreased right ventricular systolic pressure and total pulmonary vascular resistance index, increased pulmonary artery acceleration time, normalized cardiac output, and decreased pulmonary vascular remodeling.
+T8	MiRNA 1499 1505	miR-17
+T9	MiRNA 1710 1716	miR-17
+T6	MiRNA 696 703	miR-92a
+T7	MiRNA 829 835	miR-17
+T4	MiRNA 662 668	miR-17
+T5	MiRNA 677 683	miR-21
+T2	MiRNA 313 319	miR-21
+T3	MiRNA 339 348	miR-17-92
+T1	MiRNA 14 25	microRNA-17
+T29	Sentence 899 1076	MEASUREMENTS AND MAIN RESULTS: In the PH mouse model, A-17 and A-21 reduced right ventricular systolic pressure, and all antagomirs decreased pulmonary arterial muscularization.
+T28	Sentence 796 898	Moreover, biological function of miR-17 was analyzed in cultured pulmonary artery smooth muscle cells.
+T21	Gene 2032 2035	p21
+T20	Gene 1739 1742	p21
+T23	Target 1731 1738	reduced
+T22	Target 1506 1513	targets
+T25	Sentence 99 259	RATIONALE: MicroRNAs (miRs) control various cellular processes in tissue homeostasis and disease by regulating gene expression on the posttranscriptional level.
+T24	Sentence 0 98	Inhibition of microRNA-17 improves lung and heart function in experimental pulmonary hypertension.
+T27	Sentence 428 795	OBJECTIVES: To evaluate the therapeutic efficacy and antiremodeling potential of miR inhibitors in the pathogenesis of PH. METHODS: We first tested the effects of miR inhibitors (antagomirs), which were specifically designed to block miR-17 (A-17), miR-21 (A-21), and miR-92a (A-92a) in chronic hypoxia-induced PH in mice and A-17 in monocrotaline-induced PH in rats.
+T26	Sentence 260 427	Recently, it was demonstrated that the expression of miR-21 and members of the miR-17-92 cluster was significantly altered in experimental pulmonary hypertension (PH).
+E1	Regulation:T22 Agent:T8 Theme:T13	{"direction": ["M2G"], "direct": ["D"]}
+E3	Regulation:T23 Agent:T9 Theme:T20	{"direction": ["M2G"], "direct": ["U"]}
+E2	Regulation:T22 Agent:T8 Theme:T14	{"direction": ["M2G"], "direct": ["D"]}

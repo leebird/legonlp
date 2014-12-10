@@ -1,0 +1,12 @@
+// NP (NP PP +)
+tregex:    NP=p < (NP=np $+ (PP=pp <<, /of/ <2 NP=np2  !>- =p))
+operation: prune pp
+operation: replace np np2, prune pp
+
+// NP (NP PP +)
+tregex:    NP=p < (NP=np $+ (PP=pp !<<, /of/ <2 NP=np2  !>- =p))
+operation: prune pp
+
+// NP (NP ADJP)
+tregex:    NP=p < (NP=np $+ (ADJP=adjp >- =p))
+operation: prune adjp

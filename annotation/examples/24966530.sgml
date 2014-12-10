@@ -1,0 +1,7 @@
+In silico prediction of cotton (Gossypium hirsutum) encoded <fam>microRNAs</fam> targets in the genome of Cotton leaf curl Allahabad virus . Cotton leaf curl Allahabad virus (CLCuAV) belongs to genus Begomovirus, family Geminiviridae. 
+It has single stranded monopartite DNA genome transmitted by whitefly (Bemisia tabaci). 
+<fam>MicroRNAs</fam> (<fam>miRNAs</fam>) belong to class of endogeneous small RNAs which suppress expression of genes following cleavage or translational inhibition of target messenger RNAs. 
+They are demonstrated to be involved in a number of plant processes such as, development, biotic and abiotic stresses. 
+Employing in silico approach, high scoring <fam>miRNA</fam>-target pairs satisfying rules of minimum free energy and maximum complementarity were selected to investigate if they possess the potential to bind the genome CLCuAV. 
+Our results revealed that <fam>miRNA</fam> species viz ., <fam>ghr</fam>-miR2950 can target all the viral genes, <fam>ghr</fam>-miR408 targets overlapping transcripts of <pro>AC1</pro> and <pro>AC2</pro> genes; while <fam>ghr</fam>-miR394 and <com>ghr-miR395a</com> and <pro>miR395d</pro> could bind overlapping transcripts of <pro>AC1</pro> and AC4 genes. 
+This is the first report of prediction of cotton <fam>miRNAs</fam> which have the potential to target CLCuAV genes including <pro>AC1</pro> and AC4, involved in viral replication and gene silencing suppression, respectively. 

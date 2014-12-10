@@ -1,0 +1,431 @@
+Gene_expression	expression	expression	NN	980	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Arg does something by Vvbg,Arg undergo Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm for Theme,Vnorm of Arg,Arg - Vnorm
+Gene_expression	production	production	NN	183	+	Arg Vact,Arg Vadj,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm of Arg,
+Gene_expression	expressed	express	VBN	117	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm of Arg,
+Gene_expression	overexpression	overexpression	NN	40	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm of Arg,
+Gene_expression	express	express	VBP	32	+	Arg Vnorm,Vact Arg,
+Gene_expression	producing	produce	JJ	27	+	
+Gene_expression	expressing	express	VBG	25	+	Arg Vnorm,Vact Arg,Vnorm with Arg,
+Gene_expression	synthesis	synthesis	NN	24	+	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Gene_expression	positive	positive	JJ	22	?	
+Gene_expression	expressed	express	VBD	21	+	Arg Vact,Arg Vnorm,Vact Arg,
+Gene_expression	negative	negative	JJ	19	?	Arg Vnorm,
+Gene_expression	levels	level	NNS	18	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	produced	produce	VBN	18	+	Arg Vact,Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Gene_expression	gene	gene	NN	17	-	
+Gene_expression	expressing	express	JJ	16	+	
+Gene_expression	produce	produce	VB	15	+	Arg Vnorm,Vact Arg,
+Gene_expression	producing	produce	VBG	13	+	Arg Vnorm,Vact Arg,
+Gene_expression	produced	produce	VBD	12	+	Arg Vnorm,Vact Arg,
+Gene_expression	express	express	VB	12	+	Arg Vnorm,Vact Arg,
+Gene_expression	detected	detect	VBN	11	?	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Gene_expression	induction	induction	NN	11	?	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Gene_expression	present	present	JJ	8	?	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Gene_expression	produce	produce	VBP	8	+	Arg Vnorm,Vact Arg,
+Gene_expression	overexpressed	overexpress	VBN	7	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,
+Gene_expression	detectable	detectable	JJ	7	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,
+Gene_expression	coexpression	coexpression	NN	7	+	Arg Vnorm,Vnorm of Arg,
+Gene_expression	transfection	transfection	NN	6	+	Arg - Vnorm,Arg Vnorm,Vnorm of Arg,Vnorm with Arg,
+Gene_expression	cotransfection	cotransfection	NN	6	+	Arg Vnorm,Vnorm of Arg,Vnorm with Arg,
+Gene_expression	transfected	transfect	VBN	5	+	Arg Vnorm,Vnorm of Arg,Vpass with Arg,
+Gene_expression	transfer	transfer	NN	4	?	Arg Vnorm,Vnorm of Arg,
+Gene_expression	overexpressing	overexpress	VBG	4	+	Arg Vnorm,Vact Arg,
+Gene_expression	positive	positive	NN	3	?	
+Gene_expression	staining	staining	NN	3	?	Arg Vnorm,Vnorm for Theme,
+Gene_expression	source	source	NN	3	?	Arg Vnorm,Vnorm for Theme,Vnorm of Arg,
+Gene_expression	nonproducing	nonproduce	JJ	3	+	
+Gene_expression	expresses	express	VBZ	3	+	Arg Vnorm,Vact Arg,
+Gene_expression	found	find	VBN	3	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Gene_expression	product	product	NN	3	+	Arg Vnorm,
+Gene_expression	expressing	express	NN	3	+	Arg Vnorm,
+Gene_expression	transfected	transfect	VBD	3	+	Arg Vnorm,Vact Arg,Vnorm into Arg,Vnorm with Arg,
+Gene_expression	synthesized	synthesize	VBN	3	+	Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Gene_expression	overexpressing	overexpress	JJ	3	+	
+Gene_expression	presence	presence	NN	3	+	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Gene_expression	negative	negative	NN	2	-	
+Gene_expression	positve	positve	JJ	2	-	
+Gene_expression	coproducing	coproduce	VBG	2	-	Vact Arg,
+Gene_expression	amounts	amount	NNS	2	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	coexpressed	coexpress	VBN	2	-	Arg Vnorm,Arg Vpass,
+Gene_expression	resynthesis	resynthesis	NN	2	-	Arg Vact,Arg Vnorm,Vnorm of Arg,
+Gene_expression	nonexpressing	nonexpress	JJ	2	-	Arg Vnorm,
+Gene_expression	the	the	DT	2	-	
+Gene_expression	deficient	deficient	JJ	2	-	Arg Vnorm,
+Gene_expression	synthesize	synthesize	VB	2	-	Arg Vnorm,Vact Arg,
+Gene_expression	producing	produce	NN	2	-	Arg Vnorm,
+Gene_expression	generation	generation	NN	2	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	protein	protein	NN	2	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	secreting	secrete	JJ	2	-	
+Gene_expression	generates	generate	VBZ	2	-	Arg Vnorm,Vact Arg,
+Gene_expression	produces	produce	VBZ	2	-	Arg Vnorm,Vact Arg,
+Gene_expression	appearance	appearance	NN	2	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	contained	contain	VBD	2	-	Arg Vnorm,Vact Arg,
+Gene_expression	over-expression	over-expression	NN	2	-	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Gene_expression	products	product	NNS	2	-	Arg Vnorm,
+Gene_expression	co-expression	co-expression	NN	2	-	Arg Vnorm,Vnorm of Arg,Vnorm with Arg,
+Gene_expression	re-expression	re-expression	NN	1	-	Arg Vact,Arg Vadj,Arg Vnorm,
+Gene_expression	knock-out	knock-out	JJ	1	-	Arg Vnorm,
+Gene_expression	concentration	concentration	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	detected	detect	VBD	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	transgenic	transgenic	JJ	1	-	Arg Vnorm,
+Gene_expression	reexpression	reexpression	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	coexpress	coexpress	VBP	1	-	Vact Arg,
+Gene_expression	coproduced	coproduce	VBD	1	-	Vact Arg,
+Gene_expression	coproduce	coproduce	VBP	1	-	Vact Arg,
+Gene_expression	make	make	VB	1	-	Vact Arg,
+Gene_expression	primary	primary	JJ	1	-	
+Gene_expression	identified	identify	VBD	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	secreted	secrete	VBD	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	in	in	IN	1	-	
+Gene_expression	transfectants	transfectant	NNS	1	-	Arg Vnorm,Vnorm with Arg,
+Gene_expression	co-transfections	co-transfection	NNS	1	-	
+Gene_expression	activation	activation	NN	1	-	Arg Vact,Arg Vnorm,Vnorm of Arg,
+Gene_expression	made	make	VBN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	expressions	expression	NNS	1	-	Arg Vnorm,
+Gene_expression	coexpressing	coexpress	VBG	1	-	Vact Arg,
+Gene_expression	cotransfecting	cotransfect	VBG	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	cotransfected	cotransfect	VBN	1	-	
+Gene_expression	post-transcription	post-transcription	JJ	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	producers	producer	NNS	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	biosynthesis	biosynthesis	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	induced	induce	VBN	1	-	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm of Arg,
+Gene_expression	nonsecreting	nonsecreting	JJ	1	-	Arg Vnorm,
+Gene_expression	secreting	secrete	VBG	1	-	Arg Vnorm,Arg at Vadj level,Arg at Vnorm level,Vact Arg,
+Gene_expression	nonexpression	nonexpression	NN	1	-	Arg Vact,Arg Vnorm,
+Gene_expression	comparable	comparable	JJ	1	-	
+Gene_expression	detect	detect	VBP	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	pattern	pattern	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	cytokine	cytokine	NN	1	-	
+Gene_expression	containing	contain	JJ	1	-	
+Gene_expression	bright	bright	JJ	1	-	
+Gene_expression	foci	focus	NNS	1	-	
+Gene_expression	co-expressing	co-express	VBG	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	distribution	distribution	NN	1	-	
+Gene_expression	hybridization	hybridization	NN	1	-	
+Gene_expression	signals	signal	NNS	1	-	
+Gene_expression	be	be	VB	1	-	
+Gene_expression	predominant	predominant	JJ	1	-	
+Gene_expression	subunits	subunit	NNS	1	-	
+Gene_expression	transfected	transfect	JJ	1	-	
+Gene_expression	absence	absence	NN	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Vact Arg,Vnorm of Arg,
+Gene_expression	selected	select	VBN	1	-	Arg Vact,Arg Vnorm,
+Gene_expression	tranfection	tranfection	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	antisense	antisense	JJ	1	-	Arg Vnorm,
+Gene_expression	higher	higher	JJR	1	-	Arg Vact,Arg Vadj,Arg Vnorm,
+Gene_expression	appeared	appear	VBD	1	-	Arg Vact,Arg Vnorm,
+Gene_expression	absent	absent	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Gene_expression	non-expressing	non-expressing	JJ	1	-	Arg Vnorm,
+Gene_expression	studies	study	NNS	1	-	
+Gene_expression	lack	lack	VBP	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	identified	identify	VBN	1	-	Arg Vnorm,Vnorm of Arg,
+Gene_expression	detection	detection	NN	1	-	Arg Vnorm,Arg Vpass,
+Gene_expression	spontaneous	spontaneous	JJ	1	-	
+Gene_expression	mrna	mrna	NN	1	-	Arg Vnorm,Arg at Vadj level,Arg at Vnorm level,Vnorm of Arg,
+Gene_expression	resynthesized	resynthesize	VBN	1	-	Arg Vnorm,Arg Vpass,
+Gene_expression	stay	stay	VBP	1	-	
+Gene_expression	low	low	JJ	1	-	
+Gene_expression	analyzed	analyze	VBN	1	-	Arg Vnorm,Arg Vpass,
+Gene_expression	+	+	JJ	1	-	
+Gene_expression	coexpressed	coexpress	VBD	1	-	Vact Arg,
+Gene_expression	contain	contain	VBP	1	-	Arg Vnorm,Vact Arg,
+Gene_expression	provides	provide	VBZ	1	-	Arg Vnorm,Vact Arg,
+Transcription	transcription	transcription	NN	225	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Vact Arg,Vnorm from Arg,Vnorm of Arg,
+Transcription	expression	expression	NN	106	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Arg does something by Vvbg,Arg undergo Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm for Theme,Vnorm of Arg,
+Transcription	mrna	mrna	NN	46	?	Arg Vnorm,Arg at Vadj level,Arg at Vnorm level,Vnorm of Arg,
+Transcription	levels	level	NNS	36	-	Arg Vnorm,Vnorm of Arg,
+Transcription	transcriptional	transcriptional	JJ	29	+	Arg Vact,Arg Vnorm,Vact Arg,Vnorm of Arg,X is a Y,
+Transcription	expressed	express	VBN	15	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm of Arg,
+Transcription	level	level	NN	12	?	Arg Vnorm,Vnorm of Arg,
+Transcription	transcribed	transcribe	VBN	11	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Transcription	transcripts	transcript	NNS	10	+	Arg Vnorm,Vnorm for Theme,
+Transcription	express	express	VBP	10	+	Arg Vnorm,Vact Arg,
+Transcription	activity	activity	NN	8	-	Arg Vnorm,Vnorm of Arg,
+Transcription	detected	detect	VBN	8	?	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Transcription	expressed	express	VBD	7	+	Arg Vact,Arg Vnorm,Vact Arg,
+Transcription	transcript	transcript	NN	7	+	Arg Vnorm,Arg Vpass,
+Transcription	the	the	DT	7	-	
+Transcription	synthesis	synthesis	NN	7	?	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Transcription	induction	induction	NN	6	-	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Transcription	at	at	IN	6	-	Arg Vnorm,
+Transcription	express	express	VB	5	+	Arg Vnorm,Vact Arg,
+Transcription	production	production	NN	4	+	Arg Vact,Arg Vadj,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm of Arg,
+Transcription	rna	rna	NN	3	-	Arg Vnorm,
+Transcription	gene	gene	NN	3	-	
+Transcription	found	find	VBN	3	?	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Transcription	undetectable	undetectable	JJ	2	?	Arg Vact,Arg Vadj,Arg Vnorm,
+Transcription	transcribe	transcribe	VB	2	+	Arg Vnorm,Vact Arg,
+Transcription	mrna	mrna	XX	2	-	
+Transcription	initiated	initiate	VBN	2	+	Arg Vnorm,Arg Vpass,
+Transcription	transcribed	transcribe	JJ	2	+	
+Transcription	abundance	abundance	NN	2	+	Arg Vnorm,Vnorm of Arg,
+Transcription	synthesized	synthesize	VBN	1	-	Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Transcription	produced	produce	VBN	1	-	Arg Vact,Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Transcription	low	low	JJ	1	-	
+Transcription	or	or	CC	1	-	
+Transcription	regulation	regulation	NN	1	-	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm of Arg,
+Transcription	transcriptionally-active	transcriptionally-active	JJ	1	-	Arg Vact,Arg Vnorm,
+Transcription	transcriptionally	transcriptionally	RB	1	-	Arg Vnorm,Arg Vpass,
+Transcription	appearance	appearance	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Transcription	preformed	preformed	JJ	1	-	Arg Vnorm,
+Transcription	absence	absence	NN	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Vact Arg,Vnorm of Arg,
+Transcription	expressions	expression	NNS	1	-	Arg Vnorm,
+Transcription	detected	detect	VBD	1	-	Arg Vnorm,Vact Arg,
+Transcription	initiation	initiation	NN	1	-	
+Transcription	deriving	derive	VBG	1	-	Arg Vnorm,
+Transcription	absent	absent	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Transcription	cdna	cdna	XX	1	-	
+Transcription	hybridized	hybridize	VBD	1	-	
+Transcription	and	and	CC	1	-	
+Transcription	present	present	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Transcription	lack	lack	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Transcription	read	read	VBN	1	-	
+Transcription	through	through	IN	1	-	Arg Vact,Arg Vnorm,Vact Arg,
+Transcription	rate	rate	NN	1	-	
+Transcription	inducible	inducible	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,
+Transcription	concentration	concentration	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Transcription	observed	observe	VBN	1	-	Arg Vnorm,Arg Vpass,
+Transcription	demonstrated	demonstrate	VBD	1	-	Arg Vnorm,Vact Arg,
+Transcription	not	not	RB	1	-	
+Transcription	transcribing	transcribe	VBG	1	-	Vact Arg,
+Transcription	of	of	IN	1	-	
+Protein_catabolism	degradation	degradation	NN	68	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Arg undergo Vnorm,Vact Arg,Vnorm for Theme,Vnorm of Arg,
+Protein_catabolism	degraded	degrade	VBN	10	+	Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Protein_catabolism	proteolytic	proteolytic	JJ	4	?	
+Protein_catabolism	proteolysis	proteolysis	NN	4	?	Arg Vact,Arg Vnorm,
+Protein_catabolism	degrade	degrade	VB	3	+	Arg Vnorm,Vact Arg,
+Protein_catabolism	proteolysis	proteolysis	JJ	2	?	Arg Vnorm,
+Protein_catabolism	stability	stability	NN	2	?	Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Protein_catabolism	cleavage	cleavage	NN	2	+	Arg Vnorm,Vnorm of Arg,
+Protein_catabolism	stabilized	stabilize	VBN	1	-	Arg Vnorm,Arg Vpass,
+Protein_catabolism	process	process	VB	1	-	Vact Arg,
+Protein_catabolism	complete	complete	JJ	1	-	
+Protein_catabolism	degradative	degradative	JJ	1	-	
+Protein_catabolism	loss	loss	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Protein_catabolism	ubiquitin-proteasome	ubiquitin-proteasome	JJ	1	-	
+Protein_catabolism	pathway	pathway	NN	1	-	Arg Vact,Arg Vnorm,
+Protein_catabolism	breakdown	breakdown	NN	1	?	Arg Vnorm,Vnorm of Arg,
+Protein_catabolism	cleaved	cleave	VBN	1	-	Arg Vnorm,Arg Vpass,
+Protein_catabolism	intact	intact	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Protein_catabolism	proteolytically	proteolytically	RB	1	-	
+Phosphorylation	phosphorylation	phosphorylation	NN	119	+	Arg Vact,Arg Vnorm,Arg Vpass,Arg undergo Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm of Arg,Vnorm to Arg,
+Phosphorylation	phosphorylated	phosphorylate	VBN	18	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm of Arg,
+Phosphorylation	phosphorylated	phosphorylate	JJ	8	+	Arg Vact,Arg Vnorm,
+Phosphorylation	phosphorylates	phosphorylate	VBZ	3	+	Arg Vnorm,Vact Arg,
+Phosphorylation	form	form	NN	2	-	
+Phosphorylation	underphosphorylated	underphosphorylate	VBN	1	+	Arg Vnorm,
+Phosphorylation	hyperphosphorylated	hyperphosphorylate	JJ	1	+	Arg Vnorm,Vnorm of Arg,
+Phosphorylation	transfer	transfer	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Phosphorylation	of	of	IN	1	-	
+Phosphorylation	tyrosine	tyrosine	NN	1	-	
+Phosphorylation	phosphoryl	phosphoryl	NN	1	-	
+Phosphorylation	groups	group	NNS	1	-	
+Phosphorylation	underphosphorylated	underphosphorylate	JJ	1	+	Arg Vnorm,Vnorm of Arg,
+Phosphorylation	phosphorylation-defective	phosphorylation-defective	JJ	1	-	
+Phosphorylation	phosphorylating	phosphorylate	VBG	1	+	Vact Arg,
+Phosphorylation	phosphoform	phosphoform	NN	1	+	Arg Vnorm,Vnorm of Arg,
+Phosphorylation	phosphorylate	phosphorylate	VBP	1	+	Arg Vnorm,Vact Arg,
+Localization	secretion	secretion	NN	51	+	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Localization	translocation	translocation	NN	31	+	Arg Vact,Arg Vnorm,Vnorm into Arg,Vnorm of Arg,
+Localization	release	release	NN	27	+	Arg Vnorm,Vnorm of Arg,
+Localization	localization	localization	NN	21	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Vact Arg,Vnorm of Arg,
+Localization	secreted	secrete	VBN	12	+	Arg Vact,Arg Vnorm,Arg Vpass,Arg does something by Vvbg,
+Localization	expression	expression	NN	8	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Arg does something by Vvbg,Arg undergo Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vnorm for Theme,Vnorm of Arg,
+Localization	secreting	secrete	JJ	4	+	
+Localization	import	import	NN	4	+	Arg Vnorm,Vnorm of Arg,
+Localization	presence	presence	NN	3	?	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Localization	present	present	JJ	3	?	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Localization	migrating	migrate	VBG	3	+	Arg Vact,Arg Vnorm,Arg Vpass,
+Localization	secrete	secrete	VB	3	+	Vact Arg,
+Localization	accumulation	accumulation	NN	3	+	Arg Vnorm,Vnorm of Arg,
+Localization	appearance	appearance	NN	3	+	Arg Vnorm,Vnorm of Arg,
+Localization	localizes	localize	VBZ	2	+	Arg Vact,Arg Vnorm,
+Localization	detected	detect	VBN	2	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Localization	released	release	VBN	2	+	Arg Vnorm,Arg Vpass,
+Localization	abundance	abundance	NN	2	?	Arg Vnorm,Vnorm of Arg,
+Localization	localized	localized	VBN	2	+	Arg Vnorm,Arg Vpass,
+Localization	secreting	secrete	NN	2	+	Arg Vnorm,
+Localization	mobilized	mobilize	VBN	2	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Localization	translocated	translocate	VBN	2	+	Arg Vnorm,
+Localization	found	find	VBN	2	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Localization	localize	localize	VB	1	-	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Localization	detectable	detectable	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,
+Localization	accumulates	accumulate	VBZ	1	-	Arg Vact,Arg Vnorm,
+Localization	imported	import	VBN	1	-	Arg Vnorm,Arg Vpass,
+Localization	exported	export	VBN	1	-	Arg Vnorm,
+Localization	are	be	VBP	1	-	Arg Vact,Arg Vnorm,
+Localization	immobilization	immobilization	NN	1	-	Arg Vnorm,
+Localization	retarget	retarget	VB	1	-	Arg Vnorm,Vact Arg,
+Localization	retargeting	retargeting	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	mobilization	mobilization	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	secreting	secrete	VBG	1	-	Arg Vnorm,Arg at Vadj level,Arg at Vnorm level,Vact Arg,
+Localization	detect	detect	VB	1	-	Arg Vnorm,Vact Arg,
+Localization	liberated	liberate	VBD	1	-	Arg Vnorm,Vact Arg,
+Localization	released	release	VBD	1	-	Arg Vnorm,Vact Arg,Vnorm with Arg,
+Localization	co-localization	co-localization	NN	1	-	Arg Vnorm,Vnorm with Arg,
+Localization	localized	localized	VBD	1	-	Arg Vact,Arg Vnorm,
+Localization	found	find	VBD	1	-	Arg Vnorm,Vact Arg,Vnorm to Arg,
+Localization	expressed	express	VBD	1	-	Arg Vact,Arg Vnorm,Vact Arg,
+Localization	recovered	recover	VBN	1	-	Arg Vnorm,Arg Vpass,
+Localization	distributed	distribute	VBN	1	-	Arg Vnorm,Arg Vpass,
+Localization	reservoir	reservoir	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	precipitation	precipitation	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	shuttling	shuttle	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	export	export	NN	1	-	Arg Vnorm,Vact Arg,
+Localization	exclusion	exclusion	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	translocated	translocate	VBD	1	-	Arg Vnorm,
+Localization	slow	slow	JJ	1	-	
+Localization	forms	form	NNS	1	-	
+Localization	secreted	secrete	VBD	1	-	Arg Vnorm,Vact Arg,
+Localization	secretes	secrete	VBZ	1	-	Arg Vnorm,Vact Arg,
+Localization	translocate	translocate	VB	1	-	Arg Vnorm,Vact Arg,
+Localization	protein	protein	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Localization	directed	direct	VBN	1	-	Arg Vact,Arg Vnorm,Arg Vpass,
+Binding	binding	binding	NN	140	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Arg undergo Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vact with Arg,Vnorm for Theme,Vnorm from Arg,Vnorm of ... to Arg,Vnorm of Arg,Vnorm to Arg,
+Binding	binds	bind	VBZ	60	+	Arg Vact,Arg Vadj,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vact to Arg,Vact with Arg,Vnorm of Arg,
+Binding	bind	bind	VB	40	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vact to Arg,
+Binding	binding	binding	JJ	39	+	
+Binding	dna-binding	dna-binding	JJ	20	+
+Binding	binding	binding	VBG	37	+	Arg Vact,Arg Vnorm,Arg Vpass,Arg does something by Vvbg,Arg is ... by Vvbg,Vact Arg,Vact to Arg,Vnorm between Arg,Vnorm for Theme,Vnorm to Arg,
+Binding	interaction	interaction	NN	37	+	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,Arg undergo Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm between Arg,Vnorm of Arg,Vnorm with Arg,
+Binding	cross-linking	cross-linking	NN	27	+	Arg Vact,Arg Vnorm,Vnorm of Arg,
+Binding	bound	bind	VBD	26	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vact to Arg,Vnorm with Arg,
+Binding	complex	complex	NN	24	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm consists of Theme,Vnorm of Arg,
+Binding	activity	activity	NN	24	+	Arg Vnorm,Vnorm of Arg,
+Binding	ligation	ligation	NN	21	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm of Arg,
+Binding	bind	bind	VBP	21	+	Arg Vact,Arg Vnorm,Vact Arg,Vact to Arg,Vnorm of Arg,
+Binding	interactions	interaction	NNS	19	+	Arg Vact,Arg Vnorm,Arg Vpass,Vact Arg,Vnorm between Arg,Vnorm with Arg,
+Binding	interacts	interact	VBZ	18	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact with Arg,
+Binding	interact	interact	VB	14	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,Vact with Arg,
+Binding	interacting	interact	VBG	10	+	Arg Vact,Arg Vnorm,Arg does something by Vvbg,Vact with Arg,Vnorm of Arg,
+Binding	bound	bind	VBN	10	+	Arg Vnorm,Arg Vpass,Vpass by Arg,
+Binding	engagement	engagement	NN	10	?	Arg Vnorm,Vnorm of Arg,
+Binding	association	association	NN	10	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vnorm between Arg,Vnorm with Arg,
+Binding	associated	associate	VBN	10	+	Arg Vact,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,Vpass with Arg,
+Binding	formation	formation	NN	9	+	Arg Vnorm,Vnorm of Arg,
+Binding	interact	interact	VBP	9	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact with Arg,
+Binding	target	target	NN	7	?	Arg Vact,Arg Vnorm,Vact Arg,Vnorm for Theme,Vnorm of Arg,
+Binding	complexes	complex	NNS	7	+	Arg Vact,Arg Vadj,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact Arg,
+Binding	recruitment	recruitment	NN	6	+	Arg Vnorm,Arg Vpass,Arg undergo Vnorm,Vnorm of Arg,
+Binding	physical	physical	JJ	6	-	
+Binding	heterodimers	heterodimer	NNS	6	?	Arg Vact,Arg Vnorm,Vnorm with Arg,
+Binding	recognizes	recognize	VBZ	6	?	Arg Vact,Arg Vnorm,Vact Arg,
+Binding	heterodimer	heterodimer	NN	6	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Binding	cross-linking	cross-linking	JJ	6	+	Arg Vnorm,Vnorm with Arg,
+Binding	a	a	DT	5	-	
+Binding	affinity	affinity	NN	5	?	Arg Vact,Arg Vnorm,Vnorm for Theme,
+Binding	coligation	coligation	NN	4	+	Arg Vnorm,Vnorm of Arg,
+Binding	receptor	receptor	NN	4	+	Arg Vact,Arg Vnorm,
+Binding	recognized	recognize	VBN	4	+	Arg Vnorm,Arg Vpass,Vpass by Arg,
+Binding	associates	associate	VBZ	4	+	Arg Vact,Arg Vnorm,IN Vnorm ... Arg,IN Vvbg ... Arg,Vact with Arg,
+Binding	presence	presence	NN	4	-	Arg Vnorm,Vact Arg,Vnorm of Arg,
+Binding	associating	associate	VBG	3	+	Arg Vact,Arg Vnorm,Vact Arg,Vact with Arg,
+Binding	targeted	target	VBN	3	?	Arg Vact,Arg Vnorm,Arg Vpass,Vpass by Arg,
+Binding	oligomerization	oligomerization	NN	3	+	Arg Vact,Arg Vnorm,Vnorm of Arg,
+Binding	associated	associate	VBD	3	+	Arg Vact,Arg Vnorm,Vact with Arg,
+Binding	of	of	IN	3	-	
+Binding	associate	associate	VBP	3	+	Arg Vact,Arg Vnorm,Vact with Arg,
+Binding	recognize	recognize	VBP	3	+	Arg Vnorm,Vact Arg,
+Binding	site	site	NN	3	-	
+Binding	specific	specific	JJ	3	-	Arg Vact,Arg Vnorm,
+Binding	cross-linked	cross-linked	JJ	3	+	Arg Vnorm,
+Binding	activities	activity	NNS	3	+	
+Binding	assembly	assembly	NN	2	-	Arg Vnorm,Vnorm of Arg,
+Binding	recruit	recruit	VB	2	-	Arg Vact,Arg Vnorm,Vact Arg,Vnorm to Arg,
+Binding	that	that	DT	2	-	Arg Vnorm,Arg Vpass,
+Binding	pair	pair	NN	2	-	Arg Vnorm,
+Binding	coimmunoprecipitated	coimmunoprecipitate	VBN	2	-	Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Binding	protein	protein	NN	2	-	Arg Vnorm,Vnorm of Arg,
+Binding	physically	physically	RB	2	-	
+Binding	homodimers	homodimer	NNS	2	-	Arg Vact,Arg Vnorm,
+Binding	comigrated	comigrate	VBD	2	-	Arg Vact,Arg Vnorm,Vact with Arg,
+Binding	heterodimerization	heterodimerization	NN	2	-	Arg Vact,Arg Vnorm,Vnorm with Arg,
+Binding	contains	contain	VBZ	2	-	Arg Vnorm,Vact Arg,
+Binding	formed	form	VBN	2	-	
+Binding	complex	complex	JJ	2	-	
+Binding	recognition	recognition	NN	2	-	Arg Vnorm,Arg Vpass,Vnorm of Arg,
+Binding	to	to	TO	2	-	
+Binding	form	form	VB	2	-	
+Binding	specificity	specificity	NN	2	-	Arg Vnorm,Arg Vpass,
+Binding	complexed	complex	VBN	2	-	Arg Vnorm,Arg Vpass,Vpass with Arg,
+Binding	immunoprecipitated	immunoprecipitate	VBD	1	-	Arg Vact,Arg Vnorm,Vact Arg,
+Binding	dimer	dimer	NN	1	-	
+Binding	recruits	recruit	VBZ	1	-	Arg Vact,Arg Vnorm,Vact Arg,
+Binding	targets	target	NNS	1	-	Arg Vact,Arg Vnorm,
+Binding	targeting	target	VBG	1	-	Arg Vnorm,Arg Vpass,Vact Arg,
+Binding	receptor-ligand	receptor-ligand	JJ	1	-	
+Binding	interacted	interact	VBD	1	-	Arg Vact,Arg Vnorm,Vact with Arg,
+Binding	simultaneously	simultaneously	RB	1	-	
+Binding	engaged	engage	VBN	1	-	
+Binding	couple	couple	VB	1	-	Arg Vnorm,Vact to Arg,
+Binding	associations	association	NNS	1	-	Vnorm between Arg,
+Binding	genotype	genotype	NN	1	-	
+Binding	dimerizing	dimerize	VBG	1	-	Arg Vact,Arg Vnorm,Arg does something by Vvbg,Vact with Arg,
+Binding	heterodimerizes	heterodimerize	VBZ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Vact with Arg,
+Binding	cross-linked	cross-linked	VBN	1	-	Arg Vnorm,Arg Vpass,
+Binding	sites	site	NNS	1	-	
+Binding	homodimerization	homodimerization	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Binding	specificities	specificity	NNS	1	-	
+Binding	affinities	affinity	NNS	1	-	
+Binding	high	high	JJ	1	-	Arg Vact,Arg Vadj,Arg Vnorm,
+Binding	occupied	occupy	VBN	1	-	Arg Vnorm,Vpass by Arg,
+Binding	heterodimerize	heterodimerize	VBP	1	-	Arg Vact,Arg Vnorm,
+Binding	dimerized	dimerized	JJ	1	-	Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Binding	target	target	VB	1	-	Arg Vnorm,Vact Arg,Vnorm to Arg,
+Binding	engage	engage	VB	1	-	Arg Vact,Arg Vnorm,
+Binding	participation	participation	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Binding	subunit	subunit	NN	1	-	
+Binding	reacted	react	VBD	1	-	Arg Vnorm,Vact with Arg,
+Binding	through	through	IN	1	-	Arg Vact,Arg Vnorm,Vact Arg,
+Binding	mutants	mutant	NNS	1	-	
+Binding	conjugation	conjugation	NN	1	-	Arg Vnorm,
+Binding	transcriptional	transcriptional	JJ	1	-	Arg Vact,Arg Vnorm,Vact Arg,Vnorm of Arg,X is a Y,
+Binding	ligand	ligand	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Binding	partner	partner	NN	1	-	
+Binding	capable	capable	JJ	1	-	
+Binding	forming	form	VBG	1	-	Arg Vnorm,Vact Arg,
+Binding	functional	functional	JJ	1	-	
+Binding	detected	detect	VBN	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Arg Vpass,IN Vnorm ... Arg,IN Vvbg ... Arg,
+Binding	containing	contain	VBG	1	-	
+Binding	induced	induce	JJ	1	-	
+Binding	heteromeric	heteromeric	JJ	1	-	
+Binding	sufficient	sufficient	JJ	1	-	
+Binding	for	for	IN	1	-	
+Binding	migrate	migrate	VB	1	-	Arg Vact,Arg Vnorm,Vact with Arg,
+Binding	absence	absence	NN	1	-	Arg Vact,Arg Vadj,Arg Vnorm,Vact Arg,Vnorm of Arg,
+Binding	content	content	NN	1	-	
+Binding	ap-1	ap-1	XX	1	-	
+Binding	:	:	XX	1	-	
+Binding	homodimer	homodimer	NN	1	-	Arg Vact,Arg Vnorm,
+Binding	higher-affinity	higher-affinity	JJ	1	-	
+Binding	lower-affinity	lower-affinity	JJ	1	-	
+Binding	competition	competition	NN	1	-	Arg Vnorm,Vnorm between Arg,
+Binding	linkage	linkage	NN	1	-	Arg Vact,Arg Vnorm,
+Binding	occupancy	occupancy	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Binding	dimerizes	dimerize	VBZ	1	-	Arg Vact,Arg Vnorm,
+Binding	combination	combination	NN	1	-	Arg Vnorm,Vnorm of Arg,
+Binding	reactivity	reactivity	NN	1	-	Arg Vnorm,
+Binding	potent	potent	JJ	1	-	Arg Vact,Arg Vadj,
+Binding	fails	fail	VBZ	1	-	
+Binding	linked	link	VBN	1	-	Arg Vnorm,Arg Vpass,
+Binding	associate	associate	VB	1	-	Arg Vact,Arg Vnorm,Vact with Arg,
+Binding	forms	form	VBZ	1	-	
+Binding	dna-protein	dna-protein	XX	1	-	
+Binding	has	have	VBZ	1	-	
+Binding	the	the	DT	1	-	
+Binding	highest	highest	JJS	1	-	
+Binding	replaced	replace	VBN	1	-	Arg Vnorm,Vpass by Arg,
+Binding	bound	bind	JJ	1	-	
+Binding	via	via	IN	1	-	Arg Vact,Arg Vnorm,Vact Arg,
+Binding	heterodimeric	heterodimeric	JJ	1	-	
+Binding	crosslinked	crosslink	VBN	1	-	Arg Vnorm,
+Binding	crosslink	crosslink	VBP	1	-	Vact Arg,
+Binding	is	be	VBZ	1	-	
+Binding	TRUE	TRUE	JJ	1	-	
+Binding	-	-	XX	1	-	
+Binding	its	its	PRP$	1	-	
+Binding	blocking	block	VBG	1	-	Arg Vnorm,
+Binding	aggregated	aggregate	VBN	1	-	Arg Vact,Arg Vnorm,
+Binding	at	at	IN	1	-	Arg Vnorm,
+Binding	coengagement	coengagement	NN	1	-	Arg Vnorm,
+Binding	multimers	multimer	NNS	1	-	Arg Vnorm,Vnorm of Arg,
+Binding	formed	form	VBD	1	-	
+Binding	cross-reacts	cross-react	VBZ	1	-	Arg Vnorm,Vact with Arg,

@@ -1,0 +1,10 @@
+.directory
+*.kate-swp
+/data
+/bin
+.svn
+/lib/stanford-corenlp-1.3.4-models.jar
+/*.html
+/*.fn*
+/*.fp*
+/*.tp*

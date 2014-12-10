@@ -1,0 +1,72 @@
+# Rules in which argument are general semantic role
+####################################################
+
+# active in-direct verb followed by an NP or NN. 
+name:   Vact to Arg 
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 TO <2 /^N.*$/=arg))
+
+name:   Vact to Arg 
+tregex: VP=p < ((VBN=tr <<: /bound/) $+ (PP <1 TO <2 /^N.*$/=arg))
+
+name:   Vact to Arg 
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 RB <2 TO <3 /^N.*$/=arg))
+
+name:   Vact to Arg 
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (ADVP $+ (PP <1 TO <2 /^N.*$/=arg)))
+
+name:   Vact with Arg 
+tregex: __=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 (IN << /with/) <2 /^N.*$/=arg))
+
+name:   Vact with Arg 
+tregex: __=p < (/^VBD|V BZ|VBP|VBG|VP|VB$/=tr $+ (NP <2 (PP <1 (IN << /with/) <2 /^N.*$/=arg)))
+
+name:   Vact with Arg 
+tregex: VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (ADVP $+ (PP <1 (IN << /with/) <2 /^N.*$/=arg)))
+
+name:   Vact at Arg 
+tregex: __=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 (IN << /at/) <2 /^N.*$/=arg))
+
+name:   Vnorm between Arg 
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /between/ $+ /^N.*$/=arg)))
+
+name:   Vnorm into Arg 
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /into/ $+ /^N.*$/=arg)))
+
+name:   Vnorm with Arg 
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /with/ $+ /^N.*$/=arg)))
+
+name:   Vnorm for Arg 
+tregex: __=p < (/^N.*$/=tr $+ (PP < ((IN <, /for/) $+ /^N.*$/=arg)))
+
+name:   Vnorm at Arg 
+tregex: __=p < (/^N.*$/=tr $+ (PP < ((IN <, /at/) $+ /^N.*$/=arg)))
+
+name:   Arg at Vadj level 
+tregex: __=p < (NP=arg $+ (PP <1 (IN << /at/) <2 (NP <-2 @/N.*|JJ/=tr <<- /level/)))
+
+name:   Arg at Vnorm level 
+tregex: __=p < (NP=arg $+ (PP <1 (IN << /at/) <2 (NP <-2 @/N.*|JJ/=tr <<- /level/)))
+
+name:   Vpass with Arg 
+tregex: __=p < (VBN=tr $+ (PP <<, /with/ <2 NP=arg))
+
+name:   Vnorm to Arg 
+tregex: __=p < ((NP=tr << /binding/) $+ (PP <2 NP=arg))
+
+name:   Vnorm of ... to Arg 
+tregex: NP=p <1 (/^N.*$/=tr << /(b|B)inding/) <2 (PP << /of/) <3 (PP <1 TO <2 /^N.*$/=arg)
+
+name:   Vnorm of ... with Arg 
+tregex: NP=p <1 (/^N.*$/=tr << /(i|I)nteraction|(a|A)ssociation/) <2 (PP << /of/) <3 (PP <<, /with/ <2 /^N.*$/=arg)
+
+name:   Vnorm from Arg 
+tregex: __=p < ((/^N.*$/=tr << /tion/) $+ (PP < ((IN <, /from/) $+ /^N.*$/=arg)))
+
+name:   Arg - Vnorm
+tregex: __=p <: (/(.+?[-].+?)[-]([^_\d]+)/)
+
+name:   Arg - expressing 
+tregex: NN|JJ=p <: /[-](binding)/
+
+name:   Arg - expressing 
+tregex: JJ=p <: /[-](expressing|secreting)/

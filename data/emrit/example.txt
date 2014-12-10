@@ -1,0 +1,519 @@
+MIR: mir1
+iTerm: srf
+Variations: srf, serum response factor
+21303526-1 Serum response factor ( SRF ) regulates certain microRNAs that play a role in cardiac and skeletal muscle development .
+23436819-3 We aimed to determine the impact of the SRF transcription factor known to regulate the NCX1 promoter and microRNA genes , on the expression of NCX1 mRNA and protein and Annexin A5 ( AnxA5 ) , a Ca(2+) -binding protein interacting with NCX1 and increased during HF .
+19004760-2 The appearance of Hand1 and Smyd1 , transcription and chromatin remodeling factors ; Acta1 , Acta2 , Myl3 , and Myom1 , myofibril proteins ; and calcium-activated potassium-channel gene activity ( KCNMB1 ) , the channel protein , were powerfully attenuated in the Srf ( CKO ) mutant hearts .
+23103763-5 Expression of vinculin , matrix metallopeptidase 9 ( MMP-9 ) and integrin BETA1 , three SRF targets and key regulators of cell migration , in injured arteries was significantly weaker in Mkl1(-/-) mice than in wild-type mice .
+21303526-10 Our study demonstrates that the downregulation of miR-1 , miR-133a , and upregulation of miR-21 can be reversed by one single upstream regulator , SRF .
+21303526-7 Furthermore , we observed that SRF regulates microRNA biogenesis , specifically the transcription of pri-microRNA , thereby affecting the mature microRNA level .
+19775284-9 MiR-1 was up-regulated in MI , possibly due to the concomitant increase in SRF , a transcriptional activator of the miR-1 gene , accounting for decreased Kir2.1 .
+19004760-4 In the absence of SRF genes associated with biomineralization , GATA-6 , bone morphogenetic protein 4 ( BMP4 ) , and periostin were strongly up-regulated , coinciding with the down regulation of many SRF dependent microRNA , including miR1 , which exerted robust silencer activity over the induction of GATA-6 leading to the down regulation of BMP4 and periostin .
+18371447-4 Here , we show that two serum response factor ( SRF ) -dependent muscle-specific microRNAs , miR-1 and miR-133 , promote mesoderm formation from ES cells but have opposing functions during further differentiation into cardiac muscle progenitors .
+21506120-1 Myocardin is a transcriptional co-activator of serum response factor ( SRF ) and can be degraded through ubiquitin-proteasome system .
+16380711-7 By contrast , miR-133 enhances myoblast proliferation by repressing serum response factor ( SRF ) .
+21303526-9 The mir-21 gene is regulated by SRF and its cofactors , including myocardin and p49/Strap .
+19581315-5 Our results further revealed that the beta-adrenoceptor-cAMP-Protein Kinase A ( PKA ) signalling pathway contributed to the expression of miR-1 , and serum response factor ( SRF ) , which is known as one of the transcriptional enhancers of miR-1 , was up-regulated in ischaemic myocardium .
+21303526-2 However , the role of SRF in the regulation of microRNA expression and microRNA biogenesis in cardiac hypertrophy has not been well established .
+23436819-7 MiR-1 , a microRNA regulated by SRF , was decreased in the SRF ( HKO ) and repressed by phenylephrine .
+21506120-3 Further studies using chromatin immunoprecipitation assay revealed that proteasome inhibition , although increased the occupancy of myocardin and SRF on the promoter of SM ALPHA-actin gene , abolished myocardin-dependent recruitment of RNA polymerase II .
+19004760-3 A requisite role for combinatorial cofactor interactions with SRF , as a major determinant for regulating the appearance of organized sarcomeres , was shown by viral rescue of SRF-null ES cells with SRF point mutants that block cofactor interactions .
+23103763-1 Myocardin-related transcription factor ( MRTF ) -A is a Rho signalling-responsive co-activator of serum response factor ( SRF ) .
+21998125-2 Muscle-specific microRNAs and serum response factor ( SRF ) are important regulators of muscle phenotype that contribute to a feedback system to regulate muscle gene expression .
+21303526-3 In this report , we employed two distinct transgenic mouse models to study the impact of SRF on cardiac microRNA expression and microRNA biogenesis .
+23436819-6 AnxA5 protein expression profile paralleled the expression of NCX1 protein in the SRF ( HKO ) .
+21303526-6 Reducing cardiac SRF level using the antisense-SRF transgenic approach ( Anti-SRF-Tg ) resulted in the expression of miR-1 , miR-133a and miR-21 in the opposite direction .
+18023168-2 SRF may also direct the expression of microRNAs ( miRs ) that inhibit the expression of cardiac regulatory factors .
+19775284-6 Kir2.1 and serum response factor ( SRF ) levels were analysed by Western blot and microRNA-1 ( miR-1 ) level was determined by real-time RT-PCR .
+24068960-3 Concomitant knockout of miR-1-1/133a-2 and miR-1-2/133a-1 released suppression of the transcriptional co-activator myocardin , a major regulator of SM gene expression , but not of its binding partner SRF .
+21303526-8 The mir-21 promoter sequence is conserved among mouse , rat and human ; one SRF binding site was found to be in the mir-21 proximal promoter region of all three species .
+23436819-10 Our study reveals the existence of a complex regulatory loop where SRF regulates the transcription of NCX1 and miR-1 , which in turn functions as a rheostat limiting the translation of NCX1 and AnxA5 proteins .
+19581315-6 Moreover , propranolol inhibited the beta-adrenoceptor-cAMP-PKA signalling pathway and suppressed SRF expression .
+21303526-4 Cardiac-specific overexpression of SRF ( SRF-Tg ) led to altered expression of a number of microRNAs .
+20655308-3 Serum response factor ( SRF ) and the MEK1/2 pathway were involved in miR-1 and miR-206 expression in cardiomyocytes .
+23436819-4 NCX1 mRNA was decreased while the protein was increased in the failing heart of the cardiomyocyte-restricted SRF knock-out mice ( SRF ( HKO ) ) .
+20458751-1 Myocardin , a cofactor of serum response factor ( SRF ) , specifically induces the expression of contractile proteins to promote differentiation and contractile phenotype of smooth muscle cells ( SMCs ) .
+21303526-5 Interestingly , downregulation of miR-1 , miR-133a and upregulation of miR-21 occurred by 7 days of age in these mice , long before the onset of cardiac hypertrophy , suggesting that SRF overexpression impacted the expression of microRNAs which contribute to cardiac hypertrophy .
+18023168-1 Serum response factor ( SRF ) , a cardiac-enriched transcription factor , is required for the appearance of beating sarcomeres in the heart .
+20458751-2 SRF directly induces the transcription of microRNA-1 ( miR-1 ) in cardiac and skeletal muscle precursor cells and miR-1 promotes the skeletal muscle differentiation and modulates cardiac hypertrophy .
+23436819-5 The induction of NCX1 mRNA by the pro-hypertrophic drug phenylephrine observed in control mice was abolished in the SRF ( HKO ) though the protein was strongly increased .
+21220930-9 Furthermore , tanshinone IIA could inhibit activated p38 MAPK and heart special transcription factors SRF and MEF2 , in ischemic and hypoxic cardiomyocytes .
+20458751-6 Our further studies revealed that exogenous miR-1 , which did not affect myocardin or SRF expression , suppressed the expression of contractile proteins , such as alpha-SMA and SM22 , and impaired the actin cytoskeletal organization .
+18023168-3 The recent knockout of miR-1-2 , an SRF gene target , showed defective heart development , caused in part by the induction of GATA6 , Irx4/5 , and Hand2 , that may alter cardiac morphogenesis , channel activity , and cell cycling .
+24058688-4 In this study , we identify a unique serum response factor ( SRF ) binding motif within the enhancer through bioinformatic approaches .
+19775284-10 Treatment with tanshinone IIA prevented increased SRF and hence increased miR-1 post-MI , whereas quinidine did not .
+19004760-1 Our conditional serum response factor ( SRF ) knockout , Srf ( Cko ) , in the heart-forming region blocked the appearance of rhythmic beating myocytes , one of the earliest cardiac defects caused by the ablation of a cardiac-enriched transcription factor .
+18023168-4 SRF and cofactors play an obligatory role in cardiogenesis , as major determinants of myocyte differentiation not only by regulating the biogenesis of muscle contractile proteins but also by driving the expression of silencer miRNA .
+
+MIR: mir1
+iTerm: cx43~#~protein
+Variations: cx43 protein, cx43 proteins
+24468403-12 Compared with MI group , miR-1 expression was significantly down-regulated while Kir2.1 and CX43 protein expression were increased .
+24146179-12 This study indicated that miR-1 and 206 is down-regulated in TOF patients , which may cause an up-regulation of Cx43 proteins synthesis .
+22045061-9 Our results revealed an inverse correlation between miR-1 levels and Cx43 protein expression in VMC samples .
+21220930-10 Pretreatment with p38 MAPK inhibitor , SB203580 ( 10 uM ) , significantly relieved hypoxia-induced miR-1 increment and restored its downstream target Cx43 protein expression .
+22045061-11 In cultured , miRNA transfected myocardial cells , we show overexpression of miR-1 accompanied by a decrease in Cx43 proteins expression .
+21220930-8 This beneficial effect may due to the depression of the elevated miR-1 level in ischemic and hypoxic cardiomyocytes , which subsequently restored its target Cx43 protein .
+21753256-5 The expression of micro-RNA-1 ( miR-1 ) , a micro-RNA known to control Cx43 protein expression in cardiomyocytes , was also determined .
+22045061-8 Among the target genes of miR-1 , the expression Cx43 protein was significantly reduced in such mice while there was no significant difference in the its mRNA levels .
+17062625-3 In this study we show that this downregulation is accomplished by two related microRNAs , miR-206 and miR-1 , that inhibit the expression of Cx43 protein during myoblast differentiation without altering Cx43 mRNA levels .
+24146179-6 Immunohistochemistry was used to detect Cx43 protein expression .
+23678295-11 Moreover , Cx43 protein was downregulated in miR-1 Tg mice compared to that in WT mice .
+
+MIR: mir1
+iTerm: kir2.1
+Variations: kir2.1
+22889704-8 As2O3 depressed the protein levels of ether-a-go-go related gene ( ERG ) and Kir2.1 , the K(+) channel subunits responsible for delayed rectifier K(+) current IKr and inward rectifier K(+) current IK1 , respectively .
+19775284-11 Down-regulation of miR-1 and consequent recovery of Kir2.1 may account partially for the efficacy of tanshinone IIA in suppressing ischaemic arrhythmias and cardiac mortality .
+19775284-6 Kir2.1 and serum response factor ( SRF ) levels were analysed by Western blot and microRNA-1 ( miR-1 ) level was determined by real-time RT-PCR .
+24468403-12 Compared with MI group , miR-1 expression was significantly down-regulated while Kir2.1 and CX43 protein expression were increased .
+19768467-8 Transcripts encoding Cav1.2 , HCN2 , Kir2.1 , KCNE1 , SUR1 , and NCX1 were upregulated in HF compared to NF while a downregulation was observed for KChIP2 , SERCA2 , and miR-1 .
+19775284-8 Tanshinone IIA restored the diminished I ( K1 ) current density and Kir2.1 protein after MI in rat ventricular myocytes , while quinidine further inhibited I ( K1 )/Kir2.1 .
+19959133-12 There was a corresponding increase in Kir2.1 protein expression , but no change in other Kir or Cx proteins .
+22889704-10 Similarly , forced expression of miR-1 widened QTc interval and QRS complex and increased mortality rate , accompanied by downregulation of Kir2.1 protein and IK1 .
+19775284-9 MiR-1 was up-regulated in MI , possibly due to the concomitant increase in SRF , a transcriptional activator of the miR-1 gene , accounting for decreased Kir2.1 .
+19959133-14 Kir2.1 mRNA was significantly increased .
+19581315-4 In agreement with its miR-1-reducing effect , propranolol relieved myocardial injuries during ischaemia , restored the membrane depolarization and cardiac conduction slowing , by rescuing the expression of inward rectifying K(+) channel subunit Kir2.1 and gap junction channel connexin 43 .
+21785809-5 By using Western blot techniques , M₃-mAChR overexpression also rescued the expression of the inward rectifying K⁺ channel subunit Kir2.1 after myocardial I/R injury .
+19959133-16 Ex vivo tachystimulation of human atrial slices up-regulated Kir2.1 and down-regulated miR-1 , suggesting a primary role of atrial rate in miR-1 down-regulation and I ( K1 ) up-regulation .
+19959133-17 miR-1 levels are greatly reduced in human AF , possibly contributing to up-regulation of Kir2.1 subunits , leading to increased I ( K1 ) .
+17401374-6 miR-1 overexpression slowed conduction and depolarized the cytoplasmic membrane by post-transcriptionally repressing KCNJ2 ( which encodes the K(+) channel subunit Kir2.1 ) and GJA1 ( which encodes connexin 43 ) , and this likely accounts at least in part for its arrhythmogenic potential .
+
+MIR: mir1
+iTerm: igf1
+Variations: igf1, igf-1
+22982320-0 IGF-1 prevents oxidative stress induced-apoptosis in induced pluripotent stem cells which is mediated by microRNA-1 .
+22982320-5 Moreover , miR-1 mimic , but not miR-1 mimic negative control , diminished the protective effect of IGF-1 on H(2) O(2) -induced mitochondrial dysfunction , cytochrome-c release and apoptosis in iPS cells .
+22982320-3 iPS cells treated with H(2) O(2) showed increases in miR-1 expression , mitochondria dysfunction , cytochrome-c release and apoptosis , Addition of IGF-1 into the iPS cell cultures reduced the H(2) O(2) cytotoxicity .
+22393433-5 We hypothesized that microRNAs ( miRNAs ) that target the IGF-1 signaling family for translation repression could be alternatively suppressed to promote IGF-1-like neuroprotection .
+24563285-1 To investigate the effect of miR-18a on the regulation of the insulin-like growth factor ( IGF-1 ) during growth of antlers in sika deer , miRNA Chip analysis , Target Scan and real-time PCR analysis were used to identify miRNAs that bind to the 3-UTR of IGF-1 .
+19245789-7 Together , our results indicate that miR-1 and miR-206 are involved in apoptotic cell death in MI by post-transcriptional repression of IGF-1 .
+18801338-0 Glucose induces apoptosis of cardiomyocytes via microRNA-1 and IGF-1 .
+24563285-7 Thus , miR-1 down-regulated IGF-1 expression thus implicating miR-18a as an important regulator of antler proliferation.
+22393433-2 Plasma and brain insulin-like growth factor-1 ( IGF-1 ) levels decrease with age .
+18801338-5 Using prediction algorithms , we identified 3-untranslated regions of IGF-1 gene are the target of miR-1 .
+22982320-6 In conclusion , IGF-1 inhibits H(2) O(2) -induced mitochondrial dysfunction , cytochrome-c release and apoptosis .
+21418519-13 Our data suggest that IGF-1 deficiency retards AAC-induced cardiac hypertrophic and contractile changes via alleviating down-regulation of miR-1 and miR-133a in response to left ventricular pressure overload .
+18801338-4 Glucose induced mitochondrial dysfunction , cytochrome-c release and apoptosis was blocked by IGF-1 .
+19245789-3 miR-1 and miR-206 expression were significantly increased , and insulin-like growth factor 1 ( IGF-1 ) protein was markedly reduced without obvious change of its mRNA level after MI induction .
+22982320-2 The present study aims at investigating whether oxidative stress triggered by the exposure to hydrogen peroxide ( H(2) O(2) ) can induce apoptosis of induced pluripotent stem cells ( iPS cells ) in a mechanism mediated by insulin-like growth factor ( IGF-1 ) and microRNA-1 ( miR-1 ) .
+18801338-7 In conclusion , our data demonstrate that IGF-1 inhibits glucose-induced mitochondrial dysfunction , cytochrome-c release and apoptosis and IGF-1s effect is regulated by miR-1 .
+21418519-10 In contrast , neither AAC treatment nor IGF-1 deficiency affected glycogen synthase kinase 3b , mammalian target of rapamycin , the Glut-4 translocation mediator Akt substrate of 160 kD ( AS160 ) and protein phosphatase .
+19245789-5 IGF-1 level was reduced without changing its transcript level in rat H9C2 myoblast cells modified with miR-1 ( H9C2-miR-1 ) .
+24563285-3 Dual luciferase assays revealed that miR-18a binds to the 3-UTR of the IGF-1 gene thus indicating this to be a target gene regulated by miR-18a .
+19933931-4 On the basis of bioinformatics tools , biochemical assays , and in_vivo models , we demonstrate that (1) insulin-like growth factor-1 ( IGF-1 ) and IGF-1 receptor are targets of miR-1 ; (2) miR-1 and IGF-1 protein levels are correlated inversely in models of cardiac hypertrophy and failure as well as in the C2C12 skeletal muscle cell model of differentiation ; (3) the activation state of the IGF-1 signal transduction cascade reciprocally regulates miR-1 expression through the Foxo3a transcription factor ; and (4) miR-1 expression correlates inversely with cardiac mass and thickness in myocardial biopsies of acromegalic patients , in which IGF-1 is overproduced after aberrant synthesis of growth hormone .
+21418519-6 Neonatal rat cardiomyocytes ( NRCMs ) were transfected with miRs prior to IGF-1 exposure to initiate cell proliferation .
+22393433-4 IGF1 is neuroprotective and well tolerated , but also has potentially undesirable side effects .
+19245789-4 Position 175-196 of rat IGF-1 3-untranslated region was identified to be required for efficient downregulation by miR-1/miR-206 .
+21418519-9 In addition , IGF-1 deficiency mitigated AAC-induced increase in atrial natriuretic factor , GATA binding protein 4 , glucose transporter 4 ( GLUT4 ) and Akt phosphorylation .
+18801338-6 miR-1 mimics , but not mutant miR-1 , blocked the capacity of IGF-1 to prevent glucose-induced mitochondrial dysfunction , cytochrome-c release and apoptosis .
+21418519-0 IGF-1 deficiency resists cardiac hypertrophy and myocardial contractile dysfunction : role of microRNA-1 and microRNA-133a .
+22982320-4 Prediction algorithms showed that 3-untranslated regions of IGF-1 gene as a target of miR-1 .
+22393433-3 However , IGF-1 infusion following stroke , prevents estrogen neurotoxicity in middle-aged female rats .
+19933931-5 Our results reveal a critical role of miR-1 in mediating the effects of the IGF-1 pathway and demonstrate a feedback loop between miR-1 expression and the IGF-1 signal transduction cascade .
+24563285-6 Furthermore , Western blot analysis showed that over-expression of miR-18a down-regulated IGF-1 protein levels while IGF-1 expression was increased after transfection of miR-18a inhibitors .
+22393433-6 Here , we report that two conserved IGF pathway regulatory microRNAs , Let7f and miR1 , can be inhibited to mimic and even extend the neuroprotection afforded by IGF-1 .
+22393433-8 No neuroprotection was observed in animals treated with a brain specific miRNA unrelated to IGF-1 ( anti-miR124 ) .
+18801338-2 The present study investigated whether high glucose state could induce apoptosis of rat cardiomyocyte cell line H9C2 through microRNA regulated insulin-like growth factor ( IGF-1 ) signaling pathway .
+21418519-1 This study was designed to examine the impact of insulin-like growth factor-1 ( IGF-1 ) deficiency on abdominal aortic constriction ( AAC ) -induced cardiac geometric and functional changes with a focus on microRNA-1 , 133a and 208 , which are specially expressed in hearts and govern cardiac hypertrophy and stress-dependent cardiac growth .
+22393433-11 While IGF-1 was undetectable in microglia harvested from the non-ischemic hemisphere , IGF-1 was expressed by microglia obtained from the ischemic cortex and was further elevated by anti-Let7f treatment .
+
+MIR: mir1
+iTerm: post-transcription~#~gene
+Variations: post-transcription gene, post-transcriptional gene
+19440340-1 MicroRNAs ( miRNAs ) are evolutionarily conserved small non-coding RNA species involved in post-transcriptional gene regulation .
+23596423-2 MicroRNAs ( miRNAs ) are small non-coding RNAs involved in post-transcriptional gene regulation .
+19586368-1 MicroRNAs ( miRNAs ) are a class of highly conserved , non-coding RNAs involved in post-transcriptional gene regulation .
+17045567-1 MicroRNAs ( miRNAs ) are small non-coding RNAs emerging as important post-transcriptional gene regulators .
+21412421-10 The identification of 63 miRNAs and determination of the spatial expression patterns of these miRNAs are valuable resources for further studies on post-transcriptional gene regulation in Asian seabass and other fish species .
+18937285-1 MicroRNAs , a novel class of post-transcriptional gene regulators , have been demonstrated to be involved in several cellular processes regulating the expression of protein-coding genes .
+23352489-1 MicroRNAs ( miRNAs ) are endogenous noncoding RNAs of approximately 22 nucleotides in length that mediate post-transcriptional gene silencing by annealing to sequences in the 3-untranslated region of target mRNAs .
+20487562-1 MicroRNAs are highly conserved , noncoding RNAs involved in post-transcriptional gene silencing .
+19196471-11 Identification of 120 miRNAs and determination of the spatial expression patterns of a sub-set of these in the pig is a valuable resource for molecular biologists , breeders , and biomedical investigators interested in post-transcriptional gene regulation in pig and in related mammals , including humans .
+20331612-9 These results provide a valuable resource for investigators interested in post-transcriptional gene regulation in pigs and related animals .
+17401374-1 MicroRNAs ( miRNAs ) are endogenous noncoding RNAs , about 22 nucleotides in length , that mediate post-transcriptional gene silencing by annealing to inexactly complementary sequences in the 3-untranslated regions of target mRNAs .
+23716137-1 MicroRNAs ( miRNAs ) , a novel class of post-transcriptional gene regulators , have been demonstrated to be involved in several cellular processes regulating the expression of protein-coding genes .
+23024758-1 MicroRNAs ( miRNAs ) regulate post-transcriptional gene expression during development and disease .
+
+MIR: mir1
+iTerm: tagln2
+Variations: tagln2, transgelin 2
+22766685-9 In conclusion , epigenetic repression of the miR-1-133a cluster may play a critical role in colorectal cancer metastasis by silencing TAGLN2 .
+21304530-5 Molecular target searches of these miRNAs showed that transgelin 2 ( TAGLN2 ) was directly regulated by both miR-1 and miR-133a .
+21378409-6 Silencing of TAGLN2 significantly inhibited cell proliferation and invasion in HNSCC cells .
+21745735-11 Our data indicate that up-regulation of the oncogenic TAGLN2 was due to down-regulation of tumour-suppressive miR-1 and miR-133a in human RCC .
+22766685-8 Expression of the miR-1-133a cluster inversely correlated with TAGLN2 in the tumor specimens .
+21304530-7 The immunohistochemistry showed a positive correlation between TAGLN2 expression and tumour grade in clinical BC specimens .
+21701775-5 Molecular target identification of these miRNAs showed that transgelin 2 ( TAGLN2 ) and purine nucleoside phosphorylase ( PNP ) were regulated by miR-1 and miR-133a .
+21378409-0 miR-1 as a tumor suppressive microRNA targeting TAGLN2 in head and neck squamous cell carcinoma .
+21304530-9 TAGLN2 may be a target of both miRNAs and had a potential oncogenic function .
+21304530-0 The tumour-suppressive function of miR-1 and miR-133a targeting TAGLN2 in bladder cancer .
+21378409-5 A search for the targets of miR-1 revealed that transgelin 2 ( TAGLN2 ) was directly regulated by miR-1 .
+21745735-8 The luciferase assay revealed transgelin-2 ( TAGLN2 ) , selected as a target gene for miR-1 and miR-133a on the basis of the gene expression profile , to be directly regulated by both miR-1 and miR-133a .
+21378409-7 Down-regulation of miR-1 and up-regulation of TAGLN2 were confirmed in HNSCC clinical specimens .
+21304530-6 Silencing of TAGLN2 study demonstrated significant inhibitions of cell proliferation and increase of apoptosis in BC cell lines .
+21378409-8 Our data indicate that TAGLN2 may have an oncogenic function and may be regulated by miR-1 , a tumor suppressive miRNA in HNSCC .
+21745735-10 The expression level of TAGLN2 mRNA was significantly up-regulated in the RCC specimens ; in addition , there was a statistically significant inverse correlation between TAGLN2 and miR-1 and miR-133a expression .
+21701775-6 Both TAGLN2 and PNP mRNA expression levels were significantly upregulated in clinical MSSCC tumor tissues .
+
+MIR: mir1
+iTerm: beta-lactamase
+Variations: beta-lactamase, beta-lactamases
+7859851-2 Analysis of enzymes produced by these clinical isolates revealed a wide pattern of extended-spectrum beta-lactamases .
+8843306-1 A plasmidic beta-lactamase which hydrolyzed cephamycins was first detected and reported in 1989 .
+10390237-0 Sequence of the MIR-1 beta-lactamase gene .
+1963529-2 Resistance could be transferred by conjugation or transformation with plasmid DNA into Escherichia coli and was due to the production of a beta-lactamase with an isoelectric point of 8.4 named MIR-1 .
+8843306-4 The deduced amino acid sequence of the blaCMY-1 product was compared with those of other known plasmidic cephamycinases and of chromosomal AmpC beta-lactamases .
+11451677-3 Preliminary experiments indicate that various extended-spectrum class C beta-lactamases ( ACT-1 , CMY-1 , and MIR-1 ) are also inactivated .
+9055993-13 pneumoniae when a high level of the ACT-1 beta-lactamase is produced in combination with the loss of a major outer membrane protein .
+11451677-1 A detailed kinetic study of the interaction between two ethylidene derivatives of tricyclic carbapenems , Lek 156 and Lek 157 , and representative beta-lactamases and D-alanyl-D-alanine peptidases ( DD-peptidases ) is presented .
+18781358-7 The minimal inhibitory concentrations of beta-lactam in combination with beta-lactamase inhibitors show no significant synergy .
+1416878-1 The three-dimensional and clavulanate double-disk potentiation tests were compared as procedures for the detection of extended-spectrum beta-lactamase production in 32 strains of Escherichia coli and Klebsiella pneumoniae , 31 of which produced TEM-1 , TEM-2 , TEM-3 , TEM-4 , TEM-5 , TEM-7 , TEM-8 , TEM-9 , TEM-10 , TEM-12 , TEM-101 , SHV-1 , SHV-2 , SHV-3 , SHV-4 , SHV-5 , CAZ-2 , MIR-1 , or an unidentified extended-spectrum beta-lactamase with a pI of 5.95 , with some strains producing multiple beta-lactamases .
+1963529-21 pneumoniae strains was the result of plasmid acquisition of a class I beta-lactamase , a new resistance determinant that expands the kinds of beta-lactam resistance capable of spread by plasmid dissemination among clinical isolates .
+8843306-8 Plasmidic cephamycinases are now recognized as clinically relevant class C beta-lactamases .
+9055993-6 The 4ene encoding the pI 9.0 beta-lactamase ( designated ACT-1 for AmpC type ) was cloned and sequenced , which revealed an ampC-type beta-lactamase gene that originated from Enterobacter cloacae and that had 86% sequence homology to the P99 beta-lactamase and 94% homology to the partial sequence of MIR-1 .
+15504838-0 Promoter sequences necessary for high-level expression of the plasmid-associated ampC beta-lactamase gene blaMIR-1 .
+11451677-2 Both compounds are very efficient inactivators of the Enterobacter cloacae 908R beta-lactamase , which is usually resistant to inhibition .
+22016679-9 Qnr-positive strains also showed high positive rates of ESBL or AmpC beta-lactamase , such as TEM , SHV , CTX-M , and DHA .
+18453698-2 The overall structure of ACT-1 is similar to those of other class C beta-lactamases , such as the AmpC enzymes from E .
+9055993-5 Spectrophotometric beta-lactamase assays with purified enzyme indicated hydrolysis of cephamycins , in addition to cephaloridine and benzylpenicillin .
+16420989-3 The wider resistance including 3GC , cephamycins and beta-lactamase inhibitor is correlated to synthesis of transferable cephalosporinases ( class C ) usually located in the chromosome but mobilized from Enterobacter spp. , Citrobacter freundii , Hafnia alvei , Morganella morganii , Aeromonas caviae .
+11451677-0 Kinetic study of two novel enantiomeric tricyclic beta-lactams which efficiently inactivate class C beta-lactamases .
+14757240-3 Isoelectric focusing demonstrated production of beta-lactamases with pIs > 8.0 and by all six isolates , exhibiting a cephalosporinase phenotype .
+17051471-1 Enterobacteria produce elementary chromosomal enzymes , Beta-lactamases of class A :
+11068913-0 Discriminatory detection of extended-spectrum beta-lactamases by restriction fragment length dimorphism-polymerase chain reaction .
+18781358-0 Characterization of a novel AmpC-type plasmid-mediated beta-lactamase from an Escherichia coli strain isolated in China .
+16189104-6 coli hosts producing a plasmid - or a chromosome-encoded class C enzyme toward beta-lactam antibiotics are mainly due to the overproduction of the beta-lactamase in the periplasmic space of the bacteria rather than to a specific catalytic profile of the plasmid-encoded beta-lactamases .
+10390237-1 The complete nucleotide sequence of the plasmid-mediated MIR-1 beta-lactamase gene confirms its relationship to chromosomally located ampC genes of Enterobacter cloacae .
+9055993-2 Seventeen of the 18 strains produced multiple beta-lactamases .
+22016679-1 We investigated the prevalence of plasmid-mediated quinolone resistance and its association with extended-spectrum beta-lactamase ( ESBL ) and AmpC beta-lactamase in Enterobacteriaceae .
+7859851-0 Extended-spectrum beta-lactamases from Klebsiella pneumoniae strains isolated at an Italian hospital .
+9710678-2 The class A extended-spectrum beta-lactamases hydrolyze extended-spectrum beta-lactams and are inhibited by clavulanic acid .
+7859851-4 Strains isolated early were from patients in the Intensive Care Unit and produced an ES beta-lactamase with an apparent pI of 7.6 , whereas the later isolates were from surgical and medical wards of the same hospital and produced ES beta-lactamases with apparent pI of 8.2 and 8.4 , respectively .
+17051471-0 [Development of Beta-lactamase resistance in enterobacteria] .
+1416878-2 The three-dimensional test , which was performed in conjunction with a routine disk diffusion test , detected extended-spectrum beta-lactamase production in 26 of 28 ( 93% ) of the strains that produced extended-spectrum beta-lactamases .
+17051471-7 However , not all enterobacteria are resistant only because of ESBLs , but also as a result of the action of chromosomally or plasmid coded AmpC Beta-lactamase of class C ( MIR-1 , CMY-1 , BIL-1 , FOX-1 , MOX-1 , DHA-1 , ACC-1 ) , resistant to Beta-lactamase inhibitors and to cefoxitin ( Enterobacter spp , Proteus vulgaris , Citrobacter freundii , Morganelle spp , Serratia spp ) .
+9710678-1 beta-Lactam resistance among Enterobacteriaceae is related primarily to the emergence of novel beta-lactamases .
+22016679-14 They were closely associated with EBSL and AmpC beta-lactamase .
+11068913-3 Nine newly designed primer pairs were used to differentiate the genes encoding TEM-1a , SHV-12 , MOX-1 , MIR-1 and Toho-1 beta-lactamases .
+14757240-0 Diversity of chromosomal AmpC beta-lactamases from Enterobacter cloacae isolates in a Portuguese hospital .
+1963529-0 Novel plasmid-mediated beta-lactamase ( MIR-1 ) conferring resistance to oxyimino - and alpha-methoxy beta-lactams in clinical isolates of Klebsiella pneumoniae .
+22016679-4 Qnr-positive strains were determined on the basis of the presence of ESBL and AmpC beta-lactamase genes .
+22016679-0 Prevalence of plasmid-mediated quinolone resistance and its association with extended-spectrum beta-lactamase and AmpC beta-lactamase in Enterobacteriaceae .
+17051471-6 Chromosomal hyperpoduction of K1 Beta-lactamase differs from all other ESBLs due its sensitivity to ceftazidime ( Klebsiella oxytoca ) .
+11068913-1 Plasmid-mediated resistance mechanisms to beta-lactams , comprising mostly extended-spectrum beta-lactamase ( ESBL ) production , lead to resistance against even the most recently developed beta-lactams in enterobacteria , which is now a serious threat to antibiotic therapy .
+11451677-8 With the other serine beta-lactamases tested , the covalent adducts exhibit a wide range of stabilities , with half-lives ranging from long ( >4 h with the TEM-1 class A enzyme ) , to medium ( 10 to 20 min with the OXA-10 class D enzyme ) , to short ( 02 to 04 s with the NmcA class A beta-lactamase ) .
+16420989-1 The acquired resistance against the wide-spectrum and highly stable beta-lactams including third-generation cephalosporins ( 3GC ) and carbapenems is constinuously increasing and widespead with the discovery of various plasmid-encoded , or genes cassette or integrons coding for a novel beta-lactamase , always a major mechanism of resistance .
+1416878-4 The three-dimensional test , when performed in conjunction with the disk diffusion test , offered the advantages of providing simultaneous information about both antibiotic susceptibility and extended-spectrum beta-lactamase production , coupled with a greater sensitivity and earlier detection of extended-spectrum beta-lactamases .
+9055993-11 ACT-1 is the first plasmid-mediated AmpC-type beta-lactamase derived from Enterobacter which has been completely sequenced .
+9055993-0 Imipenem resistance in Klebsiella pneumoniae is associated with the combination of ACT-1 , a plasmid-mediated AmpC beta-lactamase , and the foss of an outer membrane protein .
+14757240-6 cloacae P99 and 86-87% homology with those of two plasmid-mediated AmpC beta-lactamases , MIR-1 and ACT-1 .
+8843306-0 Comparative characterization of the cephamycinase blaCMY-1 gene and its relationship with other beta-lactamase genes .
+17051471-3 These can give rise to plasmid-coded broad-spectrum Beta-lactamases ( ESBL ) discovered in 1980 ( E coli , K pneumoniae , Enterobacter cloacae ) .
+16420989-9 Finally because the absence of real new drugs , the discovery of some progenitors of the gene beta-lactamase , a strict control of beta-lactam antibiotics must be provide not only in medecine or veterinary field but also in agriculture , including aquaculture for example .
+7859851-3 All isolates produced one or more beta-lactamases that were characterized preliminarily by their isoelectric point .
+9710678-3 These beta-lactamases are divided in two groups :
+17051471-9 The 100% resistance of enterobacteria to carbapenems that so far exists in this country is elsewhere in the world compromised by the incidence of carbapenem-hydrolysing plasmid-determined Beta-lactamase of class B ( IMP-1 , VIM-1 ) and of class A ( KPC-1 ) in K .
+18781358-1 The aim of this work was to study the phenotypic and molecular characterization of a novel plasmid-mediated AmpC beta-lactamase from Escherichia coli E384 .
+9710678-4 TEM and SHV derivatives and non-TEM and non-SHV extended-spectrum beta-lactamases ( CTX-M1 , CTX-M2 , MEN-1 , PER-1 , PER-2 , TOHO-1 , and VEB-1 ) .
+16189104-2 Except for their instability , these enzymes are very similar to the known chromosomally encoded AmpC beta-lactamases .
+14757240-7 This is the first report of chromosomal AmpC beta-lactamase production by E .
+7859851-5 This suggests the emergence of SHV-5 and MIR-1 beta-lactamases in our hospital .
+18453698-0 Structure of the plasmid-mediated class C beta-lactamase ACT-1 .
+16189104-0 Kinetic properties of four plasmid-mediated AmpC beta-lactamases .
+18453698-1 The crystallographic structure of ACT-1 , which is the first plasmid-mediated AmpC-type beta-lactamase to have been completely analyzed in terms of nucleotide sequence and which has a high degree of sequence similarity to the chromosomal AmpC enzymes of Enterobacter cloacae and the plasmid-encoded MIR-1 , has been solved at 2.4 A resolution .
+9055993-1 Six Escherichia coli and 12 Klebsiella pneumoniae isolates from a single hospital expressed a common beta-lactamase with a pI of approximately 9.0 and were resistant to cefoxitin and cefotetan ( MIC ranges , 64 to > 128 and 16 to > 128 micrograms/ml , respectively ) .
+1963529-8 The inhibition profile of MIR-1 was similar to that of chromosomally mediated class I beta-lactamases .
+1416878-3 The clavulanate double-disk potentiation test detected extended-spectrum beta-lactamases in only 22 of the 28 strains ( 79% ) when it was performed as currently recommended .
+14757240-5 The amino acid sequence of six AmpC beta-lactamases ( Eclo1FF , Eclo6FF , Eclo9FF , Eclo10FF , Eclo11FF and Eclo15FF ) shared 97-99% homology with the chromosomal AmpC beta-lactamase from E .
+11068913-6 The fragment sizes of PCR products digested with the enzymes were identical to the sizes calculated from nucleotide sequences of five beta-lactamase genes deposited in EMBL , GenBank and/or DDBJ databases and the sequences were also identical .
+16189104-1 The heterologous production in Escherichia coli , the purification , and the kinetic characterization of four plasmid-encoded class C beta-lactamases ( ACT-1 , MIR-1 , CMY-2 , and CMY-1 ) were performed .
+18781358-4 MIR-4 beta-lactamase , pI 8.2 , is a novel variant with four substitutions of amino acids compared with the sequence of MIR-1 .
+1416878-0 Detection of extended-spectrum beta-lactamases in members of the family Enterobacteriaceae : comparison of the double-disk and three-dimensional tests .
+11451677-7 cloacae P99 , a constitutive class C beta-lactamase overproducer .
+
+MIR: mir1
+iTerm: histone~#~deacetylase 4
+Variations: histone deacetylase 4, hdac4
+20081117-7 Transient transfection of miR-1 and -499 in CMPC reduced proliferation rate by 25% and 15% , respectively , and enhanced differentiation into cardiomyocytes in human CMPCs and embryonic stem cells , likely via the repression of histone deacetylase 4 or Sox6 .
+20801118-10 However , expression of histone deacetylase 4 and serum response factor , which are reported target genes of miR-1 and miR-133 , increased .
+21998125-11 Furthermore , the protein levels of histone deacetylase 4 , another miR-1 target , were increased in the patients .
+20801118-12 Chronic infection with H pylori down-regulates expression of muscle-specific miRNAs and up-regulates expression of histone deacetylase 4 and serum response factor .
+21520166-8 In addition , miR-1 arrested the cell cycle at the G(1) phase and inhibited cell proliferation by targeting histone deacetylase 4 and E2F transcription factor 5 .
+20081117-8 Histone deacetylase 4 and Sox6 protein levels were reduced , and small interference RNA ( siRNA ) -mediated knockdown of Sox6 strongly induced myogenic differentiation .
+16380711-6 miR-1 promotes myogenesis by targeting histone deacetylase 4 ( HDAC4 ) , a transcriptional repressor of muscle gene expression .
+20566686-4 Moreover , a functional pathway downstream of mTOR and miR-1 is delineated , in which miR-1 suppression of histone deacetylase 4 ( HDAC4 ) results in production of follistatin and subsequent myocyte fusion .
+
+MIR: mir1
+iTerm: hdac4
+Variations: hdac4, histone deacetylase 4
+23921124-7 Our results demonstrate that microRNA-dependent ( miRNA-dependent ) regulation of the PPP via NRF2 and HDAC4 represents a novel link between miRNA regulation , glucose metabolism , and ROS homeostasis in cancer cells .
+18593903-10 Up-regulation of several miR-1 targets including FoxP1 , MET , and HDAC4 in primary human HCCs and down-regulation of their expression in 5-AzaC-treated HCC cells suggest their role in hepatocarcinogenesis .
+16380711-6 miR-1 promotes myogenesis by targeting histone deacetylase 4 ( HDAC4 ) , a transcriptional repressor of muscle gene expression .
+23798494-8 Negative correlations were observed between miR-9 and HDAC4 protein ( r = -071 ; P = 004 ) , miR-31 and HDAC4 protein ( r = -087 ; P = 0026 ) and miR-31 and NRF1 protein ( r = -077 ; P = 001 ) 3 h following exercise .
+23200139-9 Interestingly , these miRNAs have been either validated or predicted to affect multiple muscle-specific factors , including myostatin , FoxO3a , HDAC4 and SMAD7 , and are likely involved in the preservation of pectoral muscle mass and functionality during bat hibernation .
+23798494-9 miR-31 binding to the HDAC4 and NRF1 3 untranslated region ( UTR ) reduced luciferase reporter activity .
+20566686-4 Moreover , a functional pathway downstream of mTOR and miR-1 is delineated , in which miR-1 suppression of histone deacetylase 4 ( HDAC4 ) results in production of follistatin and subsequent myocyte fusion .
+23921124-5 Loss of NRF2 decreased the expression of the redox-sensitive histone deacetylase , HDAC4 , resulting in increased expression of miR-1 and miR-206 , and not only inhibiting PPP expression and activity but functioning as a regulatory feedback loop that repressed HDAC4 expression .
+18818206-9 Similarly , the levels of two additional targets , FoxP1 , a transcription factor with oncogeneic property , and HDAC4 that represses differentiation-promoting genes , were reduced in miR-1-expressing cells .
+
+MIR: mir1
+iTerm: myocardin
+Variations: myocardin, myocd
+21051663-1 Myocardin is a cardiac- and smooth muscle-specific transcription co-factor that potently activates the expression of downstream target genes .
+24068960-0 miR-1/133a clusters cooperatively specify the cardiomyogenic lineage by adjustment of myocardin levels during embryonic heart development .
+24252873-7 miR-1 repressed Telokin expression through direct targeting and by repressing its transcriptional regulator , Myocardin .
+21506120-6 In summary , our results have suggested that proteasomal degradation of myocardin is required for its transcriptional activity .
+23359472-7 Interestingly , adult myocardin heterozygous-knockout mice showed normal increases in bladder and body weight but lower bladder capacity compared to WT mice .
+23103763-0 Reciprocal expression of MRTF-A and myocardin is crucial for pathological vascular remodelling in mice .
+21506120-1 Myocardin is a transcriptional co-activator of serum response factor ( SRF ) and can be degraded through ubiquitin-proteasome system .
+21051663-4 In this study , we investigated whether myocardin induces miR-1 expression to mediate its inhibitory effects on SMC proliferation .
+21303526-9 The mir-21 gene is regulated by SRF and its cofactors , including myocardin and p49/Strap .
+21506120-3 Further studies using chromatin immunoprecipitation assay revealed that proteasome inhibition , although increased the occupancy of myocardin and SRF on the promoter of SM ALPHA-actin gene , abolished myocardin-dependent recruitment of RNA polymerase II .
+23359472-5 Myocardin heterozygous-knockout mice exhibited reduced expression of Myocd mRNA and several SMC contractile genes concurrent with bladder SMC hypersensitivity that was mediated by gap junctions .
+24068960-4 Overexpression of myocardin in the embryonic heart essentially recapitulated the miR-1/133a mutant phenotype at the molecular level , arresting embryonic cardiomyocytes in an immature state .
+20458751-7 Taken together , our results have revealed that myocardin induces miR-1 expression , which represses the expression of contractile proteins and thereby inhibits the contractility of SMCs .
+21506120-4 We further examined the degradation of myocardin in epithelioid and spindle-shaped SMCs and revealed that myocardin in more differentiated spindle-shaped SMCs was more quickly degraded and had shorter half-life than in epithelioid SMCs .
+24068960-3 Concomitant knockout of miR-1-1/133a-2 and miR-1-2/133a-1 released suppression of the transcriptional co-activator myocardin , a major regulator of SM gene expression , but not of its binding partner SRF .
+21506120-0 Proteasomal degradation of myocardin is required for its transcriptional activity in vascular smooth muscle cells .
+21506120-2 Our preliminary studies unexpectedly revealed that accumulation of myocardin in response to proteasome inhibition by MG132 or lactacystin resulted in decrease of transcriptional activity of myocardin as indicated by reduced expression of SMC contractile marker genes ( SM ALPHA-actin , SM22 , and calponin ) and muscle-enriched microRNAs ( miR-143/145 and miR-1/133a ) , and reduced contractility of human vascular smooth muscle cells ( SMCs ) embedded in collagen gel lattices , suggesting that myocardin degradation is required for its transcriptional activity .
+21051663-3 Recently , myocardin was reported to induce the expression of microRNA-1 ( miR-1 ) in cardiomyocytes .
+21051663-5 Using tetracycline-regulated expression ( T-REx ) inducible system expressing myocardin in human vascular SMCs , we found that overexpression of myocardin resulted in significant induction of miR-1 expression and inhibition of SMC proliferation , which was reversed by miR-1 inhibitors .
+24068960-6 Finally , we show that myocardin positively regulates expression of miR-1/133a , thus constituting a negative feedback loop that is essential for early cardiac development.
+23103763-3 MRTF-A expression was significantly higher in the wire-injured femoral arteries of wild-type mice and in the atherosclerotic aortic tissues of ApoE(-/-) mice than in healthy control tissues , whereas myocardin expression was significantly lower .
+23359472-0 Myocardin and microRNA-1 modulate bladder activity through connexin 43 expression during post-natal development .
+21051663-2 Previously , we demonstrated that overexpression of myocardin inhibited the proliferation of smooth muscle cells ( SMCs ) .
+21051663-11 Furthermore , neointimal lesions of mouse carotid arteries displayed downregulation of myocardin and miR-1 with upregulation of Pim-1 .
+20458751-4 We found that miR-1 expression was induced by myocardin overexpression in human aortic SMCs .
+21506120-5 In neointimal lesions , we found that stabilization of myocardin protein was companied by downregulation of transcripts of ubiquitin and proteasome subunits , further illustrating the mechanism underlying reduction of myocardin transcriptional activity .
+20458751-1 Myocardin , a cofactor of serum response factor ( SRF ) , specifically induces the expression of contractile proteins to promote differentiation and contractile phenotype of smooth muscle cells ( SMCs ) .
+20458751-5 In a collagen lattice contraction assay using SMCs harboring a doxycycline-inducible expression system for myocardin , we found that myocardin expression increased the contractility of SMCs , which was significantly inhibited by exogenous miR-1 .
+21051663-0 Induction of microRNA-1 by myocardin in smooth muscle cells inhibits cell proliferation .
+23487791-5 Here we show that four human cardiac transcription factors , including GATA binding protein 4 , Hand2 , T-box5 , and myocardin , and two microRNAs , miR-1 and miR-133 , activated cardiac marker expression in neonatal and adult human fibroblasts .
+23359472-3 We report the involvement of myocardin ( MYOCD ) and microRNA-1 ( miR-1 ) in the regulation of connexin 43 ( GJA1 ) , a major gap junction in bladder smooth muscle , and the collective role of these molecules during post-natal bladder development .
+20458751-6 Our further studies revealed that exogenous miR-1 , which did not affect myocardin or SRF expression , suppressed the expression of contractile proteins , such as alpha-SMA and SM22 , and impaired the actin cytoskeletal organization .
+21051663-8 Correspondingly , spindle-shaped SMCs had significantly higher expression levels of both myocardin and miR-1 than epithelioid SMCs .
+20458751-8 Therefore , our findings suggest a role of miR-1 in the negative feedback loop in the regulation of contractility induced by myocardin .
+
+MIR: mir1
+iTerm: cx43~#~mrna
+Variations: cx43 mrna
+22045061-12 There was only a slight ( not statistically significant ) drop in Cx43 mRNA levels .
+17062625-4 Cx43 mRNA contains two binding sites for miR-206/miR-1 in its 3-untranslated region , both of which are required for efficient downregulation .
+24146179-8 Cx43 mRNA and protein expression in the myocardium tissue was significantly increased in TOF patients .
+21753256-6 Cx43 mRNA and protein levels were significantly higher in the female cardiomyocytes than in the male cardiomyocytes ( mRNA :
+17062625-3 In this study we show that this downregulation is accomplished by two related microRNAs , miR-206 and miR-1 , that inhibit the expression of Cx43 protein during myoblast differentiation without altering Cx43 mRNA levels .
+
+MIR: mir1
+iTerm: ampc
+Variations: ampc
+18453698-2 The overall structure of ACT-1 is similar to those of other class C beta-lactamases , such as the AmpC enzymes from E .
+22016679-0 Prevalence of plasmid-mediated quinolone resistance and its association with extended-spectrum beta-lactamase and AmpC beta-lactamase in Enterobacteriaceae .
+8843306-7 aeruginosa ; CMY-2 , BIL-1 and LAT-1 with AmpC of Citrobacter freundii ; and MIR-1 with AmpC of Enterobacter cloacae .
+16189104-4 However , the K(m) values of CMY-2 for cefuroxime , cefotaxime , and oxacillin were significantly decreased compared to those of the chromosomal AmpC enzymes .
+8843306-4 The deduced amino acid sequence of the blaCMY-1 product was compared with those of other known plasmidic cephamycinases and of chromosomal AmpC beta-lactamases .
+16189104-0 Kinetic properties of four plasmid-mediated AmpC beta-lactamases .
+15504838-11 These data suggest that resistance to extended-spectrum cephalosporins mediated by noninducible plasmid-associated ampC genes requires the formation of novel promoter elements that are capable of increasing ampC expression .
+9055993-0 Imipenem resistance in Klebsiella pneumoniae is associated with the combination of ACT-1 , a plasmid-mediated AmpC beta-lactamase , and the foss of an outer membrane protein .
+10390237-1 The complete nucleotide sequence of the plasmid-mediated MIR-1 beta-lactamase gene confirms its relationship to chromosomally located ampC genes of Enterobacter cloacae .
+22016679-1 We investigated the prevalence of plasmid-mediated quinolone resistance and its association with extended-spectrum beta-lactamase ( ESBL ) and AmpC beta-lactamase in Enterobacteriaceae .
+18453698-1 The crystallographic structure of ACT-1 , which is the first plasmid-mediated AmpC-type beta-lactamase to have been completely analyzed in terms of nucleotide sequence and which has a high degree of sequence similarity to the chromosomal AmpC enzymes of Enterobacter cloacae and the plasmid-encoded MIR-1 , has been solved at 2.4 A resolution .
+1963529-13 coli ampC gene failed to hybridize with the MIR-1 gene .
+14757240-6 cloacae P99 and 86-87% homology with those of two plasmid-mediated AmpC beta-lactamases , MIR-1 and ACT-1 .
+14757240-5 The amino acid sequence of six AmpC beta-lactamases ( Eclo1FF , Eclo6FF , Eclo9FF , Eclo10FF , Eclo11FF and Eclo15FF ) shared 97-99% homology with the chromosomal AmpC beta-lactamase from E .
+18781358-9 The same hybridization signal was detectable only in the 54-kb plasmid band that hybridized with the bla ( CTX-M ) - and bla ( ampC ) -specific probes .
+15504838-1 Little is known about mechanisms involved in high-level expression of plasmid-associated ampC genes .
+8843306-5 The results indicate that the relationship of CMY-1 is closest to MOX-1 among the plasmidic cephamycinases and to AmpC of Pseudomonas aeruginosa among the chromosomal cephalosporinases .
+9055993-6 The 4ene encoding the pI 9.0 beta-lactamase ( designated ACT-1 for AmpC type ) was cloned and sequenced , which revealed an ampC-type beta-lactamase gene that originated from Enterobacter cloacae and that had 86% sequence homology to the P99 beta-lactamase and 94% homology to the partial sequence of MIR-1 .
+1963529-14 However , a provisional sequence of 150 bp of the MIR-1 gene proved to be 90% identical to the sequence of ampC from Enterobacter cloacae but only 71% identical to that of E .
+15504838-0 Promoter sequences necessary for high-level expression of the plasmid-associated ampC beta-lactamase gene blaMIR-1 .
+18781358-1 The aim of this work was to study the phenotypic and molecular characterization of a novel plasmid-mediated AmpC beta-lactamase from Escherichia coli E384 .
+16189104-2 Except for their instability , these enzymes are very similar to the known chromosomally encoded AmpC beta-lactamases .
+15504838-3 Although the sequence for the promoter ( prA ) that drives expression of Enterobacter cloacae chromosomal ampC is present upstream of bla ( MIR-1 ) , high-level expression from bla ( MIR-1 ) is directed from a hybrid promoter ( prB ) located further upstream of prA .
+17051471-7 However , not all enterobacteria are resistant only because of ESBLs , but also as a result of the action of chromosomally or plasmid coded AmpC Beta-lactamase of class C ( MIR-1 , CMY-1 , BIL-1 , FOX-1 , MOX-1 , DHA-1 , ACC-1 ) , resistant to Beta-lactamase inhibitors and to cefoxitin ( Enterobacter spp , Proteus vulgaris , Citrobacter freundii , Morganelle spp , Serratia spp ) .
+14757240-7 This is the first report of chromosomal AmpC beta-lactamase production by E .
+8843306-6 We conclude that the plasmidic cephamycinases described up to now may be classified into three families , as follows : CMY-1 , MOX-1 , and FOX-1 with AmpC of P .
+22016679-14 They were closely associated with EBSL and AmpC beta-lactamase .
+14757240-0 Diversity of chromosomal AmpC beta-lactamases from Enterobacter cloacae isolates in a Portuguese hospital .
+1963529-16 coli ampC probe .
+22016679-4 Qnr-positive strains were determined on the basis of the presence of ESBL and AmpC beta-lactamase genes .
+22016679-9 Qnr-positive strains also showed high positive rates of ESBL or AmpC beta-lactamase , such as TEM , SHV , CTX-M , and DHA .
+
+MIR: mir1
+iTerm: hsp60
+Variations: hsp60, heat shock protein 60
+20655308-0 miR-1/miR-206 regulate Hsp60 expression contributing to glucose-mediated apoptosis in cardiomyocytes .
+20655308-5 These results revealed that miR-1 and miR-206 regulate Hsp60 expression , contributing to high glucose-mediated apoptosis in cardiomyocytes .
+23226300-9 Moreover , luciferase assay confirmed the direct regulation of miR-1 on protein kinase C epsilon ( PKCEPSILON ) and heat shock protein 60 ( HSP60 ) .
+17715156-10 Post-transcriptional repression of HSP60 and HSP70 by miR-1 and of caspase-9 by miR-133 contributes significantly to their opposing actions .
+20655308-4 miR-1 and miR-206 regulated Hsp60 expression post-transcriptionally and accelerated cardiomyocyte apoptosis through Hsp60 .
+20655308-1 Hsp60 is an important component of defense mechanisms against diabetic myocardial injury ; however , the cause of Hsp60 reduction in the diabetic myocardium remains unknown .
+17715156-6 miR-1 reduced the levels of HSP60 and HSP70 proteins without changing their transcript levels , whereas miR-133 did not affect HSP60 and HSP70 expression at all .
+17715156-0 The muscle-specific microRNAs miR-1 and miR-133 produce opposing effects on apoptosis by targeting HSP60 , HSP70 and caspase-9 in cardiomyocytes .
+23226300-8 The expression of PKCEPSILON and HSP60 was significantly repressed by miR-1 and enhanced by miR-1 knockdown , which may be a molecular mechanism for the role miR-1 in cardiac injury .
+17715156-8 The post-transcriptional repression of HSP60 and HSP70 and caspase-9 was further confirmed by luciferase reporter experiments .
+17715156-5 We identified single target sites for miR-1 only , in the 3-untranslated regions of the HSP60 and HSP70 genes , and multiple putative target sites for miR-133 throughout the sequence of the caspase-9 gene .
+21914820-0 The muscle-specific microRNAs miR-1 and miR-133 produce opposing effects on apoptosis by targeting HSP60 , HSP70 and caspase-9 in cardiomyocytes .
+
+MIR: mir1
+iTerm: gja1
+Variations: gja1
+17401374-0 The muscle-specific microRNA miR-1 regulates cardiac arrhythmogenic potential by targeting GJA1 and KCNJ2 .
+23359472-6 In both cultured rat bladder SMC and in_vivo bladders , MYOCD down-regulated GJA1 expression through miR-1 up-regulation .
+23359472-8 These results suggest that MYOCD down-regulates GJA1 expression via miR-1 up-regulation , thereby contributing to maintenance of normal sensitivity and development of bladder capacity .
+23352489-4 Increased levels of GJA1 and SOX9 were associated with the decreased expression of miR-1-1 in VSD patients , and increased miR-181c expression was correlated with downregulated BMPR2 levels .
+21685920-5 CACNA1C and GJA1 encode the main calcium - and gap-junction channels in heart , respectively , and we propose that their misregulation may contribute to the cardiac dysfunctions observed in affected persons .
+23359472-3 We report the involvement of myocardin ( MYOCD ) and microRNA-1 ( miR-1 ) in the regulation of connexin 43 ( GJA1 ) , a major gap junction in bladder smooth muscle , and the collective role of these molecules during post-natal bladder development .
+17401374-6 miR-1 overexpression slowed conduction and depolarized the cytoplasmic membrane by post-transcriptionally repressing KCNJ2 ( which encodes the K(+) channel subunit Kir2.1 ) and GJA1 ( which encodes connexin 43 ) , and this likely accounts at least in part for its arrhythmogenic potential .
+21685920-4 As a consequence of miR-1 loss , expression of GJA1 ( connexin 43 ) and CACNA1C ( Cav12 ) , which are targets of miR-1 , is increased in both DM1 - and DM2-affected hearts .
+
+MIR: mir1
+iTerm: endothelin-1
+Variations: endothelin-1, et-1
+22569256-1 There is a close correlation between endothelin-1 ( ET-1 ) and microRNA-1 ( miRNA-1 ) expression in the heart , but whether ET-1 expression is regulated by miRNA-1 warrants further research .
+24046434-11 Additionally , we noticed a decrease of the endothelin-1 ( ET-1 ) -regulating miRNA-125a-5p in parallel with a robust increase of ET-1 plasma levels in TTC compared with healthy subjects ( P < 005 ) .
+22963810-0 MicroRNA-1 inhibits proliferation of hepatocarcinoma cells by targeting endothelin-1 .
+22963810-9 A potent mitogen , Endothelin-1 ( ET-1 ) , attracted our attention .
+24394957-0 miRNA-1 regulates endothelin-1 in diabetes .
+24394957-2 In this study , we investigated the role of miR-1 , an endothelin-1 ( ET-1 ) targeting miRNA , in endothelial cells ( ECs ) and tissues of diabetic animals .
+
+MIR: mir1
+iTerm: ctni
+Variations: ctni, cardiac troponin i
+23630629-7 Serum cardiac troponin-I ( cTnI ) was used as a positive control biomarker for cardiac injury .
+24468403-4 To increase the therapeutic efficiency and inhibit off-target effects of AMO-1 , here we explored anti-cardiac troponin I ( cTnI ) antibody modified liposomes loading with AMO-1 ( cT-A-LIP ) to deliver the oligonucleotides to ischemic myocardium tissues .
+22719221-4 Cardiac troponin I ( cTnI ) concentrations were measured by ELISA assay in plasma from patients with AMI ( n = 17 ) and healthy subjects ( n = 25 ) , simultaneously .
+18158990-4 Immunocytochemical analysis was performed to detect the expression of the cardiac-specific proteins , namely cardiac troponin I ( cTnI ) and sarcomeric alpha-actinin , in the cardiomyocyte-like cells differentiated from hMSCs .
+23168196-8 The urine miR-1 level in patients with STEAMI had a strong correlation with serum CK-MB or cTnI when CK-MB < 300 MUg/L and cTnI <50 MUg/L ( Ct value of urine miR-1 with blood CK-MB :
+23168196-9 r = -0.81 , P < 0.01 ; Ct value of urine miR-1 with blood cTnI :
+23168196-4 Serum level of cTnI , CK-MB and urine level of miR-1 in STEAMI patients were obviously higher than those in healthy control group [cTnI in blood :
+24468403-9 Immunohistochemistry showed that cTnI expression had a peak at the third day after myocardial infarction ( MI ) .
+23630629-9 A similar pattern of serum cTnI levels and their strong positive correlation with miR-1 levels were identified in these patients .
+23168196-3 Urine miR-1 concentrations were measured with real-time quantity reverse transcription-polymerase chain reaction ( qRT-PCR ) , at the same time serum cardiac troponin I ( cTnI ) and MB isoenzyme of creatine kinase ( CK-MB ) concentrations were measured .
+18158990-7 cTnI and sarcomeric alpha-actinin expression occurred in the hMSCs following induction with the 2 differentiation-inducing methods .
+22719221-6 A remarkable finding in this study is that miR-1 , miR-126 and cTnI expression levels exhibited the same trend .
+
+MIR: mir1
+iTerm: caspase3
+Variations: caspase3, caspase-3
+21474815-4 Moreover , diabetic hearts showed low levels of antiapoptotic B-cell lymphoma-2 ( Bcl-2 ) protein and increased proapoptotic caspase-3 activity .
+19245789-6 In the serum withdrawal and hypoxic condition , caspase-3 activity and mitochondrial potential were significantly increased in H9C2-miR-1 cells compared with the control group , respectively ( p < 005 , p < 001 ) .
+24685144-6 This was associated with significant downregulation of pro-survival Pim-1 and upregulation of pro-apoptotic Caspase-3 , microRNA-1 and microRNA-208a .
+23226300-6 When subjected to ischemia/reperfusion injury , miR-1 overexpression exacerbated cardiac injury , manifested by increased LDH , CK levels , caspase-3 expression , apoptosis and cardiac infarct area .
+21856911-7 Assessment of apoptosis revealed that overexpression of miR-1 in transplanted ES cells protected host myocardium from MI-induced apoptosis through activation of p-AKT and inhibition of caspase-3 , phosphatase and tensin homolog , and superoxide production .
+
+MIR: mir1
+iTerm: ampc~#~gene
+Variations: ampc gene, ampc genes
+15504838-1 Little is known about mechanisms involved in high-level expression of plasmid-associated ampC genes .
+15504838-11 These data suggest that resistance to extended-spectrum cephalosporins mediated by noninducible plasmid-associated ampC genes requires the formation of novel promoter elements that are capable of increasing ampC expression .
+10390237-1 The complete nucleotide sequence of the plasmid-mediated MIR-1 beta-lactamase gene confirms its relationship to chromosomally located ampC genes of Enterobacter cloacae .
+1963529-13 coli ampC gene failed to hybridize with the MIR-1 gene .
+
+MIR: mir1
+iTerm: exportin5
+Variations: exportin5, exportin-5
+17008435-7 The discrepancy between pri-miRNA and miR expression following overload was not explained by a change in the expression of components of the miRNA biogenesis pathway , since Drosha and Exportin-5 transcript levels were significantly increased by 50% in response to functional overload , whereas Dicer expression remained unchanged .
+23798494-5 In the 3 h period following the acute exercise bout , Drosha , Dicer and Exportin-5 , as well as miR-1 , -133a , -133-b and -181a were all increased .
+23798494-2 The present study investigated the mRNA regulation of components of the miRNA biogenesis pathway ( Drosha , Dicer and Exportin-5 ) , muscle enriched miRNAs , ( miR-1 , -133a , -133b and -206 ) , and several miRNAs dysregulated in muscle myopathies ( miR-9 , -23 , -29 , -31 and -181 ) .
+22593162-0 A baculovirus-encoded MicroRNA ( miRNA ) suppresses its host miRNA biogenesis by regulating the exportin-5 cofactor Ran .
+
+MIR: mir1
+iTerm: caspase9
+Variations: caspase9, caspase-9
+21406115-9 Real-time PCR was conducted to identify changes in mRNA expression of apoptosis-related genes such as Bcl-2 , Bax and Caspase-9 ( CASP9 ) , and Western blot was used to compare the protein expression level of CASP9 in the three groups .
+17715156-0 The muscle-specific microRNAs miR-1 and miR-133 produce opposing effects on apoptosis by targeting HSP60 , HSP70 and caspase-9 in cardiomyocytes .
+17715156-5 We identified single target sites for miR-1 only , in the 3-untranslated regions of the HSP60 and HSP70 genes , and multiple putative target sites for miR-133 throughout the sequence of the caspase-9 gene .
+17715156-8 The post-transcriptional repression of HSP60 and HSP70 and caspase-9 was further confirmed by luciferase reporter experiments .
+17715156-10 Post-transcriptional repression of HSP60 and HSP70 by miR-1 and of caspase-9 by miR-133 contributes significantly to their opposing actions .
+21914820-0 The muscle-specific microRNAs miR-1 and miR-133 produce opposing effects on apoptosis by targeting HSP60 , HSP70 and caspase-9 in cardiomyocytes .
+17715156-7 By contrast , miR-133 repressed caspase-9 expression at both the protein and mRNA levels .
+
+MIR: mir1
+iTerm: regulatory~#~protein
+Variations: regulatory protein, regulatory proteins
+20571053-0 Attenuation of microRNA-1 derepresses the cytoskeleton regulatory protein twinfilin-1 to provoke cardiac hypertrophy .
+20571053-4 By applying bioinformatic target prediction , a cytoskeleton regulatory protein twinfilin-1 was identified as a potential target of miR-1 .
+15951802-7 This work suggests that miR-1 genes titrate the effects of critical cardiac regulatory proteins to control the balance between differentiation and proliferation during cardiogenesis .
+23859766-5 Apelin treatment also reversed high fat diet-induced changes in intracellular Ca(2+) regulatory proteins , ER stress , and autophagy .
+12582153-8 The discovery of c-MIR , a novel E3 ubiquitin ligase , highlights the possibility that viral immune regulatory proteins originated in the host genome and presents unique functions of BKS-PHD domain-containing proteins in mammals .
+19933931-2 The muscle-specific miR-1 has been implicated in cardiac hypertrophy , heart development , cardiac stem cell differentiation , and arrhythmias through targeting of regulatory proteins .
+20571053-9 Taken together , our results demonstrate that the cytoskeleton regulatory protein twinfilin-1 is a novel target of miR-1 , and that reduction of miR-1 by hypertrophic stimuli induces the upregulation of twinfilin-1 , which in turn evokes hypertrophy through the regulation of cardiac cytoskeleton .
+15951802-1 Gradients of signalling and transcription factors govern many aspects of embryogenesis , highlighting the need for spatiotemporal control of regulatory protein levels .
+
+MIR: mir1
+iTerm: myf5
+Variations: myf5, myf-5
+21730146-3 Down-regulation of Pax3 is essential to ignite the myogenic program , including up-regulation of myogenic regulators , Myf-5 and MyoD .
+18619954-3 To further investigate the role of myogenic regulators ( MRFs ) , Myf5 , MyoD , Myogenin and MRF4 in the regulation of muscle specific microRNAs we performed gain and loss-of-function experiments in_vivo , in chicken and mouse embryos .
+22142802-5 In addition , the expression levels of MyoD and Myf5 mRNAs markedly increased at 14 dph ( pre-metamorphosis ) compared to metamorphic stages , and their expression levels are far above the myogenin during larval development .
+20841498-4 Muscle-related gene expression analyses revealed that the time course and expression of myosin heavy chain ( MHC ) and transcription factors ( Myf5 , MyoD , myogenin , and Pax7 ) were similar during in_vitro MPC proliferation/differentiation and in_vivo muscle regeneration .
+24298018-5 The impaired differentiation is consistent with the observation that the myogenic regulatory factors MyoD and Myf5 are downregulated upon knockdown of GALPHAi2 .
+18619954-5 Conversely , the lack of Myf5 but not of MyoD resulted in a loss of miR-1 and miR-206 expression .
+
+MIR: mir1
+iTerm: pax7
+Variations: pax7
+20819939-7 Inhibition of miR-1 and miR-206 substantially enhances satellite cell proliferation and increases Pax7 protein level in_vivo .
+20819939-0 microRNA-1 and microRNA-206 regulate skeletal muscle satellite cell proliferation and differentiation by repressing Pax7 .
+20819939-3 However , how Pax7 is regulated during the transition from proliferating satellite cells to differentiating myogenic progenitor cells is largely unknown .
+22070522-10 After transfection with microRNA-1 , the number of Pax7 expressing cells decreased compared with the microRNA-scrambled control .
+22070522-6 First , through immunofluorescent analysis and quantitative reverse transcription-polymerase chain reaction ( qRT-PCR ) , we showed that in satellite cell cultures , low Pax7 expression is related to high MyoD expression on differentiation , and , subsequently , more extensive sarcomere formation , that is , muscle differentiation , was detected .
+19754672-8 Administration of exogenous miR-1 , 133 and 206 can induce expression of myogenic markers , MyoD1 , myogenin and Pax7 in mRNA and expression in the protein level at 3 and 7 days after injury .
+20841498-4 Muscle-related gene expression analyses revealed that the time course and expression of myosin heavy chain ( MHC ) and transcription factors ( Myf5 , MyoD , myogenin , and Pax7 ) were similar during in_vitro MPC proliferation/differentiation and in_vivo muscle regeneration .
+22764051-3 We demonstrate here that hypoxic culture conditions favor the quiescence of satellite cell-derived primary myoblasts by upregulating Pax7 , a key regulator of satellite cell self-renewal , and downregulating MyoD and myogenin .
+23553538-3 We examined the histopathological stages , Pax7 SC content , and muscle-specific microRNA expression in biopsy specimens from well-characterized LGMD 2A patients to gain insight into disease pathogenesis .
+20819939-6 We identify Pax7 as one of the direct regulatory targets of miR-1 and miR-206 .
+19754672-9 The combination of miR-1 , 133 and 206 can promote myotube differentiation , and the expression of MyoD1 , myogenin and Pax7 were up-regulated in C2C12 cells in_vitro .
+20727829-4 We also show that , at variance with other myomiRs , miR-206 escapes from the dystrophin-nNOS control being produced in activated satellite cells before dystrophin expression ; in these cells , it contributes to muscle regeneration through repression of the satellite specific factor , Pax7 .
+20819939-8 Conversely , sustained Pax7 expression as a result of the loss of miR-1 and miR-206 repression elements at its 3 untranslated region significantly inhibits myoblast differentiation .
+22764051-5 Mechanistic studies reveal that hypoxia activates the Notch signaling pathway , which subsequently represses the expression of miR-1 and miR-206 through canonical Hes/Hey proteins , leading to increased levels of Pax7 .
+20819939-2 Paired-box transcription factor Pax7 plays a central role in satellite cell survival , self-renewal , and proliferation .
+
+MIR: mir1
+iTerm: kcne1
+Variations: kcne1
+24386485-7 The downregulation of KCNE1 and KCNB2 levels was greater when miR-1 was further upregulated through in_vivo lentiviral infection .
+17443681-6 We also characterized the 3 untranslated regions ( 3UTRs ) of the genes and experimentally established KCNQ1 and KCNE1 as targets for repression by the muscle-specific microRNAs miR-133 and miR-1 , respectively .
+17443681-3 The aims of this study were to decipher the molecular mechanisms for transcriptional and post-transcriptional regulation expression of KCNQ1 and KCNE1 genes and to shed light on the molecular mechanisms for their spatial heterogeneity of distribution .
+17443681-2 Expression of KCNQ1 and KCNE1 are regionally heterogeneous and changes with pathological states of the heart .
+17443681-7 We demonstrated spatial heterogeneity of KCNQ1 and KCNE1 distributions at three axes ( interventricular , transmural and apical-basal ) and disparity between mRNA and protein expressions of these genes .
+24386485-11 KCNE1 and KCNB2 as the target genes for miR-1 were confirmed by luciferase activity assay .
+19768467-8 Transcripts encoding Cav1.2 , HCN2 , Kir2.1 , KCNE1 , SUR1 , and NCX1 were upregulated in HF compared to NF while a downregulation was observed for KChIP2 , SERCA2 , and miR-1 .
+17443681-10 The heterogeneities of Sp1 and miR-1/miR-133 offer an explanation for the well-recognized regional differences and disparity between mRNA and protein expressions of KCNQ1 and KCNE1 .
+17443681-1 In cardiac cells , KCNQ1 assembles with KCNE1 and forms a channel complex constituting the slow delayed rectifier current I ( Ks ) .
+17443681-5 We characterized the core promoters of KCNQ1 and KCNE1 and revealed the stimulating protein ( Sp1 ) as a common transactivator of KCNQ1 and KCNE1 by interacting with the Sp1 cis-acting elements in the core promoter regions of these genes .
+24386485-3 QRT-PCR and western blot were used to detect the expression of the miR-1 , KCNE1 , and KCNB2 genes after 1-week of right atrial tachypacing in New Zealand white rabbits .
+19768467-9 Additionally , the transmural gradient of KCNE1 , KChIP2 , Kir6.2 , SUR1 , Nav1.5 , NCX1 , and RyR2 found in NF was only preserved for KChiP2 and Nav1.5 in HF .
+24386485-0 MicroRNA-1 Accelerates the Shortening of Atrial Effective Refractory Period by Regulating KCNE1 and KCNB2 Expression : An Atrial Tachypacing Rabbit Model .
+24386485-10 Conversely , knockdown of miR-1 by anti-miR-1 inhibitor oligonucleotides alleviated the downregulation of KCNE1 and KCNB2 , the shortening of AERP , and the increase in the IKs .
+23157812-0 MicroRNA-1/133 targeted dysfunction of potassium channels KCNE1 and KCNQ1 in human cardiac progenitor cells with simulated hyperglycemia .
+17443681-9 Our study unraveled a novel aspect of the cellular function of miRNAs and suggests that the I ( Ks ) -encoding genes KCNQ1 and KCNE1 expressions are dynamically balanced by transcription factor regulation and miRNA repression .
+24386485-9 In addition , similar results were found when the levels of KCNE1 and KCNB2 were downregulated by small interfering RNA while keeping miR-1 level unaltered .
+24386485-6 Right atrial tachypacing upregulated miR-1 expression and downregulated KCNE1 and KCNB2 in this study , while the AERP was decreased and the atrial IKs increased .
+
+MIR: mir1
+iTerm: hsps
+Variations: hsps, heat shock proteins
+23486111-0 Overload induced heat shock proteins ( HSPs ) , MAPK and miRNA ( miR-1 and miR133a ) response in insulin-resistant skeletal muscle .
+23486111-2 Heat shock proteins ( HSPs ) , mitogen-activated protein kinases ( MAPKs ) , and miRNA are thought to play a role in muscle hypertrophy but it is unclear if IR may affect their regulation .
+24347059-3 Heat shock proteins ( HSPs ) , stress-induced molecular chaperones , are related with skeletal muscle adaptation , but the association between AMPK and HSPs in skeletal muscle hypertrophy is unknown .
+24982356-2 Heat-shock proteins ( HSPs ) as well as microRNAs have been identified to orchestrate crucial mechanisms in prostate cancer ( PCa ) progression and treatment resistance .
+23486111-8 These results suggest that alterations in the regulation of HSPs , MAPKs and miRNA may be associated with the diminished hypertrophy of IR muscle .
+24347059-4 Thus , we investigated whether AMPK regulates hypertrophy by mediating HSPs in C2C12 cells .
+
+MIR: mir1
+iTerm: kir2.1~#~protein
+Variations: kir2.1 protein
+19775284-8 Tanshinone IIA restored the diminished I ( K1 ) current density and Kir2.1 protein after MI in rat ventricular myocytes , while quinidine further inhibited I ( K1 )/Kir2.1 .
+19959133-12 There was a corresponding increase in Kir2.1 protein expression , but no change in other Kir or Cx proteins .
+22889704-10 Similarly , forced expression of miR-1 widened QTc interval and QRS complex and increased mortality rate , accompanied by downregulation of Kir2.1 protein and IK1 .
+
+MIR: mir1
+iTerm: dmpk
+Variations: dmpk
+20487562-4 In order to gain better insights about the role of miRNAs in the DM1 pathogenesis , we have also analyzed the muscular expression of miR-103 and miR-107 , which have been identified in silico as attractive candidates for binding to the DMPK mRNA .
+23196502-1 Myotonic dystrophy of type I ( DM1 ) is an autosomal dominant inherited disease caused by an unstable CTG expansion in the 3 non-coding region of the DMPK gene that confers to the mutant transcript a toxic RNA gain-of-function .
+23139243-1 Myotonic dystrophy type 1 ( DM1 ) is caused by the expansion of CTG repeats in the 3 untranslated region of the DMPK gene .
+23196502-2 Nuclear accumulation of DMPK transcripts containing expanded CUG repeats alters the activities of the splicing regulators MBNL1 and CUGBP1 resulting in alternative splicing misregulation of a numerous of transcripts in DM1 tissues .
+

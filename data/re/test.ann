@@ -1,0 +1,88 @@
+T66	Sentence 2512 2587	It is one of the most consistent markers of bad prognosis for this disease.
+T38	Gene 1072 1082	telomerase
+T61	Sentence 1735 1866	A positive correlation was observed among 8-OHdG levels, disease stage, telomerase activity, OGG1 polymorphisms and ALT/GGT levels.
+T39	Gene 1153 1156	Bad
+T60	Sentence 1621 1734	MiR-199a-b, -195, -122, -92a and -145 were down-regulated in the majority of HCCs while miR-222 was up-regulated.
+T14	MiRNA 3709 3716	mir-92a
+T15	MiRNA 3721 3728	mir-92b
+T16	MiRNA 3865 3871	mir-92
+T17	Gene 2173 2183	telomerase
+T10	MiRNA 3526 3533	mir-92a
+T11	MiRNA 3535 3542	mir-92b
+T12	MiRNA 3546 3552	let-7e
+T13	MiRNA 3586 3592	mir-92
+T36	Gene 1157 1160	Bax
+T37	Gene 1466 1476	Telomerase
+T74	Sentence 3397 3569	Luciferase expression from a reporter vector containing the DKK3-3' UTR was decreased when this construct was cotransfected with mir-92a, mir-92b or let-7e in HEK293 cells.
+T35	Gene 1807 1817	telomerase
+T32	Gene 1828 1846	OGG1 polymorphisms
+T33	Gene 1851 1854	ALT
+T30	Gene 2456 2469	MYCN oncogene
+T31	Gene 2588 2598	Dickkopf-3
+T58	Sentence 1365 1465	RESULTS: Eight-OHdG levels were significantly higher in HCC and NCCT than in CH and CON (p = 0.001).
+T59	Sentence 1466 1620	Telomerase activity was significantly higher in HCC than in the remaining subgroups (p = 0.002); conversely T/S was significantly lower in HCC (p = 0.05).
+T70	Sentence 2799 2951	In this study, we show that MYCN knockdown in MYCN-amplified (MNA) neuroblastoma cell lines increases secretion of endogenous DKK3 to the culture media.
+T50	Target 3322 3328	target
+T51	Target 3852 3861	regulated
+T52	Target 1893 1903	correlated
+T53	Sentence 0 108	Oxidative DNA damage correlates with cell immortalization and mir-92 expression in hepatocellular carcinoma.
+T54	Sentence 109 370	BACKGROUND: MicroRNAs expression has been extensively studied in hepatocellular carcinoma but little is known regarding the relationship, if any, with inflammation, production of reactive oxygen species (ROS), host' s repair mechanisms and cell immortalization.
+T55	Sentence 371 739	This study aimed at assessing the extent of oxidative DNA damage (8-hydroxydeoxyguanosine-8-OHdG) in different phases of the carcinogenetic process, in relation to DNA repair gene polymorphism, telomeric dysfunction and to the expression of several microRNAs, non-coding genes involved in post-transcriptional regulation, cell proliferation, differentiation and death.
+T56	Sentence 740 1175	METHODS: Tissue samples obtained either at surgery, [neoplastic (HCC) and adjacent non-cancerous cirrhotic tissues (NCCT)] at percutaneous or laparoscopic biopsy (patients with HCV or HBV-related hepatitis or patients undergoing cholecystectomy) were analysed for 8-OHdG (HPLC-ED), OGG1 (a DNA repair gene) polymorphism (PCR-RFLP), telomerase activity, telomere length (T/S, by RT-PCR), Taqman microRNA assay and Bad/Bax mRNA (RT-PCR).
+T19	Gene 2405 2426	suppressor DICKKOPF-3
+T63	Sentence 1973 2348	CONCLUSIONS: The above findings confirm the accumulation, in the progression of chronic liver damage to HCC, of a ROS-mediated oxidative DNA damage, and suggest that this correlates with induction of telomerase activity and, as a novel finding, with over-expression of miR-92, a microRNA that plays a role in both the apoptotic process and in cellular proliferation pathways.
+T75	Sentence 3570 3729	Mutation of the mir-92 seed sequence in the 3' UTR completely rescued the observed decrease in reporter expression when cotransfected with mir-92a and mir-92b.
+T64	Sentence 2349 2451	MYCN-regulated miRNA-92 inhibits secretion of the tumor suppressor DICKKOPF-3 (DKK3) in neuroblastoma.
+T8	MiRNA 3377 3384	mir-92b
+T9	MiRNA 3389 3395	let-7e
+T6	MiRNA 2364 2372	miRNA-92
+T7	MiRNA 3368 3375	mir-92a
+T4	MiRNA 1875 1881	miR-92
+T5	MiRNA 2242 2248	miR-92
+T2	MiRNA 1621 1658	MiR-199a-b, -195, -122, -92a and -145
+T3	MiRNA 1709 1716	miR-222
+T1	MiRNA 62 68	mir-92
+T78	Sentence 4051 4181	Our data demonstrate that MYCN-regulated miRNAs are able to modulate the expression of the tumor suppressor DKK3 in neuroblastoma.
+T21	Gene 1855 1858	GGT
+T20	Gene 2428 2432	DKK3
+T23	Gene 1959 1962	Bad
+T22	Gene 1920 1930	telomerase
+T25	Gene 3926 3930	DKK3
+T24	Gene 1963 1966	Bax
+T27	Gene 3813 3817	DKK3
+T68	Sentence 2665 2747	It functions as a tumor suppressor in a range of cancers, including neuroblastoma.
+T72	Sentence 3113 3231	Many miRNAs regulate genes involved in the pathogenesis of cancer and are extensively deregulated in different tumors.
+T49	Target 2373 2381	inhibits
+T48	Gene 2925 2929	DKK3
+T69	Sentence 2748 2798	MYCN was recently found to downregulate DKK3 mRNA.
+T57	Sentence 1176 1364	Fifty-eight samples from 29 HCC patients (obtained in both neoplastic and peritumoral tissues), 22 from chronic hepatitis (CH) and 10 controls (cholecystectomy patients-CON) were examined.
+T73	Sentence 3232 3396	Using miRNA target prediction software, we found several MYCN-regulated miRNAs that could target the 3' UTR sequence of DKK3, including mir-92a, mir-92b and let-7e.
+T43	Gene 2635 2645	DKK family
+T42	Gene 3397 3407	Luciferase
+T41	Gene 3457 3468	DKK3-3' UTR
+T40	Gene 1022 1026	OGG1
+T47	Gene 3352 3356	DKK3
+T46	Gene 2649 2652	Wnt
+T45	Gene 2788 2797	DKK3 mRNA
+T44	Gene 2600 2604	DKK3
+T65	Sentence 2452 2511	The MYCN oncogene is frequently amplified in neuroblastoma.
+T71	Sentence 2952 3112	MicroRNAs (miRNAs) are approximately 20 nt long single-stranded RNA molecules that downregulate messenger RNAs by targeting the 3' untranslated region (3' UTR).
+T62	Sentence 1867 1972	In HCC, miR-92 expression correlated positively with telomerase activity, 8-OHdG levels and Bad/Bax mRNA.
+T76	Sentence 3730 3872	Antagomir and miRNA-mimic transfections in neuroblastoma cell lines confirmed that DKK3 secretion to the culture media is regulated by mir-92.
+T67	Sentence 2588 2664	Dickkopf-3 (DKK3) is a secreted protein of the DKK family of Wnt regulators.
+T77	Sentence 3873 4050	Consistent with reports from other cancers, we found DKK3 to be expressed in the endothelium of primary neuroblastoma samples and to be absent in tumors with MYCN amplification.
+E9	Regulation:T52 Agent:T4 Theme:T24	{"direction": ["M2G"], "direct": ["D"]}
+E8	Regulation:T52 Agent:T4 Theme:T23	{"direction": ["M2G"], "direct": ["D"]}
+E5	Regulation:T50 Agent:T9 Theme:T47	{"direction": ["M2G"], "direct": ["D"]}
+E4	Regulation:T50 Agent:T8 Theme:T47	{"direction": ["M2G"], "direct": ["D"]}
+E7	Regulation:T52 Agent:T4 Theme:T22	{"direction": ["M2G"], "direct": ["D"]}
+E6	Regulation:T51 Agent:T16 Theme:T27	{"direction": ["M2G"], "direct": ["U"]}
+E1	Regulation:T49 Agent:T6 Theme:T19	{"direction": ["M2G"], "direct": ["U"]}
+E3	Regulation:T50 Agent:T7 Theme:T47	{"direction": ["M2G"], "direct": ["D"]}
+E2	Regulation:T49 Agent:T6 Theme:T20	{"direction": ["M2G"], "direct": ["U"]}
+R4	Regulation Arg1:T11 Arg2:T41	{"direction": ["M2G"], "direct": ["U"]}
+R5	Regulation Arg1:T12 Arg2:T42	{"direction": ["M2G"], "direct": ["U"]}
+R6	Regulation Arg1:T12 Arg2:T41	{"direction": ["M2G"], "direct": ["U"]}
+R1	Regulation Arg1:T10 Arg2:T42	{"direction": ["M2G"], "direct": ["U"]}
+R2	Regulation Arg1:T10 Arg2:T41	{"direction": ["M2G"], "direct": ["U"]}
+R3	Regulation Arg1:T11 Arg2:T42	{"direction": ["M2G"], "direct": ["U"]}

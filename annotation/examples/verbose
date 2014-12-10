@@ -1,0 +1,60 @@
+{NP_1}PMID{/NP_1} - {CP_2}7565683{/CP_2}
+
+{NP_3}TI{/NP_3} - {NP_4}N-{/NP_4} and {NP_PP_5}<Bppp>C-terminal sequences</Bppp>{/NP_PP_5} {VP_act_6}control{/VP_act_6} {NP_7}degradation{/NP_7} of {NP_P_8}<p>MAD3/I kappa B alpha</p>{/NP_P_8} in {NP_9}response{/NP_9} to {NP_10}inducers{/NP_10} of {NP_11}<p>NF-kappa B</p> activity{/NP_11} .
+
+{NP_12}AB{/NP_12} - {NP_13}The proteolytic degradation{/NP_13} of {NP_B_14}the inhibitory protein <p>MAD3/I kappa B</p> alpha{/NP_B_14} in {NP_15}response{/NP_15} to {NP_16}extracellular stimulation{/NP_16} {VP_act_17}is{/VP_act_17} {NP_18}a <Bppp>prerequisite</Bppp> step{/NP_18} in {NP_19}the activation{/NP_19} of {NP_P_20}the <p>transcription factor NF-kappa B</p>{/NP_P_20} .
+
+{NP_21}Analysis{/NP_21} of {NP_22}the expression{/NP_22} of {NP_P_23}<s>human</s> <p>I kappa B alpha protein</p>{/NP_P_23} in {NP_24}stable transfectants{/NP_24} of {NP_S_25}<s>mouse</s> <s><S>70Z/3 cells</S></s>{/NP_S_25} {VP_act_26}shows{/VP_act_26} that , as for {NP_P_27}the endogenous <s>murine</s> <Bppf>protein</Bppf>{/NP_P_27} , {NP_P_28}exogenous <p>I kappa B alpha</p>{/NP_P_28} {VP_pass_29}is degraded{/VP_pass_29} in {NP_30}response{/NP_30} to {NP_31}inducers{/NP_31} of {NP_32}<p>NF-kappa B</p> activity{/NP_32} , {JP_33}such{/JP_33} as {NP_C_34}<c>phorbol myristate acetate</c> or <c>lipopolysaccharide</c>{/NP_C_34} .
+
+OUTPUT 0
+PTM = ({NP_P_44};hyperphosphorylated)
+Inducer = (-;-)
+Kinase = (-;-)
+Substrate = ({NP_P_45}<p>I kappa B alpha protein</p>{/NP_P_45};-)
+	Method=link (substrate) for phrase=[{NP_P_45}the <s>human</s> <p>I kappa B alpha protein</p>{/NP_P_45}8..26|<p>I kappa B alpha protein</p>]
+		From: {NP_P_44}a hyperphosphorylated <Bppf>form</Bppf>{/NP_P_44}
+		Path: identity
+Site = (-;-;UNK)
+
+In {NP_35}addition{/NP_35} , {NP_36}pretreatment{/NP_36} of {NP_37}the <Bpcl>cells</Bpcl>{/NP_37} with {NP_B_38}the proteasome <B>inhibitor N-Ac-Leu-Leu-norleucinal</B>{/NP_B_38} {VP_act_39}inhibits{/VP_act_39} {NP_40}this <Bpf>ligand</Bpf> -induced degradation{/NP_40} and , in {NP_41}agreement{/NP_41} with {NP_42}previous studies{/NP_42} , {VP_act_43}stabilizes{/VP_act_43} {NP_P_44}a hyperphosphorylated <Bppf>form</Bppf>{/NP_P_44} of {NP_P_45}the <s>human</s> <p>I kappa B alpha protein</p>{/NP_P_45} .
+
+OUTPUT 1
+PTM = ({NP_56};phosphorylation)
+Inducer = (-;-)
+Kinase = (-;-)
+Substrate = ({NP_P_58}<p>I kappa B alpha</p>{/NP_P_58};-)
+	Method=rule:1.2.2.1 (substrate) for phrase=[{NP_P_58}<p>I kappa B alpha</p>{/NP_P_58}]
+Site = (-;-;UNK)
+
+By {VP_act_46}expressing{/VP_act_46} {NP_47}<Bpf>mutant forms</Bpf>{/NP_47} of {NP_P_48}the <s>human</s> <Bppf>protein</Bppf>{/NP_P_48} in {NP_49}this <Bpcl>cell line</Bpcl>{/NP_49} , {NP_50}we{/NP_50} {VP_pass_51}have been{/VP_pass_51} {JP_52}able{/JP_52} {VP_act_53}to delineate{/VP_act_53} {NP_PP_54}the <Bppp>sequences</Bppp>{/NP_PP_54} {JP_55}responsible{/JP_55} for both {NP_56}the <Bpf>ligand</Bpf> -induced phosphorylation{/NP_56} and {NP_57}the degradation{/NP_57} of {NP_P_58}<p>I kappa B alpha</p>{/NP_P_58} .
+
+OUTPUT 2
+PTM = ({NP_67};phosphorylation)
+Inducer = (-;-)
+Kinase = (-;-)
+Substrate = (-;-)
+Site = (-;-;UNK)
+
+{NP_59}Our results{/NP_59} {VP_act_60}show{/VP_act_60} that {NP_61}deletion{/NP_61} of {NP_PP_62}the <pp>C terminus</pp>{/NP_PP_62} of {NP_P_63}the <p>I kappa B alpha molecule</p>{/NP_P_63} up to {NP_PP_64}<Bppp>amino acid 279</Bppp>{/NP_PP_64} {VP_act_65}abolishes{/VP_act_65} {JP_66}constitutive{/JP_66} but not {NP_67}<Bpf>ligand</Bpf> -inducible phosphorylation{/NP_67} and {VP_act_68}inhibits{/VP_act_68} {NP_69}<Bpf>ligand</Bpf> -inducible degradation{/NP_69} .
+
+OUTPUT 3
+PTM = ({NP_72};phosphorylation)
+Inducer = (-;-)
+Kinase = (-;-)
+	Candidates (Kinase):
+		Candidate="{NP_PP_75}two <pp>serines</pp>{/NP_PP_75}" 	(Features:dist=0)
+		Candidate="<pp>N terminus</pp>" in "{NP_PP_76}the <pp>N terminus</pp>{/NP_PP_76}" 	(Features:dist=0)
+Substrate = ({NP_P_73}<p>I kappa B alpha</p>{/NP_P_73};-)
+	Method=rule:1.2.1.1.0.1 (substrate) for phrase=[{NP_P_73}<p>I kappa B alpha</p>{/NP_P_73}]
+Site = (-;-;{NP_PP_76}<pp>N terminus</pp>{/NP_PP_76})
+	Candidates (Site):
+		Candidate="{NP_PP_75}two <pp>serines</pp>{/NP_PP_75}" 	(Features:is-aa)
+
+OUTPUT 4
+PTM = ({NP_86};phosphorylation)
+Inducer = (-;-)
+Kinase = (-;-)
+Substrate = (-;-)
+Site = (-;-;UNK)
+
+{NP_70}Further analysis{/NP_70} {VP_act_71}reveals{/VP_act_71} that {NP_72}the inducible phosphorylation{/NP_72} of {NP_P_73}<p>I kappa B alpha</p>{/NP_P_73} {VP_act_74}maps{/VP_act_74} to {NP_PP_75}two <pp>serines</pp>{/NP_PP_75} in {NP_PP_76}the <pp>N terminus</pp>{/NP_PP_76} of {NP_P_77}the <Bppf>protein</Bppf> ( <Bppp>residues 32 and 36</Bppp> ){/NP_P_77} and that {NP_78}the mutation{/NP_78} of {NP_PP_79}either <Bppp>residue</Bppp>{/NP_PP_79} {VP_pass_80}is sufficient{/VP_pass_80} {VP_act_81}to abolish{/VP_act_81} {NP_82}<Bpf>ligand</Bpf> -induced degradation{/NP_82} , whereas {NP_PP_83}both <Bppp>residues</Bppp>{/NP_PP_83} {VP_pass_84}must be mutated{/VP_pass_84} {VP_act_85}to abolish{/VP_act_85} {NP_86}inducible phosphorylation{/NP_86} of the {JP_87}protein.{/JP_87} ( {NP_88}ABSTRACT{/NP_88} {VP_act_89}TRUNCATED{/VP_act_89} AT {NP_90}250 WORDS{/NP_90} )

@@ -1,0 +1,3 @@
+What [GENES] are involved in the melanogenesis of human lung cancers?
+Co-immunoprecipitation analysis confirmed that Bis interacted with Bcl-2 in vivo.
+The gene BAD phosphorylates MAPK.
