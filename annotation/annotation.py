@@ -1,18 +1,4 @@
-class Base(object):
-    def __repr__(self):
-        return self.__str__()
-
-    def __eq__(self, other):
-        if isinstance(other, self.__class__):
-            return self.__dict__ == other.__dict__
-        else:
-            return False
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-
-class Entity(Base):
+class Entity(object):
     # template to print the entity
     template = '{0}_{1}_{2}_{3}'
 
@@ -76,25 +62,24 @@ class Entity(Base):
             return False
 
 
-class Event(Base):
-    linestart = 'E'
+class Event(object):
+    # template to print the event
+    template = '{0}_{1}_{2}_{3}'
 
-    def __init__(self, tid, typing, trigger, args):
-        self.id = tid
-        self.type = typing
+    def __init__(self, category, trigger, arguments):
+
+        self.category = category
         self.trigger = trigger
-        self.args = args
-        self.prop = Property()
-        self.tmpl = '{0}_{1}_{2}_{3}'
+        self.arguments = arguments
+        self.property = Property()
 
-    def __unicode__(self):
-        return self.tmpl.format(self.id, self.type, self.trigger, self.args)
-
-    '''
-    only compare type, trigger and args
-    '''
+    def __str__(self):
+        return self.template.format(self.category, self.trigger, self.args)
 
     def __eq__(self, other):
+        """
+        only compare type, trigger and args
+        """
         if isinstance(other, self.__class__):
             return (self.type == other.type and
                     self.trigger == other.trigger and
@@ -102,13 +87,8 @@ class Event(Base):
         else:
             return False
 
-    def add_prop(self, key, value):
-        self.prop.add_prop(key, value)
 
-
-class Relation(Base):
-    linestart = 'R'
-
+class Relation(object):
     def __init__(self, rid, typing, arg1, arg2):
         self.id = rid
         self.type = typing
@@ -136,34 +116,34 @@ class Relation(Base):
         self.prop.add_prop(key, value)
 
 
-class Property(Base):
-    '''
+class Property(object):
+    """
     property manager for entity/event/relation
-    '''
+    """
 
     def __init__(self):
         self.prop = {}
 
-    def add_prop(self, key, value):
+    def add(self, key, value):
         if key in self.prop:
             if value not in self.prop[key]:
                 self.prop[key].append(value)
         else:
             self.prop[key] = [value]
 
-    def get_prop(self, key):
+    def get(self, key):
         try:
             return self.prop[key]
         except:
             return
 
-    def delete_prop(self, key, value):
+    def delete(self, key, value):
         if key in self.prop:
             if value in self.prop[key]:
                 self.prop[key].remove(value)
 
 
-class Annotation(Base):
+class Annotation(object):
     def __init__(self):
         self.text = None
         self.entities = {}
