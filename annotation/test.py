@@ -1,34 +1,49 @@
-# -*- coding: utf-8 -*-
+from annotation import *
 
-import sys
-from pprint import pprint as pp
-from readers import *
-from writers import *
+import unittest
 
-'''
-f = open('examples/medline','r')
-text = f.read()
-f.close()
 
-medline = MedlineReader()
-print medline.parse(text)
-sys.exit(0)
-'''
-path = 'examples'
+class TestEntity(unittest.TestCase):
+    def setUp(self):
+        self.entity = Entity('Gene', 0, 3, 'BAD')
 
-reader = AnnReader()
-res = reader.parse_file(path,'17438130.ann')
-pp(res)
-sys.exit(0)
+    def test_category(self):
+        self.assertEqual('Gene', self.entity.category)
 
-reader = CorpusReader(path,'ann')
-print reader.read()
-sys.exit(0)
-mapping = {'pro':'Gene','fam':'Family','com':'Complex'}
-reader = SGMLReader(path,'24966530.txt')
-reader.set_tag_entity_mapping(mapping)
-res = reader.parse()
+    def test_start(self):
+        self.assertEqual(0, self.entity.start)
 
-writer = AnnWriter()
-writer.write('/var/www/brat/data/test/','24966530.ann',res)
-print res['text']
+    def test_end(self):
+        self.assertEqual(3, self.entity.end)
+
+    def test_text(self):
+        self.assertEqual('BAD', self.entity.text)
+
+    def test_print(self):
+        print(self.entity)
+
+    def test_text_length(self):
+        self.assertTrue(len(self.entity.text) == self.entity.end - self.entity.start)
+
+    def test_same_start_end(self):
+        self.assertRaises(Entity.EntityZeroInterval, Entity, 'Gene', 0, 0, 'BAD')
+
+    def test_negative_index(self):
+        self.assertRaises(Entity.EntityNegativeIndex, Entity, 'Gene', -1, 0, 'BAD')
+        self.assertRaises(Entity.EntityNegativeIndex, Entity, 'Gene', 0, -1, 'BAD')
+        self.assertRaises(Entity.EntityNegativeIndex, Entity, 'Gene', -1, -1, 'BAD')
+
+    def test_negative_interval(self):
+        self.assertRaises(Entity.EntityNegativeInterval, Entity, 'Gene', 10, 5, 'BAD')
+
+class TestEvent(unittest.TestCase):
+    pass
+
+class TestProperty(unittest.TestCase):
+    pass
+
+class TestAnnotation(unittest.TestCase):
+    pass
+
+if __name__ == '__main__':
+    unittest.main()
