@@ -63,57 +63,38 @@ class Entity(object):
 
 
 class Event(object):
+
     # template to print the event
     template = '{0}_{1}_{2}_{3}'
 
     def __init__(self, category, trigger, arguments):
-
+        '''
+        An event structure with trigger and arguments
+        :param category: event type
+        :type category: str
+        :param trigger: event trigger
+        :type trigger: Entity
+        :param arguments: event arguments list
+        :type arguments: list
+        :return: None
+        :rtype: None
+        '''
         self.category = category
         self.trigger = trigger
         self.arguments = arguments
         self.property = Property()
 
     def __str__(self):
-        return self.template.format(self.category, self.trigger, self.args)
+        return self.template.format(self.category, self.trigger, self.arguments)
 
     def __eq__(self, other):
-        """
-        only compare type, trigger and args
-        """
+
         if isinstance(other, self.__class__):
-            return (self.type == other.type and
+            return (self.category == other.category and
                     self.trigger == other.trigger and
-                    set(self.args) == set(other.args))
+                    set(self.arguments) == set(other.arguments))
         else:
             return False
-
-
-class Relation(object):
-    def __init__(self, rid, typing, arg1, arg2):
-        self.id = rid
-        self.type = typing
-        self.arg1 = arg1
-        self.arg2 = arg2
-        self.prop = Property()
-        self.tmpl = '{0}_{1}_{2}_{3}'
-
-    def __unicode__(self):
-        return self.tmpl.format(self.id, self.type, self.arg1, self.arg2)
-
-    '''
-    only compare type, arg1 and arg2
-    '''
-
-    def __eq__(self, other):
-        if isinstance(other, self.__class__):
-            return (self.type == other.type and
-                    self.arg1 == other.arg1 and
-                    self.arg2 == other.arg2)
-        else:
-            return False
-
-    def add_prop(self, key, value):
-        self.prop.add_prop(key, value)
 
 
 class Property(object):
@@ -122,25 +103,26 @@ class Property(object):
     """
 
     def __init__(self):
-        self.prop = {}
+        self.vault = {}
 
     def add(self, key, value):
-        if key in self.prop:
-            if value not in self.prop[key]:
-                self.prop[key].append(value)
+
+        if key in self.vault:
+            if value not in self.vault[key]:
+                self.vault[key].append(value)
         else:
-            self.prop[key] = [value]
+            self.vault[key] = [value]
 
     def get(self, key):
         try:
-            return self.prop[key]
+            return self.vault[key]
         except:
             return
 
     def delete(self, key, value):
-        if key in self.prop:
-            if value in self.prop[key]:
-                self.prop[key].remove(value)
+        if key in self.vault:
+            if value in self.vault[key]:
+                self.vault[key].remove(value)
 
 
 class Annotation(object):
