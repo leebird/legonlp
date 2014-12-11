@@ -2,6 +2,13 @@ import os
 import sys
 import importlib.machinery
 
+class ModLoader:
+    """
+    load module at gZ
+    """
+    def load_module(self, mod_name, mod_path):
+        pass
+
 base = os.path.dirname(__file__)
 sys.path.append(base)
 

@@ -9,26 +9,27 @@ the output files
 
 class Pipeline:
 
-    user = {
-        'step': 3,
-        'process': 2,
-        'input': ['data/raw'],
-        'output': 'data/re'
-        }
+    step = 3
 
-    tempfolder = os.path.join(os.path.dirname(__file__),'tmp')
+    process = 2
+
+    inputs = ['data/raw']
+
+    output = 'data/re'
+
+    tempFolder = os.path.join(os.path.dirname(__file__),'tmp')
 
     pipeline = [
         ('Banner',
          'Banner',
-         [('user.input.0','.txt')], 
+         [('user.input.0','.txt')],
          [(None,'.txt'),(None,'.ann')]),
 
         ('Newline1',
          'Newline',
-         [('Banner','.txt')], 
+         [('Banner','.txt')],
          [(None,'.split')]),
-        
+
         ('miRNAMention',
          'miRNAMention',
          [('Banner','.txt'),('Banner','.ann')],

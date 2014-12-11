@@ -75,8 +75,8 @@ def run_pipeline(taskinfo):
 
 
 def run_pipeline2(runnerName):
-    print len(runnerName)
-    print 'hehe'
+    print(len(runnerName))
+    print('hehe')
 
 class Dispatcher:
 
@@ -153,7 +153,7 @@ class Dispatcher:
     def get_inputs(self, inputs, tempfolders):
         inputsInfo = []
         for inputName, inputSux in inputs:
-            if tempfolders.has_key(inputName):
+            if inputName in tempfolders:
                 inputsInfo.append((tempfolders[inputName],inputSux))
             else:
                 tokens = inputName.split('.')
