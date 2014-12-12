@@ -1,0 +1,546 @@
+[
+    {
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "1",
+        "category": "Theme",
+        "comment": ""
+    },
+    {
+        "tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "2",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact Arg"
+    },
+    {
+        "tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ (ADVP $+ /N.*/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "3",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact Arg"
+    },
+    {
+        "tregex": "VP=p < ((VBD|VBZ|VBP|VBG|VB|AUX < /^(had|has|have)$/) $++ (VP < (VBN=tr $+ /N.*/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "4",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact Arg"
+    },
+    {
+        "tregex": "VP=p < (VBD|VBZ|VBP|VBG|VP|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ (PP <1 TO <2 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "5",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact to Arg"
+    },
+    {
+        "tregex": "VP=p < ((VBN=tr <<: /bound/) $+ (PP <1 TO <2 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "6",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact to Arg"
+    },
+    {
+        "tregex": "VP=p < (VBD|VBZ|VBP|VBG|VP|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ (PP <1 RB <2 TO <3 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "7",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact to Arg"
+    },
+    {
+        "tregex": "VP=p < (VBD|VBZ|VBP|VBG|VP|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ (ADVP $+ (PP <1 TO <2 /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "8",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact to Arg"
+    },
+    {
+        "tregex": "ADJP=p < (JJ=tr $+ (PP <1 TO <2 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "9",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vadj to Arg"
+    },
+    {
+        "tregex": "__=p < ((NP <- NN|VBG=tr) $+ (PP <1 TO <2 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "10",
+        "category": "Theme",
+        "comment": "",
+        "name": "Ving to Arg"
+    },
+    {
+        "tregex": "__=p < (VBD|VBZ|VBP|VBG|VP|VB=tr $+ (PP <1 (IN <, /at|on/) <2 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "11",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact at Arg"
+    },
+    {
+        "tregex": "__=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (PP <1 (IN << /with/) <2 /^N.*$/=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "12",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact with Arg"
+    },
+    {
+        "tregex": "__=p < (/^VBD|V BZ|VBP|VBG|VP|VB$/=tr $+ (NP <2 (PP <1 (IN << /with/) <2 /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "13",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact with Arg"
+    },
+    {
+        "tregex": "VP=p < (/^VBD|VBZ|VBP|VBG|VP|VB$/=tr $+ (ADVP $+ (PP <1 (IN << /with/) <2 /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "14",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vact with Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /between/ $+ /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "15",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vnorm between Arg"
+    },
+    {
+        "tregex": "NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "16",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vadj Arg"
+    },
+    {
+        "tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "17",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vadj Vnorm of Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP <+(VP) JJ|VBN=tr))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "18",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP < JJ|VBN=tr))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "19",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX < /^(be|is|are|was|were|been)$/) < (VP|ADJP < JJ|VBN=tr)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "20",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP < (VP < (VBD|VBZ|VBP|VBG|VB|AUX <, /^(be|is|are|was|were|been)$/)) < (VP|ADJP < JJ|VBN=tr)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "21",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP << (VP < TO << (VP|ADJP < JJ|VBN=tr))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "22",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX <, /^(be|is|are|was|were|been)$/) << (VP < TO << (VP|ADJP < JJ|VBN=tr))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "23",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=arg $++ (VP < (VP < (VBD|VBZ|VBP|VBG|VB|AUX <, /^(be|is|are|was|were|been)$/)) << (VP < TO << (VP|ADJP < JJ|VBN=tr))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "24",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vadj"
+    },
+    {
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "25",
+        "category": "Theme",
+        "comment": ""
+    },
+    {
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "26",
+        "category": "Theme",
+        "comment": ""
+    },
+    {
+        "tregex": "__=p <, (VBD|VBZ|VBP|VBG|VB|AUX <, /^(be|is|are|was|were|been)$/) < (VP <, VBN|JJ=tr <- (PP <<, /with/ <- NP=arg))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "27",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vadj with Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "28",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vnorm of Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/) $+ (PP < (IN <<, /^on$/ $+ /^N.*$/=arg))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "29",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vnorm of Arg on Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^on$/ $+ /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "30",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vnorm on Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/) $+ (PP < (IN <<, /^with$/ $+ /^N.*$/=arg))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "31",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vnorm of Arg with Arg"
+    },
+    {
+        "tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/) $+ (PP < (TO $+ /^N.*$/=arg))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "32",
+        "category": "Theme",
+        "comment": "",
+        "name": "Vnorm of Arg to Arg"
+    },
+    {
+        "tregex": "NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "33",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vnorm"
+    },
+    {
+        "tregex": "NP=p <-3 /^N.*|CD$/=arg <-2 __=tr <-1 /^N.*$/ !< /,/ !< CC",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "34",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vnorm"
+    },
+    {
+        "tregex": "NP=p <-4 /^N.*|CD$/=arg <-3 __=tr <-1 /^N.*$/ !< /,/ !< CC",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "35",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vnorm"
+    },
+    {
+        "tregex": "__=p < (/PRP|WP/=arg $+ (NN=tr <<: /binding/))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "36",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vnorm"
+    },
+    {
+        "tregex": "WHNP=p < (/WP\\$/=arg $+ (__=tr))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "37",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vnorm"
+    },
+    {
+        "tregex": "NP=p < (/PRP\\$/=arg $+ (__=tr))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "38",
+        "category": "Theme",
+        "comment": "",
+        "name": "Arg Vnorm"
+    },
+    {
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "39",
+        "category": "Theme",
+        "comment": ""
+    },
+    {
+        "tregex": "__=p < (NP=arg < (NN|NNS|NNP|NNPS=tr !<<, /^targeting$/))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "40",
+        "category": "Theme",
+        "comment": "",
+        "name": "Target Theme Same NP"
+    },
+    {
+        "tregex": "__=p < (NP=arg << (NN|NNS|NNP|NNPS=tr !<<, /^targeting$/) !<< VP|PP)",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "41",
+        "category": "Theme",
+        "comment": "",
+        "name": "Target Theme Same NP"
+    },
+    {
+        "tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "42",
+        "category": "Theme",
+        "comment": "",
+        "name": "Target Theme"
+    },
+    {
+        "tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "43",
+        "category": "Theme",
+        "comment": "",
+        "name": "Targeting Theme"
+    },
+    {
+        "tregex": "__=p < (JJ=tr < /ing$/ < /-/ == JJ=arg)",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "44",
+        "category": "Theme",
+        "comment": "",
+        "name": "Target Theme"
+    },
+    {
+        "tregex": "__=p < (NP=arg < ((NP < CD) $+ (PP <, (IN <, /^of$/) < (NP << (/^(DT|PRP\\$|VBN|ADJ)$/ $+ (/NNS/=tr))))))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "45",
+        "category": "Theme",
+        "comment": "",
+        "name": "Target Theme"
+    },
+    {
+        "tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+        "labels": [
+            "p",
+            "tr",
+            "arg"
+        ],
+        "id": "46",
+        "category": "Theme",
+        "comment": "",
+        "name": "Regulator Theme"
+    }
+]

@@ -1,0 +1,139 @@
+## Rules whose argument can only be agent
+#########################################
+
+name:   Arg Vact
+tregex: __=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))
+
+name:   Arg Vact
+tregex: __=p < (/^N.*$/=arg $+ (VP <+(VP) (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB)))
+
+name:   Arg Vact
+tregex: __=p < (/^N.*$/=arg $+ (ADVP $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB)))
+
+name:   Arg to Vact
+tregex: __=p < (NP=arg $+ (S <: (VP <1 TO <2 (VP !<< /^(be|is|are|was|were|been)$/ <1 VB=tr))))
+
+name:	Arg to Vact
+tregex: __=p < (/^N.*$/=arg $+ (VP <1 (VBD|VBZ|VBP|VBG|VB|AUX <, /be|is|are|was|were|been/) << (TO $+ (VP <1 VB=tr))))
+
+name:	Arg to Vact
+tregex: __=p < (/^N.*$/=arg $+ (VP <1 (/^V.*?/ <, /be|is|are|was|were|been/) << (TO $+ (VP <1 VB=tr))))
+
+name:	Arg to Vact
+tregex: __=p < (/^N.*$/=arg $+ (VP <+(VP) (S <<, /to/ <+(VP) VBD|VBZ|VBP|VBG|VB=tr)))
+
+#name:   Arg Vpass
+#tregex: NP=p < (NP=arg $+ VBN=tr)
+
+#name:   Arg Vpass
+#tregex: __=p < (/^N.*$/=arg $+ VP=tr)
+
+#name:   Arg Vpass
+#tregex: __=p < (/^N.*$/=arg $+ (ADVP <: RB $+ VP=tr))
+
+name:   Vpass by Arg
+tregex: __=p < (VBN|JJ=tr $+ (PP <<, /by/ <2 NP=arg))
+
+name:	Vnorm of Arg by Arg
+tregex: __=p < ((PP < (IN <<, /^of$/ $+ /^N.*$/)) $- /^N.*$/=tr $+ (PP <<, /by/ <2 NP=arg))
+
+name:   Arg does something by Vvbg
+tregex: __=p < (NP=arg $+ (ADVP|PP $+ (VP=tr)))
+
+name:   Arg does something by Vvbg
+tregex: __=p < (NP=arg $+ (VP=tr))
+
+# tr should be the -ion word
+name:   Arg does something through -ion
+tregex: __=p < (NP=arg $+ (VP << (PP <<, (/by|via|through/) < (NP <<, (NN=tr <, /ion$/))) !<< SBAR))
+
+# tr should be the -ion word
+name:   Arg does something through -ion
+tregex: __=p < (NP=arg $+ (ADVP|PP $+ (VP << (PP <<, (/by|via|through/) < (NP <<, (NN=tr <, /ion$/))) !<< SBAR)))
+
+# gene-suppressed miR
+name:	Arg Vadj
+tregex: __=p < (NP=arg < (JJ=tr < /-/ !< /ing$/))
+
+## Rules whose argument can be agent or other role
+##################################################
+
+name:   Arg Vnorm 
+tregex: NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC
+
+name:   Arg Vnorm 
+tregex: NP=p <-3 /^N.*|CD$/=arg <-2 __=tr <-1 /^N.*$/ !< /,/ !< CC
+
+name:   Arg Vnorm 
+tregex: NP=p <-4 /^N.*|CD$/=arg <-3 __=tr <-1 /^N.*$/ !< /,/ !< CC
+
+name:   Arg Vnorm 
+tregex: __=p < (/PRP|WP/=arg $+ (NN=tr <<: /binding/))
+
+name:   Arg Vnorm 
+tregex: WHNP=p < (/WP\$/=arg $+ (__=tr))
+
+name:   Arg Vnorm 
+tregex: NP=p < (/PRP\$/=arg $+ (__=tr))
+
+name:   Vnorm of Arg Agent
+tregex: __=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))
+
+# its target, should be handled by anaphora resolution
+#name:   Target Agent
+#tregex: NP=p < (/PRP\$/=arg $++ (/^N.*$/=tr))
+
+# mir target
+name:   Target Agent Same NP
+tregex: NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)
+
+# mir JJ target
+name:   Target Agent Same NP
+tregex: NP=p < (NN|NNS|NNP|NNPS=arg $+ (JJ $+ NN|NNS=tr))
+
+# target of mir
+name:   Target Agent
+tregex: __=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))
+
+# mir targeting
+name:	Target Agent
+tregex: __=p < (NN|NNS|NNP|NNPS=arg $+ VBG|NN=tr)
+
+# mir, targeting
+name:	Target Agent
+tregex: __=p < (NP=arg $+ (/,/ $+ (VP|NP <, VBG|NN=tr)))
+
+# mir, targeting
+# too strict, PMID 22438098
+name:	Target Agent
+tregex: __=p < ((PP <<, /^of$/ < NP|NN|NNS|NNP|NNPS=arg) $+ (/,/ $+ (VP|NP <, VBG|NN=tr)))
+
+# mir, targeting
+name:	Target Agent
+tregex: __=p < (NP=arg $+ (/,/ $+ (S <+(VP) VBD|VBZ|VBP|VBG|VB=tr)))
+
+# targeting of gene by mir
+name:	Target Agent
+tregex: __=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/) $+ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg))))
+
+# targeting of gene by mir
+name:	Target Agent
+tregex: __=p < (NP|VP <- VBG|NN=tr $++ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg)))
+
+# mir and target gene
+name:	Target Agent
+tregex:	__=p < (NP=arg $+ (CC $+ (NP << NN|NNS|NNP|NNPS=tr)))
+
+# gene-targeting miR
+name:	Target Agent
+tregex: __=p < (NP=arg < (JJ=tr <<, /ing$/ < /-/))
+
+# miR-targeted gene
+name:	Target Agent
+tregex: __=p < (NP < (JJ=tr < /-/ == JJ=arg))
+
+name:   Regulator Agent
+tregex: __=p < (NP=arg <<- NN|NNS|NNP|NNPS=tr !<< SBAR)
+
+name:   Regulator Agent
+tregex: __=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)
