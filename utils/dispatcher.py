@@ -81,6 +81,13 @@ def run_pipeline2(runnerName):
 class Dispatcher:
 
     def __init__(self, pipeline):
+        """
+        initialize dispatcher
+        :param pipeline: a pipeline containing tasks information
+        :type pipeline: Pipeline
+        :return: None
+        :rtype: None
+        """
         self.pipeline = pipeline.pipeline
         self.tempfolder = pipeline.tempFolder
         self.step = pipeline.step
@@ -91,6 +98,13 @@ class Dispatcher:
         self.get_docs()
 
     def init_runners(self, runnersRepo):
+        """
+        get all the runners
+        :param runnersRepo: the directory storing all the runner files
+        :type runnersRepo: str
+        :return: None
+        :rtype: None
+        """
         self.runnerCls = {}
         modules = pkgutil.iter_modules([runnersRepo])
         for loader, name, ispkg in modules:

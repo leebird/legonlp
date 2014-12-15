@@ -1,0 +1,2 @@
+["S1 (S (S (NP (PRP I)) (VP (VBP have) (NP (DT a) (NN book)))) (. .)))",
+"(S1 (S (S (NP (PRP I|0|1)) (VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))) (. .|13|14)))"]

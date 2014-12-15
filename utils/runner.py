@@ -1,12 +1,10 @@
 import sys
 import os
 import codecs
-import glob
 
 class Runner(object):
-
     runnerName = None
-    
+
     def __init__(self):
         '''
         read input files and process
@@ -16,20 +14,20 @@ class Runner(object):
         '''
         pass
 
-    def run(self, inputs, outputs, docList):
+    def run(self, args):
         '''
         inputs: a list of (dir, suffix) pairs
         outputs: a list of (dir, suffix) pairs
         Note that dir should be an absolute path
         '''
         raise NotImplementedError
-    
+
     def read_file(self, filepath):
         if not os.path.isfile(filepath):
             print >> sys.stderr, 'file not found: ' + filepath
             return None
 
-        f = codecs.open(filepath,'r','utf-8')
+        f = codecs.open(filepath, 'r', 'utf-8')
         text = f.read().strip()
         f.close()
 
@@ -44,7 +42,7 @@ class Runner(object):
         '''
         get a list of path for the docList
         '''
-        return [os.path.join(dirname,doc+sux) for doc in docList]
+        return [os.path.join(dirname, doc + sux) for doc in docList]
 
     def get_io_files(self, dirsux, docList):
         """

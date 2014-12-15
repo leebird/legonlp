@@ -1,4 +1,6 @@
 import json
+import sys
+print(sys.path)
 from runners.runner import Runner
 from components.parse.charniak.parser import CharniakParser
 
@@ -21,3 +23,7 @@ class CharniakRunner(Runner):
             parses = parser.parse(sents)
             output = '\n'.join(parses)
             self.write_file(output, outFile)
+
+if __name__ == '__main__':
+    print("hello")
+    # use PYTHONPATH to run runner directly

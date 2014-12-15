@@ -16,4 +16,4 @@ data = {
 dump = shlex.quote(json.dumps(data))
 
 # call tregex.java
-subprocess.call('java -cp .:../lib/java/stanford-corenlp-3.5.0.jar:../lib/java/stanford-tregex-3.5.0.jar:../lib/java/AppleJavaExtensions.jar:../lib/java/gson-2.3.1.jar:../lib/java/commons-lang3-3.3.2.jar Tregex '+dump,shell=True)
+subprocess.call('java -cp "..:.:/home/leebird/Projects/legonlp/lib/java/*" tregex.Tregex '+dump,shell=True)
