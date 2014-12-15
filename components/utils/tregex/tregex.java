@@ -17,14 +17,17 @@ import java.io.FileOutputStream;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.tregex.TregexMatcher;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
+import edu.stanford.nlp.trees.TreeTransformer;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.apache.commons.lang3.ArrayUtils;
 
 import tregex.ptb.OffsetTree;
-import tregex.ptb.OffsetTreeFactory;
+//import tregex.ptb.OffsetTreeFactory;
 import tregex.ptb.OffsetLabelFactory;
+import tregex.ptb.OffsetLabel;
 
 class Input {
     public Hashtable<String, ArrayList<ArrayList<String>>> input;
@@ -40,6 +43,50 @@ class Pattern {
     public String category;
     public String comment;
     public String[] labels;
+}
+
+class OffsetTreeTransformer implements TreeTransformer {
+
+    private static final OffsetLabelFactory lf = OffsetLabelFactory.instance();
+
+    public Tree transformTree(Tree t) {
+        if (t.isLeaf()) {
+            return newLeaf(t.toString());
+        }
+        else {
+            return t;
+        }
+    }
+
+    public Tree newLeaf(String word) {
+        // create a new offset label from word
+        int lastUnderline = word.lastIndexOf(OffsetLabel.delimiter);
+        if (lastUnderline == -1) {
+            return new OffsetTree(lf.newLabel(word));
+        }
+
+        try {
+            int to = Integer.parseInt(word.substring(lastUnderline + 1));
+
+            int secondLastUnderline = word.lastIndexOf(OffsetLabel.delimiter, lastUnderline - 1);
+
+            if (secondLastUnderline == -1) {
+                return new OffsetTree(lf.newLabel(word));
+            }
+
+            int from = Integer.parseInt(word.substring(
+                    secondLastUnderline + 1,
+                    lastUnderline));
+
+            return new OffsetTree(lf.newLabel(
+                    word.substring(0, secondLastUnderline),
+                    from,
+                    to));
+        } catch (NumberFormatException e) {
+            System.err.println("cannot parse: " + e.getMessage());
+            return new OffsetTree(lf.newLabel(word));
+        }
+    }
 }
 
 /*
@@ -127,18 +174,21 @@ class Tregex {
 
         for (String parse : parses) {
 
-            // normal tree
-            // Tree tree = Tree.valueOf(parse);
-
-            // offset tree
+            // original tree
             Tree tree = Tree.valueOf(parse);
-            //OffsetTree tree2 = new OffsetTree(tree.label(), Arrays.asList(tree.children()));
-            //System.out.println(tree2.getLeaves());
+            // transform to offset tree
+            Tree treeIndexed = tree.transform(new OffsetTreeTransformer());
+
+            /* note that if call tree.toString it won't call label.toString() but only label.value()
+            https://github.com/stanfordnlp/CoreNLP/blob/master/src/edu/stanford/nlp/trees/Tree.java#L642
+            or search for public StringBuilder toStringBuilder(StringBuilder sb, boolean printOnlyLabelValue)
+            String output = treeIndexed.toStringBuilder(new StringBuilder(500), false).toString();
+            System.out.println(output); */
 
             for (Pattern pattern : patterns) {
 
                 TregexPattern tregexPattern = TregexPattern.compile(pattern.tregex);
-                TregexMatcher tregexMatcher = tregexPattern.matcher(tree);
+                TregexMatcher tregexMatcher = tregexPattern.matcher(treeIndexed);
 
                 while (tregexMatcher.find()) {
                     Hashtable<String, String> singleMatch = new Hashtable<String, String>();
@@ -149,7 +199,8 @@ class Tregex {
 
                     for (String label : pattern.labels) {
                         Tree node = tregexMatcher.getNode(label);
-                        singleMatch.put(label, node.toString());
+                        String output = node.toStringBuilder(new StringBuilder(500), false).toString();
+                        singleMatch.put(label, output);
                     }
                     results.add(singleMatch);
                 }

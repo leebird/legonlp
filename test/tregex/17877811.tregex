@@ -1,5 +1,14 @@
 [
   {
+    "arg": "(NP (NN miRNAs|64|70))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < ((PP < (IN <<, /^of$/ $+ /^N.*$/)) $- /^N.*$/=tr $+ (PP <<, /by/ <2 NP=arg))",
+    "tr": "(NP (JJ preliminary|15|26) (NN validation|27|37))",
+    "pattern_id": "13",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Vnorm of Arg by Arg"
+  },
+  {
     "arg": "(JJ preliminary|15|26)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC",
@@ -18,6 +27,15 @@
     "pattern_name": "Arg Vnorm"
   },
   {
+    "arg": "(NP (NN oncogene|41|49) (NN regulation|50|60))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (JJ preliminary|15|26) (NN validation|27|37))",
+    "pattern_id": "26",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
     "arg": "(NN oncogene|41|49)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -27,12 +45,39 @@
     "pattern_name": "Target Agent Same NP"
   },
   {
+    "arg": "(NP (NN oncogene|41|49) (NN regulation|50|60))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "30",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Target Agent"
+  },
+  {
     "arg": "(NN oncogene|41|49)",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (NN|NNS|NNP|NNPS=arg $+ VBG|NN=tr)",
     "tr": "(NN regulation|50|60)",
     "pattern_id": "31",
     "p": "(NP (NN oncogene|41|49) (NN regulation|50|60))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN miRNAs|64|70))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/) $+ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg))))",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "35",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN miRNAs|64|70))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $++ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "36",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
     "pattern_name": "Target Agent"
   },
   {
@@ -126,6 +171,15 @@
     "pattern_name": "Regulator Agent"
   },
   {
+    "arg": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "41",
+    "p": "(NP (NP (NN Prediction|0|10)) (CC and|11|14) (NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70)))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
     "arg": "(NN validation|27|37)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC",
@@ -133,6 +187,24 @@
     "pattern_id": "16",
     "p": "(NP (JJ preliminary|15|26) (NN validation|27|37))",
     "pattern_name": "Vadj Arg"
+  },
+  {
+    "arg": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
+    "tr": "(JJ preliminary|15|26)",
+    "pattern_id": "17",
+    "p": "(NP (NP (NN Prediction|0|10)) (CC and|11|14) (NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70)))))",
+    "pattern_name": "Vadj Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (NN oncogene|41|49) (NN regulation|50|60))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (JJ preliminary|15|26) (NN validation|27|37))",
+    "pattern_id": "28",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ preliminary|15|26)",
@@ -243,13 +315,31 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (NNS MicroRNAs|84|93)) (PRN (-LRB- -LRB-|94|95) (NP (NN miRNAs|64|70)) (-RRB- -RRB-|101|102)))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBP are|103|106) (NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185)))))))) (, ,|185|186) (S (VP (VBG playing|187|194) (NP (JJ important|195|204) (NNS roles|205|210)) (PP (IN in|159|161) (NP (JJ many|214|218) (JJ fundamental|219|230) (JJ cellular|167|175) (NNS processes|240|249))))))",
-    "pattern_id": "2",
-    "p": "(S (NP (NP (NNS MicroRNAs|84|93)) (PRN (-LRB- -LRB-|94|95) (NP (NN miRNAs|64|70)) (-RRB- -RRB-|101|102))) (VP (VBP are|103|106) (NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185)))))))) (, ,|185|186) (S (VP (VBG playing|187|194) (NP (JJ important|195|204) (NNS roles|205|210)) (PP (IN in|159|161) (NP (JJ many|214|218) (JJ fundamental|219|230) (JJ cellular|167|175) (NNS processes|240|249)))))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "42",
+    "p": "(NP (NP (NN Prediction|0|10)) (CC and|11|14) (NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70)))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NN oncogene|41|49) (NN regulation|50|60))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "43",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (NN oncogene|41|49) (NN regulation|50|60))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN validation|27|37)",
+    "pattern_id": "46",
+    "p": "(NP (NP (JJ preliminary|15|26) (NN validation|27|37)) (PP (IN of|38|40) (NP (NN oncogene|41|49) (NN regulation|50|60))) (PP (IN by|61|63) (NP (NN miRNAs|64|70))))",
+    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (NP (NNS MicroRNAs|84|93)) (PRN (-LRB- -LRB-|94|95) (NP (NN miRNAs|64|70)) (-RRB- -RRB-|101|102)))",
@@ -295,6 +385,33 @@
     "pattern_id": "20",
     "p": "(NP (JJ many|214|218) (JJ fundamental|219|230) (JJ cellular|167|175) (NNS processes|240|249))",
     "pattern_name": "Arg Vnorm"
+  },
+  {
+    "arg": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (CD one|107|110))",
+    "pattern_id": "26",
+    "p": "(NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NNS groups|132|138)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))))",
@@ -405,13 +522,13 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
-    "tr": "(VBP are|103|106)",
-    "pattern_id": "2",
-    "p": "(VP (VBP are|103|106) (NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185)))))))) (, ,|185|186) (S (VP (VBG playing|187|194) (NP (JJ important|195|204) (NNS roles|205|210)) (PP (IN in|159|161) (NP (JJ many|214|218) (JJ fundamental|219|230) (JJ cellular|167|175) (NNS processes|240|249))))))",
-    "pattern_name": "Vact Arg"
+    "arg": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NNS groups|132|138)",
+    "pattern_id": "41",
+    "p": "(PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185)))))))",
+    "pattern_name": "Regulator Agent"
   },
   {
     "arg": "(NP (JJ important|195|204) (NNS roles|205|210))",
@@ -466,6 +583,33 @@
     "pattern_id": "16",
     "p": "(NP (JJ many|214|218) (JJ fundamental|219|230) (JJ cellular|167|175) (NNS processes|240|249))",
     "pattern_name": "Vadj Arg"
+  },
+  {
+    "arg": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
+    "tr": "(ADJP (RBS most|118|122) (JJ abundant|123|131))",
+    "pattern_id": "17",
+    "p": "(PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185)))))))",
+    "pattern_name": "Vadj Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (CD one|107|110))",
+    "pattern_id": "28",
+    "p": "(NP (NP (CD one|107|110)) (PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))))",
+    "pattern_name": "Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ regulatory|142|152)",
@@ -666,22 +810,22 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (QP (JJR More|251|255) (IN than|256|260) (CD four|261|265) (CD hundred|266|273)) (NNS miRNAs|64|70))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN in|159|161) (NP (NNS humans|305|311))))))",
-    "pattern_id": "2",
-    "p": "(S (NP (QP (JJR More|251|255) (IN than|256|260) (CD four|261|265) (CD hundred|266|273)) (NNS miRNAs|64|70)) (VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN in|159|161) (NP (NNS humans|305|311)))))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NNS groups|132|138)",
+    "pattern_id": "42",
+    "p": "(PP (IN of|38|40) (NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185)))))))",
+    "pattern_name": "Target Theme"
   },
   {
-    "arg": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBZ has|353|356) (VP (VBN been|286|290) (ADVP (RB also|362|366)) (VP (VBN shown|367|372) (PP (IN in|159|161) (NP (JJ many|214|218) (NNS cancers|381|388))))))",
-    "pattern_id": "2",
-    "p": "(S (NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352)))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (ADVP (RB also|362|366)) (VP (VBN shown|367|372) (PP (IN in|159|161) (NP (JJ many|214|218) (NNS cancers|381|388)))))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NNS groups|132|138)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT the|114|117) (ADJP (RBS most|118|122) (JJ abundant|123|131)) (NNS groups|132|138)) (PP (IN of|38|40) (NP (NP (JJ regulatory|142|152) (NNS genes|153|158)) (PP (IN in|159|161) (NP (JJ multicellular|162|175) (NNS organisms|176|185))))))",
+    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (QP (JJR More|251|255) (IN than|256|260) (CD four|261|265) (CD hundred|266|273)) (NNS miRNAs|64|70))",
@@ -720,6 +864,15 @@
     "pattern_name": "Arg Vnorm"
   },
   {
+    "arg": "(NP (NN miRNA|64|69) (NN expression|342|352))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (NN deregulation|320|332))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
     "arg": "(NN miRNA|64|69)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -727,6 +880,15 @@
     "pattern_id": "28",
     "p": "(NP (NN miRNA|64|69) (NN expression|342|352))",
     "pattern_name": "Target Agent Same NP"
+  },
+  {
+    "arg": "(NP (NN miRNA|64|69) (NN expression|342|352))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN deregulation|320|332)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NN miRNA|64|69)",
@@ -792,6 +954,15 @@
     "pattern_name": "Regulator Agent"
   },
   {
+    "arg": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN deregulation|320|332)",
+    "pattern_id": "41",
+    "p": "(S (NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352)))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (ADVP (RB also|362|366)) (VP (VBN shown|367|372) (PP (IN in|159|161) (NP (JJ many|214|218) (NNS cancers|381|388)))))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
     "arg": "(NNS cancers|381|388)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC",
@@ -835,6 +1006,15 @@
     "pattern_id": "18",
     "p": "(S (NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352)))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (ADVP (RB also|362|366)) (VP (VBN shown|367|372) (PP (IN in|159|161) (NP (JJ many|214|218) (NNS cancers|381|388)))))))",
     "pattern_name": "Arg Vadj"
+  },
+  {
+    "arg": "(NP (NN miRNA|64|69) (NN expression|342|352))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (NN deregulation|320|332))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NN miRNA|64|69)",
@@ -963,22 +1143,31 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (EX there|454|459))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBP are|103|106) (NP (NP (ADJP (RB only|464|468) (DT a|103|104) (JJ few|471|474)) (NNS examples|475|483)) (SBAR (WHADVP (WRB where|484|489)) (S (NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562))))))))))",
-    "pattern_id": "2",
-    "p": "(S (PP (IN Despite|390|397) (NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))) (, ,|185|186) (NP (EX there|454|459)) (VP (VBP are|103|106) (NP (NP (ADJP (RB only|464|468) (DT a|103|104) (JJ few|471|474)) (NNS examples|475|483)) (SBAR (WHADVP (WRB where|484|489)) (S (NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562)))))))))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN deregulation|320|332)",
+    "pattern_id": "42",
+    "p": "(S (NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352)))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (ADVP (RB also|362|366)) (VP (VBN shown|367|372) (PP (IN in|159|161) (NP (JJ many|214|218) (NNS cancers|381|388)))))))",
+    "pattern_name": "Target Theme"
   },
   {
-    "arg": "(NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524)))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562))))))",
-    "pattern_id": "2",
-    "p": "(S (NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562)))))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NN miRNA|64|69) (NN expression|342|352))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN deregulation|320|332)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (NN miRNA|64|69) (NN expression|342|352))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN deregulation|320|332)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT the|114|117) (NN deregulation|320|332)) (PP (IN of|111|113) (NP (NN miRNA|64|69) (NN expression|342|352))))",
+    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (EX there|454|459))",
@@ -1017,6 +1206,15 @@
     "pattern_name": "Arg Vnorm"
   },
   {
+    "arg": "(NP (NNS miRNAs|95|101))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
     "arg": "(NN tumour|438|444)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -1024,6 +1222,15 @@
     "pattern_id": "28",
     "p": "(NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))",
     "pattern_name": "Target Agent Same NP"
+  },
+  {
+    "arg": "(NP (NNS miRNAs|95|101))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN involvement|413|424)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NN tumour|438|444)",
@@ -1134,13 +1341,13 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (ADJP (RB only|464|468) (DT a|103|104) (JJ few|471|474)) (NNS examples|475|483)) (SBAR (WHADVP (WRB where|484|489)) (S (NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562)))))))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
-    "tr": "(VBP are|103|106)",
-    "pattern_id": "2",
-    "p": "(VP (VBP are|103|106) (NP (NP (ADJP (RB only|464|468) (DT a|103|104) (JJ few|471|474)) (NNS examples|475|483)) (SBAR (WHADVP (WRB where|484|489)) (S (NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562))))))))))",
-    "pattern_name": "Vact Arg"
+    "arg": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN involvement|413|424)",
+    "pattern_id": "41",
+    "p": "(PP (IN Despite|390|397) (NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452)))))",
+    "pattern_name": "Regulator Agent"
   },
   {
     "arg": "(NN involvement|413|424)",
@@ -1170,6 +1377,15 @@
     "pattern_name": "Vadj Arg"
   },
   {
+    "arg": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
+    "tr": "(VBN postulated|402|412)",
+    "pattern_id": "17",
+    "p": "(PP (IN Despite|390|397) (NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452)))))",
+    "pattern_name": "Vadj Vnorm of Arg"
+  },
+  {
     "arg": "(NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524)))",
     "pattern_category": "Theme",
     "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP <+(VP) JJ|VBN=tr))",
@@ -1186,6 +1402,15 @@
     "pattern_id": "18",
     "p": "(S (NP (NP (DT an|128|130) (NN oncogene|493|501)) (CC or|149|151) (NP (DT a|103|104) (NN tumour|438|444) (NN suppressor|514|524))) (VP (VBZ has|353|356) (VP (VBN been|286|290) (VP (VBN identified|291|301) (PP (IN as|354|356) (NP (DT a|103|104) (JJ miRNA|95|100) (NN target|556|562)))))))",
     "pattern_name": "Arg Vadj"
+  },
+  {
+    "arg": "(NP (NNS miRNAs|95|101))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NN tumour|438|444)",
@@ -1377,6 +1602,33 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
+    "arg": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN involvement|413|424)",
+    "pattern_id": "42",
+    "p": "(PP (IN Despite|390|397) (NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452)))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NNS miRNAs|95|101))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN involvement|413|424)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (NNS miRNAs|95|101))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN involvement|413|424)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT the|114|117) (VBN postulated|402|412) (NN involvement|413|424)) (PP (IN of|111|113) (NP (NNS miRNAs|95|101))) (PP (IN in|159|161) (NP (NN tumourigenesis|438|452))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
     "arg": "(NP (PRP we|579|581))",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
@@ -1411,6 +1663,24 @@
     "pattern_id": "20",
     "p": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
     "pattern_name": "Arg Vnorm"
+  },
+  {
+    "arg": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN analysis|603|611)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(JJ miRNA-oncogene|625|639)",
@@ -1459,6 +1729,15 @@
   },
   {
     "arg": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN analysis|603|611)",
+    "pattern_id": "41",
+    "p": "(VP (VBP present|582|589) (NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652)))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
     "pattern_category": "Theme",
     "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
     "tr": "(VBP present|582|589)",
@@ -1483,6 +1762,24 @@
     "pattern_id": "16",
     "p": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
     "pattern_name": "Vadj Arg"
+  },
+  {
+    "arg": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
+    "tr": "(ADJP (FW in|159|161) (FW silico|596|602))",
+    "pattern_id": "17",
+    "p": "(VP (VBP present|582|589) (NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652)))))",
+    "pattern_name": "Vadj Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ miRNA-oncogene|625|639)",
@@ -1548,6 +1845,33 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
+    "arg": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN analysis|603|611)",
+    "pattern_id": "42",
+    "p": "(VP (VBP present|582|589) (NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652)))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN analysis|603|611)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN analysis|603|611)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT an|128|130) (ADJP (FW in|159|161) (FW silico|596|602)) (NN analysis|603|611)) (PP (IN of|111|113) (NP (JJ potential|615|624) (JJ miRNA-oncogene|625|639) (NNS interactions|640|652))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
     "arg": "(NP (PRP we|579|581))",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
@@ -1582,6 +1906,42 @@
     "pattern_id": "21",
     "p": "(NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652))",
     "pattern_name": "Arg Vnorm"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (NN validity|683|691))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652))",
+    "pattern_id": "26",
+    "p": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN validity|683|691)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NNS interactions|640|652)",
+    "pattern_id": "30",
+    "p": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
@@ -1665,6 +2025,33 @@
     "pattern_name": "Regulator Agent"
   },
   {
+    "arg": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN validity|683|691)",
+    "pattern_id": "41",
+    "p": "(VP (VBN tested|672|678) (NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387))))))))))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NNS interactions|640|652)",
+    "pattern_id": "41",
+    "p": "(PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387))))))))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "VP=p < ((VBD|VBZ|VBP|VBG|VB|AUX < /^(had|has|have)$/) $++ (VP < (VBN=tr $+ /N.*/=arg)))",
+    "tr": "(VBN tested|672|678)",
+    "pattern_id": "4",
+    "p": "(VP (VBP have|281|285) (VP (VBN tested|672|678) (NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))))",
+    "pattern_name": "Vact Arg"
+  },
+  {
     "arg": "(NP (NN cancer|381|387))",
     "pattern_category": "Theme",
     "pattern_tregex": "ADJP=p < (JJ=tr $+ (PP <1 TO <2 /^N.*$/=arg))",
@@ -1683,6 +2070,15 @@
     "pattern_name": "Vadj Arg"
   },
   {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
+    "tr": "(JJ possible|699|707)",
+    "pattern_id": "17",
+    "p": "(PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387))))))))))",
+    "pattern_name": "Vadj Vnorm of Arg"
+  },
+  {
     "arg": "(NP (PRP we|579|581))",
     "pattern_category": "Theme",
     "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP <+(VP) JJ|VBN=tr))",
@@ -1690,6 +2086,24 @@
     "pattern_id": "18",
     "p": "(S (ADVP (RB Moreover|654|662)) (, ,|185|186) (NP (PRP we|579|581)) (VP (VBP have|281|285) (VP (VBN tested|672|678) (NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387))))))))))))))",
     "pattern_name": "Arg Vadj"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|114|117) (NN validity|683|691))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_name": "Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652))",
+    "pattern_id": "28",
+    "p": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ possible|699|707)",
@@ -1800,6 +2214,51 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
+    "arg": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN validity|683|691)",
+    "pattern_id": "42",
+    "p": "(VP (VBN tested|672|678) (NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387))))))))))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NNS interactions|640|652)",
+    "pattern_id": "42",
+    "p": "(PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387))))))))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN validity|683|691)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN validity|683|691)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT the|114|117) (NN validity|683|691)) (PP (IN of|139|141) (NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
+    "arg": "(NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NNS interactions|640|652)",
+    "pattern_id": "46",
+    "p": "(NP (NP (CD two|695|698) (JJ possible|699|707) (NNS interactions|640|652)) (PP (IN of|139|141) (NP (NP (NNS miRNAs|274|280)) (PP (IN with|731|735) (NP (NP (NNS genes|153|158)) (ADJP (JJ related|742|749) (PP (TO to|148|150) (NP (NN cancer|381|387)))))))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
     "arg": "(NP (PRP We|761|763))",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
@@ -1825,6 +2284,24 @@
     "pattern_id": "3",
     "p": "(S (NP (PRP We|761|763)) (VP (VBP present|582|589) (NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279)))))) (, ,|185|186) (PP (IN via|892|895) (NP (NP (DT the|316|319) (VBN predicted|900|909) (NN binding|910|917) (NN site|918|922)) (PP (IN in|159|161) (NP (DT the|316|319) (CD 3|930|931) (POS '|931|932) (NN UTR|932|935))))) (, ,|185|186) (CC and|312|315) (VP (VB verify|941|947) (NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981)))))) (. .|249|250))",
     "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (NN let-7|879|884) (NNS miRNA|274|279))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < ((PP < (IN <<, /^of$/ $+ /^N.*$/)) $- /^N.*$/=tr $+ (PP <<, /by/ <2 NP=arg))",
+    "tr": "(NP (DT the|316|319) (NN down-regulation|789|804))",
+    "pattern_id": "13",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Vnorm of Arg by Arg"
+  },
+  {
+    "arg": "(NP (NN miR16|976|981))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < ((PP < (IN <<, /^of$/ $+ /^N.*$/)) $- /^N.*$/=tr $+ (PP <<, /by/ <2 NP=arg))",
+    "tr": "(NP (DT the|316|319) (NN suppression|952|963))",
+    "pattern_id": "13",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Vnorm of Arg by Arg"
   },
   {
     "arg": "(NP (PRP We|761|763))",
@@ -1863,6 +2340,33 @@
     "pattern_name": "Arg Vnorm"
   },
   {
+    "arg": "(NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|316|319) (NN down-regulation|789|804))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (CD one|815|818))",
+    "pattern_id": "26",
+    "p": "(NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NN BCL-2|967|972))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|316|319) (NN suppression|952|963))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
     "arg": "(NN let-7|879|884)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -1881,12 +2385,75 @@
     "pattern_name": "Target Agent Same NP"
   },
   {
+    "arg": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN evidence|772|780)",
+    "pattern_id": "30",
+    "p": "(NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN BCL-2|967|972))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Target Agent"
+  },
+  {
     "arg": "(NN binding|910|917)",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (NN|NNS|NNP|NNPS=arg $+ VBG|NN=tr)",
     "tr": "(NN site|918|922)",
     "pattern_id": "31",
     "p": "(NP (DT the|316|319) (VBN predicted|900|909) (NN binding|910|917) (NN site|918|922))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN let-7|879|884) (NNS miRNA|274|279))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/) $+ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg))))",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "35",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN miR16|976|981))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/) $+ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg))))",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "35",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN let-7|879|884) (NNS miRNA|274|279))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $++ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "36",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NN miR16|976|981))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $++ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "36",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
     "pattern_name": "Target Agent"
   },
   {
@@ -2026,6 +2593,33 @@
   },
   {
     "arg": "(NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN evidence|772|780)",
+    "pattern_id": "41",
+    "p": "(VP (VBP present|582|589) (NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279)))))) (, ,|185|186) (PP (IN via|892|895) (NP (NP (DT the|316|319) (VBN predicted|900|909) (NN binding|910|917) (NN site|918|922)) (PP (IN in|159|161) (NP (DT the|316|319) (CD 3|930|931) (POS '|931|932) (NN UTR|932|935))))) (, ,|185|186) (CC and|312|315) (VP (VB verify|941|947) (NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "41",
+    "p": "(PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279)))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "41",
+    "p": "(VP (VB verify|941|947) (NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981)))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))))",
     "pattern_category": "Theme",
     "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
     "tr": "(VBP present|582|589)",
@@ -2059,6 +2653,33 @@
     "pattern_id": "16",
     "p": "(NP (DT the|316|319) (VBN predicted|900|909) (NN binding|910|917) (NN site|918|922))",
     "pattern_name": "Vadj Arg"
+  },
+  {
+    "arg": "(NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|316|319) (NN down-regulation|789|804))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (CD one|815|818))",
+    "pattern_id": "28",
+    "p": "(NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874))))",
+    "pattern_name": "Vnorm of Arg"
+  },
+  {
+    "arg": "(NP (NN BCL-2|967|972))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|316|319) (NN suppression|952|963))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NN let-7|879|884)",
@@ -2304,13 +2925,76 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN used|1130|1134))))",
-    "pattern_id": "2",
-    "p": "(S (PP (IN In|995|997) (NP (DT this|998|1002) (NN work|1003|1007))) (NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280)))))))) (VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN used|1130|1134)))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN evidence|772|780)",
+    "pattern_id": "42",
+    "p": "(VP (VBP present|582|589) (NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279)))))) (, ,|185|186) (PP (IN via|892|895) (NP (NP (DT the|316|319) (VBN predicted|900|909) (NN binding|910|917) (NN site|918|922)) (PP (IN in|159|161) (NP (DT the|316|319) (CD 3|930|931) (POS '|931|932) (NN UTR|932|935))))) (, ,|185|186) (CC and|312|315) (VP (VB verify|941|947) (NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "42",
+    "p": "(PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279)))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "42",
+    "p": "(VP (VB verify|941|947) (NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981)))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (NN BCL-2|967|972))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Targeting Theme"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN evidence|772|780)",
+    "pattern_id": "46",
+    "p": "(NP (NP (NN evidence|772|780)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
+    "arg": "(NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN down-regulation|789|804)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT the|316|319) (NN down-regulation|789|804)) (PP (IN of|139|141) (NP (NP (NN c-MYC|808|813)) (, ,|185|186) (NP (NP (CD one|815|818)) (PP (IN of|139|141) (NP (DT the|316|319) (ADJP (ADJP (RBS most|826|830) (JJ potent|615|621)) (CC and|312|315) (ADJP (RB frequently|842|852) (VBN deregulated|853|864))) (NNS oncogenes|865|874)))) (, ,|185|186))) (PP (IN by|876|878) (NP (NN let-7|879|884) (NNS miRNA|274|279))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
+    "arg": "(NP (NN BCL-2|967|972))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NN suppression|952|963)",
+    "pattern_id": "46",
+    "p": "(NP (NP (DT the|316|319) (NN suppression|952|963)) (PP (IN of|333|335) (NP (NN BCL-2|967|972))) (PP (IN by|876|878) (NP (NN miR16|976|981))))",
+    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))))",
@@ -2329,6 +3013,33 @@
     "pattern_id": "20",
     "p": "(NP (JJ possible|699|707) (NNS targets|1101|1108))",
     "pattern_name": "Arg Vnorm"
+  },
+  {
+    "arg": "(NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088)))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NNS approaches|1044|1054)",
+    "pattern_id": "30",
+    "p": "(NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NNS miRNAs|274|280))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NNS targets|1101|1108)",
+    "pattern_id": "30",
+    "p": "(NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (NN prediction|1063|1073))",
@@ -2439,6 +3150,24 @@
     "pattern_name": "Regulator Agent"
   },
   {
+    "arg": "(NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NNS approaches|1044|1054)",
+    "pattern_id": "41",
+    "p": "(S (PP (IN In|995|997) (NP (DT this|998|1002) (NN work|1003|1007))) (NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280)))))))) (VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN used|1130|1134)))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
+    "tr": "(NNS targets|1101|1108)",
+    "pattern_id": "41",
+    "p": "(PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280)))))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
     "arg": "(NNS approaches|1044|1054)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC",
@@ -2473,6 +3202,15 @@
     "pattern_id": "18",
     "p": "(S (PP (IN In|995|997) (NP (DT this|998|1002) (NN work|1003|1007))) (NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280)))))))) (VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN used|1130|1134)))))",
     "pattern_name": "Arg Vadj"
+  },
+  {
+    "arg": "(NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088)))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ possible|699|707)",
@@ -2628,22 +3366,40 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBZ is|450|452) (VP (VBN proposed|1240|1248)))",
-    "pattern_id": "2",
-    "p": "(S (NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453)))))) (VP (VBZ is|450|452) (VP (VBN proposed|1240|1248))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NNS approaches|1044|1054)",
+    "pattern_id": "42",
+    "p": "(S (PP (IN In|995|997) (NP (DT this|998|1002) (NN work|1003|1007))) (NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280)))))))) (VP (VBP have|281|285) (VP (VBN been|286|290) (VP (VBN used|1130|1134)))))",
+    "pattern_name": "Target Theme"
   },
   {
-    "arg": "(NP (CD two|695|698) (JJ such|1257|1261) (NNS interactions|640|652))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
-    "tr": "(VP (VBP have|281|285) (VP (VBN been|286|290) (ADVP (RB experimentally|1285|1299)) (VP (VBN validated|1300|1309))))",
-    "pattern_id": "2",
-    "p": "(S (NP (CD two|695|698) (JJ such|1257|1261) (NNS interactions|640|652)) (VP (VBP have|281|285) (VP (VBN been|286|290) (ADVP (RB experimentally|1285|1299)) (VP (VBN validated|1300|1309)))))",
-    "pattern_name": "Arg Vact"
+    "arg": "(NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
+    "tr": "(NNS targets|1101|1108)",
+    "pattern_id": "42",
+    "p": "(PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280)))))",
+    "pattern_name": "Target Theme"
+  },
+  {
+    "arg": "(NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NNS approaches|1044|1054)",
+    "pattern_id": "46",
+    "p": "(NP (NP (ADJP (CC both|1008|1012) (ADJP (JJ bioinformatic|1013|1026)) (CC and|312|315) (ADJP (JJ experimental|1031|1043))) (NNS approaches|1044|1054)) (PP (IN for|781|784) (NP (NP (DT the|316|319) (NP (NN prediction|1063|1073)) (CC and|312|315) (NP (NN validation|1078|1088))) (PP (IN of|333|335) (NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))))))",
+    "pattern_name": "Regulator Theme"
+  },
+  {
+    "arg": "(NP (NNS miRNAs|274|280))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
+    "tr": "(NNS targets|1101|1108)",
+    "pattern_id": "46",
+    "p": "(NP (NP (JJ possible|699|707) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NNS miRNAs|274|280))))",
+    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
@@ -2707,6 +3463,33 @@
     "pattern_id": "21",
     "p": "(NP (CD two|695|698) (JJ such|1257|1261) (NNS interactions|640|652))",
     "pattern_name": "Arg Vnorm"
+  },
+  {
+    "arg": "(NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT A|278|279) (NN list|1138|1142))",
+    "pattern_id": "26",
+    "p": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
+    "pattern_name": "Vnorm of Arg Agent"
+  },
+  {
+    "arg": "(NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN list|1138|1142)",
+    "pattern_id": "30",
+    "p": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
+    "pattern_name": "Target Agent"
+  },
+  {
+    "arg": "(NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
+    "tr": "(NNS targets|1101|1108)",
+    "pattern_id": "30",
+    "p": "(NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))",
+    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (DT A|278|279) (NN list|1138|1142))",
@@ -2824,6 +3607,24 @@
     "pattern_id": "18",
     "p": "(S (NP (CD two|695|698) (JJ such|1257|1261) (NNS interactions|640|652)) (VP (VBP have|281|285) (VP (VBN been|286|290) (ADVP (RB experimentally|1285|1299)) (VP (VBN validated|1300|1309)))))",
     "pattern_name": "Arg Vadj"
+  },
+  {
+    "arg": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX < /^(be|is|are|was|were|been)$/) < (VP|ADJP < JJ|VBN=tr)))",
+    "tr": "(VBN proposed|1240|1248)",
+    "pattern_id": "20",
+    "p": "(S (NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453)))))) (VP (VBZ is|450|452) (VP (VBN proposed|1240|1248))))",
+    "pattern_name": "Arg Vadj"
+  },
+  {
+    "arg": "(NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NP (DT A|278|279) (NN list|1138|1142))",
+    "pattern_id": "28",
+    "p": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
+    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ putative|1146|1154)",
@@ -2977,5 +3778,14 @@
     "pattern_id": "41",
     "p": "(S (NP (CD two|695|698) (JJ such|1257|1261) (NNS interactions|640|652)) (VP (VBP have|281|285) (VP (VBN been|286|290) (ADVP (RB experimentally|1285|1299)) (VP (VBN validated|1300|1309)))))",
     "pattern_name": "Target Theme Same NP"
+  },
+  {
+    "arg": "(NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
+    "tr": "(NN list|1138|1142)",
+    "pattern_id": "43",
+    "p": "(NP (NP (DT A|278|279) (NN list|1138|1142)) (PP (IN of|333|335) (NP (NP (JJ putative|1146|1154) (NNS targets|1101|1108)) (PP (IN for|781|784) (NP (NP (JJ different|1167|1176) (NNS oncomirs|1177|1185)) (, ,|452|453) (SBAR (WHNP (NP (NN validation|1078|1088)) (WHPP (IN of|333|335) (WHNP (WDT which|1201|1206)))) (S (VP (MD would|1207|1212) (VP (VB be|286|288) (PP (IN of|333|335) (NP (JJ special|1219|1226) (NN interest|1227|1235))))))) (, ,|452|453))))))",
+    "pattern_name": "Targeting Theme"
   }
 ]

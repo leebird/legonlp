@@ -49,7 +49,7 @@ public class OffsetLabel extends StringLabel {
   @Override
   public String toString() {
     if (beginPosition() != -1) {
-      return super.value() + "-" + beginPosition() + delimiter + endPosition();
+      return super.value() + delimiter + beginPosition() + delimiter + endPosition();
     } else {
       return super.value();
     }
