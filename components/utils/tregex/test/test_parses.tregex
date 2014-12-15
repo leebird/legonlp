@@ -1,0 +1,110 @@
+[
+  {
+    "arg": "(NP (PRP I))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (VBP have) (NP (DT a) (NN book)))",
+    "pattern_id": "2",
+    "p": "(S (NP (PRP I)) (VP (VBP have) (NP (DT a) (NN book))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (PRP I))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg $+ (VP=tr))",
+    "tr": "(VP (VBP have) (NP (DT a) (NN book)))",
+    "pattern_id": "15",
+    "p": "(S (NP (PRP I)) (VP (VBP have) (NP (DT a) (NN book))))",
+    "pattern_name": "Arg does something by Vvbg"
+  },
+  {
+    "arg": "(NP (DT a) (NN book))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg <<- NN|NNS|NNP|NNPS=tr !<< SBAR)",
+    "tr": "(NN book)",
+    "pattern_id": "40",
+    "p": "(VP (VBP have) (NP (DT a) (NN book)))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (DT a) (NN book))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
+    "tr": "(VBP have)",
+    "pattern_id": "2",
+    "p": "(VP (VBP have) (NP (DT a) (NN book)))",
+    "pattern_name": "Vact Arg"
+  },
+  {
+    "arg": "(NP (DT a) (NN book))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NN|NNS|NNP|NNPS=tr !<<, /^targeting$/))",
+    "tr": "(NN book)",
+    "pattern_id": "40",
+    "p": "(VP (VBP have) (NP (DT a) (NN book)))",
+    "pattern_name": "Target Theme Same NP"
+  },
+  {
+    "arg": "(NP (DT a) (NN book))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg << (NN|NNS|NNP|NNPS=tr !<<, /^targeting$/) !<< VP|PP)",
+    "tr": "(NN book)",
+    "pattern_id": "41",
+    "p": "(VP (VBP have) (NP (DT a) (NN book)))",
+    "pattern_name": "Target Theme Same NP"
+  },
+  {
+    "arg": "(NP (PRP I|0|1))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))",
+    "pattern_id": "2",
+    "p": "(S (NP (PRP I|0|1)) (VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (PRP I|0|1))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg $+ (VP=tr))",
+    "tr": "(VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))",
+    "pattern_id": "15",
+    "p": "(S (NP (PRP I|0|1)) (VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13))))",
+    "pattern_name": "Arg does something by Vvbg"
+  },
+  {
+    "arg": "(NP (DT a|3|4) (NN book|9|13))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (NP=arg <<- NN|NNS|NNP|NNPS=tr !<< SBAR)",
+    "tr": "(NN book|9|13)",
+    "pattern_id": "40",
+    "p": "(VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))",
+    "pattern_name": "Regulator Agent"
+  },
+  {
+    "arg": "(NP (DT a|3|4) (NN book|9|13))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
+    "tr": "(VBP have|2|6)",
+    "pattern_id": "2",
+    "p": "(VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))",
+    "pattern_name": "Vact Arg"
+  },
+  {
+    "arg": "(NP (DT a|3|4) (NN book|9|13))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg < (NN|NNS|NNP|NNPS=tr !<<, /^targeting$/))",
+    "tr": "(NN book|9|13)",
+    "pattern_id": "40",
+    "p": "(VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))",
+    "pattern_name": "Target Theme Same NP"
+  },
+  {
+    "arg": "(NP (DT a|3|4) (NN book|9|13))",
+    "pattern_category": "Theme",
+    "pattern_tregex": "__=p < (NP=arg << (NN|NNS|NNP|NNPS=tr !<<, /^targeting$/) !<< VP|PP)",
+    "tr": "(NN book|9|13)",
+    "pattern_id": "41",
+    "p": "(VP (VBP have|2|6) (NP (DT a|3|4) (NN book|9|13)))",
+    "pattern_name": "Target Theme Same NP"
+  }
+]
