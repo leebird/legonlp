@@ -36,24 +36,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NN microRNA-17|14|25))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN Inhibition|0|10))",
-    "pattern_id": "26",
-    "p": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
-    "arg": "(NP (NN microRNA-17|14|25))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN Inhibition|0|10)",
-    "pattern_id": "30",
-    "p": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_name": "Target Agent"
-  },
-  {
     "arg": "(NP (NN lung|35|39))",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (NP=arg $+ (CC $+ (NP << NN|NNS|NNP|NNPS=tr)))",
@@ -135,15 +117,6 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN Inhibition|0|10)",
-    "pattern_id": "41",
-    "p": "(S (NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25)))) (VP (VBZ improves|26|34) (NP (NP (NP (NN lung|35|39)) (CC and|40|43) (NP (NN heart|44|49))) (NN function|50|58)) (PP (IN in|59|61) (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
     "arg": "(NP (NP (NP (NN lung|35|39)) (CC and|40|43) (NP (NN heart|44|49))) (NN function|50|58))",
     "pattern_category": "Theme",
     "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
@@ -160,15 +133,6 @@
     "pattern_id": "16",
     "p": "(NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97))",
     "pattern_name": "Vadj Arg"
-  },
-  {
-    "arg": "(NP (NN microRNA-17|14|25))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN Inhibition|0|10))",
-    "pattern_id": "28",
-    "p": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NP (NP (NN lung|35|39)) (CC and|40|43) (NP (NN heart|44|49)))",
@@ -331,33 +295,6 @@
     "pattern_id": "41",
     "p": "(PP (IN in|59|61) (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)))",
     "pattern_name": "Target Theme Same NP"
-  },
-  {
-    "arg": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN Inhibition|0|10)",
-    "pattern_id": "42",
-    "p": "(S (NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25)))) (VP (VBZ improves|26|34) (NP (NP (NP (NN lung|35|39)) (CC and|40|43) (NP (NN heart|44|49))) (NN function|50|58)) (PP (IN in|59|61) (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NN microRNA-17|14|25))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN Inhibition|0|10)",
-    "pattern_id": "43",
-    "p": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN microRNA-17|14|25))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN Inhibition|0|10)",
-    "pattern_id": "46",
-    "p": "(NP (NP (NN Inhibition|0|10)) (PP (IN of|11|13) (NP (NN microRNA-17|14|25))))",
-    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (NP (NNS MicroRNAs|110|119)) (PRN (-LRB- -LRB-|120|121) (NP (NNS miRs|121|125)) (-RRB- -RRB-|125|126)))",
@@ -594,15 +531,6 @@
     "pattern_name": "Vadj Arg"
   },
   {
-    "arg": "(NP (DT the|229|232) (JJ posttranscriptional|233|252) (NN level|253|258))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^on$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN gene|210|214) (NN expression|215|225))",
-    "pattern_id": "30",
-    "p": "(NP (NP (NN gene|210|214) (NN expression|215|225)) (PP (IN on|56|58) (NP (DT the|229|232) (JJ posttranscriptional|233|252) (NN level|253|258))))",
-    "pattern_name": "Vnorm on Arg"
-  },
-  {
     "arg": "(JJ cellular|143|151)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC",
@@ -866,6 +794,24 @@
   {
     "arg": "(NP (PRP it|270|272))",
     "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (VBD was|273|276) (VP (VBN demonstrated|277|289) (SBAR (IN that|290|294) (S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126))))))))))",
+    "pattern_id": "2",
+    "p": "(S (ADVP (RB Recently|260|268)) (, ,|268|269) (NP (PRP it|270|272)) (VP (VBD was|273|276) (VP (VBN demonstrated|277|289) (SBAR (IN that|290|294) (S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126))))))",
+    "pattern_id": "2",
+    "p": "(S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (PRP it|270|272))",
+    "pattern_category": "Agent",
     "pattern_tregex": "__=p < (NP=arg $+ (VP=tr))",
     "tr": "(VP (VBD was|273|276) (VP (VBN demonstrated|277|289) (SBAR (IN that|290|294) (S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126))))))))))",
     "pattern_id": "15",
@@ -900,24 +846,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NN expression|215|225))",
-    "pattern_id": "26",
-    "p": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
-    "arg": "(NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NNS members|324|331))",
-    "pattern_id": "26",
-    "p": "(NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
     "arg": "(NN miR-17-92|339|348)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -925,24 +853,6 @@
     "pattern_id": "28",
     "p": "(NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))",
     "pattern_name": "Target Agent Same NP"
-  },
-  {
-    "arg": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN expression|215|225)",
-    "pattern_id": "30",
-    "p": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_name": "Target Agent"
-  },
-  {
-    "arg": "(NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NNS members|324|331)",
-    "pattern_id": "30",
-    "p": "(NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NN miR-17-92|339|348)",
@@ -1062,24 +972,6 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN expression|215|225)",
-    "pattern_id": "41",
-    "p": "(S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
-    "arg": "(NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NNS members|324|331)",
-    "pattern_id": "41",
-    "p": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
     "arg": "(NN hypertension|85|97)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC",
@@ -1105,42 +997,6 @@
     "pattern_id": "18",
     "p": "(S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))",
     "pattern_name": "Arg Vadj"
-  },
-  {
-    "arg": "(NP (PRP it|270|272))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX < /^(be|is|are|was|were|been)$/) < (VP|ADJP < JJ|VBN=tr)))",
-    "tr": "(VBN demonstrated|277|289)",
-    "pattern_id": "20",
-    "p": "(S (ADVP (RB Recently|260|268)) (, ,|268|269) (NP (PRP it|270|272)) (VP (VBD was|273|276) (VP (VBN demonstrated|277|289) (SBAR (IN that|290|294) (S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))))))",
-    "pattern_name": "Arg Vadj"
-  },
-  {
-    "arg": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX < /^(be|is|are|was|were|been)$/) < (VP|ADJP < JJ|VBN=tr)))",
-    "tr": "(VBN altered|375|382)",
-    "pattern_id": "20",
-    "p": "(S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))",
-    "pattern_name": "Arg Vadj"
-  },
-  {
-    "arg": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NN expression|215|225))",
-    "pattern_id": "28",
-    "p": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_name": "Vnorm of Arg"
-  },
-  {
-    "arg": "(NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NNS members|324|331))",
-    "pattern_id": "28",
-    "p": "(NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NN miR-17-92|339|348)",
@@ -1305,51 +1161,6 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN expression|215|225)",
-    "pattern_id": "42",
-    "p": "(S (NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))))) (VP (VBD was|273|276) (ADVP (RB significantly|361|374)) (VP (VBN altered|375|382) (PP (IN in|59|61) (NP (NP (JJ experimental|62|74) (JJ pulmonary|75|84) (NN hypertension|85|97)) (PRN (-LRB- -LRB-|120|121) (NP (NN PH|423|425)) (-RRB- -RRB-|125|126)))))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NNS members|324|331)",
-    "pattern_id": "42",
-    "p": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN expression|215|225)",
-    "pattern_id": "43",
-    "p": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN expression|215|225)",
-    "pattern_id": "46",
-    "p": "(NP (NP (DT the|229|232) (NN expression|215|225)) (PP (IN of|310|312) (NP (NP (NN miR-21|313|319)) (CC and|184|187) (NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356)))))))",
-    "pattern_name": "Regulator Theme"
-  },
-  {
-    "arg": "(NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NNS members|324|331)",
-    "pattern_id": "46",
-    "p": "(NP (NP (NNS members|324|331)) (PP (IN of|310|312) (NP (DT the|229|232) (NN miR-17-92|339|348) (NN cluster|349|356))))",
-    "pattern_name": "Regulator Theme"
-  },
-  {
     "arg": "(JJ therapeutic|457|468)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC",
@@ -1377,24 +1188,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NN miR|121|124) (NNS inhibitors|514|524))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NP (JJ therapeutic|457|468) (NN efficacy|469|477)) (CC and|184|187) (NP (JJ antiremodeling|482|496) (NN potential|497|506)))",
-    "pattern_id": "26",
-    "p": "(NP (NP (DT the|229|232) (NP (JJ therapeutic|457|468) (NN efficacy|469|477)) (CC and|184|187) (NP (JJ antiremodeling|482|496) (NN potential|497|506))) (PP (IN of|310|312) (NP (NN miR|121|124) (NNS inhibitors|514|524))) (PP (IN in|162|164) (NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
-    "arg": "(NP (NN PH|423|425))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NN pathogenesis|532|544))",
-    "pattern_id": "26",
-    "p": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
     "arg": "(NN miR|121|124)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -1402,15 +1195,6 @@
     "pattern_id": "28",
     "p": "(NP (NN miR|121|124) (NNS inhibitors|514|524))",
     "pattern_name": "Target Agent Same NP"
-  },
-  {
-    "arg": "(NP (NN PH|423|425))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN pathogenesis|532|544)",
-    "pattern_id": "30",
-    "p": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (JJ therapeutic|457|468) (NN efficacy|469|477))",
@@ -1503,15 +1287,6 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN pathogenesis|532|544)",
-    "pattern_id": "41",
-    "p": "(PP (IN in|162|164) (NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425)))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
     "arg": "(NP (NP (DT the|229|232) (NP (JJ therapeutic|457|468) (NN efficacy|469|477)) (CC and|184|187) (NP (JJ antiremodeling|482|496) (NN potential|497|506))) (PP (IN of|310|312) (NP (NN miR|121|124) (NNS inhibitors|514|524))) (PP (IN in|162|164) (NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))))",
     "pattern_category": "Theme",
     "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
@@ -1537,24 +1312,6 @@
     "pattern_id": "16",
     "p": "(NP (JJ antiremodeling|482|496) (NN potential|497|506))",
     "pattern_name": "Vadj Arg"
-  },
-  {
-    "arg": "(NP (NN miR|121|124) (NNS inhibitors|514|524))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NP (JJ therapeutic|457|468) (NN efficacy|469|477)) (CC and|184|187) (NP (JJ antiremodeling|482|496) (NN potential|497|506)))",
-    "pattern_id": "28",
-    "p": "(NP (NP (DT the|229|232) (NP (JJ therapeutic|457|468) (NN efficacy|469|477)) (CC and|184|187) (NP (JJ antiremodeling|482|496) (NN potential|497|506))) (PP (IN of|310|312) (NP (NN miR|121|124) (NNS inhibitors|514|524))) (PP (IN in|162|164) (NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))))",
-    "pattern_name": "Vnorm of Arg"
-  },
-  {
-    "arg": "(NP (NN PH|423|425))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NN pathogenesis|532|544))",
-    "pattern_id": "28",
-    "p": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ therapeutic|457|468)",
@@ -1728,31 +1485,13 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN pathogenesis|532|544)",
-    "pattern_id": "42",
-    "p": "(PP (IN in|162|164) (NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425)))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NN PH|423|425))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN pathogenesis|532|544)",
-    "pattern_id": "43",
-    "p": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN PH|423|425))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN pathogenesis|532|544)",
-    "pattern_id": "46",
-    "p": "(NP (NP (DT the|229|232) (NN pathogenesis|532|544)) (PP (IN of|310|312) (NP (NN PH|423|425))))",
-    "pattern_name": "Regulator Theme"
+    "arg": "(NP (PRP We|561|563))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (ADVP $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB)))",
+    "tr": "(VP (VBD tested|570|576) (NP (NP (DT the|229|232) (NNS effects|581|588)) (PP (IN of|310|312) (NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))) (, ,|268|269) (SBAR (WHNP (WDT which|621|626)) (S (VP (VBD were|627|631) (ADVP (RB specifically|632|644)) (VP (VBN designed|645|653) (S (VP (TO to|520|522) (VP (VB block|657|662) (NP (NP (NP (NN miR-17|339|345)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-17|671|675)) (-RRB- -RRB-|125|126))) (, ,|268|269) (NP (NP (NN miR-21|313|319)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-21|686|690)) (-RRB- -RRB-|125|126))) (, ,|268|269) (CC and|184|187) (NP (NP (NN miR-92a|697|704)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-92a|706|711)) (-RRB- -RRB-|125|126)))) (PP (IN in|162|164) (NP (NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750)))) (CC and|184|187) (NP (NP (NN A-17|671|675)) (PP (IN in|162|164) (NP (NP (JJ monocrotaline-induced|763|784) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS rats|791|795)))))))))))))))))",
+    "pattern_id": "4",
+    "p": "(S (NP (PRP We|561|563)) (ADVP (RB first|564|569)) (VP (VBD tested|570|576) (NP (NP (DT the|229|232) (NNS effects|581|588)) (PP (IN of|310|312) (NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))) (, ,|268|269) (SBAR (WHNP (WDT which|621|626)) (S (VP (VBD were|627|631) (ADVP (RB specifically|632|644)) (VP (VBN designed|645|653) (S (VP (TO to|520|522) (VP (VB block|657|662) (NP (NP (NP (NN miR-17|339|345)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-17|671|675)) (-RRB- -RRB-|125|126))) (, ,|268|269) (NP (NP (NN miR-21|313|319)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-21|686|690)) (-RRB- -RRB-|125|126))) (, ,|268|269) (CC and|184|187) (NP (NP (NN miR-92a|697|704)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-92a|706|711)) (-RRB- -RRB-|125|126)))) (PP (IN in|162|164) (NP (NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750)))) (CC and|184|187) (NP (NP (NN A-17|671|675)) (PP (IN in|162|164) (NP (NP (JJ monocrotaline-induced|763|784) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS rats|791|795))))))))))))))))))",
+    "pattern_name": "Arg Vact"
   },
   {
     "arg": "(NP (PRP We|561|563))",
@@ -1809,15 +1548,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NNS effects|581|588))",
-    "pattern_id": "26",
-    "p": "(NP (NP (DT the|229|232) (NNS effects|581|588)) (PP (IN of|310|312) (NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))) (, ,|268|269) (SBAR (WHNP (WDT which|621|626)) (S (VP (VBD were|627|631) (ADVP (RB specifically|632|644)) (VP (VBN designed|645|653) (S (VP (TO to|520|522) (VP (VB block|657|662) (NP (NP (NP (NN miR-17|339|345)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-17|671|675)) (-RRB- -RRB-|125|126))) (, ,|268|269) (NP (NP (NN miR-21|313|319)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-21|686|690)) (-RRB- -RRB-|125|126))) (, ,|268|269) (CC and|184|187) (NP (NP (NN miR-92a|697|704)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-92a|706|711)) (-RRB- -RRB-|125|126)))) (PP (IN in|162|164) (NP (NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750)))) (CC and|184|187) (NP (NP (NN A-17|671|675)) (PP (IN in|162|164) (NP (NP (JJ monocrotaline-induced|763|784) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS rats|791|795))))))))))))))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
     "arg": "(NN miR|121|124)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -1825,15 +1555,6 @@
     "pattern_id": "28",
     "p": "(NP (NN miR|121|124) (NNS inhibitors|514|524))",
     "pattern_name": "Target Agent Same NP"
-  },
-  {
-    "arg": "(NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NNS effects|581|588)",
-    "pattern_id": "30",
-    "p": "(NP (NP (DT the|229|232) (NNS effects|581|588)) (PP (IN of|310|312) (NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))) (, ,|268|269) (SBAR (WHNP (WDT which|621|626)) (S (VP (VBD were|627|631) (ADVP (RB specifically|632|644)) (VP (VBN designed|645|653) (S (VP (TO to|520|522) (VP (VB block|657|662) (NP (NP (NP (NN miR-17|339|345)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-17|671|675)) (-RRB- -RRB-|125|126))) (, ,|268|269) (NP (NP (NN miR-21|313|319)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-21|686|690)) (-RRB- -RRB-|125|126))) (, ,|268|269) (CC and|184|187) (NP (NP (NN miR-92a|697|704)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-92a|706|711)) (-RRB- -RRB-|125|126)))) (PP (IN in|162|164) (NP (NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750)))) (CC and|184|187) (NP (NP (NN A-17|671|675)) (PP (IN in|162|164) (NP (NP (JJ monocrotaline-induced|763|784) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS rats|791|795))))))))))))))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750))))",
@@ -2088,15 +1809,6 @@
     "pattern_name": "Vadj Arg"
   },
   {
-    "arg": "(NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|229|232) (NNS effects|581|588))",
-    "pattern_id": "28",
-    "p": "(NP (NP (DT the|229|232) (NNS effects|581|588)) (PP (IN of|310|312) (NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))) (, ,|268|269) (SBAR (WHNP (WDT which|621|626)) (S (VP (VBD were|627|631) (ADVP (RB specifically|632|644)) (VP (VBN designed|645|653) (S (VP (TO to|520|522) (VP (VB block|657|662) (NP (NP (NP (NN miR-17|339|345)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-17|671|675)) (-RRB- -RRB-|125|126))) (, ,|268|269) (NP (NP (NN miR-21|313|319)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-21|686|690)) (-RRB- -RRB-|125|126))) (, ,|268|269) (CC and|184|187) (NP (NP (NN miR-92a|697|704)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-92a|706|711)) (-RRB- -RRB-|125|126)))) (PP (IN in|162|164) (NP (NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750)))) (CC and|184|187) (NP (NP (NN A-17|671|675)) (PP (IN in|162|164) (NP (NP (JJ monocrotaline-induced|763|784) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS rats|791|795))))))))))))))))",
-    "pattern_name": "Vnorm of Arg"
-  },
-  {
     "arg": "(NN miR|121|124)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p <-2 /^N.*|JJ|CD$/=arg <-1 /^N.*$/=tr !< /,/ !< CC",
@@ -2547,13 +2259,13 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NNS effects|581|588)",
-    "pattern_id": "46",
-    "p": "(NP (NP (DT the|229|232) (NNS effects|581|588)) (PP (IN of|310|312) (NP (NP (NN miR|121|124) (NNS inhibitors|514|524)) (PRN (-LRB- -LRB-|120|121) (NP (NNS antagomirs|608|618)) (-RRB- -RRB-|125|126)))) (, ,|268|269) (SBAR (WHNP (WDT which|621|626)) (S (VP (VBD were|627|631) (ADVP (RB specifically|632|644)) (VP (VBN designed|645|653) (S (VP (TO to|520|522) (VP (VB block|657|662) (NP (NP (NP (NN miR-17|339|345)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-17|671|675)) (-RRB- -RRB-|125|126))) (, ,|268|269) (NP (NP (NN miR-21|313|319)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-21|686|690)) (-RRB- -RRB-|125|126))) (, ,|268|269) (CC and|184|187) (NP (NP (NN miR-92a|697|704)) (PRN (-LRB- -LRB-|120|121) (NP (NN A-92a|706|711)) (-RRB- -RRB-|125|126)))) (PP (IN in|162|164) (NP (NP (NP (JJ chronic|716|723) (JJ hypoxia-induced|724|739) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS mice|746|750)))) (CC and|184|187) (NP (NP (NN A-17|671|675)) (PP (IN in|162|164) (NP (NP (JJ monocrotaline-induced|763|784) (NN PH|423|425)) (PP (IN in|162|164) (NP (NNS rats|791|795))))))))))))))))",
-    "pattern_name": "Regulator Theme"
+    "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))))",
+    "pattern_id": "2",
+    "p": "(S (ADVP (RB Moreover|797|805)) (, ,|268|269) (NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))))",
+    "pattern_name": "Arg Vact"
   },
   {
     "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
@@ -2601,15 +2313,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (JJ biological|807|817) (NN function|818|826))",
-    "pattern_id": "26",
-    "p": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
     "arg": "(NN artery|872|878)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -2662,15 +2365,6 @@
     "pattern_id": "28",
     "p": "(NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
     "pattern_name": "Target Agent Same NP"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN function|818|826)",
-    "pattern_id": "30",
-    "p": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NN artery|872|878)",
@@ -2727,15 +2421,6 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN function|818|826)",
-    "pattern_id": "41",
-    "p": "(S (ADVP (RB Moreover|797|805)) (, ,|268|269) (NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
     "arg": "(NN function|818|826)",
     "pattern_category": "Theme",
     "pattern_tregex": "NP=p < (JJ|VBN|ADJP=tr $+ /^N.*$/=arg) !< /,/ !< CC",
@@ -2756,38 +2441,11 @@
   {
     "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
     "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg < (NP < (JJ|VBN|ADJP=tr $+ /^N.*$/) $+ (PP < (IN <<, /^of$/ $+ /^N.*?/))))",
-    "tr": "(JJ biological|807|817)",
-    "pattern_id": "17",
-    "p": "(S (ADVP (RB Moreover|797|805)) (, ,|268|269) (NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))))",
-    "pattern_name": "Vadj Vnorm of Arg"
-  },
-  {
-    "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Theme",
     "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP <+(VP) JJ|VBN=tr))",
     "tr": "(VBN analyzed|841|849)",
     "pattern_id": "18",
     "p": "(S (ADVP (RB Moreover|797|805)) (, ,|268|269) (NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))))",
     "pattern_name": "Arg Vadj"
-  },
-  {
-    "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX < /^(be|is|are|was|were|been)$/) < (VP|ADJP < JJ|VBN=tr)))",
-    "tr": "(VBN analyzed|841|849)",
-    "pattern_id": "20",
-    "p": "(S (ADVP (RB Moreover|797|805)) (, ,|268|269) (NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))))",
-    "pattern_name": "Arg Vadj"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (JJ biological|807|817) (NN function|818|826))",
-    "pattern_id": "28",
-    "p": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ biological|807|817)",
@@ -2932,33 +2590,6 @@
     "pattern_id": "41",
     "p": "(PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))",
     "pattern_name": "Target Theme Same NP"
-  },
-  {
-    "arg": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN function|818|826)",
-    "pattern_id": "42",
-    "p": "(S (ADVP (RB Moreover|797|805)) (, ,|268|269) (NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (VP (VBD was|273|276) (VP (VBN analyzed|841|849) (PP (IN in|162|164) (NP (VBN cultured|853|861) (JJ pulmonary|399|408) (NN artery|872|878) (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN function|818|826)",
-    "pattern_id": "43",
-    "p": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN function|818|826)",
-    "pattern_id": "46",
-    "p": "(NP (NP (JJ biological|807|817) (NN function|818|826)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (NP (NN A-17|671|675)) (CC and|184|187) (NP (NN A-21|686|690)))",
@@ -4680,6 +4311,15 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
+    "arg": "(NP (DT the|295|298) (JJ cyclin-dependent|1520|1536) (NN kinase|1537|1543) (NN inhibitor|514|523) (NN 1A|1554|1556) (-LRB- -LRB-|422|423) (NN p21|1558|1561) (-RRB- -RRB-|425|426))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (VBD was|273|276) (VP (VBN up-regulated|1567|1579) (PP (IN in|383|385) (NP (NP (NNS lungs|1583|1588)) (VP (VBG undergoing|1589|1599) (NP (NN A-17|671|675) (NN treatment|1248|1257)))))))",
+    "pattern_id": "2",
+    "p": "(S (PP (IN Among|1483|1488) (NP (DT the|295|298) (VBN tested|570|576) (NN miR-17|339|345) (NNS targets|1507|1514))) (, ,|268|269) (NP (DT the|295|298) (JJ cyclin-dependent|1520|1536) (NN kinase|1537|1543) (NN inhibitor|514|523) (NN 1A|1554|1556) (-LRB- -LRB-|422|423) (NN p21|1558|1561) (-RRB- -RRB-|425|426)) (VP (VBD was|273|276) (VP (VBN up-regulated|1567|1579) (PP (IN in|383|385) (NP (NP (NNS lungs|1583|1588)) (VP (VBG undergoing|1589|1599) (NP (NN A-17|671|675) (NN treatment|1248|1257))))))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
     "arg": "(NP (NNS lungs|1583|1588))",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
@@ -4910,15 +4550,6 @@
     "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP <+(VP) JJ|VBN=tr))",
     "tr": "(VBN up-regulated|1567|1579)",
     "pattern_id": "18",
-    "p": "(S (PP (IN Among|1483|1488) (NP (DT the|295|298) (VBN tested|570|576) (NN miR-17|339|345) (NNS targets|1507|1514))) (, ,|268|269) (NP (DT the|295|298) (JJ cyclin-dependent|1520|1536) (NN kinase|1537|1543) (NN inhibitor|514|523) (NN 1A|1554|1556) (-LRB- -LRB-|422|423) (NN p21|1558|1561) (-RRB- -RRB-|425|426)) (VP (VBD was|273|276) (VP (VBN up-regulated|1567|1579) (PP (IN in|383|385) (NP (NP (NNS lungs|1583|1588)) (VP (VBG undergoing|1589|1599) (NP (NN A-17|671|675) (NN treatment|1248|1257))))))))",
-    "pattern_name": "Arg Vadj"
-  },
-  {
-    "arg": "(NP (DT the|295|298) (JJ cyclin-dependent|1520|1536) (NN kinase|1537|1543) (NN inhibitor|514|523) (NN 1A|1554|1556) (-LRB- -LRB-|422|423) (NN p21|1558|1561) (-RRB- -RRB-|425|426))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=arg $++ (VP < (VBD|VBZ|VBP|VBG|VB|AUX < /^(be|is|are|was|were|been)$/) < (VP|ADJP < JJ|VBN=tr)))",
-    "tr": "(VBN up-regulated|1567|1579)",
-    "pattern_id": "20",
     "p": "(S (PP (IN Among|1483|1488) (NP (DT the|295|298) (VBN tested|570|576) (NN miR-17|339|345) (NNS targets|1507|1514))) (, ,|268|269) (NP (DT the|295|298) (JJ cyclin-dependent|1520|1536) (NN kinase|1537|1543) (NN inhibitor|514|523) (NN 1A|1554|1556) (-LRB- -LRB-|422|423) (NN p21|1558|1561) (-RRB- -RRB-|425|426)) (VP (VBD was|273|276) (VP (VBN up-regulated|1567|1579) (PP (IN in|383|385) (NP (NP (NNS lungs|1583|1588)) (VP (VBG undergoing|1589|1599) (NP (NN A-17|671|675) (NN treatment|1248|1257))))))))",
     "pattern_name": "Arg Vadj"
   },
@@ -5454,24 +5085,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN Overexpression|1694|1708))",
-    "pattern_id": "26",
-    "p": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
-    "arg": "(NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN proliferation|1770|1783))",
-    "pattern_id": "26",
-    "p": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
     "arg": "(NN p21|1558|1561)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -5506,24 +5119,6 @@
     "pattern_id": "28",
     "p": "(NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
     "pattern_name": "Target Agent Same NP"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN Overexpression|1694|1708)",
-    "pattern_id": "30",
-    "p": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Target Agent"
-  },
-  {
-    "arg": "(NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN proliferation|1770|1783)",
-    "pattern_id": "30",
-    "p": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NN p21|1558|1561)",
@@ -5607,24 +5202,6 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN Overexpression|1694|1708)",
-    "pattern_id": "41",
-    "p": "(S (NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (ADVP (RB significantly|361|374)) (VP (VP (VBD reduced|968|975) (NP (NN p21|1558|1561) (NN expression|299|309))) (CC and|320|323) (VP (VBD increased|1365|1374) (NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
-    "arg": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN proliferation|1770|1783)",
-    "pattern_id": "41",
-    "p": "(VP (VBD increased|1365|1374) (NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
     "arg": "(NP (NN p21|1558|1561) (NN expression|299|309))",
     "pattern_category": "Theme",
     "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
@@ -5641,24 +5218,6 @@
     "pattern_id": "2",
     "p": "(VP (VBD increased|1365|1374) (NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))))",
     "pattern_name": "Vact Arg"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN Overexpression|1694|1708))",
-    "pattern_id": "28",
-    "p": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Vnorm of Arg"
-  },
-  {
-    "arg": "(NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN proliferation|1770|1783))",
-    "pattern_id": "28",
-    "p": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NN p21|1558|1561)",
@@ -5830,60 +5389,6 @@
     "pattern_id": "41",
     "p": "(PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))",
     "pattern_name": "Target Theme Same NP"
-  },
-  {
-    "arg": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN Overexpression|1694|1708)",
-    "pattern_id": "42",
-    "p": "(S (NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345)))) (ADVP (RB significantly|361|374)) (VP (VP (VBD reduced|968|975) (NP (NN p21|1558|1561) (NN expression|299|309))) (CC and|320|323) (VP (VBD increased|1365|1374) (NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN proliferation|1770|1783)",
-    "pattern_id": "42",
-    "p": "(VP (VBD increased|1365|1374) (NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898)))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN Overexpression|1694|1708)",
-    "pattern_id": "43",
-    "p": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN proliferation|1770|1783)",
-    "pattern_id": "43",
-    "p": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN Overexpression|1694|1708)",
-    "pattern_id": "46",
-    "p": "(NP (NP (NN Overexpression|1694|1708)) (PP (IN of|310|312) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Regulator Theme"
-  },
-  {
-    "arg": "(NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN proliferation|1770|1783)",
-    "pattern_id": "46",
-    "p": "(NP (NP (NN proliferation|1770|1783)) (PP (IN of|310|312) (NP (NN smooth|879|885) (NN muscle|886|892) (NNS cells|893|898))))",
-    "pattern_name": "Regulator Theme"
   },
   {
     "arg": "(NP (PRP$ Our|1821|1824) (NNS data|1825|1829))",
@@ -6392,6 +5897,24 @@
   {
     "arg": "(NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588))",
     "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
+    "tr": "(VP (MD may|1995|1998) (VP (VB be|327|329) (ADJP (JJ related|2002|2009) (PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))))))",
+    "pattern_id": "2",
+    "p": "(S (NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588)) (VP (MD may|1995|1998) (VP (VB be|327|329) (ADJP (JJ related|2002|2009) (PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561)))))))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588))",
+    "pattern_category": "Agent",
+    "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP <+(VP) (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB)))",
+    "tr": "(VP (VB be|327|329) (ADJP (JJ related|2002|2009) (PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561)))))))",
+    "pattern_id": "3",
+    "p": "(S (NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588)) (VP (MD may|1995|1998) (VP (VB be|327|329) (ADJP (JJ related|2002|2009) (PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561)))))))))",
+    "pattern_name": "Arg Vact"
+  },
+  {
+    "arg": "(NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588))",
+    "pattern_category": "Agent",
     "pattern_tregex": "__=p < (NP=arg $+ (VP=tr))",
     "tr": "(VP (MD may|1995|1998) (VP (VB be|327|329) (ADJP (JJ related|2002|2009) (PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))))))",
     "pattern_id": "15",
@@ -6406,24 +5929,6 @@
     "pattern_id": "20",
     "p": "(NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588))",
     "pattern_name": "Arg Vnorm"
-  },
-  {
-    "arg": "(NP (NN p21|1558|1561))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|335|338) (NN up-regulation|2017|2030))",
-    "pattern_id": "26",
-    "p": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
-    "arg": "(NP (NN p21|1558|1561))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN up-regulation|2017|2030)",
-    "pattern_id": "30",
-    "p": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588))",
@@ -6463,15 +5968,6 @@
   },
   {
     "arg": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN up-regulation|2017|2030)",
-    "pattern_id": "41",
-    "p": "(PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561)))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
-    "arg": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
     "pattern_category": "Theme",
     "pattern_tregex": "ADJP=p < (JJ=tr $+ (PP <1 TO <2 /^N.*$/=arg))",
     "tr": "(JJ related|2002|2009)",
@@ -6487,15 +5983,6 @@
     "pattern_id": "16",
     "p": "(NP (DT The|1972|1975) (JJ beneficial|1976|1986) (NNS effects|581|588))",
     "pattern_name": "Vadj Arg"
-  },
-  {
-    "arg": "(NP (NN p21|1558|1561))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (DT the|335|338) (NN up-regulation|2017|2030))",
-    "pattern_id": "28",
-    "p": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(JJ beneficial|1976|1986)",
@@ -6561,33 +6048,6 @@
     "pattern_name": "Target Theme Same NP"
   },
   {
-    "arg": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN up-regulation|2017|2030)",
-    "pattern_id": "42",
-    "p": "(PP (TO to|520|522) (NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561)))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NN p21|1558|1561))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN up-regulation|2017|2030)",
-    "pattern_id": "43",
-    "p": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN p21|1558|1561))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN up-regulation|2017|2030)",
-    "pattern_id": "46",
-    "p": "(NP (NP (DT the|335|338) (NN up-regulation|2017|2030)) (PP (IN of|332|334) (NP (NN p21|1558|1561))))",
-    "pattern_name": "Regulator Theme"
-  },
-  {
     "arg": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
     "pattern_category": "Agent",
     "pattern_tregex": "__=p < (/^N.*$/=arg $+ (VP=tr !<< /^(be|is|are|was|were|been)$/ <+(VP) VBD|VBZ|VBP|VBG|VB))",
@@ -6633,15 +6093,6 @@
     "pattern_name": "Arg Vnorm"
   },
   {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN inhibition|2046|2056))",
-    "pattern_id": "26",
-    "p": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Vnorm of Arg Agent"
-  },
-  {
     "arg": "(NN disease|2123|2130)",
     "pattern_category": "Agent",
     "pattern_tregex": "NP=p < (NN|NNS|NNP|NNPS=arg $++ /^(NN|NNS)$/=tr)",
@@ -6649,15 +6100,6 @@
     "pattern_id": "28",
     "p": "(NP (NN disease|2123|2130) (NN state|2131|2136))",
     "pattern_name": "Target Agent Same NP"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN inhibition|2046|2056)",
-    "pattern_id": "30",
-    "p": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Target Agent"
   },
   {
     "arg": "(NN disease|2123|2130)",
@@ -6741,15 +6183,6 @@
     "pattern_name": "Regulator Agent"
   },
   {
-    "arg": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Agent",
-    "pattern_tregex": "__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)",
-    "tr": "(NN inhibition|2046|2056)",
-    "pattern_id": "41",
-    "p": "(S (ADVP (RB Thus|2040|2044)) (, ,|619|620) (NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345)))) (VP (MD may|1995|1998) (VP (VB represent|2071|2080) (NP (NP (DT a|358|359) (ADJP (ADJP (JJ novel|2083|2088)) (ADJP (JJ therapeutic|457|468))) (NN concept|2101|2108)) (S (VP (TO to|520|522) (VP (VB ameliorate|2112|2122) (NP (NP (NN disease|2123|2130) (NN state|2131|2136)) (PP (IN in|383|385) (NP (NN PH|423|425)))))))))))",
-    "pattern_name": "Regulator Agent"
-  },
-  {
     "arg": "(NP (NP (DT a|358|359) (ADJP (ADJP (JJ novel|2083|2088)) (ADJP (JJ therapeutic|457|468))) (NN concept|2101|2108)) (S (VP (TO to|520|522) (VP (VB ameliorate|2112|2122) (NP (NP (NN disease|2123|2130) (NN state|2131|2136)) (PP (IN in|383|385) (NP (NN PH|423|425))))))))",
     "pattern_category": "Theme",
     "pattern_tregex": "VP=p < (VBD|VBZ|VBP|VBG|VB=tr !<< /^(be|is|are|was|were|been)$/ $+ /N.*/=arg)",
@@ -6775,15 +6208,6 @@
     "pattern_id": "16",
     "p": "(NP (DT a|358|359) (ADJP (ADJP (JJ novel|2083|2088)) (ADJP (JJ therapeutic|457|468))) (NN concept|2101|2108))",
     "pattern_name": "Vadj Arg"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (/^N.*$/=tr $+ (PP < (IN <<, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NP (NN inhibition|2046|2056))",
-    "pattern_id": "28",
-    "p": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Vnorm of Arg"
   },
   {
     "arg": "(NN disease|2123|2130)",
@@ -6901,32 +6325,5 @@
     "pattern_id": "41",
     "p": "(PP (IN in|383|385) (NP (NN PH|423|425)))",
     "pattern_name": "Target Theme Same NP"
-  },
-  {
-    "arg": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP=arg !<< SBAR < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))))",
-    "tr": "(NN inhibition|2046|2056)",
-    "pattern_id": "42",
-    "p": "(S (ADVP (RB Thus|2040|2044)) (, ,|619|620) (NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345)))) (VP (MD may|1995|1998) (VP (VB represent|2071|2080) (NP (NP (DT a|358|359) (ADJP (ADJP (JJ novel|2083|2088)) (ADJP (JJ therapeutic|457|468))) (NN concept|2101|2108)) (S (VP (TO to|520|522) (VP (VB ameliorate|2112|2122) (NP (NP (NN disease|2123|2130) (NN state|2131|2136)) (PP (IN in|383|385) (NP (NN PH|423|425)))))))))))",
-    "pattern_name": "Target Theme"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/=arg)))",
-    "tr": "(NN inhibition|2046|2056)",
-    "pattern_id": "43",
-    "p": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Targeting Theme"
-  },
-  {
-    "arg": "(NP (NN miR-17|339|345))",
-    "pattern_category": "Theme",
-    "pattern_tregex": "NP=p < (/^N.*$/ < NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/=arg) !<< SBAR))",
-    "tr": "(NN inhibition|2046|2056)",
-    "pattern_id": "46",
-    "p": "(NP (NP (NN inhibition|2046|2056)) (PP (IN of|332|334) (NP (NN miR-17|339|345))))",
-    "pattern_name": "Regulator Theme"
   }
 ]

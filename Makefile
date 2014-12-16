@@ -9,6 +9,7 @@ init:
 	- mkdir lib/python
 	- mkdir lib/java
 
+# require python-dev, sudo apt-get install python-dev
 charniak_parser:
 	wget -O $(MAKE_TEMP)/charniak.tar.gz https://pypi.python.org/packages/source/b/bllipparser/bllipparser-2014.08.29b.tar.gz
 	cd $(MAKE_TEMP) && tar -zxvf charniak.tar.gz 

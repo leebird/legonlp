@@ -37,9 +37,15 @@ class TestEntity(unittest.TestCase):
         self.assertRaises(Entity.EntityNegativeInterval, Entity, 'Gene', 10, 5, 'BAD')
 
 class TestEvent(unittest.TestCase):
+    def setUp(self):
+        self.entity = Entity('Gene', 0, 3, 'BAD')
+        self.entity = Entity('Gene', 0, 3, 'BAD')
     pass
 
 class TestProperty(unittest.TestCase):
+    pass
+
+class TestArgument(unittest.TestCase):
     pass
 
 class TestAnnotation(unittest.TestCase):

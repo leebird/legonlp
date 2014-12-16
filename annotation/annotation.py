@@ -63,12 +63,11 @@ class Entity(object):
 
 
 class Event(object):
-
     # template to print the event
     template = '{0}_{1}_{2}_{3}'
 
     def __init__(self, category, trigger, arguments):
-        '''
+        """
         An event structure with trigger and arguments
         :param category: event type
         :type category: str
@@ -78,7 +77,7 @@ class Event(object):
         :type arguments: list
         :return: None
         :rtype: None
-        '''
+        """
         self.category = category
         self.trigger = trigger
         self.arguments = arguments
@@ -97,12 +96,29 @@ class Event(object):
             return False
 
 
-class Property(object):
-    """
-    property manager for entity/event/relation
-    """
+class Node(object):
+    def __init__(self, value):
+        self.value = value
+        self.category = None
+        self.get_category()
 
+    def get_category(self):
+        if isinstance(self.value, Entity):
+            self.category = 'Entity'
+        elif isinstance(self.value, Event):
+            self.category = 'Event'
+        else:
+            raise TypeError('Argument is not an entity or event')
+
+    def is_leaf(self):
+        return isinstance(self.value, Entity)
+
+
+class Property(object):
     def __init__(self):
+        """
+        property manager for entity/event/relation
+        """
         self.vault = {}
 
     def add(self, key, value):
@@ -117,181 +133,140 @@ class Property(object):
         try:
             return self.vault[key]
         except:
-            return
+            return None
 
-    def delete(self, key, value):
+    def delete(self, key):
         if key in self.vault:
-            if value in self.vault[key]:
-                self.vault[key].remove(value)
+            del self.vault[key]
 
 
 class Annotation(object):
+    template = '{0} entities, {1} events'
+
     def __init__(self):
-        self.text = None
-        self.entities = {}
-        self.events = {}
-        self.relations = {}
-        self.tid = 0
-        self.eid = 0
-        self.rid = 0
-        self.tidtmpl = 'T{}'
-        self.eidtmpl = 'E{}'
-        self.ridtmpl = 'R{}'
-        self.tmpl = 'Annotation: {} entities, {} events, {} relations'
+        """
+        annotation storing text, entities and events
+        :return: None
+        :rtype: None
+        """
+        self.text = ''
+        self.entities = []
+        self.events = []
 
-    def __unicode__(self):
-        return self.tmpl.format(len(self.entities), len(self.events), len(self.relations))
-
-    def get_entities(self):
-        return self.entities
-
-    def get_events(self):
-        return self.events
-
-    def get_relations(self):
-        return self.relations
-
-    def get_entity(self, tid):
-        if tid in self.entities:
-            return self.entities[tid]
-
-    def get_event(self, eid):
-        if eid in self.events:
-            return self.events[eid]
-
-    def get_relation(self, rid):
-        if rid in self.relations:
-            return self.relations[rid]
-
-    def get_entity_type(self, typing):
-        return [t for t in list(self.entities.values()) if t.type == typing]
-
-    def add_entity(self, typing, start, end, text):
-        entity = self.has_entity_prop(typing, start, end, text)
-        if entity is not None:
-            return entity
-
-        self.tid += 1
-        tid = self.tidtmpl.format(self.tid)
-        entity = Entity(tid, typing, start, end, text)
-        self.entities[tid] = entity
+    def add_entity(self, category, start, end, text):
+        """
+        add a new entity
+        :param category: entity category, e.g., Gene
+        :type category: str
+        :param start: entity start position
+        :type start: int
+        :param end: entity end position
+        :type end: int
+        :param text: the associated text
+        :type text: str
+        :return: the created entity
+        :rtype: Entity
+        """
+        entity = Entity(category, start, end, text)
+        self.entities.append(entity)
         return entity
 
-    def add_entities(self, annotation):
-        for t in list(annotation.get_entities().values()):
-            self.add_entity(t.type, t.start, t.end, t.text)
+    def get_entity_category(self, category, complement=False):
+        """
+        get a list of entities of the same category
+        :param category: entity category
+        :type category: str
+        :param complement: set True to get all other categories but the input one
+        :type complement: bool
+        :return: a list of entities of the input category
+        :rtype: list
+        """
+        if complement:
+            return [t for t in self.entities if t.category != category]
+        else:
+            return [t for t in self.entities if t.category == category]
 
-    def add_event(self, typing, trigger, args):
-        event = self.has_event_prop(typing, trigger, args)
-        if event is not None:
-            return event
-
-        self.eid += 1
-        eid = self.eidtmpl.format(self.eid)
-        event = Event(eid, typing, trigger, args)
-        self.events[eid] = event
+    def add_event(self, category, trigger, arguments):
+        """
+        add a new event
+        :param category: event category, e.g., Regulation
+        :type category: str
+        :param trigger: the event trigger
+        :type trigger: Entity
+        :param arguments: a list of event arguments
+        :type arguments: list
+        :return: the created event
+        :rtype: Event
+        """
+        event = Event(category, trigger, arguments)
+        self.events.append(event)
         return event
 
-    def add_relation(self, typing, arg1, arg2):
-        relation = self.has_relation_prop(typing, arg1, arg2)
-        if relation is not None:
-            return relation
-
-        self.rid += 1
-        rid = self.ridtmpl.format(self.rid)
-        relation = Relation(rid, typing, arg1, arg2)
-        self.relations[rid] = relation
-        return relation
-
-    def add_exist_entity(self, tid, typing, start, end, text):
-        order = self.get_number(tid)
-        if self.tid < order:
-            self.tid = order
-        entity = Entity(tid, typing, start, end, text)
-        self.entities[tid] = entity
-        return entity
-
-    def add_exist_event(self, eid, typing, trigger, args):
-        order = self.get_number(eid)
-        if self.eid < order:
-            self.eid = order
-        event = Event(eid, typing, trigger, args)
-        self.events[eid] = event
-        return event
-
-    def add_exist_relation(self, rid, typing, arg1, arg2):
-        order = self.get_number(rid)
-        if self.rid < order:
-            self.rid = order
-        relation = Relation(rid, typing, arg1, arg2)
-        self.relations[rid] = relation
-        return relation
+    def get_event_category(self, category, complement=False):
+        """
+        get a list of events of the same category
+        :param category: event category
+        :type category: str
+        :param complement: set True to get all other categories but the input one
+        :type complement: bool
+        :return: a list of events of the input category
+        :rtype: list
+        """
+        if complement:
+            return [e for e in self.events if e.category != category]
+        else:
+            return [e for e in self.events if e.category == category]
 
     def has_entity(self, entity):
-        if entity in list(self.entities.values()):
+        if entity in self.entities:
             return True
         return False
-
-    def has_entity_prop(self, typing, start, end, text):
-        for entity in list(self.entities.values()):
-            if (typing == entity.type and
-                        start == entity.start and
-                        end == entity.end and
-                        text == entity.text):
-                return entity
-        return None
 
     def has_event(self, event):
-        if event in list(self.events.values()):
+        if event in self.events:
             return True
         return False
-
-    def has_event_prop(self, typing, trigger, args):
-        for event in list(self.events.values()):
-            if (typing == event.type and
-                        trigger == event.trigger and
-                        sorted(args) == sorted(event.args)):
-                return event
-
-        return None
-
-    def has_relation(self, relation):
-        if relation in self.relations.value():
-            return True
-        return False
-
-    def has_relation_prop(self, typing, arg1, arg2):
-        for relation in list(self.relations.values()):
-            if (typing == relation.type and
-                        arg1 == relation.arg1 and
-                        arg2 == relation.arg2):
-                return relation
-
-        return None
-
-    def del_entity(self, entity):
-        if entity.id in self.entities:
-            del self.entities[entity.id]
-
-    def get_number(self, xid):
-        return int(xid[1:])
 
     def remove_included(self):
-        entities = list(self.get_entities().values())
-        for e1 in entities:
-            for e2 in entities:
+        """
+        remove overlapping entities
+        if two entities are overlapping with each other,
+        remove the inner (included) one
+        :return: None
+        :rtype: None
+        """
+        entities = self.entities
+        indices = []
+        for i, e1 in enumerate(entities):
+            for j, e2 in enumerate(entities):
                 if e1 == e2:
                     continue
                 if e1.start < e2.end and e1.end > e2.start:
                     if e1.start > e2.start:
-                        self.del_entity(e1)
+                        indices.append(i)
                     else:
-                        self.del_entity(e2)
+                        indices.append(j)
+        self.entities = [e for i, e in enumerate(self.entities) if i in indices]
 
     def remove_overlap(self, keep, remove):
-        toKeep = self.get_entity_type(keep)
-        toRemove = self.get_entity_type(remove)
-        for k in toKeep:
-            for r in toRemove:
+        """
+        remove overlapping entities of some category
+        :param keep: the entity category to keep. If it is None,
+        then compare the to-be-removed category to all other categories.
+        :type keep: str | None
+        :param remove: the entity category to remove
+        :type remove: str
+        :return: None
+        :rtype: None
+        """
+        if keep is not None:
+            entities_keep = self.get_entity_category(keep)
+        else:
+            entities_keep = self.get_entity_category(remove, complement=True)
+
+        entities_removed = self.get_entity_category(remove)
+
+        for k in entities_keep:
+            for r in entities_removed:
                 if k.start < r.end and k.end > r.start:
-                    self.del_entity(r)
+                    self.entities.remove(r)
