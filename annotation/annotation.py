@@ -2,17 +2,28 @@ class Entity(object):
     # template to print the entity
     template = '{0}_{1}_{2}_{3}'
 
-    class EntityZeroInterval(Exception):
-        def __str__(self):
-            return repr('Zero interval of the text span')
+    class EntityIndexError(Exception):
 
-    class EntityNegativeInterval(Exception):
-        def __str__(self):
-            return repr('Negative interval of the text span')
+        ZERO_INTERVAL = 0
+        NEGATIVE_INTERVAL = 1
+        NEGATIVE_INDEX = 2
 
-    class EntityNegativeIndex(Exception):
+        MESSAGES = {ZERO_INTERVAL: 'Zero interval of the text span',
+                    NEGATIVE_INTERVAL: 'Negative interval of the text span',
+                    NEGATIVE_INDEX: 'Negative index of the text span'}
+
+        def __init__(self, value):
+            self.value = value
+
         def __str__(self):
-            return repr('Negative index of the text span')
+            if self.value in self.MESSAGES:
+                return repr(self.MESSAGES[self.value])
+            else:
+                return repr('Unknown error')
+
+    class EntityLengthError(Exception):
+        def __str__(self):
+            return repr('Interval length and text length are not equal')
 
     def __init__(self, category, start, end, text):
         """A text span that refers to an entity
@@ -36,15 +47,18 @@ class Entity(object):
 
         # test if start/end is negative
         if self.start < 0 or self.end < 0:
-            raise self.EntityNegativeIndex
+            raise self.EntityIndexError(self.EntityIndexError.NEGATIVE_INDEX)
 
         # test if start equals end, which means the entity has 0 length
         if self.start == self.end:
-            raise self.EntityZeroInterval
+            raise self.EntityIndexError(self.EntityIndexError.ZERO_INTERVAL)
 
         # test if start is larger than end, which is invalid for indices of text span
         if self.start > self.end:
-            raise self.EntityNegativeInterval
+            raise self.EntityIndexError(self.EntityIndexError.NEGATIVE_INTERVAL)
+
+        if self.end - self.start != len(self.text):
+            raise self.EntityLengthError
 
     def __str__(self):
         return self.template.format(self.category, self.start, self.end, self.text)
@@ -73,7 +87,7 @@ class Event(object):
         :type category: str
         :param trigger: event trigger
         :type trigger: Entity
-        :param arguments: event arguments list
+        :param arguments: a list of node objects
         :type arguments: list
         :return: None
         :rtype: None
@@ -97,42 +111,46 @@ class Event(object):
 
 
 class Node(object):
+    """
+    the arguments of an event are nodes, which act as a wrapper of
+    an entity or another event.
+    """
     def __init__(self, value):
         self.value = value
         self.category = None
         self.get_category()
 
     def get_category(self):
+        """
+        value should be an entity or event
+        :return: None
+        :rtype: None
+        """
         if isinstance(self.value, Entity):
             self.category = 'Entity'
         elif isinstance(self.value, Event):
             self.category = 'Event'
         else:
-            raise TypeError('Argument is not an entity or event')
+            raise TypeError('Node value is not an entity or event')
 
     def is_leaf(self):
         return isinstance(self.value, Entity)
 
 
 class Property(object):
+    """
+    property manager for entity/event/relation
+    """
     def __init__(self):
-        """
-        property manager for entity/event/relation
-        """
         self.vault = {}
 
     def add(self, key, value):
-
-        if key in self.vault:
-            if value not in self.vault[key]:
-                self.vault[key].append(value)
-        else:
-            self.vault[key] = [value]
+        self.vault[key] = value
 
     def get(self, key):
         try:
             return self.vault[key]
-        except:
+        except KeyError:
             return None
 
     def delete(self, key):

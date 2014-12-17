@@ -26,30 +26,73 @@ class TestEntity(unittest.TestCase):
         self.assertTrue(len(self.entity.text) == self.entity.end - self.entity.start)
 
     def test_same_start_end(self):
-        self.assertRaises(Entity.EntityZeroInterval, Entity, 'Gene', 0, 0, 'BAD')
+        self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', 0, 0, 'BAD')
 
     def test_negative_index(self):
-        self.assertRaises(Entity.EntityNegativeIndex, Entity, 'Gene', -1, 0, 'BAD')
-        self.assertRaises(Entity.EntityNegativeIndex, Entity, 'Gene', 0, -1, 'BAD')
-        self.assertRaises(Entity.EntityNegativeIndex, Entity, 'Gene', -1, -1, 'BAD')
+        self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', -1, 0, 'BAD')
+        self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', 0, -1, 'BAD')
+        self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', -1, -1, 'BAD')
 
     def test_negative_interval(self):
-        self.assertRaises(Entity.EntityNegativeInterval, Entity, 'Gene', 10, 5, 'BAD')
+        self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', 10, 5, 'BAD')
+
+    def test_wrong_length(self):
+        self.assertRaises(Entity.EntityLengthError, Entity, 'Gene', 10, 12, 'BAD')
 
 class TestEvent(unittest.TestCase):
     def setUp(self):
-        self.entity = Entity('Gene', 0, 3, 'BAD')
-        self.entity = Entity('Gene', 0, 3, 'BAD')
-    pass
+        self.trigger = Entity('Trigger', 4, 10, 'target')
+        self.arguments = [Node(Entity('Gene', 0, 3, 'BAD')), Node(Entity('Gene', 11, 14, 'BAD'))]
+
+    def test_simple_event(self):
+        Event('Target', self.trigger, self.arguments)
+
+    def test_nested_event(self):
+        event = Event('Target', self.trigger, self.arguments)
+        trigger = Entity('Trigger', 20, 28, 'regulate')
+        Event('Regulation', trigger, [Node(event)])
 
 class TestProperty(unittest.TestCase):
-    pass
+    def setUp(self):
+        self.property = Property()
 
-class TestArgument(unittest.TestCase):
-    pass
+    def test_property_add(self):
+        self.property.add('id', 'P1234')
+
+    def test_property_get(self):
+        self.property.add('id', 'P1234')
+        self.assertEqual(self.property.get('id'), 'P1234')
+
+    def test_property_del(self):
+        self.property.add('id', 'P1234')
+        self.property.delete('id')
+        self.assertIsNone(self.property.get('id'))
+
+
+class TestNode(unittest.TestCase):
+    def test_node_entity(self):
+        Node(Entity('Gene', 0, 3, 'BAD'))
+
+    def test_node_event(self):
+        trigger = Entity('Trigger', 4, 10, 'target')
+        arguments = [Node(Entity('Gene', 0, 3, 'BAD')), Node(Entity('Gene', 11, 14, 'BAD'))]
+        Node(Event('Target', trigger, arguments))
+
+    def test_node_invalid_value(self):
+        self.assertRaises(TypeError, Node, 123)
+
 
 class TestAnnotation(unittest.TestCase):
-    pass
+    def setUp(self):
+        self.annotation = Annotation()
+
+    def test_add_entity(self):
+        self.annotation.add_entity('Gene', 0, 3, 'BAD')
+
+    def test_add_event(self):
+        trigger = Entity('Trigger', 4, 10, 'target')
+        arguments = [Node(Entity('Gene', 0, 3, 'BAD')), Node(Entity('Gene', 11, 14, 'BAD'))]
+        self.annotation.add_event('Target', trigger, arguments)
 
 if __name__ == '__main__':
     unittest.main()
