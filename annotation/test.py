@@ -42,7 +42,8 @@ class TestEntity(unittest.TestCase):
 class TestEvent(unittest.TestCase):
     def setUp(self):
         self.trigger = Entity('Trigger', 4, 10, 'target')
-        self.arguments = [Node(Entity('Gene', 0, 3, 'BAD')), Node(Entity('Gene', 11, 14, 'BAD'))]
+        self.arguments = [Argument('Agent', Entity('Gene', 0, 3, 'BAD')),
+                          Argument('Theme', Entity('Gene', 11, 14, 'BAD'))]
 
     def test_simple_event(self):
         Event('Target', self.trigger, self.arguments)
@@ -50,7 +51,9 @@ class TestEvent(unittest.TestCase):
     def test_nested_event(self):
         event = Event('Target', self.trigger, self.arguments)
         trigger = Entity('Trigger', 20, 28, 'regulate')
-        Event('Regulation', trigger, [Node(event)])
+        nested_event = Event('Regulation', trigger, [Argument('Theme', event)])
+        print()
+        print(nested_event)
 
 class TestProperty(unittest.TestCase):
     def setUp(self):
@@ -69,17 +72,18 @@ class TestProperty(unittest.TestCase):
         self.assertIsNone(self.property.get('id'))
 
 
-class TestNode(unittest.TestCase):
-    def test_node_entity(self):
-        Node(Entity('Gene', 0, 3, 'BAD'))
+class TestArgument(unittest.TestCase):
+    def test_argument_entity(self):
+        Argument('Theme', Entity('Gene', 0, 3, 'BAD'))
 
-    def test_node_event(self):
+    def test_argument_event(self):
         trigger = Entity('Trigger', 4, 10, 'target')
-        arguments = [Node(Entity('Gene', 0, 3, 'BAD')), Node(Entity('Gene', 11, 14, 'BAD'))]
-        Node(Event('Target', trigger, arguments))
+        arguments = [Argument('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Argument('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        Argument('Theme', Event('Target', trigger, arguments))
 
     def test_node_invalid_value(self):
-        self.assertRaises(TypeError, Node, 123)
+        self.assertRaises(TypeError, Argument, 123)
 
 
 class TestAnnotation(unittest.TestCase):
@@ -91,7 +95,8 @@ class TestAnnotation(unittest.TestCase):
 
     def test_add_event(self):
         trigger = Entity('Trigger', 4, 10, 'target')
-        arguments = [Node(Entity('Gene', 0, 3, 'BAD')), Node(Entity('Gene', 11, 14, 'BAD'))]
+        arguments = [Argument('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Argument('Theme', Entity('Gene', 11, 14, 'BAD'))]
         self.annotation.add_event('Target', trigger, arguments)
 
 if __name__ == '__main__':

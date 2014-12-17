@@ -61,7 +61,8 @@ class Entity(object):
             raise self.EntityLengthError
 
     def __str__(self):
-        return self.template.format(self.category, self.start, self.end, self.text)
+        return self.indent_print()
+        # return self.template.format(self.category, self.start, self.end, self.text)
 
     def __eq__(self, other):
         """
@@ -75,12 +76,15 @@ class Entity(object):
         else:
             return False
 
+    def indent_print(self, indent=0, prefix=''):
+        return ' ' * indent + prefix + self.template.format(self.category, self.start, self.end, self.text)
+
 
 class Event(object):
     # template to print the event
-    template = '{0}_{1}_{2}_{3}'
+    template = '{category} ({trigger})'
 
-    def __init__(self, category, trigger, arguments):
+    def __init__(self, category, trigger=None, arguments=None):
         """
         An event structure with trigger and arguments
         :param category: event type
@@ -94,14 +98,16 @@ class Event(object):
         """
         self.category = category
         self.trigger = trigger
-        self.arguments = arguments
+        if arguments is None:
+            self.arguments = []
+        else:
+            self.arguments = arguments
         self.property = Property()
 
     def __str__(self):
-        return self.template.format(self.category, self.trigger, self.arguments)
+        return self.indent_print()
 
     def __eq__(self, other):
-
         if isinstance(other, self.__class__):
             return (self.category == other.category and
                     self.trigger == other.trigger and
@@ -109,39 +115,51 @@ class Event(object):
         else:
             return False
 
+    def indent_print(self, indent=0, prefix=''):
+        res = ' ' * indent + prefix + self.template.format(category=self.category,
+                                                           trigger=self.trigger)
+        res += '\n'
+        for arg in self.arguments:
+            res += arg.indent_print(indent + 2) + '\n'
+        return res
 
-class Node(object):
-    """
-    the arguments of an event are nodes, which act as a wrapper of
-    an entity or another event.
-    """
-    def __init__(self, value):
-        self.value = value
-        self.category = None
-        self.get_category()
-
-    def get_category(self):
+    def add_argument(self, argument):
         """
-        value should be an entity or event
+        add new argument
+        :param argument: an argument containing an entity or event
+        :type argument: Argument
         :return: None
         :rtype: None
         """
-        if isinstance(self.value, Entity):
-            self.category = 'Entity'
-        elif isinstance(self.value, Event):
-            self.category = 'Event'
-        else:
-            raise TypeError('Node value is not an entity or event')
+        self.arguments.append(argument)
+
+
+class Argument(object):
+    def __init__(self, category, value):
+        """
+        the argument must be an entity or another event.
+        :param category: the semantic category of the argument, e.g., agent
+        :type category: str
+        :param value: the actual entity or event
+        :type value: Entity | Event
+        :return: None
+        :rtype: None
+        """
+        self.value = value
+        self.category = category
 
     def is_leaf(self):
         return isinstance(self.value, Entity)
 
+    def indent_print(self, indent):
+        return self.value.indent_print(indent, self.category+': ')
+
 
 class Property(object):
-    """
-    property manager for entity/event/relation
-    """
     def __init__(self):
+        """
+        property manager for entity/event/relation
+        """
         self.vault = {}
 
     def add(self, key, value):
