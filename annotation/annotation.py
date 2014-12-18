@@ -8,6 +8,7 @@ class Entity(object):
         NEGATIVE_INTERVAL = 1
         NEGATIVE_INDEX = 2
 
+        # exception messages
         MESSAGES = {ZERO_INTERVAL: 'Zero interval of the text span',
                     NEGATIVE_INTERVAL: 'Negative interval of the text span',
                     NEGATIVE_INDEX: 'Negative index of the text span'}
@@ -61,8 +62,10 @@ class Entity(object):
             raise self.EntityLengthError
 
     def __str__(self):
-        return self.indent_print()
-        # return self.template.format(self.category, self.start, self.end, self.text)
+        return self.template.format(self.category, self.start, self.end, self.text)
+
+    def __repr__(self):
+        return str(self)
 
     def __eq__(self, other):
         """
@@ -75,9 +78,6 @@ class Entity(object):
                     self.text == other.text)
         else:
             return False
-
-    def indent_print(self, indent=0, prefix=''):
-        return ' ' * indent + prefix + self.template.format(self.category, self.start, self.end, self.text)
 
 
 class Event(object):
@@ -105,7 +105,10 @@ class Event(object):
         self.property = Property()
 
     def __str__(self):
-        return self.indent_print()
+        return self.template.format(category=self.category, trigger=self.trigger)
+
+    def __repr__(self):
+        return str(self)
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
@@ -115,26 +118,20 @@ class Event(object):
         else:
             return False
 
-    def indent_print(self, indent=0, prefix=''):
-        res = ' ' * indent + prefix + self.template.format(category=self.category,
-                                                           trigger=self.trigger)
-        res += '\n'
-        for arg in self.arguments:
-            res += arg.indent_print(indent + 2) + '\n'
-        return res
-
-    def add_argument(self, argument):
+    def add_argument(self, category, argument):
         """
         add new argument
-        :param argument: an argument containing an entity or event
-        :type argument: Argument
+        :param argument: an argument is an entity or event
+        :type argument: Entity | Event
+        :param category: semantic category, e.g., agent
+        :type category: str
         :return: None
         :rtype: None
         """
-        self.arguments.append(argument)
+        self.arguments.append(Node(category, argument))
 
 
-class Argument(object):
+class Node(object):
     def __init__(self, category, value):
         """
         the argument must be an entity or another event.
@@ -148,11 +145,21 @@ class Argument(object):
         self.value = value
         self.category = category
 
+        if (not self.is_leaf()) and (not self.is_tree()):
+            raise TypeError('Value must be an entity or event')
+
     def is_leaf(self):
         return isinstance(self.value, Entity)
 
-    def indent_print(self, indent):
-        return self.value.indent_print(indent, self.category+': ')
+    def is_tree(self):
+        return isinstance(self.value, Event)
+
+    def indent_print(self, indent=0):
+        if self.is_leaf():
+            return ' ' * indent + self.category + ': ' + str(self.value)
+        else:
+            return ' ' * indent + self.category + ': ' + str(self.value) + '\n' + \
+                   '\n'.join([n.indent_print(indent + 2) for n in self.value.arguments])
 
 
 class Property(object):
@@ -277,14 +284,19 @@ class Annotation(object):
             for j, e2 in enumerate(entities):
                 if e1 == e2:
                     continue
+                '''
+                e1: 0-5, e2: 4-6
+                e1: 4-6, e2: 0-5
+                e1: 0-5, e2: 1-3
+                '''
                 if e1.start < e2.end and e1.end > e2.start:
-                    if e1.start > e2.start:
+                    if e1.start > e2.start and e1.end < e2.end:
                         indices.append(i)
-                    else:
+                    elif e1.start < e2.start and e1.end > e2.end:
                         indices.append(j)
-        self.entities = [e for i, e in enumerate(self.entities) if i in indices]
+        self.entities = [e for i, e in enumerate(self.entities) if i not in indices]
 
-    def remove_overlap(self, keep, remove):
+    def remove_overlap(self, keep=None, remove=None):
         """
         remove overlapping entities of some category
         :param keep: the entity category to keep. If it is None,
@@ -295,14 +307,28 @@ class Annotation(object):
         :return: None
         :rtype: None
         """
-        if keep is not None:
-            entities_keep = self.get_entity_category(keep)
-        else:
-            entities_keep = self.get_entity_category(remove, complement=True)
 
-        entities_removed = self.get_entity_category(remove)
+        if keep is None and remove is None:
+            # removed any overlapped entities
+            # TODO: this branch's result is not clear
+            entities_keep = self.entities[:]
+            entities_removed = self.entities[:]
+        elif keep is None:
+            # remove entities of removing type overlapped with any other kinds of entities
+            entities_keep = self.get_entity_category(remove, complement=True)
+            entities_removed = self.get_entity_category(remove)
+        elif remove is None:
+            # remove entities of any other kinds overlapped with the keeping type of entities
+            entities_keep = self.get_entity_category(keep)
+            entities_removed = self.get_entity_category(keep, complement=True)
+        else:
+            entities_keep = self.get_entity_category(keep)
+            entities_removed = self.get_entity_category(remove)
+
 
         for k in entities_keep:
             for r in entities_removed:
+                if k == r:
+                    continue
                 if k.start < r.end and k.end > r.start:
                     self.entities.remove(r)

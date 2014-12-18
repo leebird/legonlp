@@ -19,9 +19,6 @@ class TestEntity(unittest.TestCase):
     def test_text(self):
         self.assertEqual('BAD', self.entity.text)
 
-    def test_print(self):
-        print(self.entity)
-
     def test_text_length(self):
         self.assertTrue(len(self.entity.text) == self.entity.end - self.entity.start)
 
@@ -39,11 +36,12 @@ class TestEntity(unittest.TestCase):
     def test_wrong_length(self):
         self.assertRaises(Entity.EntityLengthError, Entity, 'Gene', 10, 12, 'BAD')
 
+
 class TestEvent(unittest.TestCase):
     def setUp(self):
         self.trigger = Entity('Trigger', 4, 10, 'target')
-        self.arguments = [Argument('Agent', Entity('Gene', 0, 3, 'BAD')),
-                          Argument('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        self.arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                          Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
 
     def test_simple_event(self):
         Event('Target', self.trigger, self.arguments)
@@ -51,9 +49,8 @@ class TestEvent(unittest.TestCase):
     def test_nested_event(self):
         event = Event('Target', self.trigger, self.arguments)
         trigger = Entity('Trigger', 20, 28, 'regulate')
-        nested_event = Event('Regulation', trigger, [Argument('Theme', event)])
-        print()
-        print(nested_event)
+        Event('Regulation', trigger, [Node('Theme', event)])
+
 
 class TestProperty(unittest.TestCase):
     def setUp(self):
@@ -72,18 +69,29 @@ class TestProperty(unittest.TestCase):
         self.assertIsNone(self.property.get('id'))
 
 
-class TestArgument(unittest.TestCase):
-    def test_argument_entity(self):
-        Argument('Theme', Entity('Gene', 0, 3, 'BAD'))
+class TestNode(unittest.TestCase):
+    def test_node_entity(self):
+        Node('Theme', Entity('Gene', 0, 3, 'BAD'))
 
-    def test_argument_event(self):
+    def test_node_event(self):
         trigger = Entity('Trigger', 4, 10, 'target')
-        arguments = [Argument('Agent', Entity('Gene', 0, 3, 'BAD')),
-                     Argument('Theme', Entity('Gene', 11, 14, 'BAD'))]
-        Argument('Theme', Event('Target', trigger, arguments))
+        arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        Node('Theme', Event('Target', trigger, arguments)).indent_print()
+
+
+    def test_node_nested_event(self):
+        trigger = Entity('Trigger', 4, 10, 'target')
+        arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
+
+        arguments = [Node('Theme', Event('Target', trigger, arguments))]
+        trigger = Entity('Trigger', 20, 28, 'regulate')
+
+        Node('Root', Event('Regulation', trigger, arguments))
 
     def test_node_invalid_value(self):
-        self.assertRaises(TypeError, Argument, 123)
+        self.assertRaises(TypeError, Node, 123)
 
 
 class TestAnnotation(unittest.TestCase):
@@ -95,9 +103,59 @@ class TestAnnotation(unittest.TestCase):
 
     def test_add_event(self):
         trigger = Entity('Trigger', 4, 10, 'target')
-        arguments = [Argument('Agent', Entity('Gene', 0, 3, 'BAD')),
-                     Argument('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
         self.annotation.add_event('Target', trigger, arguments)
+
+    def test_get_entity_category(self):
+        entity = self.annotation.add_entity('Gene', 0, 3, 'BAD')
+        self.annotation.add_entity('Protein', 0, 3, 'BAD')
+        self.annotation.add_entity('Disease', 0, 6, 'cancer')
+        self.assertEqual(self.annotation.get_entity_category('Gene'), [entity])
+
+    def test_get_entity_category_complement(self):
+        self.annotation.add_entity('Gene', 0, 3, 'BAD')
+        entity = self.annotation.add_entity('Protein', 0, 3, 'BAD')
+        self.assertEqual(self.annotation.get_entity_category('Gene', True), [entity])
+
+    def test_get_event_category(self):
+        trigger = Entity('Trigger', 4, 10, 'target')
+        arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        event = self.annotation.add_event('Target', trigger, arguments)
+        self.assertEqual(self.annotation.get_event_category('Target'), [event])
+
+    def test_get_event_category_complement(self):
+        trigger = Entity('Trigger', 4, 10, 'target')
+        arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        self.annotation.add_event('Target', trigger, arguments)
+
+        trigger = Entity('Trigger', 4, 12, 'regulate')
+        arguments = [Node('Agent', Entity('Gene', 0, 3, 'BAD')),
+                     Node('Theme', Entity('Gene', 11, 14, 'BAD'))]
+        event = self.annotation.add_event('Regulation', trigger, arguments)
+        self.assertEqual(self.annotation.get_event_category('Target', True), [event])
+
+    def test_remove_included(self):
+        entity = self.annotation.add_entity('Gene', 0, 5, 'hBAD1')
+        self.annotation.add_entity('Protein', 1, 4, 'BAD')
+        self.annotation.add_entity('Disease', 0, 6, 'cancer')
+        self.annotation.remove_included()
+        self.assertEqual(self.annotation.get_entity_category('Gene'), [entity])
+        self.assertEqual(self.annotation.get_entity_category('Protein'), [])
+
+    def test_remove_overlap(self):
+        entity = self.annotation.add_entity('Gene', 0, 5, 'hBAD1')
+        self.annotation.add_entity('Protein', 1, 4, 'BAD')
+        self.annotation.add_entity('Disease', 0, 6, 'cancer')
+        self.annotation.remove_overlap('Gene', 'Protein')
+        self.assertEqual(self.annotation.get_entity_category('Gene'), [entity])
+        self.assertEqual(self.annotation.get_entity_category('Protein'), [])
+
+        self.annotation.remove_overlap('Gene')
+        self.assertEqual(self.annotation.get_entity_category('Gene'), [entity])
+        self.assertEqual(self.annotation.get_entity_category('Disease'), [])
 
 if __name__ == '__main__':
     unittest.main()
