@@ -1,4 +1,5 @@
 from annotation import *
+from readers import *
 
 import unittest
 
@@ -34,7 +35,7 @@ class TestEntity(unittest.TestCase):
         self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', 10, 5, 'BAD')
 
     def test_wrong_length(self):
-        self.assertRaises(Entity.EntityLengthError, Entity, 'Gene', 10, 12, 'BAD')
+        self.assertRaises(Entity.EntityIndexError, Entity, 'Gene', 10, 12, 'BAD')
 
 
 class TestEvent(unittest.TestCase):
@@ -156,6 +157,12 @@ class TestAnnotation(unittest.TestCase):
         self.annotation.remove_overlap('Gene')
         self.assertEqual(self.annotation.get_entity_category('Gene'), [entity])
         self.assertEqual(self.annotation.get_entity_category('Disease'), [])
+
+class TestReader(unittest.TestCase):
+    reader = AnnReader()
+    annotation = reader.parse_file('examples/17438130.ann')
+    print(Node('Root', annotation.events[0]).indent_print())
+    pass
 
 if __name__ == '__main__':
     unittest.main()

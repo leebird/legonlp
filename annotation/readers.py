@@ -8,216 +8,171 @@ import codecs
 import json
 import itertools
 from pprint import pprint as pp
-from glob import glob
 from annotation import *
 
+
 class TextProcessor(object):
+    pattern_bracket = re.compile(r'<.*?>')
+    pattern_brace = re.compile(r'\{.*?\}')
+    pattern_open_bracket = re.compile(r'<([^/]*?)>')
+    pattern_close_bracket = re.compile(r'</(.*?)>')
+
     def __init__(self):
-        self.compile_common_pattern()
+        pass
 
-    def compile_common_pattern(self):
-        self.reBracket = re.compile(ur'<.*?>')
-        self.reBrace = re.compile(ur'\{.*?\}')
-        self.pOpenBracket = re.compile(ur'<([^/]*?)>')
-        self.pCloseBracket = re.compile(ur'</(.*?)>')            
+    @classmethod
+    def remove_bracket(cls, text):
+        return re.sub(cls.pattern_bracket, '', text)
 
-    def remove_bracket(self,text):
-        return re.sub(self.reBracket,'',text)
+    @classmethod
+    def remove_brace(cls, text):
+        return re.sub(cls.pattern_brace, '', text)
 
-    def remove_brace(self,text):
-        return re.sub(self.reBrace,'',text)
+    @classmethod
+    def remove_tags(cls, text):
+        return cls.remove_bracket(cls.remove_brace(text))
 
-    def remove_tags(self,text):
-        return self.remove_bracket(self.remove_brace(text))
 
-class Reader(object):
-    def __init__(self):
-        '''
-        self.path = path
-        self.filename = filename
-        self.filepath = os.path.join(path,filename)
-        '''
-        self.annotation = Annotation()
-        self.compile_common_pattern()
-
-    def warning(self,*objs):
-        print('WARNING:',self.filename,*objs,file=sys.stderr)
-        sys.stderr.flush()
-
-    def parse(self,text):
-        raise NotImplementedError('Reader.parse()')
-
-    def parse_file(self,path,filename):
-        raise NotImplementedError('Reader.parse_file()')
-
-    def parse_folder(self,path):
-        raise NotImplementedError('Reader.parse_folder()')
-        
-    def read(self):
-        raise NotImplementedError('Reader')
-
-    def read_file(self,filepath):
+class FileProcessor(object):
+    @staticmethod
+    def read_file(filepath):
         if os.path.isfile(filepath):
-            f = codecs.open(filepath,'r','utf-8')
+            f = codecs.open(filepath, 'r', 'utf-8')
             text = f.read()
             f.close()
             return text
 
-    def open_file(self, filepath):
+    @staticmethod
+    def open_file(filepath):
         if os.path.isfile(filepath):
-            f = codecs.open(filepath,'r','utf-8')
+            f = codecs.open(filepath, 'r', 'utf-8')
             return f
 
-    def write_file(self, filepath, content, flag='w'):
-        f = codecs.open(filepath,flag,'utf-8')
+    @staticmethod
+    def write_file(filepath, content, flag='w'):
+        f = codecs.open(filepath, flag, 'utf-8')
         f.write(content)
         f.close()
 
-    def compile_common_pattern(self):
-        self.reBracket = re.compile(ur'<.*?>')
-        self.reBrace = re.compile(ur'\{.*?\}')
-        self.pOpenBracket = re.compile(ur'<([^/]*?)>')
-        self.pCloseBracket = re.compile(ur'</(.*?)>')            
 
-    def remove_bracket(self,text):
-        return re.sub(self.reBracket,'',text)
+class Reader(object):
+    def __init__(self):
+        self.annotation = Annotation()
 
-    def remove_brace(self,text):
-        return re.sub(self.reBrace,'',text)
+    def parse(self, text):
+        raise NotImplementedError('Reader.parse()')
 
-    def remove_tags(self,text):
-        return self.remove_bracket(self.remove_brace(text))
+    def parse_file(self, filepath):
+        raise NotImplementedError('Reader.parse_file()')
 
-class CorpusReader(Reader):
-    def __init__(self,path,formatType):
-        self.path = path
-        self.formatType = formatType
-
-    def read_annotation(self,filename):
-        if self.formatType == 'ann':
-            annoFile = filename + '.ann'
-            reader = AnnReader(self.path,annoFile)
-        elif self.formatType == 'a1a2':
-            a1File = filename + '.a1'
-            a2File = filename + '.a2'
-            reader = A1A2Reader(self.path,a1File,path,a2File)
-        else:
-            pass
-
-        return reader.read()
+    def parse_folder(self, path, suffix):
+        raise NotImplementedError('Reader.parse_folder()')
 
     def read(self):
-        res = {}
-        for f in os.listdir(self.path):
-            if not f.endswith('.txt'):
-                continue
-            
-            if not os.path.isfile(os.path.join(self.path,f)):
-                continue
-            
-            txtFile = self.open_file(os.path.join(self.path,f))
-            text = txtFile.read()
-            txtFile.close()
-            
-            fid = f[:-4]
-                
-            annotation = self.read_annotation(fid)
-            res[fid] = {'text':text,'annotation':annotation}
+        raise NotImplementedError('Reader.read()')
 
-        return res                                        
 
 class AnnReader(Reader):
-    def __init__(self,*args):
-        super(AnnReader,self).__init__(*args)        
-        
-    def parse_entity(self,line,annotation):
+    def __init__(self, *args):
+        super(AnnReader, self).__init__()
+
+    def parse_entity(self, line, annotation):
         fields = line.split('\t')
         try:
-            info = fields[1].split(' ')            
+            info = fields[1].split(' ')
             tid = fields[0]
             text = fields[2]
-            typing = info[0]
+            category = info[0]
             start = int(info[1])
-            end = int(info[2])            
-            annotation.add_exist_entity(tid,typing,start,end,text)
-        except IndexError:
-            self.warning('cannot parse entity',fields)
+            end = int(info[2])
+            entity = annotation.add_entity(category, start, end, text)
+            entity.property.add('id', tid)
+        except Entity.EntityIndexError:
+            print('entity index error' + line, file=sys.stderr)
 
-    def parse_event(self,line,annotation):
+    def parse_event(self, line, annotation):
         fields = line.split('\t')
         tid = fields[0]
-        info = fields[1].split(' ')     
-        typing = info[0].split(':')
-        typeId = typing[1]
-        typeText = typing[0]        
-        
-        prop = {}
+        info = fields[1].split(' ')
+        category = info[0].split(':')
+        trigger_id = category[1]
+        category_text = category[0]
+
+        attributes = {}
         if len(fields) > 2:
-            prop = json.loads(fields[2])
+            attributes = json.loads(fields[2])
 
-        args = [arg.split(':') for arg in info[1:]]
+        arguments = []
+        for arg in info[1:]:
+            arg_category, arg_entity_id = arg.split(':')
+            entities = annotation.get_entity_with_property('id', arg[1])
+            if len(entities) > 0:
+                entity = entities[0]
+            else:
+                entity = None
+            arguments.append(Node(arg_category, entity))
 
-        for arg in args:
-            arg[1] = annotation.get_entity(arg[1])
+        entities = annotation.get_entity_with_property('id', trigger_id)
+        trigger = entities.pop(0)
+        event = annotation.add_event(category_text, trigger, arguments)
+        event.property.add('id', tid)
 
-        trigger = annotation.get_entity(typeId)
-        event = annotation.add_exist_event(tid,typeText,trigger,args)
-        
-        for key, values in prop.iteritems():
-            for val in values:
-                event.add_prop(key,val)
+        event.property.update(attributes)
 
-    def parse_relation(self,line,annotation):
+    def parse_relation(self, line, annotation):
         fields = line.split('\t')
         rid = fields[0]
-        info = fields[1].split(' ')     
-        typeText = info[0]
-        
-        prop = {}
+        info = fields[1].split(' ')
+        category_text = info[0]
+
+        attributes = {}
         if len(fields) > 2:
-            prop = json.loads(fields[2])
+            attributes = json.loads(fields[2])
 
-        args = [arg.split(':') for arg in info[1:]]
+        arguments = []
+        for arg in info[1:]:
+            arg_category, arg_entity_id = arg.split(':')
+            entities = annotation.get_entity_with_property('id', arg_entity_id)
+            if len(entities) > 0:
+                entity = entities[0]
+            else:
+                print('can not find entity by its id: '+arg, file=sys.stderr)
+                continue
+            arguments.append(Node(arg_category, entity))
 
-        for arg in args:
-            arg[1] = annotation.get_entity(arg[1])
-
-        rel = annotation.add_exist_relation(rid,typeText,args[0],args[1])
-
-        for key, values in prop.iteritems():
-            for val in values:
-                rel.add_prop(key,val)
+        rel = annotation.add_event(category_text, None, arguments)
+        rel.property.add('id', rid)
+        rel.property.update(attributes)
 
     def parse_file(self, filepath):
         annotation = Annotation()
-        f = self.open_file(filepath)
+        f = FileProcessor.open_file(filepath)
 
         if f is None:
             return
 
         for line in f:
             line = line.strip()
-            if line.startswith(Entity.linestart):
-                self.parse_entity(line,annotation)
-        '''        
-        reset file pointer
-        '''
+            if line.startswith('T'):
+                self.parse_entity(line, annotation)
+
+        # reset file pointer
         f.seek(0)
-        
+
         for line in f:
             line = line.strip()
-            if line.startswith(Event.linestart):
-                self.parse_event(line,annotation)
-            elif line.startswith(Relation.linestart):
-                self.parse_relation(line,annotation)
-            #raise Exception('can not parse: '+line)
+            if line.startswith('E'):
+                self.parse_event(line, annotation)
+            elif line.startswith('R'):
+                self.parse_relation(line, annotation)
+                # raise Exception('can not parse: '+line)
 
         return annotation
 
-    def parse_folder(self, path):
+    def parse_folder(self, path, suffix):
         res = {}
 
-        for root,_,files in os.walk(path):
+        for root, _, files in os.walk(path):
             for f in files:
 
                 if not f.endswith('.txt'):
@@ -225,19 +180,20 @@ class AnnReader(Reader):
                 print(f)
                 docid = f[:-4]
 
-                text = self.read_file(os.path.join(root,f))
-                anno = self.parse_file(root,docid+'.ann')
-                res[docid] = {}
-                res[docid]['text'] = text
-                res[docid]['annotation'] = anno
+                text = FileProcessor.read_file(os.path.join(root, f))
+                filepath = os.path.join(root, docid+suffix)
+                anno = self.parse_file(filepath)
+                anno.text = text
+                res[docid] = anno
 
         return res
 
+
 class SGMLReader(Reader):
     def __init__(self, *args):
-        super(SGMLReader,self).__init__(*args)
+        super(SGMLReader, self).__init__(*args)
 
-    def set_tag_entity_mapping(self,mapping):
+    def set_tag_entity_mapping(self, mapping):
         '''
         set mapping from tag name to entity type
         if <pro> means Protein, then a mapping from
@@ -247,16 +203,16 @@ class SGMLReader(Reader):
         self.mapping = mapping
         self.entityMapping = True
 
-    def get_open_bracket(self,text):
+    def get_open_bracket(self, text):
         return self.pOpenBracket.finditer(text)
 
-    def get_close_bracket(self,text):
+    def get_close_bracket(self, text):
         return self.pCloseBracket.finditer(text)
 
-    def is_close(self,tag):
+    def is_close(self, tag):
         return tag.startswith('</')
 
-    def get_text_snippet(self,text,tags):
+    def get_text_snippet(self, text, tags):
         '''
         get text snippets between each two tags
         entity text will be between an open-tag and a close-tag
@@ -264,12 +220,12 @@ class SGMLReader(Reader):
         '''
         snippets = {}
         length = len(text)
-        start = 0        
+        start = 0
         for tag in tags:
             end = tag.start()
-            snippets[(start,end)] = text[start:end]
+            snippets[(start, end)] = text[start:end]
             start = tag.end()
-        snippets[(start,length)] = text[start:length]
+        snippets[(start, length)] = text[start:length]
         return snippets
 
     def get_entity_by_index(self, snippets, start, end):
@@ -283,11 +239,11 @@ class SGMLReader(Reader):
         '''
         sort indices from text start to text end
         '''
-        indices = sorted(snippets.keys(),key=lambda a:a[0])
+        indices = sorted(snippets.keys(), key=lambda a: a[0])
 
         for pos in indices:
             text = snippets[pos]
-            if pos[0] == start and pos[1] == end:                
+            if pos[0] == start and pos[1] == end:
                 entityText += text
                 entityStart = currentPos
                 entityEnd = currentPos + len(text)
@@ -301,11 +257,11 @@ class SGMLReader(Reader):
                 entityEnd = currentPos + len(text)
                 break
             elif missingEnd:
-                entityText += text        
+                entityText += text
 
             currentPos += len(text)
 
-        return (entityText,entityStart,entityEnd)
+        return (entityText, entityStart, entityEnd)
 
     def parse_file(self, path, filename, mapping={}):
         text = self.read_file(self.filepath)
@@ -317,9 +273,9 @@ class SGMLReader(Reader):
         openTags = self.get_open_bracket(text)
         closeTags = self.get_close_bracket(text)
         tags = list(openTags) + list(closeTags)
-        orderedTags = sorted(tags,key=lambda a:a.start())
+        orderedTags = sorted(tags, key=lambda a: a.start())
 
-        snippets = self.get_text_snippet(text,orderedTags)
+        snippets = self.get_text_snippet(text, orderedTags)
 
         openTagStack = []
         closeTagStack = []
@@ -341,13 +297,13 @@ class SGMLReader(Reader):
 
                 start = startTag.end()
                 end = tag.start()
-                entityText,start,end = self.get_entity_by_index(snippets,start,end)      
+                entityText, start, end = self.get_entity_by_index(snippets, start, end)
                 try:
                     category = mapping[tagText]
                 except KeyError:
                     category = tagText
 
-                annotation.add_entity(category,start,end,entityText)
+                annotation.add_entity(category, start, end, entityText)
             else:
                 openTagStack.append(tag)
 
@@ -355,44 +311,45 @@ class SGMLReader(Reader):
         annotation.text = textpured
         return annotation
 
-class A1A2Reader(Reader):
-    def __init__(self,a1path,a1file,a2path,a2file):
-        self.a1filepath = os.path.join(a1path,a1file)
-        self.a2filepath = os.path.join(a2path,a2file)
-        #print self.filepath
 
-    def parse_entity(self,line):
+class A1A2Reader(Reader):
+    def __init__(self, a1path, a1file, a2path, a2file):
+        self.a1filepath = os.path.join(a1path, a1file)
+        self.a2filepath = os.path.join(a2path, a2file)
+        # print self.filepath
+
+    def parse_entity(self, line):
         fields = line.split('\t')
-        info = fields[1].split(' ')            
+        info = fields[1].split(' ')
         tid = fields[0]
         text = fields[2]
         typing = info[0]
         start = int(info[1])
         end = int(info[2])
-        self.annotation.add_exist_entity(tid,typing,start,end,text)
+        self.annotation.add_exist_entity(tid, typing, start, end, text)
 
-    def parse_event(self,line):
+    def parse_event(self, line):
         fields = line.split('\t')
         tid = fields[0]
-        info = fields[1].split(' ')     
+        info = fields[1].split(' ')
         typing = info[0].split(':')
         typeId = typing[1]
-        typeText = typing[0]        
+        typeText = typing[0]
 
         args = [arg.split(':') for arg in info[1:]]
 
-        self.annotation.add_exist_event(tid,typeText,typeId,args)
+        self.annotation.add_exist_event(tid, typeText, typeId, args)
 
     def parse_relation(self):
         fields = line.split('\t')
         rid = fields[0]
-        info = fields[1].split(' ')     
+        info = fields[1].split(' ')
         typeText = info[0]
 
         args = [arg.split(':') for arg in info[1:]]
 
-        self.annotation.add_exist_relation(rid,typeText,args[0],args[1])
-    
+        self.annotation.add_exist_relation(rid, typeText, args[0], args[1])
+
     def parse(self):
         f = self.open_file(self.a1filepath)
         for line in f:
@@ -409,21 +366,22 @@ class A1A2Reader(Reader):
 
         # reset file pointer
         f.seek(0)
-        
+
         for line in f:
             line = line.strip()
             if line.startswith(Event.linestart):
                 self.parse_event(line)
             elif line.startswith(Relation.linestart):
                 self.parse_relation(line)
-            #raise Exception('can not parse: '+line)
-            
+                # raise Exception('can not parse: '+line)
+
         f.close()
         return annotation
-    
+
+
 class RlimsReader(Reader):
-    def __init__(self,*args):
-        super(RlimsReader,self).__init__(*args)
+    def __init__(self, *args):
+        super(RlimsReader, self).__init__(*args)
         self.separator = '{NP_1}PMID'
         self.hdOutput = 'OUTPUT '
         self.hdTrigger = 'PTM ='
@@ -436,7 +394,7 @@ class RlimsReader(Reader):
         self.rePMID = re.compile(r'PMID{/NP_1}.*?{CP_2}([0-9]*?){/CP_2}')
         self.reTrigger = re.compile(r'\(\{(.*?)\};(.*?)\)')
         self.reArg = re.compile(r'\{(.*?)\}(.*?)\{/(.*?)\}')
-        
+
         self.reAmino = re.compile(r'^\(\{(.*?)\}(.*?)\{/(.*?)\};')
         self.reSite = re.compile(r';\{(.*?)\}(.*?)\{/(.*?)\};')
         self.reSiteOther = re.compile(r';\{(.*?)\}(.*?)\{/(.*?)\}\)$')
@@ -444,30 +402,30 @@ class RlimsReader(Reader):
         self.reTagged = re.compile(r'(\{(.*?)\})(.*?)(\{/.*?\})')
 
         self.status = 0
-        self.mask = {11:'kinase',
-                     12:'substrate',
-                     13:'site',
-                     14:'trigger',
-                     15:'inducer'}
-        
-    def split(self,text):
+        self.mask = {11: 'kinase',
+                     12: 'substrate',
+                     13: 'site',
+                     14: 'trigger',
+                     15: 'inducer'}
+
+    def split(self, text):
         blocks = text.split(self.separator)
-        blocks = [self.separator+b for b in blocks[1:]]
+        blocks = [self.separator + b for b in blocks[1:]]
         return blocks
-    
+
     def init_output(self):
-        output = {'trigger':[],
-                  'kinase':[],
-                  'inducer':[],
-                  'substrate':[],
-                  'site':[]}                
+        output = {'trigger': [],
+                  'kinase': [],
+                  'inducer': [],
+                  'substrate': [],
+                  'site': []}
         return output
 
-    def _parse(self,blocks):
+    def _parse(self, blocks):
         res = {}
         for b in blocks:
             lines = b.split('\n')
-            #empty line is used to seperate outputs & sentences
+            # empty line is used to seperate outputs & sentences
             if len(lines) == 0:
                 continue
 
@@ -484,13 +442,13 @@ class RlimsReader(Reader):
 
         return res
 
-    def parse_block(self,lines):
-        res = {'sentence':[],'output':[],'norm':[]}
+    def parse_block(self, lines):
+        res = {'sentence': [], 'output': [], 'norm': []}
         for l in lines:
-            self.process_line(l,res)
+            self.process_line(l, res)
         return res
 
-    def process_line(self,l,res):
+    def process_line(self, l, res):
         if l.startswith(self.hdOutput):
             self.status = 1
             output = self.init_output()
@@ -522,8 +480,8 @@ class RlimsReader(Reader):
             needle = self.mask[self.status]
             if tokens is not None:
                 res['output'][-1][needle].append(tokens)
-    
-    def parse_line(self,line):
+
+    def parse_line(self, line):
         res = None
         if self.status == 14:
             match = self.reTrigger.search(line)
@@ -531,7 +489,7 @@ class RlimsReader(Reader):
                 tag = match.group(1)
                 text = match.group(2)
                 text = self.remove_tags(text)
-                res = (tag,text)
+                res = (tag, text)
         elif self.status == 13:
             tag = None
             text = None
@@ -552,9 +510,9 @@ class RlimsReader(Reader):
                     text = self.remove_tags(text)
                 if tag is None:
                     tag = match.group(1)
-                    
-            if tag is not None and text is not None:                
-                res = (tag,text,amino)
+
+            if tag is not None and text is not None:
+                res = (tag, text, amino)
 
         elif self.status == 11 or self.status == 12 \
                 or self.status == 15:
@@ -563,7 +521,7 @@ class RlimsReader(Reader):
                 tag = match.group(1)
                 text = match.group(2)
                 text = self.remove_tags(text)
-                res = (tag,text)
+                res = (tag, text)
         return res
 
     def parse(self):
@@ -574,14 +532,14 @@ class RlimsReader(Reader):
         res = self._parse(blocks)
         return res
 
-    def index_tag(self,taggedSens):
+    def index_tag(self, taggedSens):
         tagIndices = {}
         sens = [self.remove_bracket(s) for s in taggedSens]
         braced = ' '.join(sens)
         sens = [self.remove_tags(s) for s in taggedSens]
-        text = ' '.join(sens)        
+        text = ' '.join(sens)
         match = self.reTagged.search(braced)
-        while(match):            
+        while (match):
             match = self.reTagged.search(braced)
             tag = match.group(2)
             openTag = match.group(1)
@@ -589,15 +547,16 @@ class RlimsReader(Reader):
             phrase = match.group(3)
             start = match.start(1)
             end = start + len(phrase)
-            tagIndices[tag] = (start,end,phrase)
-            braced = braced.replace(openTag,'')
-            braced = braced.replace(closeTag,'')
+            tagIndices[tag] = (start, end, phrase)
+            braced = braced.replace(openTag, '')
+            braced = braced.replace(closeTag, '')
             match = self.reTagged.search(braced)
         return tagIndices
-        
+
+
 class RlimsVerboseReader(RlimsReader):
-    def __init__(self,*args):
-        super(RlimsVerboseReader,self).__init__(*args)        
+    def __init__(self, *args):
+        super(RlimsVerboseReader, self).__init__(*args)
         self.hdMethod = '\tMethod='
         self.reMethod = re.compile(r'\[(.*?)\]')
         self.isMethod = False
@@ -605,19 +564,19 @@ class RlimsVerboseReader(RlimsReader):
         self.annotation = Annotation()
 
     def init_output(self):
-        output = {'trigger':[],
-                  'kinase':[],
-                  'inducer':[],
-                  'substrate':[],
-                  'site':[],
-                  'trigger_med':[],
-                  'kinase_med':[],
-                  'inducer_med':[],
-                  'substrate_med':[],
-                  'site_med':[]}
+        output = {'trigger': [],
+                  'kinase': [],
+                  'inducer': [],
+                  'substrate': [],
+                  'site': [],
+                  'trigger_med': [],
+                  'kinase_med': [],
+                  'inducer_med': [],
+                  'substrate_med': [],
+                  'site_med': []}
         return output
 
-    def parse_line(self,line):
+    def parse_line(self, line):
         if self.isMethod:
             match = self.reMethod.search(line)
             if match:
@@ -649,34 +608,34 @@ class RlimsVerboseReader(RlimsReader):
                     variances = [self.remove_tags(v) for v in variances]
                     start = int(position[0])
                     end = int(position[1])
-                    res.append((tag,phrase,start,end,variances))
+                    res.append((tag, phrase, start, end, variances))
                 if len(res) == 0:
-                    res.append((tag,phrase,-1,-1,[phrase]))
+                    res.append((tag, phrase, -1, -1, [phrase]))
             return res
         else:
-            return super(RlimsVerboseReader,self).parse_line(line)
+            return super(RlimsVerboseReader, self).parse_line(line)
 
-        
-    def process_line(self,l,res):
+
+    def process_line(self, l, res):
         if l.startswith(self.hdMethod):
             self.isMethod = True
             tokens = self.parse_line(l)
-            needle = self.mask[self.status]+'_med'
+            needle = self.mask[self.status] + '_med'
             if tokens is not None:
                 res['output'][-1][needle] += tokens
         elif l.startswith('\t'):
             pass
         else:
             self.isMethod = False
-            super(RlimsVerboseReader,self).process_line(l,res)            
+            super(RlimsVerboseReader, self).process_line(l, res)
 
-    def toBionlp(self,res):
+    def toBionlp(self, res):
 
-        for pmid,v in res.iteritems():
+        for pmid, v in res.iteritems():
             output = v['output']
             sens = v['sentence']
             tagIdx = v['tag_indices']
-            
+
             sens = [self.remove_tags(s) for s in sens]
             abstract = ' '.join(sens)
 
@@ -685,11 +644,11 @@ class RlimsVerboseReader(RlimsReader):
             self.entityIdx = 1
             self.eventIdx = 1
 
-            for o in output:                
-                o = self.fake_method(o,'trigger')
-                o = self.fake_method(o,'kinase')
-                o = self.fake_method(o,'substrate')
-                o = self.fake_method(o,'site')
+            for o in output:
+                o = self.fake_method(o, 'trigger')
+                o = self.fake_method(o, 'kinase')
+                o = self.fake_method(o, 'substrate')
+                o = self.fake_method(o, 'site')
 
                 tri = o['trigger']
                 triMed = o['trigger_med']
@@ -698,56 +657,55 @@ class RlimsVerboseReader(RlimsReader):
                 site = o['site']
                 siteMed = o['site_med']
 
-                
-                indicesTri = self.reindex(tri,triMed,tagIdx)
-                indicesSub = self.reindex(sub,subMed,tagIdx)
-                indicesSite = self.reindex(site,siteMed,tagIdx,isSite=True)
-                
+                indicesTri = self.reindex(tri, triMed, tagIdx)
+                indicesSub = self.reindex(sub, subMed, tagIdx)
+                indicesSite = self.reindex(site, siteMed, tagIdx, isSite=True)
+
                 '''
                 indicesTri = self.reindex_method(triMed,tagIdx)
                 indicesSub = self.reindex_method(subMed,tagIdx)
                 indicesSite = self.reindex_method(siteMed,tagIdx)
                 '''
 
-                if(len(indicesSub) == 0):
+                if (len(indicesSub) == 0):
                     continue
-                
-                triggers = self.add_entities(indicesTri,'Phosphorylation')
-                proteins = self.add_entities(indicesSub,'Protein')
-                sites = self.add_entities(indicesSite,'Entity')
 
-                args = {'Theme':proteins,'Site':sites}
-                self.add_events(triggers[0],args,'Phosphorylation')
-            
-            #self.rehash_entities()
-            #self.rehash_events()
-            #ann[pmid] = {'T':self.entities,'E':self.events,'text':abstract}
-            
-        return text,self.annotation
+                triggers = self.add_entities(indicesTri, 'Phosphorylation')
+                proteins = self.add_entities(indicesSub, 'Protein')
+                sites = self.add_entities(indicesSite, 'Entity')
 
-    def fake_method(self,output,needle):
+                args = {'Theme': proteins, 'Site': sites}
+                self.add_events(triggers[0], args, 'Phosphorylation')
+
+                # self.rehash_entities()
+                # self.rehash_events()
+                # ann[pmid] = {'T':self.entities,'E':self.events,'text':abstract}
+
+        return text, self.annotation
+
+    def fake_method(self, output, needle):
         '''
         add method lines if there is none
         '''
-        if len(output[needle+'_med']) == 0:
+        if len(output[needle + '_med']) == 0:
             sites = output[needle]
             fake = []
             for s in sites:
-                fake.append((s[0],s[1],-1,-1,[s[1]]))
-            output[needle+'_med'] = fake            
+                fake.append((s[0], s[1], -1, -1, [s[1]]))
+            output[needle + '_med'] = fake
         return output
 
-    def add_events(self,trigger,args,eventType):
+    def add_events(self, trigger, args, eventType):
         done = False
 
         for t in args['Theme']:
             for s in args['Site']:
-                arg = (('Theme',t),('Site',s))
+                arg = (('Theme', t), ('Site', s))
                 done = True
 
-                if not self.annotation.has_event_prop(eventType,trigger,arg):
-                    self.annotation.add_event(eventType,trigger,arg)
-                    
+                if not self.annotation.has_event_prop(eventType, trigger, arg):
+                    self.annotation.add_event(eventType, trigger, arg)
+
                 '''
                 if self.events.has_key((trigger.id,arg)):
                     continue
@@ -761,10 +719,10 @@ class RlimsVerboseReader(RlimsReader):
 
         if not done:
             for t in args['Theme']:
-                arg = (('Theme',t),)
+                arg = (('Theme', t),)
 
-                if not self.annotation.has_event_prop(eventType,trigger,arg):
-                    self.annotation.add_event(eventType,trigger,arg)
+                if not self.annotation.has_event_prop(eventType, trigger, arg):
+                    self.annotation.add_event(eventType, trigger, arg)
 
                 '''
                 if self.events.has_key((trigger.id,arg)):
@@ -797,7 +755,7 @@ class RlimsVerboseReader(RlimsReader):
         del self.events
         self.events = events
 
-    def add_entities(self,indices,entityType):
+    def add_entities(self, indices, entityType):
         '''
         create and add new entities
         indices format:
@@ -808,8 +766,8 @@ class RlimsVerboseReader(RlimsReader):
             start = i[0]
             end = i[1]
             text = i[2]
-            if not self.annotation.has_entity_prop(entityType,start,end,text):
-                entity = self.annotation.add_entity(entityType,start,end,text)
+            if not self.annotation.has_entity_prop(entityType, start, end, text):
+                entity = self.annotation.add_entity(entityType, start, end, text)
                 self.append(entity)
             '''
             if not self.entities.has_key((start,end)):
@@ -819,11 +777,11 @@ class RlimsVerboseReader(RlimsReader):
                 self.entities[(start,end)] = entity
             res.append(self.entities[(start,end)])
             '''
-            
+
         return res
-            
-    
-    def reindex(self,annos, meds, tagIdx, isSite = False):
+
+
+    def reindex(self, annos, meds, tagIdx, isSite=False):
         '''
         update position index for various situations
         1. position in method line is present
@@ -831,16 +789,16 @@ class RlimsVerboseReader(RlimsReader):
         3. the extracted span not matched with the argument
         '''
         res = []
-        for a,m in itertools.product(annos,meds):
+        for a, m in itertools.product(annos, meds):
             # check the phrase tags, they should be the same
             if a[0] != m[0]:
                 continue
-            
+
             # check the annotations, they should be the same
             if not isSite and a[1] != m[-1][-1]:
-                continue                
+                continue
 
-            # get information from annotation line and method line
+                # get information from annotation line and method line
             tag = a[0]
 
             '''
@@ -853,8 +811,8 @@ class RlimsVerboseReader(RlimsReader):
 
             phrase = m[1]
             inStart = m[2]
-            inEnd = m[3]+1
-            tagStart,tagEnd,phrase = tagIdx[tag]
+            inEnd = m[3] + 1
+            tagStart, tagEnd, phrase = tagIdx[tag]
 
             if inStart == -1:
                 '''
@@ -869,7 +827,7 @@ class RlimsVerboseReader(RlimsReader):
                 recount position if there is position information
                 in the method line
                 '''
-                inStart,inEnd = self.recount(phrase,inStart,inEnd)
+                inStart, inEnd = self.recount(phrase, inStart, inEnd)
                 extracted = phrase[inStart:inEnd]
                 if extracted != argument:
                     '''
@@ -883,7 +841,7 @@ class RlimsVerboseReader(RlimsReader):
                     start = tagStart + inStart
                     end = tagStart + inEnd
 
-            res.append((start,end,argument))
+            res.append((start, end, argument))
 
         return res
 
@@ -905,8 +863,8 @@ class RlimsVerboseReader(RlimsReader):
             argument = m[-1][0]
             phrase = m[1]
             inStart = m[2]
-            inEnd = m[3]+1
-            tagStart,tagEnd,phrase = tagIdx[tag]
+            inEnd = m[3] + 1
+            tagStart, tagEnd, phrase = tagIdx[tag]
 
             if inStart == -1:
                 '''
@@ -921,7 +879,7 @@ class RlimsVerboseReader(RlimsReader):
                 recount position if there is position information
                 in the method line
                 '''
-                inStart,inEnd = self.recount(phrase,inStart,inEnd)
+                inStart, inEnd = self.recount(phrase, inStart, inEnd)
                 extracted = phrase[inStart:inEnd]
                 if extracted != argument:
                     '''
@@ -934,29 +892,29 @@ class RlimsVerboseReader(RlimsReader):
                 else:
                     start = tagStart + inStart
                     end = tagStart + inEnd
-            
-            if (start,end,argument) not in res:
-                res.append((start,end,argument))
+
+            if (start, end, argument) not in res:
+                res.append((start, end, argument))
 
         return res
 
-    def recount(self,text,start,end):
+    def recount(self, text, start, end):
         '''
         update index based on actual string, including space
         RLIMS-P verbose output file's original index excludes
         the space.
         '''
-        for i,c in enumerate(list(text)):
+        for i, c in enumerate(list(text)):
             if c == ' ' and i <= start:
                 start += 1
             if c == ' ' and i < end:
                 end += 1
-        return start,end
-                
+        return start, end
+
 
 class Rlims2Reader(Reader):
-    def __init__(self,*args):
-        super(Rlims2Reader,self).__init__(*args)
+    def __init__(self, *args):
+        super(Rlims2Reader, self).__init__(*args)
         self.pmid = None
         self.starter = 'date'
         self.rePMID = re.compile(r'PMID{/NP_1}.*?{CP_2}([0-9]*?){/CP_2}')
@@ -966,17 +924,17 @@ class Rlims2Reader(Reader):
         res = {}
         f = self.open_file(self.filepath)
         for l in f:
-            self.parse_line(l,res)
+            self.parse_line(l, res)
         f.close()
         self.toBionlp(res)
         self.rehash_entities()
         self.rehash_events()
-        return {'T':self.entities,'E':self.events,'R':self.relations}
+        return {'T': self.entities, 'E': self.events, 'R': self.relations}
 
-    def parse_line(self,l,res):
+    def parse_line(self, l, res):
         if l.startswith('O'):
             idx = int(l[1:4])
-            mid = l.find(' ',5)
+            mid = l.find(' ', 5)
             hd = l[5:mid]
             if hd == self.starter:
                 res[self.pmid]['output'].append({})
@@ -988,8 +946,8 @@ class Rlims2Reader(Reader):
                 match = self.rePMID.search(sentence)
                 if match:
                     self.pmid = match.group(1)
-                    res[self.pmid] = {'output':[],
-                                      'sentence':[]}
+                    res[self.pmid] = {'output': [],
+                                      'sentence': []}
                     return
                 else:
                     raise PMIDNotFoundError(l)
@@ -997,8 +955,8 @@ class Rlims2Reader(Reader):
         else:
             pass
 
-    def toBionlp(self,res):
-        for pmid,v in res.iteritems():
+    def toBionlp(self, res):
+        for pmid, v in res.iteritems():
             self.entityIdx = 1
             self.eventIdx = 1
             self.relationId = 1
@@ -1012,7 +970,7 @@ class Rlims2Reader(Reader):
 
             self.startPoints = [0]
             for l in lens[:-1]:
-                self.startPoints.append(l+1+self.startPoints[-1])
+                self.startPoints.append(l + 1 + self.startPoints[-1])
 
             annotation = v['output']
             for a in annotation:
@@ -1022,64 +980,64 @@ class Rlims2Reader(Reader):
                 sites = self.parse_annotation(a['site'])
 
                 trigger = trigger[0]
-                self.add_entities(trigger,'Phosphorylation')
+                self.add_entities(trigger, 'Phosphorylation')
 
                 proteins = [a[0:1] if len(a) == 1 else a[1:] for a in kinases]
                 proteins = [p for pp in proteins for p in pp]
-                self.add_entities(proteins,'Protein')
+                self.add_entities(proteins, 'Protein')
 
                 anaphora = [a[0:1] for a in kinases if len(a) > 1]
                 anaphora = [p for pp in anaphora for p in pp]
-                self.add_entities(anaphora,'Anaphora')
+                self.add_entities(anaphora, 'Anaphora')
 
                 proteins = [a[0:1] if len(a) == 1 else a[1:] for a in substrates]
                 proteins = [p for pp in proteins for p in pp]
-                self.add_entities(proteins,'Protein')
+                self.add_entities(proteins, 'Protein')
 
                 anaphora = [a[0:1] for a in substrates if len(a) > 1]
                 anaphora = [p for pp in anaphora for p in pp]
-                self.add_entities(anaphora,'Anaphora')
+                self.add_entities(anaphora, 'Anaphora')
 
                 phosSite = [a[0:1] if len(a) == 1 else a[1:] for a in sites]
                 phosSite = [p for pp in phosSite for p in pp]
-                self.add_entities(phosSite,'Site')
+                self.add_entities(phosSite, 'Site')
 
                 anaphora = [a[0:1] for a in sites if len(a) > 1]
                 anaphora = [p for pp in anaphora for p in pp]
-                self.add_entities(anaphora,'Anaphora')
+                self.add_entities(anaphora, 'Anaphora')
 
                 argKinases = [a[0] for a in kinases]
                 argSubstrates = [a[0] for a in substrates]
                 argSites = [a[0] for a in sites]
 
-                combine = [(tri,sub,kinase,site) for tri in trigger
+                combine = [(tri, sub, kinase, site) for tri in trigger
                            for sub in argSubstrates
                            for kinase in argKinases
                            for site in argSites]
 
                 if len(combine) == 0:
-                    combine = [(tri,sub,kinase,None) for tri in trigger
+                    combine = [(tri, sub, kinase, None) for tri in trigger
                                for sub in argSubstrates
                                for kinase in argKinases]
 
                 if len(combine) == 0:
-                    combine = [(tri,sub,None,site) for tri in trigger
+                    combine = [(tri, sub, None, site) for tri in trigger
                                for sub in argSubstrates
                                for site in argSites]
 
                 if len(combine) == 0:
-                    combine = [(tri,sub,None,None) for tri in trigger
+                    combine = [(tri, sub, None, None) for tri in trigger
                                for sub in argSubstrates]
                 if len(combine) == 0:
                     continue
 
-                self.add_events(combine,'Phosphorylation')
-                self.add_relations(kinases,'Coreference')
-                self.add_relations(substrates,'Coreference')
-                self.add_relations(sites,'Coreference')
-                #self._toBionlp()
+                self.add_events(combine, 'Phosphorylation')
+                self.add_relations(kinases, 'Coreference')
+                self.add_relations(substrates, 'Coreference')
+                self.add_relations(sites, 'Coreference')
+                # self._toBionlp()
 
-    def parse_annotation(self,annotation):
+    def parse_annotation(self, annotation):
         annotation = annotation.strip()
 
         if len(annotation) == 0:
@@ -1091,84 +1049,82 @@ class Rlims2Reader(Reader):
         for arg in args:
             subargs = arg.split(':')
             subargs = [subarg.split(' ') for subarg in subargs]
-            subargs = [map(int,a) for a in subargs]
+            subargs = [map(int, a) for a in subargs]
             subargs = self.get_positions(subargs)
             subargs = [tuple(a) for a in subargs]
             res.append(subargs)
 
         return res
 
-    def add_entities(self,entities,entityRole):
+    def add_entities(self, entities, entityRole):
         for t in entities:
-            self.add_entity(t,entityRole)
+            self.add_entity(t, entityRole)
 
-    def add_entity(self,entity,entityRole):
+    def add_entity(self, entity, entityRole):
         if not self.entities.has_key(entity):
-            tIdx = 'T'+str(self.entityIdx)
+            tIdx = 'T' + str(self.entityIdx)
             self.entityIdx += 1
             text = self.abstract[entity[0]:entity[1]]
             start = entity[0]
             end = entity[1]
-            self.entities[entity] = Entity(tIdx,entityRole,start,end,text)
+            self.entities[entity] = Entity(tIdx, entityRole, start, end, text)
 
-    def add_events(self,events,eventType):
+    def add_events(self, events, eventType):
         for e in events:
-            self.add_event(e,eventType)
+            self.add_event(e, eventType)
 
-    def add_event(self,event,eventType):
+    def add_event(self, event, eventType):
         if not self.events.has_key(event):
-            eIdx = 'E'+str(self.eventIdx)
+            eIdx = 'E' + str(self.eventIdx)
             self.eventIdx += 1
             entities = []
             trigger = self.entities[event[0]]
             theme = self.entities[event[1]]
-            args = [('Theme',theme)]
+            args = [('Theme', theme)]
             if event[2] is not None:
                 kinase = self.entities[event[2]]
-                args.append(('Cause',kinase))
+                args.append(('Cause', kinase))
             if event[3] is not None:
                 try:
                     site = self.entities[event[3]]
-                    args.append(('Site',site))
+                    args.append(('Site', site))
                 except:
                     print(self.filename)
                     print(self.abstract[event[3][0]:event[3][1]])
                     pp(self.entities)
                     print(event)
 
+            self.events[event] = Event(eIdx, eventType, trigger.id, args)
 
-            self.events[event] = Event(eIdx,eventType,trigger.id,args)
-
-    def add_relations(self,relations,relationType):
+    def add_relations(self, relations, relationType):
         for r in relations:
             if len(r) > 1:
                 for p in r[1:]:
-                    self.add_relation((r[0],p),relationType)
+                    self.add_relation((r[0], p), relationType)
 
 
-    def add_relation(self,relation,relationType):
+    def add_relation(self, relation, relationType):
         if not self.relations.has_key(relation):
-            rid = 'R'+str(self.relationId)
+            rid = 'R' + str(self.relationId)
             self.relationId += 1
             arg1 = self.entities[relation[0]]
             arg2 = self.entities[relation[1]]
 
-            self.relations[relation] = Relation(rid,relationType,arg1,arg2)
+            self.relations[relation] = Relation(rid, relationType, arg1, arg2)
 
-    def get_positions(self,oldIndices):
-        #print oldIndices
+    def get_positions(self, oldIndices):
+        # print oldIndices
         return [self.get_position(i) for i in oldIndices]
 
-    def get_position(self,oldIndex):
-        base = self.startPoints[oldIndex[0]-1]
-        sen = self.sens[oldIndex[0]-1]
+    def get_position(self, oldIndex):
+        base = self.startPoints[oldIndex[0] - 1]
+        sen = self.sens[oldIndex[0] - 1]
         start = oldIndex[1]
         length = oldIndex[2]
 
+        for i, c in enumerate(list(sen)):
 
-        for i,c in enumerate(list(sen)):
-
-            if i-start >= length:
+            if i - start >= length:
                 break
 
             if i <= start:
@@ -1180,8 +1136,8 @@ class Rlims2Reader(Reader):
                 length += 1
 
         start = base + start
-        end = start+length
-        return (start,end)
+        end = start + length
+        return (start, end)
 
     def rehash_entities(self):
         '''
@@ -1203,24 +1159,24 @@ class Rlims2Reader(Reader):
         del self.events
         self.events = events
 
-class MedlineReader(Reader):
 
-    mapHead = {'PMID-' : 'pmid',
-               'TI  -' : 'title',
-               'AB  -' : 'abstract',
-               'DP  -' : 'date',
-               'AU  -' : 'author',
-               'TA  -' : 'journal',
-               '     ' : 'previous'}
+class MedlineReader(Reader):
+    mapHead = {'PMID-': 'pmid',
+               'TI  -': 'title',
+               'AB  -': 'abstract',
+               'DP  -': 'date',
+               'AU  -': 'author',
+               'TA  -': 'journal',
+               '     ': 'previous'}
 
     def __init__(self):
         self.abstracts = {}
 
-    def parse(self,text):
+    def parse(self, text):
         lines = text.strip().split('\n')
         return self.iterparse(lines)
 
-    def iterparse(self,iterator):
+    def iterparse(self, iterator):
         currpmid = None
         needle = None
         self.abstracts = {}

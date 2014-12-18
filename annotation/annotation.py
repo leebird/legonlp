@@ -7,11 +7,13 @@ class Entity(object):
         ZERO_INTERVAL = 0
         NEGATIVE_INTERVAL = 1
         NEGATIVE_INDEX = 2
+        INEQUAL_LENGTH = 3
 
         # exception messages
         MESSAGES = {ZERO_INTERVAL: 'Zero interval of the text span',
                     NEGATIVE_INTERVAL: 'Negative interval of the text span',
-                    NEGATIVE_INDEX: 'Negative index of the text span'}
+                    NEGATIVE_INDEX: 'Negative index of the text span',
+                    INEQUAL_LENGTH: 'Interval length and text length are not equal'}
 
         def __init__(self, value):
             self.value = value
@@ -21,10 +23,6 @@ class Entity(object):
                 return repr(self.MESSAGES[self.value])
             else:
                 return repr('Unknown error')
-
-    class EntityLengthError(Exception):
-        def __str__(self):
-            return repr('Interval length and text length are not equal')
 
     def __init__(self, category, start, end, text):
         """A text span that refers to an entity
@@ -59,7 +57,7 @@ class Entity(object):
             raise self.EntityIndexError(self.EntityIndexError.NEGATIVE_INTERVAL)
 
         if self.end - self.start != len(self.text):
-            raise self.EntityLengthError
+            raise self.EntityIndexError(self.EntityIndexError.INEQUAL_LENGTH)
 
     def __str__(self):
         return self.template.format(self.category, self.start, self.end, self.text)
@@ -178,10 +176,25 @@ class Property(object):
         except KeyError:
             return None
 
+    def has(self, key, value):
+        if key in self.vault and self.vault[key] == value:
+            return True
+        else:
+            return False
+
     def delete(self, key):
         if key in self.vault:
             del self.vault[key]
 
+    def update(self, vault):
+        """
+        update the property vault
+        :param vault: properties to be added to vault
+        :type vault: dict
+        :return: None
+        :rtype: None
+        """
+        self.vault.update(vault)
 
 class Annotation(object):
     template = '{0} entities, {1} events'
@@ -195,6 +208,9 @@ class Annotation(object):
         self.text = ''
         self.entities = []
         self.events = []
+
+    def __str__(self):
+        return self.template.format(len(self.entities), len(self.events))
 
     def add_entity(self, category, start, end, text):
         """
@@ -228,6 +244,9 @@ class Annotation(object):
             return [t for t in self.entities if t.category != category]
         else:
             return [t for t in self.entities if t.category == category]
+
+    def get_entity_with_property(self, key, value):
+        return [t for t in self.entities if t.property.has(key, value)]
 
     def add_event(self, category, trigger, arguments):
         """
@@ -324,7 +343,6 @@ class Annotation(object):
         else:
             entities_keep = self.get_entity_category(keep)
             entities_removed = self.get_entity_category(remove)
-
 
         for k in entities_keep:
             for r in entities_removed:
