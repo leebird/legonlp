@@ -19,13 +19,42 @@ class Pipeline:
 
     output = config.test_paths['output']
 
-    tempfolder = os.path.join(config.root_path, 'tmp')
+    tempfolder = config.temp_path
 
+    # pipeline specifies specific input
+    # runners should accept general input
+    # config connects specific input and general input
     pipeline = [
-        ('Banner',),
-        # ('MiRNARecognizer',),
-        # ('NLTKSplitter',),
-        # ('CharniakParser', {'step': 2, 'process': 2}),
-        # ('TreeIndexer',),
-        # ('TregexMatcher',)
+        ('Banner', {
+            'input': [('text', '.txt', 'initial'),
+                      ('ner', '.ann', 'initial')],
+            'output': [('text', '.txt', 'Banner'),
+                       ('ner', '.sgml', 'Banner'),
+                       ('ner', '.ann', 'Banner')]
+        }),
+        ('MiRNARecognizer', {
+            'input': [('text', '.txt', 'Banner'),
+                      ('ner','.ann','Banner')],
+            'output': [('text', '.txt', 'MiRNARecognizer'),
+                       ('ner', '.ann', 'MiRNARecognizer')]
+        }),
+        ('NLTKSplitter',{
+            'input': [('text', '.txt', 'MiRNARecognizer')],
+            'output': [('split', '.split', 'NLTKSplitter')]
+        }),
+        ('CharniakParser', {
+            'step': 2,
+            'process': 2,
+            'input': [('split', '.split', 'NLTKSplitter')],
+            'output': [('parse', '.parse', 'CharniakParser')]
+            }),
+        ('TreeIndexer',{
+            'input': [('parse', '.parse', 'CharniakParser'),
+                      ('text', '.txt', 'MiRNARecognizer')],
+            'output': [('parse', '.parse', 'TreeIndexer')]
+        }),
+        ('TregexMatcher',{
+            'input': [('parse', '.parse', 'TreeIndexer')],
+            'output': [('tregex', '.tregex', 'final')]
+        })
     ]

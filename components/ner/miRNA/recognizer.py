@@ -41,14 +41,12 @@ class MiRNARecognizerRunner(Runner):
         output_text = task_info['output']['text'][0]
         output_ner = task_info['output']['ner'][0]
         doc_list = task_info['doc_list']
-
         recognizer = MiRNARecognizer()
         tuples = self.get_io_files([input_text, input_ner, output_text, output_ner], doc_list)
 
         writer = AnnWriter()
         reader = AnnReader()
         for in_text_file, in_ann_file, out_text_file, out_ann_file in tuples:
-            print(in_ann_file)
             text = self.read_file(in_text_file)
             annotation = recognizer.recognize(text)
 

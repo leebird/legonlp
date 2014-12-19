@@ -12,9 +12,9 @@ from annotation.utils import *
 
 
 class Banner:
-    '''
+    """
     mapping from SGML tag name to entity type name
-    '''
+    """
     mapping = {'GENE': 'Gene'}
 
     def __init__(self, java_path):
@@ -79,6 +79,7 @@ class BannerRunner(Runner):
 
         # get the output folder for .ann, Banner only uses the .sgml folder
         output_ner = task_info['output']['ner'].pop(-1)
+        # the first should be .sgml folder
         output_ner_sgml = task_info['output']['ner'][0]
 
         doc_list = task_info['doc_list']
@@ -91,16 +92,16 @@ class BannerRunner(Runner):
         recognizer = Banner(java_path)
         recognizer.recognize(json.dumps(arguments))
 
-        '''
+        """
         Since input and output files are not zipped, we go through
         doc list to output annotation and text
-        '''
+        """
         writer = AnnWriter()
-        reader = SGMLReader()
+        reader = SGMLReader(recognizer.mapping)
 
-        output_text_dir, output_text_suffix = output_text
-        output_ner_dir, output_ner_suffix = output_ner
-        output_sgml_dir, output_sgml_suffix = output_ner_sgml
+        output_text_dir, output_text_suffix = output_text[:2]
+        output_ner_dir, output_ner_suffix = output_ner[:2]
+        output_sgml_dir, output_sgml_suffix = output_ner_sgml[:2]
 
         for docid in doc_list:
             input_sgml_file = os.path.join(output_sgml_dir, docid + output_sgml_suffix)

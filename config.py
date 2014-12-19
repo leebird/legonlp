@@ -3,6 +3,7 @@ import os
 root_path = '/home/leebird/Projects/legonlp'
 data_path = os.path.join(root_path, 'data')
 test_path = os.path.join(root_path, 'test')
+temp_path = os.path.join(root_path, 'tmp')
 
 components_path = os.path.join(root_path, 'components')
 
@@ -18,20 +19,21 @@ JAVAPATH = [libjava_path]
 
 test_paths = {
     'input': {
-        'text': [(os.path.join(test_path, 'input/raw'), '.txt')],
-        'split': [(os.path.join(test_path, 'input/split'), '.split')],
-        'parse': [(os.path.join(test_path, 'input/offset'), '.offset')],
-        'tregex': [(os.path.join(test_path, 'output/tregex'), '.tregex')],
-        'ner': [(os.path.join(test_path, 'input/ner'), '.ann'),
-                (os.path.join(test_path, 'input/ner'), '.sgml')]
+        ('text', '.txt', 'initial'): os.path.join(test_path, 'input/raw'),
+        ('split', '.split', 'initial'): os.path.join(test_path, 'input/split'),
+        ('parse', '.offset', 'initial'): os.path.join(test_path, 'input/offset'),
+        ('tregex', '.tregex', 'initial'): os.path.join(test_path, 'output/tregex'),
+        ('ner', '.ann', 'initial'): os.path.join(test_path, 'input/ner'),
+        ('ner', '.sgml', 'initial'): os.path.join(test_path, 'input/ner'),
     },
     'output': {
-        'text': [(os.path.join(test_path, 'output/raw'), '.txt')],
-        'split': [(os.path.join(test_path, 'output/split'), '.split')],
-        'parse': [(os.path.join(test_path, 'output/parse'), '.parse')],
-        'tregex': [(os.path.join(test_path, 'output/tregex'), '.tregex')],
-        'ner': [(os.path.join(test_path, 'output/ner'), '.ann'),
-                (os.path.join(test_path, 'output/ner'), '.sgml')]
+        ('text', '.txt', 'final'): os.path.join(test_path, 'output/raw'),
+        ('parse', '.offset', 'initial'): os.path.join(test_path, 'output/offset'),
+        ('split', '.split', 'final'): os.path.join(test_path, 'output/split'),
+        ('parse', '.parse', 'final'): os.path.join(test_path, 'output/parse'),
+        ('tregex', '.tregex', 'final'): os.path.join(test_path, 'output/tregex'),
+        ('ner', '.ann', 'final'): os.path.join(test_path, 'output/ner'),
+        ('ner', '.sgml', 'final'): os.path.join(test_path, 'output/ner'),
     }
 
 }
@@ -73,8 +75,8 @@ components = {
         "arguments": {
             'java_path': JAVAPATH + [os.path.join(components_path, 'ner/banner/banner_program'),
                                      os.path.join(components_path, 'ner/banner/banner_program/src')],
-            }
-        },
+        }
+    },
 
     'CharniakParser': {
         'interface': 'parse/charniak/parser.py',

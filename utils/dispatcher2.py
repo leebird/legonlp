@@ -5,7 +5,7 @@ import shlex
 import json
 import subprocess
 from multiprocessing import Pool
-
+import pprint
 from pipelines import pipeline
 import config
 
@@ -58,13 +58,15 @@ class Dispatcher:
         self.tempfolder = pipeline.tempfolder
         self.step = pipeline.step
         self.process = pipeline.process
-        self.input = pipeline.input
-        self.output = pipeline.output
-        self.runtime_input = self.input.copy()
-        self.runtime_output = {}
+        self.default_input = pipeline.input
+        self.default_output = pipeline.output
+        # runtime temporary folders
+        self.runtime_folders = {}
+        self.runtime_input = self.default_input.copy()
+        self.runtime_folders = {}
 
 
-    def doc_list(self, input_category):
+    def doc_list(self, input_info):
         """
         get doc list from input information
         :param input_category: (category, suffix) tuple
@@ -72,17 +74,8 @@ class Dispatcher:
         :return: a list of doc names without suffix
         :rtype: list
         """
-        category, suffix = input_category
-
-        dirname = None
-        if category in self.runtime_input:
-            for input_info in self.runtime_input[category]:
-                if input_info[1] == suffix:
-                    dirname = input_info[0]
-
-        if dirname is None:
-            raise self.InputDirNotFound(category)
-
+        dirname = self.runtime_folders[input_info]
+        suffix = input_info[1]
         files = glob.iglob(os.path.join(dirname, '*' + suffix))
         return [os.path.basename(f)[:-len(suffix)] for f in files]
 
@@ -92,16 +85,38 @@ class Dispatcher:
         # get the component-specific step if it is set
         step = self.step if "step" not in component else component["step"]
 
+        arguments = component['arguments']
+
+        arguments.update({
+            'input': {},
+            'output': {}
+        })
+
+        for needle in component['input']:
+            dirname = self.runtime_folders[needle]
+            component_category, suffix, component_name = needle
+
+            if component_category in arguments['input']:
+                arguments['input'][component_category].append((dirname, suffix, component_name))
+            else:
+                arguments['input'][component_category] = [(dirname, suffix, component_name)]
+
+        for needle in component['output']:
+            dirname = self.runtime_folders[needle]
+            component_category, suffix, component_name = needle
+
+            if component_category in arguments['output']:
+                arguments['output'][component_category].append((dirname, suffix, component_name))
+            else:
+                arguments['output'][component_category] = [(dirname, suffix, component_name)]
+
         while True:
             files = self.files[start:start + step]
+
             if len(files) == 0:
                 break
 
-            component["arguments"].update({
-                'input': self.runtime_input,
-                'output': self.runtime_output,
-                'doc_list': files
-            })
+            component["arguments"].update({'doc_list': files})
 
             if "python_path" in component:
                 # add python path
@@ -118,14 +133,6 @@ class Dispatcher:
             yield command + ' ' + shlex.quote(json.dumps(component['arguments']))
             start += step
 
-    def update_runtime_input(self, component_name, component, tempfolder):
-        category = component["output_category"]
-        for c, suffix in category:
-            if c in self.runtime_input:
-                self.runtime_input[c].append((tempfolder, suffix, component_name))
-            else:
-                self.runtime_input[c] = [(tempfolder, suffix, component_name)]
-
     def make_temp(self, prefix):
         return tempfile.mkdtemp(dir=self.tempfolder, prefix=prefix + '_')
 
@@ -137,25 +144,34 @@ class Dispatcher:
     def make_javapath(java_path):
         return ' -cp "' + ':'.join(java_path) + '" '
 
-    @staticmethod
-    def lookahead(iterable):
+    def make_temp_folders(self):
         """
-        look ahead to find out the last element
-        :param iterable: iterable data
-        :type iterable: list | iter
-        :return: (element, boolean), boolean = True if the element is the last one
-        :rtype: tuple
+        create temporary folders for all the components in pipeline
+        :return: None
+        :rtype: None
         """
-        it = iter(iterable)
-        last = next(it)  # next(it) in Python 3
-        for val in it:
-            yield last, False
-            last = val
-        yield last, True
+        self.runtime_folders.update(self.default_input)
+        self.runtime_folders.update(self.default_output)
+
+        for task in self.pipeline[:-1]:
+            # aggregate information for the component
+            component_name = task[0]
+            component_config = task[1]
+
+            try:
+                component = config.components[component_name]
+            except KeyError:
+                raise self.ComponentNotDefined(component_name)
+
+            # get runtime output directory and suffix
+            for needle in component_config['output']:
+                folder = self.make_temp(component_name)
+                self.runtime_folders[needle] = folder
 
     def dispatch(self):
+        self.make_temp_folders()
 
-        for task, last in self.lookahead(self.pipeline):
+        for task in self.pipeline:
             # aggregate information for the component
             component_name = task[0]
             if component_name not in config.components:
@@ -167,30 +183,7 @@ class Dispatcher:
             component.update(component_config)
 
             # get input doc files
-            self.files = self.doc_list(component["input_category"][0])
-
-            # get run time output directory and suffix
-            # TODO: enable multiple output folders
-            self.runtime_output = {}
-            for output_category, output_suffix in component['output_category']:
-                folder = None
-                if last:
-                    folders = self.output[output_category]
-                    for folder_info in folders:
-                        if output_suffix == folder_info[1]:
-                            folder = folder_info[0]
-                            break
-                else:
-                    folder = self.make_temp(component_name + '_' + output_category)
-
-                # raise exception is no output folder is matched
-                if folder is None:
-                    raise self.OutputDirNotFound(output_category, output_suffix)
-
-                if output_category in self.runtime_output:
-                    self.runtime_output[output_category].append((folder, output_suffix))
-                else:
-                    self.runtime_output[output_category] = [(folder, output_suffix)]
+            self.files = self.doc_list(component["input"][0])
 
             # get command iterator
             command = self.iter_docs(component)
@@ -205,8 +198,6 @@ class Dispatcher:
             pool.map(run_command, command)
             pool.close()
             pool.join()
-
-            self.update_runtime_input(component_name, component, folder)
 
 
 if __name__ == '__main__':

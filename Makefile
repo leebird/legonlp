@@ -8,6 +8,8 @@ init:
 	- mkdir lib
 	- mkdir lib/python
 	- mkdir lib/java
+	# legonlp temp folder, used in config.py
+	- mkdir tmp
 
 # require python-dev, sudo apt-get install python-dev
 charniak_parser:
@@ -24,6 +26,7 @@ lib_java:
 	wget -O $(MAKE_TEMP)/java.tar.gz https://www.dropbox.com/s/askhb386rxzckdu/java.tar.gz?dl=0
 	cd $(MAKE_TEMP) && tar -zxvf java.tar.gz -C ../lib/
 
+# compile java codes, java 1.8 is required
 compile:
 	cd components/ner/banner/banner_program && javac -cp "$(PWD)/lib/java/*:src" GeneMention.java
 	cd components/utils/tregex && javac -cp "$(PWD)/lib/java/*:.." tregex.java
@@ -34,4 +37,5 @@ clean_tmp:
 clean:
 	-rm -rf data/
 	-rm -rf lib/
+	-rm -rf tmp/
 	-rm -rf $(MAKE_TEMP)/
