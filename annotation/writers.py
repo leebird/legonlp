@@ -1,66 +1,160 @@
 # -*- coding: utf-8 -*-
 import os
 import codecs
+import re
 import json
-from annotation import Entity,Event,Relation,Annotation
+from annotation import *
+
 
 class BionlpWriter(object):
+    entity_format = u'{0}\t{1} {2} {3}\t{4}\n'
+    event_format = u'{0}\t{1}:{2} {3}\t{4}\n'
+    relation_format = u'{0}\t{1}\t{2}\n'
+
     def __init__(self):
-        self.entityFormat = u'{0}\t{1} {2} {3}\t{4}\n'
-        self.eventFormat = u'{0}\t{1}:{2} {3}\t{4}\n'    
-        self.relFormat = u'{0}\t{1} Arg1:{2} Arg2:{3}\t{4}\n'
+        pass
 
-    def entity_line(self,t):
-        return self.entityFormat.format(t.id,t.type,t.start,t.end,t.text)
+    def entity_line(self, entity):
+        """
+        generate a line for an entity according to BioNLP format
+        T1  Gene 0 3    BAD
+        :param entity: an entity
+        :type entity: Entity
+        :return: a line containing entity information
+        :rtype: str
+        """
+        entity_id = entity.property.get('id')
+        if entity_id is None:
+            return ''
 
-    def event_line(self,e):
-        args = [a[0]+':'+a[1].id for a in e.args]
+        return self.entity_format.format(entity_id,
+                                         entity.category,
+                                         entity.start,
+                                         entity.end,
+                                         entity.text)
+
+    def event_line(self, event):
+        """
+        generate a line for an event according to BioNLP format
+        :param event: an event
+        :type event: Event
+        :return: a line containing event information
+        :rtype: str
+        """
+        args = [a.category + ':' + a.value.property.get('id') for a in event.arguments]
         args = ' '.join(args).strip()
-        prop = json.dumps(e.prop.prop)
-        if len(args) > 0:
-            return self.eventFormat.format(e.id,e.type,e.trigger.id,args,prop)
-        else:
-            return None
+        event_id = event.property.get('id')
 
-    def relation_line(self,r):
-        prop = json.dumps(r.prop.prop)
-        return self.relFormat.format(r.id,r.type,r.arg1.id,r.arg2.id,prop)
+        if len(args) == 0 or event_id is None:
+            return ''
+
+        return self.event_format.format(event.property.get('id'),
+                                        event.category,
+                                        event.trigger.property.get('id'),
+                                        args)
+
+
+    def relation_line(self, relation):
+        """
+        generate a line for an relation according to BioNLP format
+        :param relation: an relation (an event without trigger word)
+        :type relation: Event
+        :return: a line containing relation information
+        :rtype: str
+        """
+        args = [a.category + ':' + a.value.property.get('id') for a in relation.arguments]
+        args = ' '.join(args).strip()
+
+        relation_id = relation.property.get('id')
+        if relation_id is None:
+            return ''
+
+        return self.relation_format.format(relation.property.get('id'),
+                                           relation.category,
+                                           args)
+
+    def bionlp_index(self, annotation):
+        """add T1, E1 and R1-like indices to entities and events
+        :return: None
+        :rtype: None
+        """
+
+        def reindex(candidates, prefix):
+            """
+            reindex candidates with defined prefix
+            :param candidates: a list of candidates (entities, events or relations)
+            :type candidates: list
+            :param prefix: the prefix for the candidate's id, e.g., 'T' for entity
+            :type prefix: str
+            :return: None
+            :rtype: None
+            """
+            candidate_id_pattern = re.compile(prefix + r'([0-9]+)')
+            existed_indices = []
+            unindexed_candidates = []
+            for candidate in candidates:
+                candidate_id = candidate.property.get('id')
+                if candidate_id is None:
+                    unindexed_candidates.append(candidate)
+                else:
+                    match = candidate_id_pattern.match(candidate_id)
+                    if match is None:
+                        unindexed_candidates.append(candidate)
+                    else:
+                        candidate_number = int(match.group(1))
+                        existed_indices.append(candidate_number)
+
+            if len(existed_indices) > 0:
+                existed_indices.sort()
+                next_index = existed_indices.pop(-1) + 1
+            else:
+                next_index = 1
+
+            for candidate in unindexed_candidates:
+                candidate.property.add('id', prefix + str(next_index))
+                next_index += 1
+
+        reindex(annotation.entities, 'T')
+        reindex(annotation.get_event_with_trigger(), 'E')
+        reindex(annotation.get_event_without_trigger(), 'E')
+
 
 class AnnWriter(BionlpWriter):
     def __init__(self):
-        super(AnnWriter,self).__init__()
+        super(AnnWriter, self).__init__()
 
-    def write(self,filepath,annotation):
-        f = codecs.open(filepath,'w+','utf-8')
+    def write(self, filepath, annotation):
+        f = codecs.open(filepath, 'w+', 'utf-8')
+        self.bionlp_index(annotation)
 
-        for k,t in annotation.get_entities().iteritems():
+        for t in annotation.entities:
             line = self.entity_line(t)
             f.write(line)
 
-        for k,e in annotation.get_events().iteritems():
-            line = self.event_line(e)
-            f.write(line)
-
-        for k,r in annotation.get_relations().iteritems():
-            line = self.relation_line(r)
+        for e in annotation.events:
+            if e.trigger is None:
+                line = self.relation_line(e)
+            else:
+                line = self.event_line(e)
             f.write(line)
 
         f.close()
 
+
 class A1A2Writer(BionlpWriter):
     def __init__(self):
-        super(A1A2Writer,self).__init__()
+        super(A1A2Writer, self).__init__()
 
-    def write(self,a1path,a1file,a2path,a2file,annotation):
+    def write(self, a1path, a1file, a2path, a2file, annotation):
         triggerId = []
-        
+
         entities = annotation['T']
         events = annotation['E']
 
-        filepath = os.path.join(a2path,a2file)
-        f = codecs.open(filepath,'w+','utf-8')
-        
-        for k,e in events.iteritems():
+        filepath = os.path.join(a2path, a2file)
+        f = codecs.open(filepath, 'w+', 'utf-8')
+
+        for k, e in events.iteritems():
             if e.triggerId not in triggerId:
                 triggerId.append(e.triggerId)
                 trigger = entities[e.triggerId]
@@ -70,17 +164,18 @@ class A1A2Writer(BionlpWriter):
             line = self.event_line(e)
             if line is not None:
                 f.write(line)
-            
+
         f.close()
 
-        filepath = os.path.join(a1path,a1file)
-        f = codecs.open(filepath,'w+','utf-8')
+        filepath = os.path.join(a1path, a1file)
+        f = codecs.open(filepath, 'w+', 'utf-8')
 
-        for k,t in entities.iteritems():
+        for k, t in entities.iteritems():
             if t.id not in triggerId:
                 line = self.entity_line(t)
                 f.write(line)
         f.close()
+
 
 class HtmlWriter:
     def __init(self):

@@ -1,5 +1,6 @@
 from annotation import *
 from readers import *
+from writers import *
 
 import unittest
 
@@ -159,10 +160,19 @@ class TestAnnotation(unittest.TestCase):
         self.assertEqual(self.annotation.get_entity_category('Disease'), [])
 
 class TestReader(unittest.TestCase):
-    reader = AnnReader()
-    annotation = reader.parse_file('examples/17438130.ann')
-    print(Node('Root', annotation.events[0]).indent_print())
-    pass
+
+    def test_annreader(self):
+        reader = AnnReader()
+        annotation = reader.parse_file('examples/17438130.ann')
+        print(Node('Root', annotation.events[0]).indent_print())
+
+    def test_annwriter(self):
+        reader = AnnReader()
+        annotation = reader.parse_file('examples/17438130.ann')
+
+        writer = AnnWriter()
+        writer.write('output/17438130.ann', annotation)
+
 
 if __name__ == '__main__':
     unittest.main()

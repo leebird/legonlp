@@ -54,3 +54,6 @@ docs/_build/
 
 # emacs temp files
 *~
+
+# java class
+*.class

@@ -8,52 +8,8 @@ import codecs
 import json
 import itertools
 from pprint import pprint as pp
-from annotation import *
-
-
-class TextProcessor(object):
-    pattern_bracket = re.compile(r'<.*?>')
-    pattern_brace = re.compile(r'\{.*?\}')
-    pattern_open_bracket = re.compile(r'<([^/]*?)>')
-    pattern_close_bracket = re.compile(r'</(.*?)>')
-
-    def __init__(self):
-        pass
-
-    @classmethod
-    def remove_bracket(cls, text):
-        return re.sub(cls.pattern_bracket, '', text)
-
-    @classmethod
-    def remove_brace(cls, text):
-        return re.sub(cls.pattern_brace, '', text)
-
-    @classmethod
-    def remove_tags(cls, text):
-        return cls.remove_bracket(cls.remove_brace(text))
-
-
-class FileProcessor(object):
-    @staticmethod
-    def read_file(filepath):
-        if os.path.isfile(filepath):
-            f = codecs.open(filepath, 'r', 'utf-8')
-            text = f.read()
-            f.close()
-            return text
-
-    @staticmethod
-    def open_file(filepath):
-        if os.path.isfile(filepath):
-            f = codecs.open(filepath, 'r', 'utf-8')
-            return f
-
-    @staticmethod
-    def write_file(filepath, content, flag='w'):
-        f = codecs.open(filepath, flag, 'utf-8')
-        f.write(content)
-        f.close()
-
+from annotation.annotation import *
+from annotation.utils import *
 
 class Reader(object):
     def __init__(self):
@@ -66,11 +22,21 @@ class Reader(object):
         raise NotImplementedError('Reader.parse_file()')
 
     def parse_folder(self, path, suffix):
-        raise NotImplementedError('Reader.parse_folder()')
+        res = {}
+
+        for root, _, files in os.walk(path):
+            for f in files:
+                if not f.endswith(suffix):
+                    continue
+                docid = f[:-len(suffix)]
+                filepath = os.path.join(root, f)
+                anno = self.parse_file(filepath)
+                res[docid] = anno
+
+        return res
 
     def read(self):
         raise NotImplementedError('Reader.read()')
-
 
 class AnnReader(Reader):
     def __init__(self, *args):
@@ -105,11 +71,12 @@ class AnnReader(Reader):
         arguments = []
         for arg in info[1:]:
             arg_category, arg_entity_id = arg.split(':')
-            entities = annotation.get_entity_with_property('id', arg[1])
+            entities = annotation.get_entity_with_property('id', arg_entity_id)
             if len(entities) > 0:
                 entity = entities[0]
             else:
-                entity = None
+                print('Can\'t find entity by id: '+arg, file=sys.stderr)
+                continue
             arguments.append(Node(arg_category, entity))
 
         entities = annotation.get_entity_with_property('id', trigger_id)
@@ -136,7 +103,7 @@ class AnnReader(Reader):
             if len(entities) > 0:
                 entity = entities[0]
             else:
-                print('can not find entity by its id: '+arg, file=sys.stderr)
+                print('Can\'t find entity by id: '+arg, file=sys.stderr)
                 continue
             arguments.append(Node(arg_category, entity))
 
@@ -149,7 +116,7 @@ class AnnReader(Reader):
         f = FileProcessor.open_file(filepath)
 
         if f is None:
-            return
+            return annotation
 
         for line in f:
             line = line.strip()
@@ -167,6 +134,7 @@ class AnnReader(Reader):
                 self.parse_relation(line, annotation)
                 # raise Exception('can not parse: '+line)
 
+        f.close()
         return annotation
 
     def parse_folder(self, path, suffix):
@@ -174,40 +142,35 @@ class AnnReader(Reader):
 
         for root, _, files in os.walk(path):
             for f in files:
-
-                if not f.endswith('.txt'):
+                if not f.endswith(suffix):
                     continue
-                print(f)
-                docid = f[:-4]
-
-                text = FileProcessor.read_file(os.path.join(root, f))
-                filepath = os.path.join(root, docid+suffix)
+                docid = f[:-len(suffix)]
+                filepath = os.path.join(root, f)
                 anno = self.parse_file(filepath)
-                anno.text = text
                 res[docid] = anno
 
         return res
 
 
 class SGMLReader(Reader):
-    def __init__(self, *args):
-        super(SGMLReader, self).__init__(*args)
-
-    def set_tag_entity_mapping(self, mapping):
+    def __init__(self, mapping=None):
         '''
         set mapping from tag name to entity type
         if <pro> means Protein, then a mapping from
-        'pro' to 'Protein' should be set to have 
+        'pro' to 'Protein' should be set to have
         the entity typed 'Protein' in the output
         '''
-        self.mapping = mapping
-        self.entityMapping = True
+        super(SGMLReader, self).__init__()
+        if mapping is not None:
+            self.mapping = mapping
+        else:
+            self.mapping = {}
 
     def get_open_bracket(self, text):
-        return self.pOpenBracket.finditer(text)
+        return TextProcessor.pattern_open_bracket.finditer(text)
 
     def get_close_bracket(self, text):
-        return self.pCloseBracket.finditer(text)
+        return TextProcessor.pattern_close_bracket.finditer(text)
 
     def is_close(self, tag):
         return tag.startswith('</')
@@ -263,12 +226,12 @@ class SGMLReader(Reader):
 
         return (entityText, entityStart, entityEnd)
 
-    def parse_file(self, path, filename, mapping={}):
-        text = self.read_file(self.filepath)
-        anno = self.parse(text, mapping)
+    def parse_file(self, filepath):
+        text = FileProcessor.read_file(filepath)
+        anno = self.parse(text)
         return anno
 
-    def parse(self, text, mapping={}):
+    def parse(self, text):
         annotation = Annotation()
         openTags = self.get_open_bracket(text)
         closeTags = self.get_close_bracket(text)
@@ -292,22 +255,22 @@ class SGMLReader(Reader):
                 if this happens, at least two entities are skip
                 '''
                 if startTagText != tagText:
-                    self.warning('different open-tag and close-tag')
+                    print('different open-tag and close-tag', sys.stderr)
                     continue
 
                 start = startTag.end()
                 end = tag.start()
-                entityText, start, end = self.get_entity_by_index(snippets, start, end)
+                entity_text, start, end = self.get_entity_by_index(snippets, start, end)
                 try:
-                    category = mapping[tagText]
+                    category = self.mapping[tagText]
                 except KeyError:
                     category = tagText
 
-                annotation.add_entity(category, start, end, entityText)
+                annotation.add_entity(category, start, end, entity_text)
             else:
                 openTagStack.append(tag)
 
-        textpured = self.remove_tags(text)
+        textpured = TextProcessor.remove_tags(text)
         annotation.text = textpured
         return annotation
 

@@ -2,6 +2,7 @@ import sys
 import os
 import codecs
 
+
 class Runner(object):
     runnerName = None
 

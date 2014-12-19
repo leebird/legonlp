@@ -12,10 +12,10 @@ class NewlineSplitter():
 
 
 class NewlineSplitterRunner(Runner):
-    def run(self, args):
-        input_text = args['input']['text'][0]
-        output_split = args['output']['split'][0]
-        doc_list = args['doc_list']
+    def run(self, input_info):
+        input_text = input_info['input']['text'][0]
+        output_split = input_info['output']['split'][0]
+        doc_list = input_info['doc_list']
 
         tuples = self.get_io_files([input_text, output_split], doc_list)
         splitter = NewlineSplitter()

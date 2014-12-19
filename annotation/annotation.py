@@ -144,7 +144,7 @@ class Node(object):
         self.category = category
 
         if (not self.is_leaf()) and (not self.is_tree()):
-            raise TypeError('Value must be an entity or event')
+            raise TypeError('Value must be an entity or event: '+str(value))
 
     def is_leaf(self):
         return isinstance(self.value, Entity)
@@ -230,6 +230,17 @@ class Annotation(object):
         self.entities.append(entity)
         return entity
 
+    def add_entities(self, entities):
+        """
+        add a list of new entities
+        :param entities: a list of new entities
+        :type entities: list
+        :return: None
+        :rtype: None
+        """
+        # TODO: how to deal with duplicate/overlap
+        self.entities += entities
+
     def get_entity_category(self, category, complement=False):
         """
         get a list of entities of the same category
@@ -278,6 +289,12 @@ class Annotation(object):
             return [e for e in self.events if e.category != category]
         else:
             return [e for e in self.events if e.category == category]
+
+    def get_event_without_trigger(self):
+        return [event for event in self.events if event.trigger is None]
+
+    def get_event_with_trigger(self):
+        return [event for event in self.events if event.trigger is not None]
 
     def has_entity(self, entity):
         if entity in self.entities:
