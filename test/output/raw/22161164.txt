@@ -1,0 +1,14 @@
+Inhibition of microRNA-17 improves lung and heart function in experimental pulmonary hypertension.
+RATIONALE: MicroRNAs (miRs) control various cellular processes in tissue homeostasis and disease by regulating gene expression on the posttranscriptional level.
+Recently, it was demonstrated that the expression of miR-21 and members of the miR-17-92 cluster was significantly altered in experimental pulmonary hypertension (PH).
+OBJECTIVES: To evaluate the therapeutic efficacy and antiremodeling potential of miR inhibitors in the pathogenesis of PH. METHODS: We first tested the effects of miR inhibitors (antagomirs), which were specifically designed to block miR-17 (A-17), miR-21 (A-21), and miR-92a (A-92a) in chronic hypoxia-induced PH in mice and A-17 in monocrotaline-induced PH in rats.
+Moreover, biological function of miR-17 was analyzed in cultured pulmonary artery smooth muscle cells.
+MEASUREMENTS AND MAIN RESULTS: In the PH mouse model, A-17 and A-21 reduced right ventricular systolic pressure, and all antagomirs decreased pulmonary arterial muscularization.
+However, only A-17 reduced hypoxia-induced right ventricular hypertrophy and improved pulmonary artery acceleration time.
+In the monocrotaline-induced PH rat model, A-17 treatment significantly decreased right ventricular systolic pressure and total pulmonary vascular resistance index, increased pulmonary artery acceleration time, normalized cardiac output, and decreased pulmonary vascular remodeling.
+Among the tested miR-17 targets, the cyclin-dependent kinase inhibitor 1A (p21) was up-regulated in lungs undergoing A-17 treatment.
+Likewise, in human pulmonary artery smooth muscle cells, A-17 increased p21.
+Overexpression of miR-17 significantly reduced p21 expression and increased proliferation of smooth muscle cells.
+CONCLUSIONS: Our data demonstrate that A-17 improves heart and lung function in experimental PH by interfering with lung vascular and right ventricular remodeling.
+The beneficial effects may be related to the up-regulation of p21.
+Thus, inhibition of miR-17 may represent a novel therapeutic concept to ameliorate disease state in PH.
