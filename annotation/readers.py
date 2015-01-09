@@ -41,9 +41,10 @@ class Reader(object):
 
 
 class AnnReader(Reader):
-    def __init__(self, entity_handler=None):
+    def __init__(self, entity_handler=None, event_handler=None):
         super(AnnReader, self).__init__()
         self.entity_handler = entity_handler
+        self.event_handler = event_handler
 
     def parse_entity(self, line, annotation):
         fields = line.split('\t')

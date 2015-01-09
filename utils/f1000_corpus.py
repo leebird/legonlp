@@ -18,6 +18,7 @@ class CorpusReader(object):
         context = etree.iterparse(corpus_xml, events=("end",), tag="document")
         relations_num = 0
         nonspecific_pmid = set()
+        g2m_pmids = set()
 
         for event, element in context:
             pmid = element.attrib['origId']
@@ -99,8 +100,11 @@ class CorpusReader(object):
                     event.add_argument('Arg1', entity1)
                     event.add_argument('Arg2', entity2)
 
-                    # for entity in annotation.entities:
-                    # entity.property.delete('id')
+                    if entity1.category == 'MiRNA':
+                        g2m_pmids.add(pmid)
+
+                        # for entity in annotation.entities:
+                        # entity.property.delete('id')
 
             relations_num += len(annotation.events)
 
@@ -118,6 +122,7 @@ class CorpusReader(object):
 
         print('relations count:', relations_num)
         print('non-spec pmids:', nonspecific_pmid)
+        print('gene-first pmids:', g2m_pmids)
 
 
 class Evaluation(object):
@@ -126,6 +131,12 @@ class Evaluation(object):
 
     @classmethod
     def evaluate(cls, user_data_path, golden_data_path):
+        import json
+
+        def relation_handler(relation, fields):
+            fields = json.loads(fields)
+            relation.property.add('direction', fields['direction'])
+
         reader = AnnReader()
 
         user_data = reader.parse_folder(user_data_path, '.ann')
@@ -136,12 +147,13 @@ class Evaluation(object):
         user_relations = set()
         golden_relations = set()
 
+        relation_map = {}
+
         if user_keys != golden_keys:
             print('unmached keys between data sets', file=sys.stderr)
             # sys.exit(0)
 
         for pmid in golden_keys:
-
             gold_anno = golden_data[pmid]
 
             for rel in gold_anno.events:
@@ -153,18 +165,29 @@ class Evaluation(object):
                                      entity.end,
                                      entity.text))
                 relation = sorted(relation, key=lambda a: a[1])
-                golden_relations.add(tuple([pmid]+relation))
-        
+                golden_relations.add(tuple([pmid] + relation))
+
         for pmid in user_keys:
             user_anno = user_data[pmid]
             for rel in user_anno.events:
+
+                direction = rel.property.get('direction')
+                if direction is None:
+                    relation_map[tuple([pmid] + relation)] = 'M2G'
+                else:
+                    relation_map[tuple([pmid] + relation)] = direction[0]
+
+                if relation_map[tuple([pmid] + relation)] == 'G2M':
+                    continue
+
+
                 relation = []
                 if rel.trigger is not None:
                     if rel.trigger.text.lower().startswith('corelat') or \
-                        rel.trigger.text.lower().startswith('relat') or \
+                            rel.trigger.text.lower().startswith('relat') or \
                             rel.trigger.text.lower().startswith('associa'):
                         continue
-                        
+
                 for arg in rel.arguments:
                     entity = arg.value
                     relation.append((entity.category,
@@ -172,29 +195,50 @@ class Evaluation(object):
                                      entity.end,
                                      entity.text))
                 relation = sorted(relation, key=lambda a: a[1])
-                user_relations.add(tuple([pmid]+relation))
+
+                user_relations.add(tuple([pmid] + relation))
+
+                direction = rel.property.get('direction')
+                if direction is None:
+                    relation_map[tuple([pmid] + relation)] = 'M2G'
+                else:
+                    relation_map[tuple([pmid] + relation)] = direction[0]
+
 
         golden_num = len(golden_relations)
         tp = len(golden_relations & user_relations)
         fp = len(user_relations - golden_relations)
         fn = len(golden_relations - user_relations)
 
+        # tp+= 6
+        # fn-=6
+
         precision = tp * 1.0 / (tp + fp)
         recall = tp * 1.0 / (tp + fn)
         fscore = 2 * precision * recall / (precision + recall)
-        
+
         print('all relations:', golden_num)
         print('precision:', precision)
         print('recall:', recall)
         print('f-score:', fscore)
-        
+
+        print()
+        print('TP:')
+        for t in user_relations & golden_relations:
+            print(t, relation_map[t])
+
         print()
         print('FP:')
-        print('\n'.join([str(t) for t in user_relations - golden_relations]))
+        for t in user_relations - golden_relations:
+            print(t, relation_map[t])
 
         print()
         print('FN:')
         print('\n'.join([str(t) for t in golden_relations - user_relations]))
+
+        print()
+        print('FN:')
+        print('\n'.join(set([str(t[0]) for t in golden_relations - user_relations])))
 
 if __name__ == '__main__':
     import sys
