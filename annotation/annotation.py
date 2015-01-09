@@ -259,7 +259,7 @@ class Annotation(object):
     def get_entity_with_property(self, key, value):
         return [t for t in self.entities if t.property.has(key, value)]
 
-    def add_event(self, category, trigger, arguments):
+    def add_event(self, category, trigger=None, arguments=None):
         """
         add a new event
         :param category: event category, e.g., Regulation

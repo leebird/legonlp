@@ -31,7 +31,9 @@ test_paths = {
         ('parse', '.offset', 'initial'): os.path.join(test_path, 'output/offset'),
         ('split', '.split', 'final'): os.path.join(test_path, 'output/split'),
         ('parse', '.parse', 'final'): os.path.join(test_path, 'output/parse'),
-        ('tregex', '.tregex', 'final'): os.path.join(test_path, 'output/tregex'),
+        ('tregex', '.at', 'final'): os.path.join(test_path, 'output/tregex'),
+        ('tregex', '.ce', 'final'): os.path.join(test_path, 'output/tregex'),
+        ('tregex', '.ref', 'final'): os.path.join(test_path, 'output/tregex'),
         ('ner', '.ann', 'final'): os.path.join(test_path, 'output/ner'),
         ('ner', '.sgml', 'final'): os.path.join(test_path, 'output/ner'),
     }
@@ -73,8 +75,7 @@ components = {
         'interpreter': 'python3',
         'python_path': PYTHONPATH,
         "arguments": {
-            'java_path': JAVAPATH + [os.path.join(components_path, 'ner/banner/banner_program'),
-                                     os.path.join(components_path, 'ner/banner/banner_program/src')],
+            'java_path': JAVAPATH + [os.path.join(components_path, 'ner/banner/banner_program/bin')]
         }
     },
 
@@ -96,17 +97,42 @@ components = {
         'interpreter': 'python3',
         'python_path': PYTHONPATH,
     },
-
-    'TregexMatcher': {
+    'AgentThemeMatcher': {
         'interface': 'tregex.Tregex',
         'input_category': [('parse', '.offset')],
         'output_category': [('tregex', '.tregex')],
         # java 1.8 required
         'interpreter': 'java',
-        'java_path': JAVAPATH + [os.path.join(components_path, 'utils')],
+        'java_path': JAVAPATH + [os.path.join(components_path, 'utils/tregex/bin')],
         'arguments': {
-            'pattern_files': [os.path.join(components_path, 'utils/tregex/patterns/agent_patterns.txt'),
-                              os.path.join(components_path, 'utils/tregex/patterns/theme_patterns.txt')]
+            'pattern_files': [os.path.join(components_path, 'utils/tregex/patterns/agent.json'),
+                              os.path.join(components_path, 'utils/tregex/patterns/theme.json')]
         }
     },
+    'CauseEffectMatcher': {
+        'interface': 'tregex.Tregex',
+        'input_category': [('parse', '.offset')],
+        'output_category': [('tregex', '.tregex')],
+        # java 1.8 required
+        'interpreter': 'java',
+        'java_path': JAVAPATH + [os.path.join(components_path, 'utils/tregex/bin')],
+        'arguments': {
+            'pattern_files': [os.path.join(components_path, 'utils/tregex/patterns/cause.json'),
+                              os.path.join(components_path, 'utils/tregex/patterns/effect.json')]
+        }
+    },
+    'ReferenceMatcher': {
+        'interface': 'tregex.Tregex',
+        'input_category': [('parse', '.offset')],
+        'output_category': [('tregex', '.tregex')],
+        # java 1.8 required
+        'interpreter': 'java',
+        'java_path': JAVAPATH + [os.path.join(components_path, 'utils/tregex/bin')],
+        'arguments': {
+            'pattern_files': [os.path.join(components_path, 'utils/tregex/patterns/reference.json'),
+                              os.path.join(components_path, 'utils/tregex/patterns/member_collection.json'),
+                              os.path.join(components_path, 'utils/tregex/patterns/part_whole.json')]
+        }
+    },
+
 }

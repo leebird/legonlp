@@ -1,4 +1,5 @@
 import os
+import sys
 import glob
 import tempfile
 import shlex
@@ -19,7 +20,7 @@ def run_command(command):
     :rtype:
     """
 
-    #print(command)
+    # print(command)
     subprocess.call(command, shell=True)
 
 
@@ -164,9 +165,11 @@ class Dispatcher:
                 raise self.ComponentNotDefined(component_name)
 
             # get runtime output directory and suffix
+            # create temp folder only it's not in runtime_folders
             for needle in component_config['output']:
-                folder = self.make_temp(component_name)
-                self.runtime_folders[needle] = folder
+                if needle not in self.runtime_folders:
+                    folder = self.make_temp(component_name)
+                    self.runtime_folders[needle] = folder
 
     def dispatch(self):
         self.make_temp_folders()
@@ -174,6 +177,9 @@ class Dispatcher:
         for task in self.pipeline:
             # aggregate information for the component
             component_name = task[0]
+
+            print(component_name, file=sys.stderr)
+
             if component_name not in config.components:
                 raise self.ComponentNotDefined(component_name)
             component = config.components[component_name]

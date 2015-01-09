@@ -9,7 +9,7 @@ data = {
     'inputSux': '.txt',
     'outputSux': '.tregex',
     'docList': ['test_parses'],
-    'patternFiles': ['patterns/agent_patterns.txt','patterns/theme_patterns.txt'],
+    'patternFiles': ['patterns/agent.json','patterns/theme.json'],
 }
 
 # dump data into json string

@@ -159,12 +159,23 @@ class TestAnnotation(unittest.TestCase):
         self.assertEqual(self.annotation.get_entity_category('Gene'), [entity])
         self.assertEqual(self.annotation.get_entity_category('Disease'), [])
 
-class TestReader(unittest.TestCase):
 
+class TestReader(unittest.TestCase):
     def test_annreader(self):
         reader = AnnReader()
         annotation = reader.parse_file('examples/17438130.ann')
         print(Node('Root', annotation.events[0]).indent_print())
+
+    def test_entity_handler(self):
+        def handler(entity, fields):
+            if len(fields) == 0:
+                return
+            gene_id = fields[0]
+            entity.property.add('gid', gene_id)
+
+        reader = AnnReader(handler)
+        annotation = reader.parse_file('examples/17438130.ann')
+        print(annotation.get_entity_with_property('gid','12345'))
 
     def test_annwriter(self):
         reader = AnnReader()

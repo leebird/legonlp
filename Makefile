@@ -28,8 +28,8 @@ lib_java:
 
 # compile java codes, java 1.8 is required
 compile:
-	cd components/ner/banner/banner_program && javac -cp "$(PWD)/lib/java/*:src" GeneMention.java
-	cd components/utils/tregex && javac -cp "$(PWD)/lib/java/*:.." tregex.java
+	cd components/ner/banner/banner_program && javac -cp "$(PWD)/lib/java/*:src" -d bin GeneMention.java
+	cd components/utils/tregex && javac -cp "$(PWD)/lib/java/*:.." -d bin tregex.java
 
 clean_tmp:
 	-rm -rf $(MAKE_TEMP)/

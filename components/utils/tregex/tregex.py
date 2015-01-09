@@ -89,7 +89,7 @@ class TregexReader(object):
                 elif flag == 1:
                     head.parents[-1].label += text
 
-        print(head)
+        # print(head)
         return stack[0]
 
     @staticmethod
@@ -127,6 +127,7 @@ class TregexReader(object):
 tregex = '__=p < (NP|VP <- VBG|NN=tr $+ (PP <, (IN <, /^of$/ $+ /^N.*$/) $+ (PP <, (IN <, /^by$/ $+ /^N.*$/=arg))))'
 # tregex = 'NP=p < (/PRP\$/=arg $+ (__=tr))'
 tregex = '__=p < (NP=arg < (/^N.*$/ <- NN|NNS|NNP|NNPS=tr $+ (PP < (IN <<, /^(of|for)$/ $+ /^N.*$/))) !<< SBAR)'
+tregex = '__=p < (NP|NNP=tr $+ (VP <<, /^(is|are|was|were)$/ < (__ < (S < (VP <, TO <2 (VP <, (VBD|VBZ|VBP|VBG|VB|AUX <, /be|is|are|was|were|been/) <2 NP=arg)))) !<< SBAR))'
 if __name__ == '__main__':
     reader = TregexReader()
     node = reader.read(tregex)

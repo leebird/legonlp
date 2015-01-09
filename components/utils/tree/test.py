@@ -18,6 +18,5 @@ class TestIndexedTree(unittest.TestCase):
         print(tree.pprint(margin=float("inf")))
         # tree = ParentedTree.fromstring('')
 
-
 if __name__ == '__main__':
     unittest.main()

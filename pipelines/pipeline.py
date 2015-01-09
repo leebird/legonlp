@@ -53,8 +53,16 @@ class Pipeline:
                       ('text', '.txt', 'MiRNARecognizer')],
             'output': [('parse', '.parse', 'TreeIndexer')]
         }),
-        ('TregexMatcher',{
+        ('AgentThemeMatcher',{
             'input': [('parse', '.parse', 'TreeIndexer')],
-            'output': [('tregex', '.tregex', 'final')]
+            'output': [('tregex', '.at', 'final')]
+        }),
+        ('CauseEffectMatcher',{
+            'input': [('parse', '.parse', 'TreeIndexer')],
+            'output': [('tregex', '.ce', 'final')]
+        }),
+        ('ReferenceMatcher',{
+            'input': [('parse', '.parse', 'TreeIndexer')],
+            'output': [('tregex', '.ref', 'final')]
         })
     ]

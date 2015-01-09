@@ -9,7 +9,7 @@ from annotation import *
 class BionlpWriter(object):
     entity_format = u'{0}\t{1} {2} {3}\t{4}\n'
     event_format = u'{0}\t{1}:{2} {3}\t{4}\n'
-    relation_format = u'{0}\t{1}\t{2}\n'
+    relation_format = u'{0}\t{1} {2}\n'
 
     def __init__(self):
         pass
@@ -116,7 +116,7 @@ class BionlpWriter(object):
 
         reindex(annotation.entities, 'T')
         reindex(annotation.get_event_with_trigger(), 'E')
-        reindex(annotation.get_event_without_trigger(), 'E')
+        reindex(annotation.get_event_without_trigger(), 'R')
 
 
 class AnnWriter(BionlpWriter):

@@ -160,6 +160,7 @@ class Tregex {
                     System.err.println("Can not write to file at ");
                 }
             } catch (Exception e) {
+                System.err.println(e);
                 System.err.println("Can not open doc file at " + filepath);
             }
         }
@@ -199,6 +200,8 @@ class Tregex {
 
                     for (String label : pattern.labels) {
                         Tree node = tregexMatcher.getNode(label);
+                        if(node == null)
+                            continue;
                         String output = node.toStringBuilder(new StringBuilder(500), false).toString();
                         singleMatch.put(label, output);
                     }

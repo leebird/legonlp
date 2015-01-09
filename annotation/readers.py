@@ -11,6 +11,7 @@ from pprint import pprint as pp
 from annotation.annotation import *
 from annotation.utils import *
 
+
 class Reader(object):
     def __init__(self):
         self.annotation = Annotation()
@@ -38,9 +39,11 @@ class Reader(object):
     def read(self):
         raise NotImplementedError('Reader.read()')
 
+
 class AnnReader(Reader):
-    def __init__(self, *args):
+    def __init__(self, entity_handler=None):
         super(AnnReader, self).__init__()
+        self.entity_handler = entity_handler
 
     def parse_entity(self, line, annotation):
         fields = line.split('\t')
@@ -53,8 +56,13 @@ class AnnReader(Reader):
             end = int(info[2])
             entity = annotation.add_entity(category, start, end, text)
             entity.property.add('id', tid)
+            
+            if self.entity_handler is not None:
+                # handle appended information in entity line
+                self.entity_handler(entity, fields[3:])
+                
         except Entity.EntityIndexError:
-            print('entity index error' + line, file=sys.stderr)
+            print('entity index error ' + line, file=sys.stderr)
 
     def parse_event(self, line, annotation):
         fields = line.split('\t')
@@ -75,7 +83,7 @@ class AnnReader(Reader):
             if len(entities) > 0:
                 entity = entities[0]
             else:
-                print('Can\'t find entity by id: '+arg, file=sys.stderr)
+                print('Can\'t find entity by id: ' + arg, file=sys.stderr)
                 continue
             arguments.append(Node(arg_category, entity))
 
@@ -83,6 +91,11 @@ class AnnReader(Reader):
         trigger = entities.pop(0)
         event = annotation.add_event(category_text, trigger, arguments)
         event.property.add('id', tid)
+
+        if len(fields) > 2:
+            prop = json.loads(fields[2])
+            for key, value in prop.items():
+                event.property.add(key, value)
 
         event.property.update(attributes)
 
@@ -92,10 +105,6 @@ class AnnReader(Reader):
         info = fields[1].split(' ')
         category_text = info[0]
 
-        attributes = {}
-        if len(fields) > 2:
-            attributes = json.loads(fields[2])
-
         arguments = []
         for arg in info[1:]:
             arg_category, arg_entity_id = arg.split(':')
@@ -103,13 +112,17 @@ class AnnReader(Reader):
             if len(entities) > 0:
                 entity = entities[0]
             else:
-                print('Can\'t find entity by id: '+arg, file=sys.stderr)
+                print('Can\'t find entity by id: ' + arg, file=sys.stderr)
                 continue
             arguments.append(Node(arg_category, entity))
 
         rel = annotation.add_event(category_text, None, arguments)
         rel.property.add('id', rid)
-        rel.property.update(attributes)
+
+        if len(fields) > 2:
+            prop = json.loads(fields[2])
+            for key, value in prop.items():
+                rel.property.add(key, value)
 
     def parse_file(self, filepath):
         annotation = Annotation()
@@ -119,7 +132,7 @@ class AnnReader(Reader):
             return annotation
 
         for line in f:
-            line = line.strip()
+            line = line.strip('\r\n')
             if line.startswith('T'):
                 self.parse_entity(line, annotation)
 
