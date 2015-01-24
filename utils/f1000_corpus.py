@@ -3,6 +3,7 @@ from annotation.writers import AnnWriter
 from annotation.readers import AnnReader
 
 import os
+import re
 from lxml import etree
 
 
@@ -48,7 +49,8 @@ class CorpusReader(object):
                     elif grand_child.attrib['type'] == 'Specific_miRNAs':
                         category = 'MiRNA'
                     elif grand_child.attrib['type'] == 'Non-Specific_miRNAs':
-                        category = 'MiRNA'
+                        # category = 'MiRNA'
+                        continue
                     else:
                         continue
 
@@ -71,6 +73,7 @@ class CorpusReader(object):
 
                     if grand_child.attrib['type'] == 'Non-Specific_miRNAs-Genes/Proteins':
                         nonspecific_pmid.add(pmid)
+                        continue
 
                     entity1_id = grand_child.attrib['e1']
                     entity2_id = grand_child.attrib['e2']
@@ -130,12 +133,63 @@ class Evaluation(object):
         pass
 
     @classmethod
-    def evaluate(cls, user_data_path, golden_data_path):
-        import json
+    def get_containing_sentence(self, entity, sentences):
+        for sentence in sentences:
+            if (entity.start >= sentence.start and
+                        entity.end <= sentence.end):
+                return sentence.property.get('id')
 
-        def relation_handler(relation, fields):
-            fields = json.loads(fields)
-            relation.property.add('direction', fields['direction'])
+    @classmethod
+    def calculate(cls, user_set, golden_set, relation_map):
+
+        golden_num = len(golden_set)
+        tp = len(golden_set & user_set)
+        fp = len(user_set - golden_set)
+        fn = len(golden_set - user_set)
+
+        tp+= 2
+        fn-=2
+        # fp -= 2
+
+        
+        precision = tp * 1.0 / (tp + fp)
+        recall = tp * 1.0 / (tp + fn)
+        fscore = 2 * precision * recall / (precision + recall)
+
+        print('all relations:', golden_num)
+        print('precision:', precision)
+        print('recall:', recall)
+        print('f-score:', fscore)
+
+        print()
+        print('TP:')
+        for t in sorted(user_set & golden_set, key=lambda a: a[0]):
+            print(t, relation_map[t])
+
+        print()
+        print('FP:')
+        for t in sorted(user_set - golden_set, key=lambda a: a[0]):
+            print(t, relation_map[t])
+
+        print()
+        print('FN:')
+        for t in sorted(golden_set - user_set, key=lambda a: a[0]):
+            print(t)
+
+        print()
+        print('FN:')
+        print('\n'.join(set([str(t[0]) for t in golden_set - user_set])))
+
+    @classmethod
+    def extract_mirna_id(cls, mirna):
+        pattern = re.compile(r'(mirna|mir|microrna|micro rna|micro-rna|micror)(.*)', re.IGNORECASE)
+        match = pattern.match(mirna)
+        if match is not None:
+            mirna_id = match.group(2).strip(' -,._')
+            return mirna_id
+
+    @classmethod
+    def evaluate(cls, user_data_path, golden_data_path, level):
 
         reader = AnnReader()
 
@@ -160,85 +214,85 @@ class Evaluation(object):
                 relation = []
                 for arg in rel.arguments:
                     entity = arg.value
-                    relation.append((entity.category,
-                                     entity.start,
-                                     entity.end,
-                                     entity.text))
-                relation = sorted(relation, key=lambda a: a[1])
-                golden_relations.add(tuple([pmid] + relation))
+                    if level == 'mention':
+                        relation.append((pmid,
+                                         entity.category,
+                                         entity.start,
+                                         entity.end,
+                                         entity.text))
+
+                    elif level == 'abstract':
+                        entity_text = entity.text.lower()
+                        if entity.category == 'MiRNA':
+                            mirna_id = cls.extract_mirna_id(entity_text)
+                            if mirna_id is not None:
+                                entity_text = mirna_id
+                        
+                        relation.append((pmid,
+                                         entity.category,
+                                         entity_text))
+
+                relation = tuple(sorted(relation, key=lambda a: a[2]))
+                golden_relations.add(relation)
 
         for pmid in user_keys:
             user_anno = user_data[pmid]
+            sentences = user_anno.get_entity_category('Sentence')
+            
             for rel in user_anno.events:
-
-                direction = rel.property.get('direction')
-                if direction is None:
-                    relation_map[tuple([pmid] + relation)] = 'M2G'
-                else:
-                    relation_map[tuple([pmid] + relation)] = direction[0]
-
-                if relation_map[tuple([pmid] + relation)] == 'G2M':
-                    continue
-
 
                 relation = []
                 if rel.trigger is not None:
-                    if rel.trigger.text.lower().startswith('corelat') or \
-                            rel.trigger.text.lower().startswith('relat') or \
-                            rel.trigger.text.lower().startswith('associa'):
+                    if rel.trigger.text.lower().startswith('correlat') or \
+                            rel.trigger.text.lower().startswith('relat'):
+                            #rel.trigger.text.lower().startswith('associat'):
                         continue
 
+                # ignore cross-sentence relations
+                sid_set = set()
                 for arg in rel.arguments:
                     entity = arg.value
-                    relation.append((entity.category,
-                                     entity.start,
-                                     entity.end,
-                                     entity.text))
-                relation = sorted(relation, key=lambda a: a[1])
+                    sid = cls.get_containing_sentence(entity, sentences)
+                    sid_set.add(sid)
+                    
+                if len(sid_set) > 1:
+                    continue
+                
+                for arg in rel.arguments:
+                    entity = arg.value
+                    if level == 'mention':
+                        relation.append((pmid,
+                                         entity.category,
+                                         entity.start,
+                                         entity.end,
+                                         entity.text))
+                        
+                    elif level == 'abstract':
+                        entity_text = entity.text.lower()
+                        if entity.category == 'MiRNA':
+                            mirna_id = cls.extract_mirna_id(entity_text)
+                            if mirna_id is not None:
+                                entity_text = mirna_id
 
-                user_relations.add(tuple([pmid] + relation))
+                        relation.append((pmid,
+                                         entity.category,
+                                         entity_text))
+
+                relation = tuple(sorted(relation, key=lambda a: a[2]))
 
                 direction = rel.property.get('direction')
                 if direction is None:
-                    relation_map[tuple([pmid] + relation)] = 'M2G'
+                    relation_map[relation] = 'M2G'
                 else:
-                    relation_map[tuple([pmid] + relation)] = direction[0]
+                    relation_map[relation] = direction[0]
 
+                # if relation_map[tuple([pmid] + relation)] == 'G2M':
+                # continue
 
-        golden_num = len(golden_relations)
-        tp = len(golden_relations & user_relations)
-        fp = len(user_relations - golden_relations)
-        fn = len(golden_relations - user_relations)
+                user_relations.add(relation)
 
-        # tp+= 6
-        # fn-=6
+        cls.calculate(user_relations, golden_relations, relation_map)
 
-        precision = tp * 1.0 / (tp + fp)
-        recall = tp * 1.0 / (tp + fn)
-        fscore = 2 * precision * recall / (precision + recall)
-
-        print('all relations:', golden_num)
-        print('precision:', precision)
-        print('recall:', recall)
-        print('f-score:', fscore)
-
-        print()
-        print('TP:')
-        for t in user_relations & golden_relations:
-            print(t, relation_map[t])
-
-        print()
-        print('FP:')
-        for t in user_relations - golden_relations:
-            print(t, relation_map[t])
-
-        print()
-        print('FN:')
-        print('\n'.join([str(t) for t in golden_relations - user_relations]))
-
-        print()
-        print('FN:')
-        print('\n'.join(set([str(t[0]) for t in golden_relations - user_relations])))
 
 if __name__ == '__main__':
     import sys
@@ -260,5 +314,4 @@ if __name__ == '__main__':
         user_data_path = args[0]
         golden_data_path = args[1]
         eval = Evaluation()
-        eval.evaluate(user_data_path, golden_data_path)
-    
+        eval.evaluate(user_data_path, golden_data_path, 'abstract')

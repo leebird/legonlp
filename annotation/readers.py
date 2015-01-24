@@ -41,10 +41,11 @@ class Reader(object):
 
 
 class AnnReader(Reader):
-    def __init__(self, entity_handler=None, event_handler=None):
+    def __init__(self, entity_handler=None, event_handler=None, relation_handler=None):
         super(AnnReader, self).__init__()
         self.entity_handler = entity_handler
         self.event_handler = event_handler
+        self.relation_handler = relation_handler
 
     def parse_entity(self, line, annotation):
         fields = line.split('\t')
@@ -73,9 +74,9 @@ class AnnReader(Reader):
         trigger_id = category[1]
         category_text = category[0]
 
-        attributes = {}
-        if len(fields) > 2:
-            attributes = json.loads(fields[2])
+        # attributes = {}
+        # if len(fields) > 2:
+        #     attributes = json.loads(fields[2])
 
         arguments = []
         for arg in info[1:]:
@@ -93,12 +94,16 @@ class AnnReader(Reader):
         event = annotation.add_event(category_text, trigger, arguments)
         event.property.add('id', tid)
 
-        if len(fields) > 2:
-            prop = json.loads(fields[2])
-            for key, value in prop.items():
-                event.property.add(key, value)
+        if self.event_handler is not None:
+            # handle appended information in entity line
+            self.event_handler(event, fields[2:])
 
-        event.property.update(attributes)
+        # if len(fields) > 2:
+        #     prop = json.loads(fields[2])
+        #     for key, value in prop.items():
+        #         event.property.add(key, value)
+        #
+        # event.property.update(attributes)
 
     def parse_relation(self, line, annotation):
         fields = line.split('\t')
@@ -120,10 +125,14 @@ class AnnReader(Reader):
         rel = annotation.add_event(category_text, None, arguments)
         rel.property.add('id', rid)
 
-        if len(fields) > 2:
-            prop = json.loads(fields[2])
-            for key, value in prop.items():
-                rel.property.add(key, value)
+        if self.relation_handler is not None:
+            # handle appended information in entity line
+            self.relation_handler(entity, fields[2:])
+
+        # if len(fields) > 2:
+        #     prop = json.loads(fields[2])
+        #     for key, value in prop.items():
+        #         rel.property.add(key, value)
 
     def parse_file(self, filepath):
         annotation = Annotation()
