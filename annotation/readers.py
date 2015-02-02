@@ -134,6 +134,9 @@ class AnnReader(Reader):
         #     for key, value in prop.items():
         #         rel.property.add(key, value)
 
+    def parse_special(self, line, annotation):
+        annotation.special.append(line)
+        
     def parse_file(self, filepath):
         annotation = Annotation()
         f = FileProcessor.open_file(filepath)
@@ -155,6 +158,8 @@ class AnnReader(Reader):
                 self.parse_event(line, annotation)
             elif line.startswith('R'):
                 self.parse_relation(line, annotation)
+            elif line.startswith('*'):
+                self.parse_special(line, annotation)
                 # raise Exception('can not parse: '+line)
 
         f.close()
@@ -176,7 +181,7 @@ class AnnReader(Reader):
 
 
 class SGMLReader(Reader):
-    def __init__(self, mapping=None):
+    def __init__(self, mapping=None, tag_handler=None):
         '''
         set mapping from tag name to entity type
         if <pro> means Protein, then a mapping from
@@ -188,6 +193,8 @@ class SGMLReader(Reader):
             self.mapping = mapping
         else:
             self.mapping = {}
+        
+        self.tag_handler = tag_handler
 
     def get_open_bracket(self, text):
         return TextProcessor.pattern_open_bracket.finditer(text)
@@ -272,22 +279,33 @@ class SGMLReader(Reader):
             if self.is_close(tagFull):
                 startTag = openTagStack.pop()
                 startTagText = startTag.group(1)
+                
+                # a tag handler to extract attrs or other stuff
+                if self.tag_handler is not None:
+                    tag_info = self.tag_handler(startTagText)
+                    if 'tag' in tag_info:
+                        startTagText = tag_info['tag']
+                    
                 '''
                 open-tag and close-tag should have the same tag name
                 if not skip this pair and continue
                 if this happens, at least two entities are skip
                 '''
                 if startTagText != tagText:
-                    print('different open-tag and close-tag', sys.stderr)
+                    print('different open and close tags', startTagText, tagText, file=sys.stderr)
                     continue
 
                 start = startTag.end()
                 end = tag.start()
                 entity_text, start, end = self.get_entity_by_index(snippets, start, end)
-                try:
-                    category = self.mapping[tagText]
-                except KeyError:
-                    category = tagText
+                
+                if self.tag_handler is not None and 'category' in tag_info:
+                    category = tag_info['category']
+                else:
+                    try:
+                        category = self.mapping[startTagText]
+                    except KeyError:
+                        category = startTagText
 
                 annotation.add_entity(category, start, end, entity_text)
             else:

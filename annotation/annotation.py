@@ -208,6 +208,7 @@ class Annotation(object):
         self.text = ''
         self.entities = []
         self.events = []
+        self.special = []
 
     def __str__(self):
         return self.template.format(len(self.entities), len(self.events))

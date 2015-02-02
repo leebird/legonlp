@@ -4,10 +4,10 @@ import codecs
 import os
 
 class TextProcessor(object):
-    pattern_bracket = re.compile(r'<.*?>')
-    pattern_brace = re.compile(r'\{.*?\}')
-    pattern_open_bracket = re.compile(r'<([^/]*?)>')
-    pattern_close_bracket = re.compile(r'</(.*?)>')
+    pattern_bracket = re.compile(r'<[^<>]*?>')
+    pattern_brace = re.compile(r'\{[^{}]*?\}')
+    pattern_open_bracket = re.compile(r'<([^<>/]*?)>')
+    pattern_close_bracket = re.compile(r'</([^<>/]*?)>')
 
     def __init__(self):
         pass

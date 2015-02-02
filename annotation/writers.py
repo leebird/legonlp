@@ -138,6 +138,9 @@ class AnnWriter(BionlpWriter):
                 line = self.event_line(e)
             f.write(line)
 
+        for l in annotation.special:
+            f.write(l+'\n')
+
         f.close()
 
 
