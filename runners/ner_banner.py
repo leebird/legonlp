@@ -1,7 +1,7 @@
 import os
 from runners.runner import Runner
 from components.ner.banner.recognizer import Banner
-from annotation.writers import AnnWriter
+from annotate.writers import AnnWriter
 
 class BannerRunner(Runner):
 

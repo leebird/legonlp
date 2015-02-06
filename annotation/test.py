@@ -1,6 +1,9 @@
-from annotation import *
-from readers import *
-from writers import *
+import sys
+
+from annotation.annotate import *
+from annotation.readers import *
+from annotation.writers import *
+from annotation.evaluation import *
 
 import unittest
 
@@ -175,7 +178,7 @@ class TestReader(unittest.TestCase):
 
         reader = AnnReader(handler)
         annotation = reader.parse_file('examples/17438130.ann')
-        print(annotation.get_entity_with_property('gid','12345'))
+        print(annotation.get_entity_with_property('gid', '12345'))
 
     def test_annwriter(self):
         reader = AnnReader()
@@ -183,6 +186,19 @@ class TestReader(unittest.TestCase):
 
         writer = AnnWriter()
         writer.write('output/17438130.ann', annotation)
+
+
+class TestEvaluation(unittest.TestCase):
+
+    def setUp(self):
+        reader = AnnReader()
+        self.user_annotation = reader.parse_file('examples/17438130.ann')
+        self.gold_annotation = reader.parse_file('examples/17438130.ann')
+        
+    def test_evaluation(self):
+        Evaluation.evaluate({'17438130':self.user_annotation}, 
+                            {'17438130':self.gold_annotation}, 
+                            entity_category=['Gene'])
 
 
 if __name__ == '__main__':

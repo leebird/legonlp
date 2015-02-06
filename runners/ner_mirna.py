@@ -1,7 +1,7 @@
 from runners.runner import Runner
 from components.ner.miRNA.recognizer import MiRNARecognizer
-from annotation.writers import AnnWriter
-from annotation.readers import AnnReader
+from annotate.writers import AnnWriter
+from annotate.readers import AnnReader
 
 
 class MiRNARunner(Runner):

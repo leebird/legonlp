@@ -34,11 +34,11 @@ class Pipeline:
         }),
         ('MiRNARecognizer', {
             'input': [('text', '.txt', 'Banner'),
-                      ('ner','.ann','Banner')],
+                      ('ner', '.ann', 'Banner')],
             'output': [('text', '.txt', 'MiRNARecognizer'),
                        ('ner', '.ann', 'MiRNARecognizer')]
         }),
-        ('NLTKSplitter',{
+        ('NLTKSplitter', {
             'input': [('text', '.txt', 'MiRNARecognizer')],
             'output': [('split', '.split', 'NLTKSplitter')]
         }),
@@ -47,21 +47,21 @@ class Pipeline:
             'process': 2,
             'input': [('split', '.split', 'NLTKSplitter')],
             'output': [('parse', '.parse', 'CharniakParser')]
-            }),
-        ('TreeIndexer',{
+        }),
+        ('TreeIndexer', {
             'input': [('parse', '.parse', 'CharniakParser'),
                       ('text', '.txt', 'MiRNARecognizer')],
             'output': [('parse', '.parse', 'TreeIndexer')]
         }),
-        ('AgentThemeMatcher',{
+        ('AgentThemeMatcher', {
             'input': [('parse', '.parse', 'TreeIndexer')],
             'output': [('tregex', '.at', 'final')]
         }),
-        ('CauseEffectMatcher',{
+        ('CauseEffectMatcher', {
             'input': [('parse', '.parse', 'TreeIndexer')],
             'output': [('tregex', '.ce', 'final')]
         }),
-        ('ReferenceMatcher',{
+        ('ReferenceMatcher', {
             'input': [('parse', '.parse', 'TreeIndexer')],
             'output': [('tregex', '.ref', 'final')]
         })

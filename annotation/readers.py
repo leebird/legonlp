@@ -8,7 +8,7 @@ import codecs
 import json
 import itertools
 from pprint import pprint as pp
-from annotation.annotation import *
+from annotation.annotate import *
 from annotation.utils import *
 
 

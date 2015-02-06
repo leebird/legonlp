@@ -2,8 +2,8 @@ import json
 from runners.runner import Runner
 
 from components.ner.fake.replacer import Faker
-from annotation.writers import AnnWriter
-from annotation.readers import AnnReader
+from annotate.writers import AnnWriter
+from annotate.readers import AnnReader
 
 class FakeRunner(Runner):
     

@@ -3,9 +3,9 @@
 import re
 import json
 import sys
-from annotation.annotation import *
-from annotation.readers import AnnReader
-from annotation.writers import AnnWriter
+from annotate.annotate import *
+from annotate.readers import AnnReader
+from annotate.writers import AnnWriter
 from utils.runner import Runner
 
 class MiRNARecognizer:

@@ -3,7 +3,7 @@ import os
 import codecs
 import re
 import json
-from annotation import *
+from annotation.annotate import *
 
 
 class BionlpWriter(object):

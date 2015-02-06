@@ -5,10 +5,10 @@ import re
 import shlex
 from subprocess import check_output
 from utils.runner import Runner
-from annotation.annotation import *
-from annotation.writers import AnnWriter
-from annotation.readers import SGMLReader
-from annotation.utils import *
+from annotate.annotate import *
+from annotate.writers import AnnWriter
+from annotate.readers import SGMLReader
+from annotate.utils import *
 
 
 class Banner:

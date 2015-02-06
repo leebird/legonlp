@@ -2,7 +2,7 @@ import os
 from runners.runner import Runner
 
 from components.ner.pGenN.recognizer import pGenN
-from annotation.writers import AnnWriter
+from annotate.writers import AnnWriter
 
 class PGennRunner(Runner):
     

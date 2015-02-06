@@ -7,7 +7,7 @@ path = os.path.dirname(__file__)
 root = os.path.abspath(os.path.join(path,'../..'))
 sys.path.append(root)
 
-from annotation.readers import AnnReader
+from annotate.readers import AnnReader
 
 class Faker:
 

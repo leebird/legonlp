@@ -9,8 +9,8 @@ import re
 import codecs
 import json
 
-from annotation.annotation import Annotation
-from annotation.readers import AnnReader
+from annotate.annotate import Annotation
+from annotate.readers import AnnReader
 
 class MiRTex:
 

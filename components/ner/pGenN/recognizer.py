@@ -9,8 +9,8 @@ path = os.path.dirname(__file__)
 root = os.path.abspath(os.path.join(path,'../..'))
 sys.path.append(root)
 
-from annotation.annotation import *
-from annotation.readers import SGMLReader
+from annotate.annotate import *
+from annotate.readers import SGMLReader
 
 class pGenN:
 

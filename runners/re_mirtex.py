@@ -2,7 +2,7 @@ import os
 import json
 from runners.runner import Runner
 from components.re.mirtex.extractor import MiRTex
-from annotation.writers import AnnWriter
+from annotate.writers import AnnWriter
 
 class MiRTexRunner(Runner):
     

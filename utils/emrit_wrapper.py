@@ -11,9 +11,9 @@ import codecs
 import tempfile
 import shutil
 from subprocess import call
-from annotation.annotation import *
-from annotation.readers import AnnReader
-from annotation.writers import AnnWriter
+from annotate.annotate import *
+from annotate.readers import AnnReader
+from annotate.writers import AnnWriter
 from pipelines.emrit import Pipeline
 from utils.dispatcher import Dispatcher
 
