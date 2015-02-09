@@ -8,8 +8,9 @@ from annotation.annotate import *
 
 class BionlpWriter(object):
     entity_format = u'{0}\t{1} {2} {3}\t{4}\n'
-    event_format = u'{0}\t{1}:{2} {3}\t{4}\n'
+    event_format = u'{0}\t{1}:{2} {3}\n'
     relation_format = u'{0}\t{1} {2}\n'
+    modification_format = u'{0}\t{1}\n'
 
     def __init__(self):
         pass
@@ -47,7 +48,6 @@ class BionlpWriter(object):
 
         if len(args) == 0 or event_id is None:
             return ''
-
         return self.event_format.format(event.property.get('id'),
                                         event.category,
                                         event.trigger.property.get('id'),
@@ -72,6 +72,9 @@ class BionlpWriter(object):
         return self.relation_format.format(relation.property.get('id'),
                                            relation.category,
                                            args)
+
+    def modification_line(self, mod_id, mod_event):
+        return self.modification_format.format(mod_id, mod_event)
 
     def bionlp_index(self, annotation):
         """add T1, E1 and R1-like indices to entities and events
@@ -126,12 +129,15 @@ class AnnWriter(BionlpWriter):
     def write(self, filepath, annotation):
         f = codecs.open(filepath, 'w+', 'utf-8')
         self.bionlp_index(annotation)
-
+        modifications = []
+        
         for t in annotation.entities:
             line = self.entity_line(t)
             f.write(line)
 
         for e in annotation.events:
+            if e.property.get('negated') is not None:
+                modifications.append('Negation '+e.property.get('id'))
             if e.trigger is None:
                 line = self.relation_line(e)
             else:
@@ -139,7 +145,12 @@ class AnnWriter(BionlpWriter):
             f.write(line)
 
         for l in annotation.special:
-            f.write(l+'\n')
+            f.write(l + '\n')
+
+        for i,mod_event in enumerate(modifications):
+            mod_id = 'M'+str(i+1)
+            line = self.modification_line(mod_id, mod_event)
+            f.write(line)
 
         f.close()
 

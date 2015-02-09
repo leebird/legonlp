@@ -10,10 +10,12 @@ class Entity(object):
         INEQUAL_LENGTH = 3
 
         # exception messages
-        MESSAGES = {ZERO_INTERVAL: 'Zero interval of the text span',
-                    NEGATIVE_INTERVAL: 'Negative interval of the text span',
-                    NEGATIVE_INDEX: 'Negative index of the text span',
-                    INEQUAL_LENGTH: 'Interval length and text length are not equal'}
+        MESSAGES = {
+            ZERO_INTERVAL: 'Zero interval of the text span',
+            NEGATIVE_INTERVAL: 'Negative interval of the text span',
+            NEGATIVE_INDEX: 'Negative index of the text span',
+            INEQUAL_LENGTH: 'Interval length and text length are not equal'
+        }
 
         def __init__(self, value):
             self.value = value
@@ -76,7 +78,6 @@ class Entity(object):
                     self.text == other.text)
         else:
             return False
-
 
 class Event(object):
     # template to print the event
@@ -144,7 +145,7 @@ class Node(object):
         self.category = category
 
         if (not self.is_leaf()) and (not self.is_tree()):
-            raise TypeError('Value must be an entity or event: '+str(value))
+            raise TypeError('Value must be an entity or event: ' + str(value))
 
     def is_leaf(self):
         return isinstance(self.value, Entity)
@@ -196,6 +197,7 @@ class Property(object):
         """
         self.vault.update(vault)
 
+
 class Annotation(object):
     template = '{0} entities, {1} events'
 
@@ -212,6 +214,9 @@ class Annotation(object):
 
     def __str__(self):
         return self.template.format(len(self.entities), len(self.events))
+
+    def make_argument(self, category, value):
+        return Node(category, value)
 
     def add_entity(self, category, start, end, text):
         """
