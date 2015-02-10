@@ -344,7 +344,7 @@ class A1A2Reader(Reader):
 
         self.annotation.add_exist_event(tid, typeText, typeId, args)
 
-    def parse_relation(self):
+    def parse_relation(self, line):
         fields = line.split('\t')
         rid = fields[0]
         info = fields[1].split(' ')
@@ -395,7 +395,7 @@ class RlimsReader(Reader):
         self.hdSite = 'Site ='
         self.hdNorm = 'NORM='
         self.hdSynonym = 'SYNONYM='
-        self.rePMID = re.compile(r'PMID{/NP_1}.*?{CP_2}([0-9]*?){/CP_2}')
+        self.rePMID = re.compile(r'PMID{/NP_1}.*?\{CP_2\}([0-9]*?)\{/CP_2\}')
         self.reTrigger = re.compile(r'\(\{(.*?)\};(.*?)\)')
         self.reArg = re.compile(r'\{(.*?)\}(.*?)\{/(.*?)\}')
 

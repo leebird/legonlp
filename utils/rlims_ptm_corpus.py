@@ -20,18 +20,26 @@ def parse(filepath):
             if child.tag == 'id':
                 pmid = child.text
             elif child.tag == 'passage':
+                passage_type = ''
                 for grand_child in child:
-                    if grand_child.tag == 'text':
+                    if grand_child.tag == 'infon':
+                        passage_type = grand_child.text
+                    elif grand_child.tag == 'text':
                         text = grand_child.text
                         annotation.text += text
                     elif grand_child.tag == 'annotation':
                         aid = grand_child.attrib['id']
                         category, start, end, entity_text = '', 0, 0, ''
                         for gg_child in grand_child:
-                            if gg_child.tag == 'infon':
+                            if gg_child.tag == 'infon' and gg_child.attrib['key'] == 'type':
                                 category = gg_child.text.title()
+                                category = category.replace(' ','_')
                             elif gg_child.tag == 'location':
                                 start = int(gg_child.attrib['offset'])
+                                if passage_type == 'abstract':
+                                    # wired position counting in BioQRator
+                                    # in title it's correct, in abstract it's 1 extra
+                                    start -= 1
                                 end = start + int(gg_child.attrib['length'])
                             elif gg_child.tag == 'text':
                                 entity_text = gg_child.text
@@ -41,7 +49,7 @@ def parse(filepath):
                 category, trigger, arguments, negated = '', None, [], False
                 rid = child.attrib['id']
                 for gg_child in child:
-                    if gg_child.tag == 'infon':
+                    if gg_child.tag == 'infon' and gg_child.attrib['key'] == 'type':
                         category = gg_child.text.title()
                         if category.startswith('Negated_'):
                             negated = True
@@ -59,15 +67,24 @@ def parse(filepath):
                             trigger.category = category
                             continue
 
-                        if node_role in ['Acetylation', 'Phosphorylation', 'Ubiquitination', 'Glycosylation',
-                                         'Methylation', 'Sumoylation']:
+                        if node_role.lower() in ['acetylation', 'phosphorylation', 'ubiquitination', 'glycosylation',
+                                         'methylation', 'sumoylation','neddylation']:
                             trigger = entity
+                            entity.category = node_role.title()
                             continue
 
                         elif node_role == 'Ptm Enzyme':
                             node_role = 'Enzyme'
 
+                        elif node_role != 'Substrate' and node_role != 'Site':
+                            node_role = entity.category.title()
+                        
+                        node_role = node_role.replace(' ','_')
                         arguments.append(annotation.make_argument(node_role, entity))
+                print(trigger)
+                # sometimes event category is ubiquitination and trigger category
+                # is sumoylation/neddylation, we should use the trigger category
+                category = trigger.category
                 event = annotation.add_event(category, trigger, arguments)
                 if trigger is None:
                     print('No trigger: ' + pmid + ' ' + rid)
