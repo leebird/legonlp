@@ -165,7 +165,7 @@ class TestAnnotation(unittest.TestCase):
 
 class TestReader(unittest.TestCase):
     def test_annreader(self):
-        reader = AnnReader()
+        reader = AnnParser()
         annotation = reader.parse_file('examples/17438130.ann')
         print(Node('Root', annotation.events[0]).indent_print())
 
@@ -176,12 +176,12 @@ class TestReader(unittest.TestCase):
             gene_id = fields[0]
             entity.property.add('gid', gene_id)
 
-        reader = AnnReader(handler)
+        reader = AnnParser(handler)
         annotation = reader.parse_file('examples/17438130.ann')
         print(annotation.get_entity_with_property('gid', '12345'))
 
     def test_annwriter(self):
-        reader = AnnReader()
+        reader = AnnParser()
         annotation = reader.parse_file('examples/17438130.ann')
 
         writer = AnnWriter()
@@ -191,7 +191,7 @@ class TestReader(unittest.TestCase):
 class TestEvaluation(unittest.TestCase):
 
     def setUp(self):
-        reader = AnnReader()
+        reader = AnnParser()
         self.user_annotation = reader.parse_file('examples/17438130.ann')
         self.gold_annotation = reader.parse_file('examples/17438130.ann')
         

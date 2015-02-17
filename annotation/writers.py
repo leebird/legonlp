@@ -10,7 +10,8 @@ class BionlpWriter(object):
     entity_format = u'{0}\t{1} {2} {3}\t{4}\n'
     event_format = u'{0}\t{1}:{2} {3}\n'
     relation_format = u'{0}\t{1} {2}\n'
-    modification_format = u'{0}\t{1}\n'
+    modification_format = u'{0}\t{1} {2}\n'
+    equiv_format = u'*\t{0} {1} {2}\n'
 
     def __init__(self):
         pass
@@ -73,8 +74,11 @@ class BionlpWriter(object):
                                            relation.category,
                                            args)
 
-    def modification_line(self, mod_id, mod_event):
-        return self.modification_format.format(mod_id, mod_event)
+    def modification_line(self, mod_id, mod_type, mod_event):
+        return self.modification_format.format(mod_id, mod_type, mod_event)
+
+    def equiv_line(self, arg1, arg2):
+        return self.equiv_format.format('Equiv', arg1, arg2)
 
     def bionlp_index(self, annotation):
         """add T1, E1 and R1-like indices to entities and events
@@ -130,26 +134,34 @@ class AnnWriter(BionlpWriter):
         f = codecs.open(filepath, 'w+', 'utf-8')
         self.bionlp_index(annotation)
         modifications = []
-        
+
         for t in annotation.entities:
             line = self.entity_line(t)
             f.write(line)
 
         for e in annotation.events:
-            if e.property.get('negated') is not None:
-                modifications.append('Negation '+e.property.get('id'))
+            if e.property.get('Negation') is not None:
+                modifications.append(('Negation', e.property.get('id')))
+            if e.property.get('Speculation') is not None:
+                modifications.append(('Speculation', e.property.get('id')))
             if e.trigger is None:
                 line = self.relation_line(e)
             else:
                 line = self.event_line(e)
             f.write(line)
 
-        for l in annotation.special:
-            f.write(l + '\n')
+        # write equiv relations
+        equivs = annotation.property.get('Equiv')
+        if equivs is not None:
+            for equiv in equivs:
+                line = self.equiv_line(equiv[0], equiv[1])
+                f.write(line)
 
-        for i,mod_event in enumerate(modifications):
-            mod_id = 'M'+str(i+1)
-            line = self.modification_line(mod_id, mod_event)
+        # write modifications like negation/speculation
+        for i, mod in enumerate(modifications):
+            mod_id = 'M' + str(i + 1)
+            mod_type, mod_event = mod
+            line = self.modification_line(mod_id, mod_type, mod_event)
             f.write(line)
 
         f.close()

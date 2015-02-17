@@ -26,3 +26,6 @@ T27	MiRNA 1401 1407	let-7C
 R1	Target Arg1:T10 Arg2:T13	
 R2	Target Arg1:T10 Arg2:T14	
 R3	Target Arg1:T6 Arg2:T19	
+M1	Speculation R1
+M2	Negation R2
+*	Equiv T3 T4

@@ -4,7 +4,7 @@ sys.path.append('/home/leebird/bitbucket/annotation')
 import re
 import json
 import codecs
-from readers import AnnReader
+from readers import AnnParser
 from writers import AnnWriter
 
 inputDir = 'input'
@@ -22,7 +22,7 @@ def get_ori_index(index,text,entmap):
         offset += (length - len(fake))
     return offset+index
 
-reader = AnnReader()
+reader = AnnParser()
 writer = AnnWriter()
 for root,_,files in os.walk(inputDir):
     for f in files:

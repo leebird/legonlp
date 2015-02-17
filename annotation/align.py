@@ -5,7 +5,7 @@ import re
 import codecs
 
 from alignment import Alignment,Hirschberg
-from readers import AnnReader
+from readers import AnnParser
 from writers import AnnWriter
 
 writer = AnnWriter()
@@ -34,7 +34,7 @@ for root,_,files in os.walk('input'):
         alterText = alterFile.read().strip()
         alterFile.close()
 
-        reader = AnnReader(root,pmid+'.ann')
+        reader = AnnParser(root,pmid+'.ann')
         annotation = reader.parse()
         
         if len(annotation['T']) == 0:
