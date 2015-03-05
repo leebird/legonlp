@@ -88,8 +88,8 @@ def parse(filepath):
                 event = annotation.add_event(category, trigger, arguments)
                 if trigger is None:
                     print('No trigger: ' + pmid + ' ' + rid)
-                if negated == True:
-                    event.property.add('negated', 'negated')
+                if negated:
+                    event.property.add('Negation', True)
             else:
                 pass
         annotations[pmid] = annotation

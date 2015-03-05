@@ -79,6 +79,7 @@ class Entity(object):
         else:
             return False
 
+
 class Event(object):
     # template to print the event
     template = '{category} ({trigger})'
@@ -207,11 +208,11 @@ class Annotation(object):
         :return: None
         :rtype: None
         """
-        self.text = ''
         self.entities = []
         self.events = []
-        self.special = []
-
+        self.property = Property()
+        self.property.add('text', '')
+        
     def __str__(self):
         return self.template.format(len(self.entities), len(self.events))
 
@@ -280,6 +281,9 @@ class Annotation(object):
         event = Event(category, trigger, arguments)
         self.events.append(event)
         return event
+
+    def get_event_with_property(self, key, value):
+        return [t for t in self.events if t.property.has(key, value)]
 
     def get_event_category(self, category, complement=False):
         """
