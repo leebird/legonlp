@@ -312,6 +312,12 @@ class Annotation(object):
             return True
         return False
 
+    def remove_entity(self, entity):
+        self.entities.remove(entity)
+        
+    def remove_event(self, event):
+        self.events.remove(event)
+
     def remove_included(self):
         """
         remove overlapping entities

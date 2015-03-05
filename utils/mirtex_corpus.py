@@ -1,8 +1,8 @@
 # drop all relations except equiv relation
 
 import os
-from annotate.readers import AnnReader
-from annotate.writers import AnnWriter
+from annotation.readers import AnnReader
+from annotation.writers import AnnWriter
 
 dev_path = '/home/leebird/Desktop/miRTex/miRTex/train'
 test_path = '/home/leebird/Desktop/miRTex/miRTex/test'
